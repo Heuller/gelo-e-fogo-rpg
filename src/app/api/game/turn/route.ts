@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { requireOwner } from '@/server/auth/requireOwner';
-import { obterNodeAto1 } from '@/server/data/journeys/j1_act1';
+import { obterNodeJornada1 } from '@/server/data/journeys/j1_conquista_full';
 import {
   rolar2d6,
   aplicarDeltaEstado,
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     let escolhaId = parsed.data.escolhaId;
     let classificacao = null;
 
-    const nodeAtual = obterNodeAto1(nodeId);
+    const nodeAtual = obterNodeJornada1(nodeId);
     if (!nodeAtual) {
       return NextResponse.json(
         { error: `Cena '${nodeId}' não encontrada.` },
@@ -124,7 +124,7 @@ export async function POST(req: Request) {
       }
     }
 
-    const proximoNode = obterNodeAto1(proximoNodeId);
+    const proximoNode = obterNodeJornada1(proximoNodeId);
     if (!proximoNode) {
       return NextResponse.json(
         { error: `Cena de destino '${proximoNodeId}' não encontrada.` },

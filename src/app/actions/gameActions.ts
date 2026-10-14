@@ -1,6 +1,6 @@
 'use server';
 
-import { grafoAto1, obterNodeAto1 } from '@/server/data/journeys/j1_act1';
+import { grafoJornada1Completo, obterNodeJornada1 } from '@/server/data/journeys/j1_conquista_full';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import {
   FichaPersonagem,
@@ -24,7 +24,7 @@ export async function obterCenaInicialAction(): Promise<{
   fichaInicial: FichaPersonagem;
   worldStateInicial: WorldState;
 }> {
-  const node = grafoAto1.nodes[grafoAto1.startNodeId];
+  const node = grafoJornada1Completo.nodes[grafoJornada1Completo.startNodeId];
 
   const fichaInicial: FichaPersonagem = {
     id: 'aegon-conquistador',
@@ -57,7 +57,7 @@ export async function obterCenaInicialAction(): Promise<{
 }
 
 export async function obterCenaPorIdAction(nodeId: string): Promise<NodeJornada | null> {
-  const node = obterNodeAto1(nodeId);
+  const node = obterNodeJornada1(nodeId);
   return node || null;
 }
 
@@ -86,7 +86,7 @@ export interface RespostaTurnoAction {
 export async function processarEscolhaAction(
   params: ProcessarEscolhaParams
 ): Promise<RespostaTurnoAction> {
-  const nodeAtual = obterNodeAto1(params.nodeId);
+  const nodeAtual = obterNodeJornada1(params.nodeId);
   if (!nodeAtual) {
     throw new Error(`Cena '${params.nodeId}' não encontrada.`);
   }
@@ -129,7 +129,7 @@ export async function processarEscolhaAction(
     }
   }
 
-  const proximoNode = obterNodeAto1(proximoNodeId);
+  const proximoNode = obterNodeJornada1(proximoNodeId);
   if (!proximoNode) {
     throw new Error(`Nó de destino '${proximoNodeId}' não encontrado.`);
   }
@@ -197,7 +197,7 @@ export interface ProcessarAcaoLivreParams {
 export async function processarAcaoLivreAction(
   params: ProcessarAcaoLivreParams
 ): Promise<RespostaTurnoAction> {
-  const nodeAtual = obterNodeAto1(params.nodeId);
+  const nodeAtual = obterNodeJornada1(params.nodeId);
   if (!nodeAtual) {
     throw new Error(`Cena '${params.nodeId}' não encontrada.`);
   }
