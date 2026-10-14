@@ -1532,5 +1532,1723 @@
       "livro": "Fogo & Sangue - Volume 1",
       "capitulo": "Três cabeças tinha o dragão: O governo do rei Aegon I"
     }
+  },
+  {
+    "id": "espada_gelo",
+    "termo": "Gelo (Espada Valiriana dos Stark)",
+    "aliases": [
+      "A Espada Ancestral dos Reis do Inverno",
+      "Gelo"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A lendária espada ancestral de duas mãos da Casa Stark, forjada com aço valiriano esfumaçado como água escura e medindo a largura da mão de um homem. Empunhada por Lorde Eddard Stark nas execuções de justiça solene de Winterfell antes de ser tragicamente derretida por Tywin Lannister.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Eddard I",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "espada_garra_longa",
+    "termo": "Garra Longa (Longclaw)",
+    "aliases": [
+      "A Espada da Casa Mormont",
+      "A Lâmina Bastarda"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A espada bastarda ancestral de aço valiriano de quinhentos anos da Casa Mormont da Ilha dos Ursos. Presenteada pelo Senhor Comandante Jeor Mormont a Jon Snow após este salvá-lo de um morto-vivo, tendo o pomo de urso substituído pela cabeça entalhada de um lobo gigante de pedra branca.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Jon VIII",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "espada_irma_sombria",
+    "termo": "Irmã Sombria (Dark Sister)",
+    "aliases": [
+      "A Lâmina de Visenya",
+      "A Espada de Daemon Targaryen"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "Uma das duas espadas ancestrais de aço valiriano da Casa Targaryen trazidas de Valíria antes da Perdição. Projetada para a mão fina de uma mulher guerreira como a Rainha Visenya, passou depois para o Príncipe Daemon Targaryen, sendo cravada no olho cego de Aemond sobre o Olho de Deus.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon",
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md"
+    }
+  },
+  {
+    "id": "espada_fogonegro",
+    "termo": "Fogonegro (Blackfyre)",
+    "aliases": [
+      "A Espada do Rei",
+      "A Lâmina de Aegon o Conquistador"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A espada de aço valiriano de duas mãos empunhada pelo próprio Rei Aegon I durante as Guerras da Conquista. Símbolo supremo da soberania régia dos Sete Reinos, passada de monarca a monarca até Aegon II durante a Dança dos Dragões e posteriormente Daemon Blackfyre.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon",
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md"
+    }
+  },
+  {
+    "id": "espada_cumpridora_de_promessas",
+    "termo": "Cumpridora de Promessas (Oathkeeper)",
+    "aliases": [
+      "A Espada Rubra de Brienne"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "Uma das duas espadas longas forjadas pelo mestre armeiro Tobho Mott em Porto Real a partir do aço valiriano derretido da ancestral Gelo da Casa Stark, ostentando reflexos rubros e dourados. Entregue por Jaime Lannister a Brienne de Tarth para encontrar e proteger Sansa Stark.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Jaime IX",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "espada_lamento_da_viuva",
+    "termo": "Lamento da Viúva (Widow's Wail)",
+    "aliases": [
+      "A Espada de Joffrey"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A espada gêmea forjada a partir da derretida Gelo da Casa Stark, ofertada por Lorde Tywin Lannister ao Rei Joffrey Baratheon na manhã de seu fatídico casamento com Margaery Tyrell.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Tyrion IV",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "espada_veneno_do_coracao",
+    "termo": "Veneno do Coração (Heartsbane)",
+    "aliases": [
+      "A Espada da Casa Tarly"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A espada ancestral de duas mãos de aço valiriano da Casa Tarly de Monte Chifre, empunhada por quinhentos anos pelos melhores guerreiros da Campina, incluindo o implacável Lorde Randyll Tarly.",
+    "fonte": {
+      "livro": "A Fúria dos Reis",
+      "capitulo": "Catelyn III",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md"
+    }
+  },
+  {
+    "id": "espada_luminifera",
+    "termo": "Luminífera (Lightbringer)",
+    "aliases": [
+      "A Espada Vermelha dos Heróis",
+      "A Lâmina Flamejante"
+    ],
+    "categoria": "armas_valirianas",
+    "resumo_meistre": "A mítica espada flamejante de Azor Ahai forjada no coração de Nissa Nissa segundo as profecias de Asshai. Stannis Baratheon retirou sua versão do fogo sagrado na praia de Pedra do Dragão pelas bênçãos da sacerdotisa Melisandre.",
+    "fonte": {
+      "livro": "A Fúria dos Reis",
+      "capitulo": "Prólogo",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md"
+    }
+  },
+  {
+    "id": "dragao_caraxes",
+    "termo": "Caraxes, o Verme de Sangue",
+    "aliases": [
+      "O Verme de Sangue",
+      "O Dragão Vermelho de Daemon"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão formidável de escamas vermelho-escuras montado pelo Príncipe Daemon Targaryen. Era feroz, experiente em combates e temido por sua agilidade e chamas quentes, culminando no choque mortal contra Vhagar no lago Olho de Deus.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md"
+    }
+  },
+  {
+    "id": "dragao_syrax",
+    "termo": "Syrax",
+    "aliases": [
+      "O Dragão da Rainha Rhaenyra"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão fêmea de escamas amarelas douradas montada pela Princesa Rhaenyra Targaryen desde os sete anos de idade. Vigorosa e bem alimentada na corte, desceu nas ruas amotinadas de Porto Real durante o terrível assalto ao Fosso dos Dragões.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Os Herdeiros do Dragão",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_01_herdeiros-do-dragao-sucessao.md"
+    }
+  },
+  {
+    "id": "dragao_sunfyre",
+    "termo": "Sunfyre, o Dourado",
+    "aliases": [
+      "O Mais Belo Dragão",
+      "O Dragão de Aegon II"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Esplêndido dragão de escamas de ouro puro e chamas douradas ofuscantes, montado pelo Rei Aegon II. Apesar de mutilado e quebrado em Pouso de Gralhas, rastejou até Pedra do Dragão e devorou a Rainha Rhaenyra.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Dragão Vermelho e Dourado",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md"
+    }
+  },
+  {
+    "id": "dragao_meleys",
+    "termo": "Meleys, a Rainha Vermelha",
+    "aliases": [
+      "A Rainha Vermelha",
+      "A Montaria de Rhaenys"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Velha e formidável dragão de escamas escarlates montada pela Princesa Rhaenys Targaryen. Conhecida como uma das feras mais rápidas de Westeros, combateu Sunfyre e Vhagar simultaneamente na Batalha de Pouso de Gralhas.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Dragão Vermelho e Dourado",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md"
+    }
+  },
+  {
+    "id": "dragao_vermithor",
+    "termo": "Vermithor, a Fúria de Bronze",
+    "aliases": [
+      "A Fúria de Bronze",
+      "O Dragão do Velho Rei"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Um dos maiores e mais antigos dragões de Westeros, antiga montaria do Rei Jaehaerys I. Domado na Semeadura Vermelha pelo ferreiro bastardo Hugh Martelo, espalhou terror e desolação sobre as planícies de Tumbleton.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Triunfante",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md"
+    }
+  },
+  {
+    "id": "dragao_asaprata",
+    "termo": "Asaprata (Silverwing)",
+    "aliases": [
+      "A Montaria da Boa Rainha Alysanne"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Graciosa dragão de escamas prateadas, outrora montada pela Boa Rainha Alysanne. Reivindicada por Ulf, o Branco durante a Semeadura Vermelha, sobreviveu à fúria de Tumbleton e tornou-se selvagem nas Terras do Alcance.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Triunfante",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md"
+    }
+  },
+  {
+    "id": "dragao_fumaresia",
+    "termo": "Fumaresia (Seasmoke)",
+    "aliases": [
+      "O Dragão de Derivaderiva",
+      "A Montaria de Addam"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão ágil de escamas cinzentas como névoa marinha, outrora montado por Sor Laenor Velaryon e depois reivindicado pelo leal Sor Addam de Casco para mudar os rumos da Segunda Batalha de Tumbleton.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Triunfante",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md"
+    }
+  },
+  {
+    "id": "dragao_rouba_ovelhas",
+    "termo": "Rouba-Ovelhas (Sheepstealer)",
+    "aliases": [
+      "O Dragão Marrom Selvagem"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão selvagem marrom e feio que habitava o Monte Dragão em Pedra do Dragão, alimentando-se dos rebanhos da ilha até ser pacificado e montado pela jovem camponesa Urtigas através de oferendas diárias de carne fresca.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Triunfante",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md"
+    }
+  },
+  {
+    "id": "dragao_tessarion",
+    "termo": "Tessarion, a Rainha Azul",
+    "aliases": [
+      "A Rainha Azul",
+      "A Montaria de Daeron"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Jovem e bela dragão de escamas azul-cobalto e asas cor de cobre, montada pelo Príncipe Daeron, o Ousado, virando a maré da vitória na Batalha do Vinhomel e nas campanhas do sul.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Dragão Vermelho e Dourado",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md"
+    }
+  },
+  {
+    "id": "dragao_arrax",
+    "termo": "Arrax",
+    "aliases": [
+      "O Dragão de Lucerys"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Jovem dragão de escamas branco-peroladas montado pelo Príncipe Lucerys Velaryon. Foi abatido e devorado por Vhagar nas nuvens tempestuosas sobre a Baía dos Naufrágios diante de Ponta Tempestade.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Pretos e Verdes",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md"
+    }
+  },
+  {
+    "id": "personagem_rhaenyra_targaryen",
+    "termo": "Princesa Rhaenyra Targaryen",
+    "aliases": [
+      "O Deleite do Reino",
+      "A Rainha de Meio Ano"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "A filha mais velha do Rei Viserys I, formalmente declarada sua herdeira legítima perante todos os lordes do reino em 105 d.C., cuja usurpação pelo irmão Aegon II desencadeou a mortífera Dança dos Dragões.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Os Herdeiros do Dragão",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_01_herdeiros-do-dragao-sucessao.md"
+    }
+  },
+  {
+    "id": "personagem_daemon_targaryen",
+    "termo": "Príncipe Daemon Targaryen",
+    "aliases": [
+      "O Príncipe Canalha",
+      "Lorde de Baixada das Pulgas"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmão menor de Viserys I, cavaleiro lendário e montador de Caraxes. Comandante experiente nos Degraus e consorte de Rhaenyra, cuja audácia no Olho de Deus selou a ruína de Vhagar e Aemond.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Os Herdeiros do Dragão",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_01_herdeiros-do-dragao-sucessao.md"
+    }
+  },
+  {
+    "id": "personagem_aegon_ii",
+    "termo": "Rei Aegon II Targaryen",
+    "aliases": [
+      "Aegon, o Usurpador",
+      "O Rei Quebrado"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho de Viserys I e Alicent Hightower, coroado às pressas pela facção Verde. Apesar de gravemente mutilado no fogo de dragão em Pouso de Gralhas, sobreviveu para executar Rhaenyra antes de ser envenenado na capital.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Breve e Triste Reinado de Aegon II",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md"
+    }
+  },
+  {
+    "id": "personagem_aemond_targaryen",
+    "termo": "Príncipe Aemond Targaryen, o Caolho",
+    "aliases": [
+      "Aemond Caolho",
+      "O Regicida"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Príncipe guerreiro da facção Verde que reivindicou a titânica dragão Vhagar e colocou uma safira em sua órbita ocular perdida na infância. Seu ódio aos primos Velaryon ateou fogo definitivo à guerra civil.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Pretos e Verdes",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md"
+    }
+  },
+  {
+    "id": "personagem_cregan_stark",
+    "termo": "Lorde Cregan Stark",
+    "aliases": [
+      "O Lobo do Norte",
+      "O Velho do Norte"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Winterfell e Guardião do Norte que firmou o Pacto de Gelo e Fogo com o Príncipe Jacaerys. Marchou até Porto Real na Hora do Lobo com milhares de guerreiros nortenhos para punir traidores e consagrar a paz.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "O Momento Posterior - A Hora do Lobo",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_08_momento-posterior-hora-do-lobo.md"
+    }
+  },
+  {
+    "id": "personagem_corlys_velaryon",
+    "termo": "Lorde Corlys Velaryon",
+    "aliases": [
+      "A Serpente do Mar",
+      "Senhor das Marés"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "O maior navegador e explorador da história de Westeros, capitão do navio Serpente do Mar cujas nove grandes viagens enriqueceram a Casa Velaryon a ponto de eclipsar o próprio Trono de Ferro.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Os Herdeiros do Dragão",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_01_herdeiros-do-dragao-sucessao.md"
+    }
+  },
+  {
+    "id": "personagem_criston_cole",
+    "termo": "Sor Criston Cole",
+    "aliases": [
+      "O Criador de Reis",
+      "Senhor Comandante da Guarda Real"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho de um intendente de Portonegro que se ergueu pela perícia na espada a Senhor Comandante da Guarda Real, coroando Aegon II e liderando as primeiras ofensivas dos Verdes até cair no Baile do Açougueiro.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Pretos e Verdes",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md"
+    }
+  },
+  {
+    "id": "personagem_eddard_stark",
+    "termo": "Lorde Eddard Stark",
+    "aliases": [
+      "Ned Stark",
+      "A Mão Honrada",
+      "O Lobo Silencioso"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Winterfell, Guardião do Norte e Mão do Rei Robert Baratheon. Homem de dever inabalável e justiça inflexível cuja investigação da morte de Jon Arryn o levou à ruína nas mãos dos Lannister.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Eddard I",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_robb_stark",
+    "termo": "Robb Stark, o Jovem Lobo",
+    "aliases": [
+      "O Jovem Lobo",
+      "O Rei no Norte"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho primogênito de Ned Stark que aos dezesseis anos convocou os estandartes do Norte, marchou ao sul, capturou Jaime Lannister e foi proclamado Rei no Norte e do Tridente pelos seus vassalos.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Catelyn XI",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_jon_snow",
+    "termo": "Jon Snow",
+    "aliases": [
+      "O Bastardo de Winterfell",
+      "Lorde Snow"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Suposto bastardo de Ned Stark criado em Winterfell que vestiu o negro na Patrulha da Noite, defendeu o Castelo Negro e foi eleito o 998º Senhor Comandante após a grande batalha da Muralha.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Jon XII",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_tyrion_lannister",
+    "termo": "Tyrion Lannister, o Duende",
+    "aliases": [
+      "O Duende",
+      "Meio-Homem"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho anão de Lorde Tywin Lannister cuja mente formidável e perspicácia política o tornaram uma das figuras mais influentes dos Sete Reinos, atuando como Mão do Rei e salvando a capital na Batalha da Água Negra.",
+    "fonte": {
+      "livro": "A Fúria dos Reis",
+      "capitulo": "Tyrion XIV",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_tywin_lannister",
+    "termo": "Lorde Tywin Lannister",
+    "aliases": [
+      "O Grande Leão do Ocidente",
+      "A Mão de Ferro"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Rochedo Casterly e patriarca da Casa Lannister, reverenciado e temido por sua crueldade metódica, famoso pelo massacre dos Reyne de Castamere e pelo arquiteto do Casamento Vermelho.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Tyrion IX",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_jaime_lannister",
+    "termo": "Sor Jaime Lannister",
+    "aliases": [
+      "O Regicida",
+      "O Cavaleiro Dourado"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmão gêmeo de Cersei e cavaleiro da Guarda Real que cravou sua espada nas costas do Rei Louco Aerys II. Capturado por Robb Stark no Bosque dos Murmúrios, trilhou uma dolorosa jornada de redenção após perder a mão direita.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Jaime V",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_cersei_lannister",
+    "termo": "Rainha Cersei Lannister",
+    "aliases": [
+      "A Rainha Leoa",
+      "Rainha Regente"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filha de Tywin Lannister e consorte de Robert Baratheon, mãe de Joffrey, Myrcella e Tommen. Conspiradora implacável que manobrou a corte para manter os Lannister no comando absoluto dos Sete Reinos.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Eddard XII",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "personagem_stannis_baratheon",
+    "termo": "Rei Stannis Baratheon",
+    "aliases": [
+      "O Rei no Mar Estreito",
+      "O Rei Inflexível"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmão do meio de Robert Baratheon, homem severo, justo e inflexível como ferro que reivindicou o Trono de Ferro com base nas leis de sangue, combatendo na Água Negra e marchando para socorrer a Muralha.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Jon XI",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "batalha_pouso_de_gralhas",
+    "termo": "Batalha de Pouso de Gralhas (Rook's Rest)",
+    "aliases": [
+      "A Armadilha dos Verdes",
+      "A Queda de Meleys"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "Feroz confronto militar travado em 129 d.C. onde Criston Cole armou uma emboscada em terra enquanto Aegon II (Sunfyre) e Aemond (Vhagar) caíram sobre a Princesa Rhaenys (Meleys), resultando na morte da rainha e nas graves queimaduras de Aegon.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Dragão Vermelho e Dourado",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md"
+    }
+  },
+  {
+    "id": "batalha_da_goela",
+    "termo": "Batalha da Goela (The Battle of the Gullet)",
+    "aliases": [
+      "A Maior Batalha Naval da Dança"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "Uma das batalhas navais mais sangrentas da história, onde noventa navios de guerra da Triarquia atacaram a frota Velaryon em Derivaderiva. Apesar do contra-ataque de cinco dragões, o Príncipe Jacaerys Velaryon e Vermax pereceram no mar.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Triunfante",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md"
+    }
+  },
+  {
+    "id": "batalha_olho_de_deus_duelo",
+    "termo": "Batalha sobre o Olho de Deus (Duelo de Harrenhal)",
+    "aliases": [
+      "O Duelo dos Dragões",
+      "A Queda de Daemon e Aemond"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O mais épico combate aéreo individual de Westeros, travado nas nuvens sobre o lago Olho de Deus em 130 d.C., onde o Príncipe Daemon montado em Caraxes saltou sobre Vhagar e enterrou a Irmã Sombria no olho de Aemond Caolho antes de ambos caírem nas águas.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Destituída",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_06_morte-dos-dragoes-rhaenyra-destituida.md"
+    }
+  },
+  {
+    "id": "batalha_tumbleton_primeira",
+    "termo": "Primeira Batalha de Tumbleton e As Duas Traições",
+    "aliases": [
+      "As Duas Traições",
+      "A Queima de Tumbleton"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "Combate trágico onde as sementes de dragão Hugh Martelo (Vermithor) e Ulf, o Branco (Asaprata) viraram suas chamas contra as forças leais aos Pretos, incendiando a cidade de Tumbleton em benefício dos Verdes.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Destituída",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_06_morte-dos-dragoes-rhaenyra-destituida.md"
+    }
+  },
+  {
+    "id": "batalha_bosque_dos_murmurios",
+    "termo": "Batalha do Bosque dos Murmúrios",
+    "aliases": [
+      "A Captura do Regicida"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "Magistral emboscada noturna comandada por Robb Stark e Brynden Peixe Negro nas florestas do Tridente em 298 d.C., cercando o exército Lannister e capturando Sor Jaime Lannister vivo.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Catelyn X",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "batalha_da_agua_negra",
+    "termo": "Batalha da Água Negra (Battle of the Blackwater)",
+    "aliases": [
+      "A Batalha do Fogovivo",
+      "O Cerco de Stannis"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O colossal assalto anfíbio de Stannis Baratheon contra Porto Real em 299 d.C., onde Tyrion Lannister usou uma gigantesca corrente naval e barcas de fogovivo para engolir a baía em chamas esmeraldas até a carga final de Tywin Lannister.",
+    "fonte": {
+      "livro": "A Fúria dos Reis",
+      "capitulo": "Davos III",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md"
+    }
+  },
+  {
+    "id": "evento_casamento_vermelho",
+    "termo": "O Casamento Vermelho (The Red Wedding)",
+    "aliases": [
+      "A Traição das Gêmeas",
+      "As Chuvas de Castamere"
+    ],
+    "categoria": "evento_historico",
+    "resumo_meistre": "O ato de infâmia e traição mais horrendo da Guerra dos Cinco Reis, onde Lorde Walder Frey e Roose Bolton violaram a lei da hospitalidade nas Gêmeas, assassinando o Rei Robb Stark, Catelyn Stark e seus vassalos sob os acordes de As Chuvas de Castamere.",
+    "fonte": {
+      "livro": "A Tormenta de Espadas",
+      "capitulo": "Catelyn VII",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md"
+    }
+  },
+  {
+    "id": "castelo_winterfell",
+    "termo": "Winterfell",
+    "aliases": [
+      "A Fortaleza dos Reis do Inverno",
+      "O Ninho dos Lobos"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A ancestral e gigantesca sede da Casa Stark erguida sobre nascentes termais pelos Primeiros Homens e Bran, o Construtor, com muralhas duplas de granito e um bosque sagrado de represeiros milenares.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Catelyn I",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "castelo_castelo_negro",
+    "termo": "Castelo Negro (Castle Black)",
+    "aliases": [
+      "A Sede da Patrulha da Noite"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "O principal bastião da Patrulha da Noite na base da gigantesca Muralha de gelo de setecentos pés, desprovido de muralhas para o sul de modo que seus defensores só pudessem olhar para o norte bravio.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Jon III",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "castelo_as_gemeas",
+    "termo": "As Gêmeas (The Twins)",
+    "aliases": [
+      "A Travessia dos Frey",
+      "Os Dois Castelos do Ramo Verde"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "Dois castelos fortificados idênticos erguidos em margens opostas do Ramo Verde do Tridente, unidos por uma ponte de arco de pedra maciça com a Torre da Água ao centro, sede gananciosa da Casa Frey.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Catelyn IX",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "castelo_rochedo_casterly",
+    "termo": "Rochedo Casterly (Casterly Rock)",
+    "aliases": [
+      "O Rochedo",
+      "A Fortaleza dos Leões Dourados"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A colossal fortaleza esculpida dentro de uma montanha de pedra maciça voltada para o Mar do Poente, rica em minas inesgotáveis de ouro e sede inexpugnável da Casa Lannister das Terras Ocidentais.",
+    "fonte": {
+      "livro": "A Fúria dos Reis",
+      "capitulo": "Tyrion I",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md"
+    }
+  },
+  {
+    "id": "local_fosso_dos_dragoes",
+    "termo": "O Fosso dos Dragões (The Dragonpit)",
+    "aliases": [
+      "O Grande Domo da Colina de Rhaenys"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "O imenso estábulo abobadado coroado por ferro e bronze construído sobre a Colina de Rhaenys em Porto Real pelo Rei Maegor I para abrigar as feras régias dos Targaryen, palco do massacre fanático na Dança dos Dragões.",
+    "fonte": {
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Morte dos Dragões - Rhaenyra Destituída",
+      "arquivo_md": "corpus_md/jornada_2_danca/fogo-e-sangue_06_morte-dos-dragoes-rhaenyra-destituida.md"
+    }
+  },
+  {
+    "id": "local_fosso_cailin",
+    "termo": "Fosso Cailin (Moat Cailin)",
+    "aliases": [
+      "A Chave do Norte",
+      "O Portão do Gargalo"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A antiga e arruinada fortaleza dos Primeiros Homens guardando o único caminho terrestre através dos pântanos mortais do Gargalo. Suas três torres remanescentes tornam qualquer exército invasor do sul vulnerável a uma carnificina defensiva.",
+    "fonte": {
+      "livro": "A Guerra dos Tronos",
+      "capitulo": "Catelyn VIII",
+      "arquivo_md": "corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md"
+    }
+  },
+  {
+    "id": "roose_bolton",
+    "termo": "Lorde Roose Bolton",
+    "aliases": [
+      "O Senhor do Forte do Pavor"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de olhos leitosos do Forte do Pavor, conhecido por sua fala macia e desprovida de emoção e pela traição do Casamento Vermelho.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "walder_frey",
+    "termo": "Lorde Walder Frey",
+    "aliases": [
+      "O Senhor da Travessia"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Lorde idoso, lascivo e suscetível da Casa Frey, pai de dezenas de filhos e mentor do massacre nupcial nas Gêmeas.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "mindinho",
+    "termo": "Petyr Baelish, o Mindinho",
+    "aliases": [
+      "Lorde Baelish"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Mestre da Moeda habilidoso e conspirador astuto que manipulou Lysa Arryn e orquestrou os choques entre as grandes casas de Westeros.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "varys_aranha",
+    "termo": "Varys, a Aranha",
+    "aliases": [
+      "O Mestre dos Sussurros"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Eunuco de fala mansa e mestre de disfarces de Porto Real que afirma agir sempre 'pelo bem do reino'.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "renly_baratheon",
+    "termo": "Renly Baratheon",
+    "aliases": [
+      "O Rei Galante"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmão mais jovem de Robert que casou-se com Margaery Tyrell e marchou com cem mil lanças antes de ser abatido por uma sombra.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "joffrey_baratheon",
+    "termo": "Rei Joffrey Baratheon",
+    "aliases": [
+      "O Menino Tirano"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Fruto do incesto entre Jaime e Cersei, jovem monarca cruel cuja fúria irrefletida causou a execução de Ned Stark.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "mance_rayder",
+    "termo": "Mance Rayder",
+    "aliases": [
+      "O Rei-para-lá-da-Muralha"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Antigo irmão jurado da Patrulha da Noite que desertou para viver como homem livre e uniu todo o Povo Livre contra os Outros.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "grande_jon_umber",
+    "termo": "Grande Jon Umber",
+    "aliases": [
+      "O Senhor da Última Lareira"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Guerreiro gigante do Norte, leal vassalo dos Stark que teve os dedos decepados pelo lobo de Robb e o aclamou Rei.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "brynden_peixe_negro",
+    "termo": "Sor Brynden Tully, o Peixe Negro",
+    "aliases": [
+      "O Peixe Negro"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Veterano indômito de Correrrio, líder supremo dos batedores fluviais de Robb Stark e tio corajoso de Catelyn.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "jeor_mormont",
+    "termo": "Jeor Mormont, o Velho Urso",
+    "aliases": [
+      "O Senhor Comandante Mormont"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "997º Senhor Comandante da Patrulha da Noite, outrora lorde da Ilha dos Ursos, tombado no motim da Fortaleza de Craster.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "qhorin_meia_mao",
+    "termo": "Qhorin Meia-Mão",
+    "aliases": [
+      "O Maior Patrulheiro da Torre Sombria"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Lendário batedor da Patrulha da Noite que sacrificou sua própria vida diante de Jon Snow nas Presas de Gelo para infiltrá-lo entre os selvagens.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "melisandre",
+    "termo": "Melisandre de Asshai",
+    "aliases": [
+      "A Mulher Vermelha"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Sacerdotisa sombria do deus R'hllor vinda de Asshai, conselheira mística de Stannis que usou sombras assassinas na noite de Ponta Tempestade.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "davos_seaworth",
+    "termo": "Sor Davos Seaworth, o Cavaleiro das Cebolas",
+    "aliases": [
+      "O Cavaleiro das Cebolas"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Antigo contrabandista que perdeu as pontas dos dedos pelas leis justas de Stannis e tornou-se seu mais leal conselheiro e Mão do Rei.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "barristan_selmy",
+    "termo": "Sor Barristan Selmy, o Ousado",
+    "aliases": [
+      "Barristan, o Ousado"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Lendário espadachim da Guarda Real que serviu a três reis e foi injustamente dispensado por Joffrey, partindo para o exílio em Essos.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "sandor_clegane",
+    "termo": "Sandor Clegane, o Cão de Caça",
+    "aliases": [
+      "O Cão de Caça"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Escudeiro e guarda-costas de rosto queimado a serviço dos Lannister, feroz combatente que fugiu do fogo na Batalha da Água Negra.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "gregor_clegane",
+    "termo": "Sor Gregor Clegane, a Montanha que Cavalga",
+    "aliases": [
+      "A Montanha"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Cavaleiro monstruoso de quase dois metros e meio de altura, brutal instrumento de guerra de Tywin Lannister nos campos de Westeros.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "oberyn_martell",
+    "termo": "Príncipe Oberyn Martell, a Víbora Vermelha",
+    "aliases": [
+      "A Víbora Vermelha de Dorne"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Príncipe guerreiro de Dorne, mestre da lança embebida em veneno mortal que lutou por Tyrion para vingar a morte de sua irmã Elia contra a Montanha.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "bronn",
+    "termo": "Bronn do Água Negra",
+    "aliases": [
+      "O Mercenário de Bronn"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Mercenário pragmático e veloz que venceu o duelo dos Arryn no Ninho da Águia e liderou os esforços de defesa de Tyrion em Porto Real.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "shae",
+    "termo": "Shae",
+    "aliases": [
+      "A Amante do Duende"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Jovem cortesã do acampamento Lannister que se tornou a amante secreta de Tyrion na capital até sua amarga traição no julgamento.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "pycelle",
+    "termo": "Grande Meistre Pycelle",
+    "aliases": [
+      "O Meistre da Corte"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Idoso e ardiloso Grande Meistre da Cidadela servindo em Porto Real, secretamente dedicado à supremacia da Casa Lannister.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "janos_slynt",
+    "termo": "Janos Slynt",
+    "aliases": [
+      "Comandante dos Mantos Dourados"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Corrupto comandante da Patrulha da Cidade de Porto Real que traiu Ned Stark a soldo de Cersei e Mindinho, sendo enviado à Muralha por Tyrion.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "illyrio_mopatis",
+    "termo": "Magíster Illyrio Mopatis",
+    "aliases": [
+      "O Magíster de Pentos"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Rico comerciante de especiarias e queijos de Pentos que acolheu Viserys e Daenerys Targaryen e arranjou os ovos de dragão petrificados.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "viserys_iii",
+    "termo": "Viserys Targaryen, o Rei Mendigo",
+    "aliases": [
+      "O Rei Mendigo"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho exilado do Rei Louco que vendeu a irmã a Khal Drogo buscando um exército de guerreiros a cavalo até receber sua 'coroa de ouro derretido'.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "khal_drogo",
+    "termo": "Khal Drogo",
+    "aliases": [
+      "O Grande Khal"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Formidável senhor da guerra dothraki cuja trança comprida com sinos nunca fora cortada em derrota, primeiro consorte de Daenerys Targaryen.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "daenerys_targaryen",
+    "termo": "Daenerys Nascida da Tormenta",
+    "aliases": [
+      "Mãe de Dragões",
+      "Quebradora de Correntes"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Última filha viva da dinastia Targaryen que chocou três ovos petrificados na pira fúnebre de Drogo, renascendo com Drogon, Rhaegal e Viserion.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "drogon",
+    "termo": "Drogon, a Sombra Alada",
+    "aliases": [
+      "O Dragão Negro de Daenerys"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "O maior e mais feroz dos três dragões nascidos das cinzas de Drogo, com escamas negras como azeviche e chamas rubras.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "vento_cinzento",
+    "termo": "Vento Cinzento (Grey Wind)",
+    "aliases": [
+      "O Lobo de Robb"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "O formidável lobo gigante de Robb Stark, de pelo cinzento e olhos dourados, cujo faro pressentia emboscadas antes do Casamento Vermelho.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "fantasma",
+    "termo": "Fantasma (Ghost)",
+    "aliases": [
+      "O Lobo Albino de Jon"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "O silencioso lobo gigante albino de pelo branco como a neve e olhos vermelhos de sangue encontrado por Jon Snow na mata de Winterfell.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "nymeria_loba",
+    "termo": "Nymeria",
+    "aliases": [
+      "A Loba de Arya"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "A leal loba gigante de Arya Stark que mordeu Joffrey no Tridente e depois formou uma matilha lendária de centenas de lobos nas Terras dos Rios.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "lady_loba",
+    "termo": "Lady",
+    "aliases": [
+      "A Loba de Sansa"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "A dócil e graciosa loba gigante de Sansa Stark, sacrificada injustamente por ordem da Rainha Cersei na encruzilhada do Tridente.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "verao_lobo",
+    "termo": "Verão (Summer)",
+    "aliases": [
+      "O Lobo de Bran"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "O lobo gigante dourado de Bran Stark que salvou sua vida do assassino com a adaga valiriana na torre de Winterfell.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "peludo_lobo",
+    "termo": "Peludo (Shaggydog)",
+    "aliases": [
+      "O Lobo de Rickon"
+    ],
+    "categoria": "lobo_gigante",
+    "resumo_meistre": "O selvagem e bravio lobo gigante de Rickon Stark, com pelos negros como a noite e olhos verdes brilhantes.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "harlen_tyrell",
+    "termo": "Harlen Tyrell",
+    "aliases": [
+      "Primeiro Senhor Tyrell de Jardim de Cima"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Intendente prudente que entregou Jardim de Cima a Aegon I sem combate após a extinção dos Gardener, sendo elevado a Protetor do Sul.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "quenton_qoherys",
+    "termo": "Quenton Qoherys",
+    "aliases": [
+      "Primeiro Senhor Qoherys de Harrenhal"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Antigo mestre de armas de Pedra do Dragão elevado por Aegon I a senhor das cinzas de Harrenhal após a queima da fortaleza.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "loren_lannister",
+    "termo": "Rei Loren I Lannister",
+    "aliases": [
+      "O Rei que Apanhou o Leão"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Último Rei do Rochedo da linhagem antiga que uniu-se a Mern IX no Campo de Fogo e sobreviveu para dobrar o joelho e se tornar o Guardião do Ocidente.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "mern_ix",
+    "termo": "Rei Mern IX Gardener",
+    "aliases": [
+      "O Último Rei da Campina"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "O soberano que conduziu toda a sua linhagem para o holocausto do Campo de Fogo, onde pereceu nas chamas unidas de Balerion, Vhagar e Meraxes.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "alto_septao_vilavelha",
+    "termo": "O Alto Septão de Vilavelha",
+    "aliases": [
+      "A Voz dos Sete"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Líder supremo da Fé dos Sete que orou durante sete dias no Septo Estrelado e abriu os portões de Vilavelha para ungir Aegon I.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "vickon_greyjoy",
+    "termo": "Lorde Vickon Greyjoy de Pyke",
+    "aliases": [
+      "Primeiro Senhor Greyjoy"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Capitão das Ilhas de Ferro eleito pelos lordes afogados após Aegon I esmagar os sacerdotes de Lodos em Grande Wyk.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "lodos_sacerdote",
+    "termo": "Lodos, o Sacerdote do Deus Afogado",
+    "aliases": [
+      "O Falso Filho do Deus"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Líder fanático das Ilhas de Ferro que alegava ser filho das ondas e mergulhou no mar com pedras nas vestes para encontrar seu pai quando Aegon chegou.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "wyl_de_wyl",
+    "termo": "Wyl de Wyl, o Viúvo-Amante",
+    "aliases": [
+      "O Açougueiro das Areias"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de bandoleiros dorneses que emboscou Orys Baratheon nas montanhas e decepou a mão de espada de dezenas de cavaleiros do Trono de Ferro.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "nymor_martell",
+    "termo": "Príncipe Nymor Martell",
+    "aliases": [
+      "Príncipe de Dorne"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filho idoso da Princesa Meria Martell que assumiu Dorne após a morte do Sapo Amarelo e enviou a célebre carta que pôs fim à Primeira Guerra Dornesa.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "alysanne_targaryen",
+    "termo": "Boa Rainha Alysanne",
+    "aliases": [
+      "Alysanne Targaryen"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Amada rainha e irmã-esposa de Jaehaerys I que montou Asaprata até a Muralha e doou a Nova Dádiva à Patrulha da Noite.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "jaehaerys_i",
+    "termo": "Rei Jaehaerys I Targaryen",
+    "aliases": [
+      "O Conciliador",
+      "O Velho Rei"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "O mais sábio e longevo monarca de Westeros, que codificou as leis do reino e construiu a Estrada do Rei montado em Vermithor.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_campo_de_fogo",
+    "termo": "A Batalha do Campo de Fogo (4 a.C.)",
+    "aliases": [
+      "O Campo de Fogo"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O confronto decisivo da Conquista de Aegon nas planícies da Campina onde os três dragões lutaram juntos pela única vez, incinerando quatro mil homens.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_ultima_tempestade",
+    "termo": "A Batalha da Última Tempestade",
+    "aliases": [
+      "A Última Tempestade"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "A batalha desesperada onde Orys Baratheon duelou no meio da tempestade e matou o Rei Argilac Durrandon, herdando suas terras e o brasão do cervo coroado.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "tomada_de_harrenhal",
+    "termo": "A Queima de Harrenhal (2 a.C.)",
+    "aliases": [
+      "O Fogo no Olho de Deus"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O evento histórico onde Aegon I montou Balerion sobre as torres de Harrenhal e derreteu a fortaleza de granito negro, extinguindo a Casa Hoare.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "fortaleza_vermelha",
+    "termo": "A Fortaleza Vermelha (The Red Keep)",
+    "aliases": [
+      "O Castelo Régio"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A imponente fortaleza de pedra vermelha erguida na Colina de Aegon com torres, muralhas maciças e masmorras secretas construídas por Maegor I.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "estrada_do_rei",
+    "termo": "A Estrada do Rei (The Kingsroad)",
+    "aliases": [
+      "A Grande Via"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A mais longa via pavimentada de Westeros construída por Jaehaerys I, estendendo-se por milhares de quilômetros de Porto Real até a Muralha.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "baixa_das_pulgas",
+    "termo": "Baixada das Pulgas (Flea Bottom)",
+    "aliases": [
+      "O Labirinto da Pobreza"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "O labirinto fétido e superpovoado de ruelas de terra batida e tabernas em Porto Real onde se vende a infame 'tigela de castanho'.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "septor_de_baelor",
+    "termo": "O Grande Septo de Baelor",
+    "aliases": [
+      "O Septo da Colina de Visenya"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "O majestoso templo central da Fé dos Sete na capital com sete torres e cúpulas de mármore e cristal, local da execução de Ned Stark.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "pedra_do_dragao_fortaleza",
+    "termo": "Pedra do Dragão (Dragonstone)",
+    "aliases": [
+      "A Fortaleza dos Valirianos"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A ilha e fortaleza vulcânica com muralhas moldadas em forma de dragões negros de pedra fundida, antiga sede ocidental do Império de Valíria.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "correrrio_castelo",
+    "termo": "Correrrio (Riverrun)",
+    "aliases": [
+      "A Fortaleza Triangular"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A sede fluvial da Casa Tully posicionada no encontro do Ramo Vermelho com o rio Pedregoso, capaz de transformar-se em ilha ao abrir as comportas.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "ponta_tempestade_castelo",
+    "termo": "Ponta Tempestade (Storm's End)",
+    "aliases": [
+      "O Tambor de Pedra"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A lendária fortaleza dos Durrandon e Baratheon na Baía dos Naufrágios com muralhas de tambor maciço protegidas por encantamentos antigos contra tempestades.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "vilavelha_cidade",
+    "termo": "Vilavelha (Oldtown)",
+    "aliases": [
+      "A Cidade Mais Velha"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A mais antiga e civilizada cidade de Westeros, sede da Cidadela dos Meistres, do farol da Torralta e do Septo Estrelado.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "cidadela_dos_meistres",
+    "termo": "A Cidadela (The Citadel)",
+    "aliases": [
+      "A Ordem do Conhecimento"
+    ],
+    "categoria": "instituicao",
+    "resumo_meistre": "O centro supremo de aprendizado, história, medicina e astrologia de Westeros onde os acólitos forjam suas correntes de elos metálicos.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "guarda_real_ordem",
+    "termo": "A Guarda Real (The Kingsguard)",
+    "aliases": [
+      "Os Mantos Brancos"
+    ],
+    "categoria": "instituicao",
+    "resumo_meistre": "A irmandade de elite de sete cavaleiros virtuosos fundada pela Rainha Visenya Targaryen para proteger a vida do monarca dia e noite.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "senhor_da_luz",
+    "termo": "R'hllor, o Senhor da Luz",
+    "aliases": [
+      "O Coração de Fogo"
+    ],
+    "categoria": "religiao",
+    "resumo_meistre": "A divindade oriental do fogo, da luz e das sombras cultuada pelos sacerdotes vermelhos de Essos, cujas chamas revelam visões do futuro.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "fogovivo_substancia",
+    "termo": "Fogovivo (Wildfire)",
+    "aliases": [
+      "A Substância dos Piromantes"
+    ],
+    "categoria": "substancia",
+    "resumo_meistre": "O líquido mágico verde e volátil criado pela Guilda dos Alquimistas de Porto Real que arde incontrolavelmente na água e no aço.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "aco_valiriano_metal",
+    "termo": "Aço Valiriano (Valyrian Steel)",
+    "aliases": [
+      "O Metal dos Dragões"
+    ],
+    "categoria": "substancia",
+    "resumo_meistre": "O metal mágico mais precioso do mundo, forjado com feitiços e fogo de dragão na antiga Valíria, infinitamente afiado, leve e inquebrável.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "outros_caminhantes",
+    "termo": "Os Outros (The White Walkers)",
+    "aliases": [
+      "Os Caminhantes Brancos"
+    ],
+    "categoria": "criatura",
+    "resumo_meistre": "A raça ancestral de criaturas de gelo e olhos azuis como estrelas glaciais que emergem do extremo Norte durante a Longa Noite revivendo os mortos.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Enciclopédia Geral da Cidadela",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "casa_bolton",
+    "termo": "Casa Bolton do Forte do Pavor",
+    "aliases": [
+      "Os Homens Esfolados"
+    ],
+    "categoria": "casa_nobre",
+    "resumo_meistre": "Antigos e temidos rivais dos Stark que costumavam esfolar seus prisioneiros na antiguidade, mantendo o símbolo do homem esfolado sobre um campo sangrento.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Linhagens e Casas Históricas",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "casa_frey",
+    "termo": "Casa Frey da Travessia",
+    "aliases": [
+      "Os Senhores das Gêmeas"
+    ],
+    "categoria": "casa_nobre",
+    "resumo_meistre": "Casa jovem e opulenta de cobradores de pedágio do Tridente, cujo domínio da travessia das Gêmeas lhes conferiu imensa força militar e ressentimento aristocrático.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Linhagens e Casas Históricas",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_baile_do_acougueiro",
+    "termo": "O Baile do Açougueiro (130 d.C.)",
+    "aliases": [
+      "A Queda de Criston Cole"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O confronto desesperado onde Sor Criston Cole e seu exército Verde foram cercados e aniquilados nas Terras Fluviais pelos Senhores dos Rios leais a Rhaenyra.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Linhagens e Casas Históricas",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "pacto_gelo_e_fogo",
+    "termo": "O Pacto de Gelo e Fogo (129 d.C.)",
+    "aliases": [
+      "O Acordo Stark-Targaryen"
+    ],
+    "categoria": "evento_historico",
+    "resumo_meistre": "O histórico tratado firmado em Winterfell entre o Príncipe Jacaerys Velaryon e Lorde Cregan Stark prometendo uma princesa Targaryen em casamento para o herdeiro de Winterfell.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Linhagens e Casas Históricas",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_dos_acampamentos",
+    "termo": "A Batalha dos Acampamentos (298 d.C.)",
+    "aliases": [
+      "A Libertação de Correrrio"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O brilhante ataque relâmpago de Robb Stark que quebrou os três acampamentos de cerco dos Lannister e libertou Correrrio.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_do_vinhomel",
+    "termo": "A Batalha do Vinhomel (130 d.C.)",
+    "aliases": [
+      "O Salto de Tessarion"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O combate onde o jovem Príncipe Daeron e sua dragão Tessarion desceram das nuvens salvando o exército de Ormund Hightower.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "batalha_tumbleton_segunda",
+    "termo": "A Segunda Batalha de Tumbleton (130 d.C.)",
+    "aliases": [
+      "A Redenção de Addam Velaryon"
+    ],
+    "categoria": "batalha",
+    "resumo_meistre": "O ousado ataque noturno de Addam Velaryon e dos homens dos rios que virou o curso final da Dança dos Dragões.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "objeto_adaga_valiriana",
+    "termo": "A Adaga de Osso de Dragão e Aço Valiriano",
+    "aliases": [
+      "A Adaga do Assassino"
+    ],
+    "categoria": "objeto_historico",
+    "resumo_meistre": "A arma empunhada pelo assassino enviado para degolar Bran Stark em Winterfell, cuja lâmina de aço valiriano incendiou as suspeitas entre Stark e Lannister.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "objeto_carta_de_nymor",
+    "termo": "A Carta de Sangue de Nymor Martell",
+    "aliases": [
+      "O Segredo de Dorne"
+    ],
+    "categoria": "objeto_historico",
+    "resumo_meistre": "A misteriosa carta lacrada trazida pela Princesa Deria Martell a Aegon I em 13 d.C. que encerrou a Primeira Guerra Dornesa.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "local_baia_da_agua_negra",
+    "termo": "A Baía da Água Negra (Blackwater Bay)",
+    "aliases": [
+      "A Enseada da Capital"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A vasta baía marítima na foz do rio Água Negra guardada por Porto Real e pelas ilhas de Derivaderiva e Pedra do Dragão.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "local_vale_de_arryn",
+    "termo": "O Vale de Arryn",
+    "aliases": [
+      "O Vale"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A fértil e montanhosa região oriental de Westeros protegida pelas Montanhas da Lua e governada a partir do Ninho da Águia.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "local_terras_fluviais",
+    "termo": "As Terras Fluviais (The Riverlands)",
+    "aliases": [
+      "O Tridente"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A rica e vulnerável região central de Westeros banhada pelos três ramos do Tridente e pelo lago Olho de Deus.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "local_campina_jardim",
+    "termo": "A Campina (The Reach)",
+    "aliases": [
+      "O Celeiro de Westeros"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A mais fértil e populosa região dos Sete Reinos, afamada por sua cavalaria, suas colheitas douradas e pela liderança de Jardim de Cima.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
+  },
+  {
+    "id": "local_terras_ocidentais",
+    "termo": "As Terras Ocidentais (The Westerlands)",
+    "aliases": [
+      "O Oeste"
+    ],
+    "categoria": "localizacao",
+    "resumo_meistre": "A região montanhosa e escarpada do poente de Westeros rica em jazidas de ouro e prata, guardada por Rochedo Casterly.",
+    "fonte": {
+      "livro": "As Crônicas de Gelo e Fogo / Fogo & Sangue",
+      "capitulo": "Geografia e Crônicas de Westeros",
+      "arquivo_md": "corpus_md/enciclopedia/"
+    }
   }
 ]
