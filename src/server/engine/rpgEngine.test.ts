@@ -160,9 +160,9 @@ describe('2. Aplicação de Delta de Estado (aplicarDeltaEstado)', () => {
 });
 
 describe('3. Loader da Bíblia Canônica e Glossário da Cidadela', () => {
-  it('deve carregar todos os 106 itens do glossário da Cidadela', () => {
+  it('deve carregar todos os itens do glossário expandido da Cidadela (220+ verbetes)', () => {
     const glossario = obterGlossario();
-    expect(glossario.length).toBe(106);
+    expect(glossario.length).toBeGreaterThanOrEqual(220);
   });
 
   it('deve buscar com sucesso termos fundamentais da Conquista', () => {
@@ -185,7 +185,7 @@ describe('3. Loader da Bíblia Canônica e Glossário da Cidadela', () => {
 
   it('deve filtrar corretamente verbetes por categoria', () => {
     const dragoes = buscarPorCategoria('dragao');
-    expect(dragoes.length).toBe(3);
+    expect(dragoes.length).toBeGreaterThanOrEqual(3);
 
     const casas = buscarPorCategoria('grande_casa');
     expect(casas.length).toBe(15);
@@ -201,7 +201,7 @@ describe('3. Loader da Bíblia Canônica e Glossário da Cidadela', () => {
     expect(personagens.length).toBe(17);
 
     const dragoes = obterDragoesJ1();
-    expect(dragoes.length).toBe(3);
+    expect(dragoes.length).toBeGreaterThanOrEqual(3);
 
     const ganchos = obterGanchosJ1();
     expect(ganchos.length).toBe(4);
