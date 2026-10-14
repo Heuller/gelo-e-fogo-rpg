@@ -1,2 +1,18 @@
-# Ignorar arquivos binários pesados de origem
+# Ignorar binarios e corpus pesados
 origem/
+corpus_md/
+piloto/
+*.pdf
+*.epub
+*.mobi
+
+# Variaveis de ambiente
+.env.local
+.env*.local
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
