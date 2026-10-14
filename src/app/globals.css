@@ -3,12 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0c;
-  --foreground: #ededed;
+  --background: #12100E;
+  --foreground: #E6DEC8;
+  --panel: #1C1815;
+  --panel-border: #2D2620;
+  --gold: #C5A059;
+  --crimson: #8B1E1E;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--background);
+  font-family: var(--font-eb-garamond), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Letra Capitular Gótica Medieval (Drop Cap) */
+.drop-cap::first-letter {
+  font-family: var(--font-cinzel), serif;
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.82;
+  margin-top: 0.18rem;
+  margin-right: 0.75rem;
+  margin-bottom: -0.15rem;
+  color: #C5A059;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(197, 160, 89, 0.35);
+}
+
+/* Barra de rolagem estilo pergaminho medieval */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #12100E;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D2620;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
 }
