@@ -1,0 +1,731 @@
+{
+  "metadata": {
+    "jornada": "Jornada 1: A Conquista de Aegon",
+    "versao": "2.1",
+    "status": "validado",
+    "origem_corpus": "C:\\Projetos\\gelo-e-fogo-rpg\\corpus_md\\"
+  },
+  "cronologia_canonica": [
+    {
+      "id": "cron_01_mesa_pintada",
+      "periodo": "2 a.C.",
+      "local": "Pedra do Dragão",
+      "titulo": "O Planejamento na Mesa Pintada e as Cartas aos Reis",
+      "fatos_canonicos": [
+        "Aegon recusa a aliança matrimonial insultuosa de Argilac Durrandon, oferecendo Orys Baratheon em seu lugar.",
+        "Argilac decepa as mãos do emissário de Aegon e envia com a mensagem: 'Estas são as únicas mãos que seu bastardo receberá de mim'.",
+        "Aegon reúne seus vassalos (Velaryon e Celtigar) em Pedra do Dragão e ora no septo antes de enviar corvos aos sete reis anunciando que 'haverá apenas um rei em Westeros'."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Visenya Targaryen",
+        "Rhaenys Targaryen",
+        "Orys Baratheon",
+        "Daemon Velaryon",
+        "Crispian Celtigar"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_02_desembarque_e_primeira_coroacao",
+      "periodo": "2 a.C.",
+      "local": "Foz da Água Negra (Forte de Aegon)",
+      "titulo": "O Desembarque e a Primeira Coroação",
+      "fatos_canonicos": [
+        "Aegon desembarca com menos de três mil homens na foz da Torrente da Água Negra e ergue uma paliçada de terra e madeira no cume de uma colina.",
+        "Submete os senhores locais (Rosby, Stokeworth e Duskendale).",
+        "Visenya coroa Aegon com o aro valiriano de rubis e Rhaenys o proclama Rei de Toda Westeros diante dos primeiros vassalos juramentados."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Visenya Targaryen",
+        "Rhaenys Targaryen",
+        "Orys Baratheon"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_03_incendio_de_harrenhal",
+      "periodo": "2 a.C.",
+      "local": "Harrenhal (Terras Fluviais)",
+      "titulo": "A Queda do Rei Harren e a Queima de Harrenhal",
+      "fatos_canonicos": [
+        "Edmyn Tully deserta Harren e reúne os lordes dos rios sob o estandarte do dragão de Aegon.",
+        "Aegon oferece a Harren a oportunidade de manter as Ilhas de Ferro se dobrar o joelho; Harren responde que 'pedra não queima'.",
+        "Ao cair da noite, Balerion sobrevoa as nuvens e queima Harrenhal de cima para baixo, derretendo a pedra e extinguindo a Casa Hoare."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Harren Hoare",
+        "Edmyn Tully"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_04_ultimo_risco",
+      "periodo": "2 a.C.",
+      "local": "Terras da Tempestade (Próximo a Ponta Tempestade)",
+      "titulo": "A Batalha do Último Risco e a Fundação da Casa Baratheon",
+      "fatos_canonicos": [
+        "Argilac Durrandon marcha com seu exército ao encontro de Orys Baratheon em plena tempestade furiosa.",
+        "Meraxes desce dos céus e incendeia a vanguarda e a cavalaria dos Reis da Tempestade.",
+        "Orys e Argilac lutam em duelo singular; Orys vence o velho rei e poupa a herdeira Argella Durrandon, fundando a Casa Baratheon."
+      ],
+      "personagens_presentes": [
+        "Orys Baratheon",
+        "Rhaenys Targaryen",
+        "Argilac Durrandon",
+        "Argella Durrandon"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_05_campo_de_fogo",
+      "periodo": "2 a.C.",
+      "local": "Planícies da Campina",
+      "titulo": "O Campo de Fogo e o Fim dos Reis Gardener",
+      "fatos_canonicos": [
+        "A aliança dos Dois Reis (Mern IX da Campina e Loren Lannister do Oeste) reúne 55 mil soldados contra os 10 mil de Aegon.",
+        "Aegon, Visenya e Rhaenys lançam Balerion, Vhagar e Meraxes juntos contra o capim seco e a cavalaria pesada inimiga.",
+        "Mais de quatro mil homens morrem queimados, o rei Mern IX e todos os seus herdeiros morrem, e Loren Lannister se rende no dia seguinte."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Visenya Targaryen",
+        "Rhaenys Targaryen",
+        "Mern IX Gardener",
+        "Loren I Lannister"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_06_rendicao_torrhen_stark",
+      "periodo": "2 a.C. / 1 a.C.",
+      "local": "Margens do Rio Tridente",
+      "titulo": "A Rendição de Torrhen Stark e a Submissão do Norte",
+      "fatos_canonicos": [
+        "Torrhen Stark desce com trinta mil homens até o Tridente; encontra o exército de Aegon reforçado por senhores dos rios, do oeste e do sul, além dos três dragões.",
+        "Brandon Snow se oferece para cruzar o rio à noite e flechar os dragões adormecidos com flechas de represeiro.",
+        "Torrhen rejeita o plano suicida, ouve os meistres e ajoelha perante Aegon, entregando a coroa antiga dos Reis do Inverno."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Torrhen Stark",
+        "Brandon Snow"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_07_submissao_do_vale",
+      "periodo": "1 a.C.",
+      "local": "O Ninho da Águia (Vale de Arryn)",
+      "titulo": "A Visita de Visenya e o Voo de Ronnel Arryn",
+      "fatos_canonicos": [
+        "Sharra Arryn havia guarnecido as portas de pedra e o Portão de Sangue contra invasores terrestres.",
+        "Visenya sobrevoa as defesas com Vhagar e pousa diretamente no pátio do Ninho da Águia.",
+        "O pequeno rei Ronnel pede para voar no dragão; Sharra entrega as três coroas do Vale e o menino ganha seu voo sobre a Lança do Gigante."
+      ],
+      "personagens_presentes": [
+        "Visenya Targaryen",
+        "Sharra Arryn",
+        "Ronnel Arryn"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_08_coroacao_vilavelha",
+      "periodo": "1 d.C.",
+      "local": "Septo Estrelado (Vilavelha)",
+      "titulo": "A Unção do Alto Septão e a Fundação do Calendário",
+      "fatos_canonicos": [
+        "O Alto Septão jejua por sete dias e vê que a Torralta arderá se Manfred Hightower resistir.",
+        "Vilavelha abre seus portões; Aegon é ungido com os sete óleos santos e aclamado como Senhor dos Sete Reinos.",
+        "Os meistres adotam o dia da coroação como o início do ano 1 Depois da Conquista (1 d.C.)."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Manfred Hightower",
+        "O Alto Septão"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "cron_09_guerra_dornesa_e_morte_rhaenys",
+      "periodo": "4 d.C. – 10 d.C.",
+      "local": "Dorne e Toca do Inferno (Hellholt)",
+      "titulo": "A Primeira Guerra Dornesa e a Morte de Rhaenys e Meraxes",
+      "fatos_canonicos": [
+        "A invasão de Dorne transforma-se em um atoleiro de guerrilha no deserto sob comando da princesa Meria Martell.",
+        "Em 10 d.C., um disparo de escorpião em Hellholt acerta o olho de Meraxes; o dragão cai sobre o castelo, matando a fera e a rainha Rhaenys.",
+        "Aegon e Visenya entram na 'Ira do Dragão', queimando fortalezas e castelos dorneses ano após ano."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Visenya Targaryen",
+        "Rhaenys Targaryen",
+        "Meria Martell"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+      }
+    },
+    {
+      "id": "cron_10_paz_com_dorne",
+      "periodo": "13 d.C.",
+      "local": "Porto Real",
+      "titulo": "A Embaixada da Princesa Deria Martell e a Carta Misteriosa",
+      "fatos_canonicos": [
+        "O novo Príncipe Nymor Martell envia sua filha Deria com o crânio de Meraxes propondo paz perpétua como nação soberana.",
+        "Os nobres do conselho exigem vingança, mas Deria entrega uma carta pessoal e lacrada do pai a Aegon I.",
+        "Aegon lê a carta em silêncio, aperta a mão até sangrar, voa em Balerion até Pedra do Dragão e retorna na manhã seguinte aceitando a paz incondicional com Dorne."
+      ],
+      "personagens_presentes": [
+        "Aegon I Targaryen",
+        "Visenya Targaryen",
+        "Deria Martell",
+        "Orys Baratheon"
+      ],
+      "origem": "canonico",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+      }
+    }
+  ],
+  "personagens_canonicos": [
+    {
+      "id": "aegon_i_targaryen",
+      "nome": "Aegon I Targaryen",
+      "titulos": [
+        "Rei de Toda Westeros",
+        "Senhor dos Sete Reinos",
+        "Protetor do Território"
+      ],
+      "tracos_personalidade": [
+        "Pragmático",
+        "Reservado",
+        "Magnânimo com os submissos",
+        "Impiedoso com rebeldes",
+        "Fiel às irmãs"
+      ],
+      "objetivo_2_ac": "Conquistar e unificar os Sete Reinos sob um único trono e uma única lei, transformando reinos rivais em um império duradouro.",
+      "montaria": "Balerion, o Terror Negro",
+      "arma": "Fogonegro (Aço Valiriano)",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "visenya_targaryen",
+      "nome": "Visenya Targaryen",
+      "titulos": [
+        "Rainha de Westeros",
+        "Guerreira do Dragão"
+      ],
+      "tracos_personalidade": [
+        "Severa",
+        "Implacável",
+        "Estrategista militar brilhante",
+        "Desconfiada",
+        "Pragmática até a frieza"
+      ],
+      "objetivo_2_ac": "Garantir a supremacia absoluta do sangue valiriano e proteger Aegon a qualquer custo, impondo a ordem pela espada e pelo fogo.",
+      "montaria": "Vhagar",
+      "arma": "Irmã Sombria (Aço Valiriano)",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "rhaenys_targaryen",
+      "nome": "Rhaenys Targaryen",
+      "titulos": [
+        "Rainha de Westeros",
+        "A Amada do Povo"
+      ],
+      "tracos_personalidade": [
+        "Curiosa",
+        "Passional",
+        "Amante das artes e da música",
+        "Audaciosa no voo",
+        "Generosa"
+      ],
+      "objetivo_2_ac": "Construir alianças de paz e casamentos que unam o povo de Westeros sob o domínio Targaryen, explorando novos horizontes além do mar.",
+      "montaria": "Meraxes",
+      "arma": "Arco e adagas leves",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "orys_baratheon",
+      "nome": "Orys Baratheon",
+      "titulos": [
+        "Senhor de Ponta Tempestade",
+        "Primeira Mão do Rei"
+      ],
+      "tracos_personalidade": [
+        "Leal até a morte",
+        "Guerreiro feroz",
+        "Honrado",
+        "Orgulhoso de sua força",
+        "Firme governante"
+      ],
+      "objetivo_2_ac": "Provar seu valor como comandante ao lado de seu irmão Aegon e consolidar uma linhagem nobre própria em Westeros.",
+      "montaria": "Cavalo de guerra negro",
+      "arma": "Espada de duas mãos e machado de batalha",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "daemon_velaryon",
+      "nome": "Daemon Velaryon",
+      "titulos": [
+        "Senhor de Derivamarca",
+        "Mestre dos Navios"
+      ],
+      "tracos_personalidade": [
+        "Navegador audaz",
+        "Leal",
+        "Orgulhoso de seu sangue valiriano"
+      ],
+      "objetivo_2_ac": "Garantir o domínio naval do Mar Estreito e assegurar que a frota Velaryon seja o esteio marítimo da Conquista.",
+      "montaria": "Galés de guerra",
+      "arma": "Sabre naval",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "crispian_celtigar",
+      "nome": "Crispian Celtigar",
+      "titulos": [
+        "Senhor da Ilha da Garra",
+        "Mestre da Moeda"
+      ],
+      "tracos_personalidade": [
+        "Metódico",
+        "Apegado a riquezas",
+        "Conselheiro prudente"
+      ],
+      "objetivo_2_ac": "Administrar o tesouro de Aegon e expandir o prestígio financeiro de sua casa entre a nobreza de Westeros.",
+      "montaria": "Navio mercante",
+      "arma": "Adaga valiriana",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "argilac_durrandon",
+      "nome": "Argilac Durrandon",
+      "titulos": [
+        "Argilac, o Arrogante",
+        "Rei da Tempestade"
+      ],
+      "tracos_personalidade": [
+        "Orgulhoso",
+        "Agressivo",
+        "Inflexível",
+        "Bravura desesperada"
+      ],
+      "objetivo_2_ac": "Conter a expansão de Harren o Negro no norte de suas fronteiras e esmagar a audácia dos invasores valirianos.",
+      "montaria": "Garanhão blindado",
+      "arma": "Montante pesado",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "harren_hoare",
+      "nome": "Harren Hoare",
+      "titulos": [
+        "Harren, o Negro",
+        "Rei das Ilhas e dos Rios"
+      ],
+      "tracos_personalidade": [
+        "Cruel",
+        "Tirano impiedoso",
+        "Megalomaniaco",
+        "Confiante em muralhas de pedra"
+      ],
+      "objetivo_2_ac": "Concluir a colossal Harrenhal e demonstrar que seu império de ferro sobre o Tridente jamais seria dobrado por homens ou deuses.",
+      "montaria": "Nenhuma (refugiou-se no alto da Torre do Terror)",
+      "arma": "Espada de lâmina larga",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "edmyn_tully",
+      "nome": "Edmyn Tully",
+      "titulos": [
+        "Senhor de Correrrio",
+        "Senhor Supremo do Tridente"
+      ],
+      "tracos_personalidade": [
+        "Diplomático",
+        "Protetor do povo dos rios",
+        "Estrategista de alianças",
+        "Honrado"
+      ],
+      "objetivo_2_ac": "Libertar as Terras Fluviais do jugo sanguinário dos homens de ferro e garantir a prosperidade e liderança de sua Casa.",
+      "montaria": "Cavalo de guerra tricolor",
+      "arma": "Espada bastarda",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "mern_ix_gardener",
+      "nome": "Mern IX Gardener",
+      "titulos": [
+        "Rei da Campina"
+      ],
+      "tracos_personalidade": [
+        "Confiante em números",
+        "Tradicionalista",
+        "Presunçoso em relação à cavalaria pesada"
+      ],
+      "objetivo_2_ac": "Aniquilar os invasores Targaryen nas planícies abertas da Campina com o maior exército já reunido na história.",
+      "montaria": "Corcel de guerra ornado em ouro",
+      "arma": "Lança de torneio e espada dourada",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "loren_i_lannister",
+      "nome": "Loren I Lannister",
+      "titulos": [
+        "Rei do Rochedo",
+        "Senhor de Rochedo Casterly"
+      ],
+      "tracos_personalidade": [
+        "Pragmático",
+        "Sobrevivente",
+        "Calculista de custos políticos"
+      ],
+      "objetivo_2_ac": "Manter o ouro e as terras do Oeste protegidos e seguros, aliando-se à Campina para derrotar a ameaça dos dragões.",
+      "montaria": "Garanhão dourado",
+      "arma": "Espada de aço com punho de leão",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "torrhen_stark",
+      "nome": "Torrhen Stark",
+      "titulos": [
+        "O Rei que Ajoelhou",
+        "Senhor de Winterfell",
+        "Protetor do Norte"
+      ],
+      "tracos_personalidade": [
+        "Sábio",
+        "Protetor fervoroso do seu povo",
+        "Humilde na liderança",
+        "Prudente"
+      ],
+      "objetivo_2_ac": "Preservar a vida de seu povo e as tradições ancestrais do Norte, evitando que seus homens fossem incinerados como no Campo de Fogo.",
+      "montaria": "Cavalo do norte rústico",
+      "arma": "Espada de aço e escudo com o lobo gigante",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "brandon_snow",
+      "nome": "Brandon Snow",
+      "titulos": [
+        "O Bastardo de Winterfell"
+      ],
+      "tracos_personalidade": [
+        "Audacioso",
+        "Letal com o arco",
+        "Apegado aos Deuses Antigos",
+        "Inconformado com a rendição"
+      ],
+      "objetivo_2_ac": "Matar os três dragões invasores com flechas mágicas de represeiro para manter o Norte soberano e livre de conquistadores sulistas.",
+      "montaria": "Pônei da floresta",
+      "arma": "Arco longo de represeiro",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "sharra_arryn",
+      "nome": "Sharra Arryn",
+      "titulos": [
+        "Flor da Montanha",
+        "Rainha Regente do Vale"
+      ],
+      "tracos_personalidade": [
+        "Bela e orgulhosa",
+        "Amor maternal incondicional",
+        "Diplomata astuta"
+      ],
+      "objetivo_2_ac": "Garantir a sobrevivência e a soberania do Vale e de seu filho Ronnel perante a expansão de Aegon.",
+      "montaria": "Mula de montanha",
+      "arma": "Diplomacia e influência",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "ronnel_arryn",
+      "nome": "Ronnel Arryn",
+      "titulos": [
+        "O Rei Menino",
+        "Senhor do Ninho da Águia"
+      ],
+      "tracos_personalidade": [
+        "Inocente",
+        "Fascinado por dragões",
+        "Curioso"
+      ],
+      "objetivo_2_ac": "Voar nos céus no dorso de um dragão de verdade.",
+      "montaria": "O dorso de Vhagar durante o voo pacificador",
+      "arma": "Nenhuma (criança)",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "meria_martell",
+      "nome": "Meria Martell",
+      "titulos": [
+        "O Sapo Amarelo de Dorne",
+        "Princesa de Dorne"
+      ],
+      "tracos_personalidade": [
+        "Indomável",
+        "Estrategista de guerrilha genial",
+        "Irônica",
+        "Resiliente"
+      ],
+      "objetivo_2_ac": "Humilhar os Senhores dos Dragões e manter Dorne para sempre independente e soberana.",
+      "montaria": "Liteira de seda carregada por criados",
+      "arma": "Veneno, escorpiões e o próprio deserto escaldante",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    {
+      "id": "deria_martell",
+      "nome": "Deria Martell",
+      "titulos": [
+        "Princesa de Dorne"
+      ],
+      "tracos_personalidade": [
+        "Corajosa",
+        "Hermética",
+        "Determinada na paz"
+      ],
+      "objetivo_2_ac": "Mais tarde (em 13 d.C.), entregar a mensagem decisiva que salvaria Dorne e selaria a paz honrosa com Aegon I.",
+      "montaria": "Corcel da areia",
+      "arma": "A carta lacrada de Nymor Martell",
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+      }
+    }
+  ],
+  "dragoes": {
+    "balerion": {
+      "nome": "Balerion, o Terror Negro",
+      "montador_conquista": "Aegon I Targaryen",
+      "tamanho_envergadura": "Colossal (sombra cobria cidades inteiras, mandíbula engolia mamutes)",
+      "cor_escamas": "Negro fosco",
+      "cor_chamas": "Negras com reflexos vermelhos incandescentes",
+      "estatisticas_rpg": {
+        "categoria_tamanho": "Titânico / Adulto Ancestral",
+        "vigor": 12,
+        "combate": 10,
+        "blindagem_escamas": 18,
+        "dano_baforada": "10d6 de calor puro (derrete pedra e funde ferro)"
+      },
+      "feitos_canoniocos": [
+        "Derreteu a pedra e as torres de Harrenhal no cerco a Harren o Negro.",
+        "Liderou o Campo de Fogo matando o rei Mern IX e dispersando 55 mil inimigos.",
+        "Forjou o Trono de Ferro derretendo milhares de espadas dos lordes vencidos."
+      ],
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    "vhagar": {
+      "nome": "Vhagar",
+      "montador_conquista": "Visenya Targaryen",
+      "tamanho_envergadura": "Enorme (o segundo maior dragão da Conquista)",
+      "cor_escamas": "Bronze escuro com reflexos verde-mar",
+      "cor_chamas": "Douradas e verdejantes de altíssimo calor",
+      "estatisticas_rpg": {
+        "categoria_tamanho": "Gigantesco / Maduro",
+        "vigor": 10,
+        "combate": 9,
+        "blindagem_escamas": 15,
+        "dano_baforada": "8d6 de chamas contínuas"
+      },
+      "feitos_canoniocos": [
+        "Queimou a frota de Vila Gaivota na Batalha naval do Vale.",
+        "Causou estragos decisivos no flanco esquerdo do Campo de Fogo.",
+        "Pousou no pátio do Ninho da Águia sem disparar uma chama, rendendo o Vale sem sangue."
+      ],
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    },
+    "meraxes": {
+      "nome": "Meraxes",
+      "montador_conquista": "Rhaenys Targaryen",
+      "tamanho_envergadura": "Grande e ágil (capaz de engolir cavalos inteiros, mais veloz no ar)",
+      "cor_escamas": "Prateadas brilhantes com membranas douradas",
+      "cor_chamas": "Douradas e alaranjadas",
+      "estatisticas_rpg": {
+        "categoria_tamanho": "Grande / Ágil",
+        "vigor": 8,
+        "combate": 8,
+        "blindagem_escamas": 12,
+        "dano_baforada": "7d6 de sopro rápido"
+      },
+      "feitos_canoniocos": [
+        "Queimou as linhas defensivas de Argilac na Batalha do Último Risco.",
+        "Incendiou o flanco direito no Campo de Fogo.",
+        "Abatida por um escorpião em Hellholt no ano 10 d.C."
+      ],
+      "fonte": {
+        "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+        "livro": "Fogo & Sangue - Volume 1",
+        "capitulo": "A Conquista de Aegon"
+      }
+    }
+  },
+  "ganchos_ramificacao": [
+    {
+      "id": "gancho_brandon_snow_abate_dragoes",
+      "titulo": "O Atirador do Tridente (Brandon Snow obtém sucesso)",
+      "premissa_divergencia": "E se Brandon Snow tivesse autorização de Torrhen para cruzar o Tridente à noite e conseguisse abater um ou mais dragões com flechas de represeiro encantadas?",
+      "consequencias_narrativas": [
+        "Um dos dragões (Vhagar ou Meraxes) morre ou é incapacitado na véspera do confronto do Tridente.",
+        "O Norte não se ajoelha imediatamente; inicia-se uma guerra de atrito no Gargalo onde dragões não conseguem pousar no pântano.",
+        "Aegon é forçado a negociar um tratado de co-soberania em vez de submissão unilateral."
+      ],
+      "origem": "original"
+    },
+    {
+      "id": "gancho_rhaenys_resgatada_em_hellholt",
+      "titulo": "O Resgate de Rhaenys e Meraxes em Hellholt",
+      "premissa_divergencia": "E se a comitiva secreta de batedores do Trono de Ferro interceptar o dardo do escorpião antes de atingir o olho de Meraxes, ou se Rhaenys sobreviver à queda e for resgatada das masmorras dos Uller?",
+      "consequencias_narrativas": [
+        "A rainha Rhaenys sobrevive à Primeira Guerra Dornesa, impedindo o período de ódio desmedido e terror cego conhecido como a 'Ira do Dragão'.",
+        "A Casa Martell é forçada a uma negociação de trégua antecipada.",
+        "A linha de sucessão Targaryen permanece com Aenys e possíveis novos filhos de Rhaenys, alterando o equilíbrio com Visenya e Maegor."
+      ],
+      "origem": "original"
+    },
+    {
+      "id": "gancho_vilavelha_capital",
+      "titulo": "Vilavelha como Capital Eterna dos Sete Reinos",
+      "premissa_divergencia": "E se Aegon aceitar o pedido do Alto Septão e de Manfred Hightower de estabelecer a corte permanente e o Trono de Ferro na Torralta de Vilavelha em vez da foz pantanosa da Água Negra?",
+      "consequencias_narrativas": [
+        "Porto Real nunca é construída; a Cidadela e a Fé dos Sete passam a exercer influência imediata e direta sobre as decisões diárias da coroa.",
+        "A Fortaleza Vermelha nunca existirá, sendo o centro de poder a imponente Torralta.",
+        "A cultura e o culto aos Sete Deuses passam a assimilar mais rapidamente a dinastia Targaryen, enfraquecendo o isolamento valiriano."
+      ],
+      "origem": "original"
+    },
+    {
+      "id": "gancho_pacto_com_argilac",
+      "titulo": "A Aliança de Sangue com Argilac Durrandon",
+      "premissa_divergencia": "E se o emissário de Aegon aceitar casar Argella diretamente com um nobre de Pedra do Dragão sem ofender o velho rei, unindo as Terras da Tempestade antes da invasão dos rios?",
+      "consequencias_narrativas": [
+        "Argilac Durrandon luta ao lado de Aegon contra Harren o Negro.",
+        "A Batalha do Último Risco nunca ocorre; a linhagem direta dos Durrandon continua sem interrupção.",
+        "A Casa Baratheon não é fundada da forma histórica, mudando os rumos do reino."
+      ],
+      "origem": "original"
+    }
+  ]
+}

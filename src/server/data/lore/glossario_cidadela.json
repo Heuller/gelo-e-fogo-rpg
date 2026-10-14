@@ -1,0 +1,1536 @@
+[
+  {
+    "id": "balerion",
+    "termo": "Balerion, o Terror Negro",
+    "aliases": [
+      "Terror Negro",
+      "O Grande Dragão de Aegon"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "O maior e mais temível dragão da dinastia Targaryen, o único sobrevivente trazido de Valíria antes da Perdição. Montado pelo rei Aegon I durante as Guerras da Conquista, seu fogo forjou o Trono de Ferro e incinerou Harrenhal e o exército de Mern IX no Campo de Fogo. Suas asas cobriam cidades inteiras em sombra e seus dentes eram do tamanho de espadas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "vhagar",
+    "termo": "Vhagar",
+    "aliases": [
+      "Dragão da Rainha Visenya"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão-fêmea de escamas bronze e olhos verde-esmeralda, montada pela rainha Visenya Targaryen. Teve papel decisivo na Queima dos Navios em Vila Gaivota, no Campo de Fogo e na pacificação do Ninho da Águia. Mais tarde, tornou-se o segundo maior dragão dos Sete Reinos.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "meraxes",
+    "termo": "Meraxes",
+    "aliases": [
+      "Dragão da Rainha Rhaenys"
+    ],
+    "categoria": "dragao",
+    "resumo_meistre": "Dragão-fêmea de escamas prateadas e olhos dourados, montada pela rainha Rhaenys Targaryen. Era mais rápida que Balerion e capaz de engolir um cavalo inteiro. Foi abatida em 10 d.C. em Toca do Inferno (Hellholt), quando um dardo de escorpião perfurou seu olho, causando a trágica morte de Rhaenys.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "aegon_i_targaryen",
+    "termo": "Aegon I Targaryen",
+    "aliases": [
+      "Aegon o Conquistador",
+      "Aegon o Dragão",
+      "Lorde de Pedra do Dragão"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Primeiro Senhor dos Sete Reinos e fundador da dinastia real Targaryen. Homem alto, de ombros largos, olhos púrpura e cabelos platinados. Guerreiro formidável empunhando a espada Fogonegro no dorso de Balerion, pragmático e implacável na guerra, mas magnânimo na vitória, permitindo que os reis que ajoelhassem preservassem suas terras e leis como Protetores.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "visenya_targaryen",
+    "termo": "Visenya Targaryen",
+    "aliases": [
+      "Rainha Visenya",
+      "Irmã Mais Velha"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmã mais velha e esposa de Aegon I. Mulher austera, de beleza dura e olhar feroz, guerreira nata treinada desde a infância que portava a espada valiriana Irmã Sombria e montava Vhagar. Conhecida por sua mente militar brilhante, frieza e rumores de envolvimento com venenos e feitiçaria valiriana.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "rhaenys_targaryen",
+    "termo": "Rhaenys Targaryen",
+    "aliases": [
+      "Rainha Rhaenys",
+      "A Amada do Rei"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmã mais jovem e segunda esposa de Aegon I, casada por paixão. Amante da música, da poesia e das viagens nos céus no dorso de Meraxes, passando o dobro do tempo voando em comparação aos irmãos. Tinha espírito curioso e generoso, sendo a arquiteta da união de vários casamentos inter-regionais para costurar o reino.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "orys_baratheon",
+    "termo": "Orys Baratheon",
+    "aliases": [
+      "Orys uma Mão",
+      "O Irmão Bastardo"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Irmão bastardo e braço direito de Aegon I. General de cabelos negros e olhos escuros que comandou a vanguarda terrestre do exército Targaryen. Matou Argilac Durrandon em duelo singular durante a Batalha do Último Risco, casou-se com a princesa Argella Durrandon e fundou a Casa Baratheon de Ponta Tempestade, adotando o lema e o cervo coroado dos Reis da Tempestade.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "daemon_velaryon",
+    "termo": "Daemon Velaryon",
+    "aliases": [
+      "Lorde das Marés",
+      "Mestre dos Navios de Aegon"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Derivamarca e chefe da Casa Velaryon, tradicional aliada e parente consanguínea dos Targaryen. Nomeado por Aegon I como o primeiro Mestre dos Navios da coroa, liderou a frota real na Batalha de Vila Gaivota, onde pereceu heroicamente quando sua frota foi atacada pelos Arryn.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "crispian_celtigar",
+    "termo": "Crispian Celtigar",
+    "aliases": [
+      "Lorde de Ilha da Garra",
+      "Mestre da Moeda"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor da Ilha da Garra, de antiga nobreza valiriana aliada a Pedra do Dragão. Foi nomeado por Aegon I como o primeiro responsável pelas finanças reais (antecessor do cargo de Mestre da Moeda), administrando o tesouro e as taxas portuárias na foz da Torrente da Água Negra.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "triston_massey",
+    "termo": "Triston Massey",
+    "aliases": [
+      "Lorde de Baile de Pedra"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor do Baile de Pedra, um dos primeiros nobres dos domínios continentais da Baía da Água Negra a jurar lealdade a Aegon após seu desembarque, nomeado Mestre das Leis da coroa.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "argilac_durrandon",
+    "termo": "Argilac Durrandon",
+    "aliases": [
+      "Argilac, o Arrogante",
+      "Último Rei da Tempestade"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "O último Rei da Tempestade da linhagem Durrandon. Guerreiro envelhecido mas formidável, recusou a proposta de Aegon de casar sua filha Argella com Orys Baratheon, decepando as mãos do enviado Targaryen. Foi derrotado e morto por Orys em combate corpo a corpo na Batalha do Último Risco.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "argella_durrandon",
+    "termo": "Argella Durrandon",
+    "aliases": [
+      "Donzela de Ponta Tempestade",
+      "Rainha da Tempestade"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Filha única e herdeira de Argilac Durrandon. Após a morte do pai, proclamou-se Rainha da Tempestade e trancou os portões de Ponta Tempestade prometendo lutar até o último sangue. Sua própria guarnição a traiu e a entregou nua e acorrentada a Orys Baratheon, que a tratou com honra e a tomou por esposa.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "harren_hoare",
+    "termo": "Harren Hoare",
+    "aliases": [
+      "Harren, o Negro",
+      "Rei das Ilhas e dos Rios"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Tirano nascido de ferro da linhagem de Harwyn Braço-Duro que escravizou as Terras Fluviais por quarenta anos para erguer a monstruosa fortaleza de Harrenhal. Recusou capitular perante Aegon acreditando que pedra não queima, perecendo junto de todos os seus filhos e de sua linhagem quando Balerion derreteu as torres de seu castelo.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "edmyn_tully",
+    "termo": "Edmyn Tully",
+    "aliases": [
+      "Lorde de Correrrio",
+      "Primeiro Senhor Supremo do Tridente"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Correrrio que liderou a revolta dos lordes dos rios contra Harren o Negro, desertando o exército de Harrenhal para se juntar a Aegon I. Como recompensa por sua lealdade pioneira, Aegon o nomeou Senhor Supremo do Tridente.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "mern_ix_gardener",
+    "termo": "Mern IX Gardener",
+    "aliases": [
+      "Rei da Campina",
+      "Último Rei Gardener"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Rei da Campina e último monarca da linhagem milenar de Garth Mão Verde. Aliou-se a Loren Lannister reunindo cinquenta e cinco mil guerreiros dos Dois Reis contra os Targaryen, morrendo consumido pelas chamas de Balerion, Vhagar e Meraxes no Campo de Fogo junto de todos os seus filhos e sobrinhos.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "loren_i_lannister",
+    "termo": "Loren I Lannister",
+    "aliases": [
+      "Loren, o Último",
+      "Lorde de Rochedo Casterly"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Rei do Rochedo que comandou a carga conjunta com Mern IX no Campo de Fogo. Ao ver o exército ser destruído pelo fogo dos três dragões, conseguiu escapar com vida, dobrou o joelho para Aegon no dia seguinte e foi nomeado Senhor de Rochedo Casterly e Protetor do Oeste.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "torrhen_stark",
+    "termo": "Torrhen Stark",
+    "aliases": [
+      "O Rei que Ajoelhou",
+      "Lorde de Winterfell"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Rei do Norte que marchou com trinta mil guerreiros nortenhos rumo ao Tridente para expulsar os invasores. Ao deparar-se com um exército de quarenta e cinco mil homens e os três dragões no céu, e após ouvir os conselhos de seus meistres e de seu meio-irmão Brandon Snow, escolheu ajoelhar-se perante Aegon sem derramar uma gota de sangue nortenho, sendo nomeado Protetor do Norte.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "brandon_snow",
+    "termo": "Brandon Snow",
+    "aliases": [
+      "O Bastardo de Winterfell"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Meio-irmão bastardo de Torrhen Stark. Ofereceu-se para cruzar o Tridente sob o manto da noite com três flechas de madeira de represeiro para assassinar os dragões de Aegon enquanto dormiam. Torrhen vetou o plano e enviou Brandon com meistres para negociar a rendição honrosa do Norte.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "sharra_arryn",
+    "termo": "Sharra Arryn",
+    "aliases": [
+      "Flor da Montanha",
+      "Rainha Regente do Vale"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Rainha Regente do Vale governando em nome de seu filho pequeno Ronnel. Enviou a Aegon seu retrato propondo casamento com a condição de que seu filho fosse declarado herdeiro dos Sete Reinos, o que Aegon recusou. Rendeu o Vale pacificamente após Visenya voar com Vhagar até o pátio interno do Ninho da Águia.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ronnel_arryn",
+    "termo": "Ronnel Arryn",
+    "aliases": [
+      "O Rei Menino",
+      "Lorde do Ninho da Águia"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Jovem Rei da Montanha e do Vale durante a Conquista. Ficou encantado com a chegada de Visenya e seu dragão Vhagar no Ninho da Águia, pedindo para voar no dorso da fera. Sua mãe Sharra entregou as coroas do Vale em troca do passeio do menino e da preservação da paz.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "meria_martell",
+    "termo": "Meria Martell",
+    "aliases": [
+      "O Sapo Amarelo de Dorne",
+      "Princesa de Dorne"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Princesa de Dorne, idosa de oitenta anos, cega e gorda, mas de astúcia incomparável. Enfrentou a rainha Rhaenys e mais tarde Aegon com táticas de guerrilha no deserto, recusando submeter-se e proferindo o célebre lema: 'Dorne não tem rei. Aqui você não é bem-vinda. Volte por sua conta e risco'. Liderou a resistência vitoriosa contra a invasão Targaryen.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "deria_martell",
+    "termo": "Deria Martell",
+    "aliases": [
+      "Princesa de Dorne"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Herdeira e filha de Nymor Martell. Viajou a Porto Real em 13 d.C. trazendo o crânio do dragão Meraxes e uma carta secreta e lacrada de seu pai diretamente para as mãos do rei Aegon I, selando a paz definitiva entre o Trono de Ferro e Dorne.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "manfred_hightower",
+    "termo": "Manfred Hightower",
+    "aliases": [
+      "Lorde da Torralta"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Senhor de Vilavelha durante a Conquista. Por conselho do Alto Septão, recusou unir suas forças às de Mern IX no Campo de Fogo e abriu as portas da cidade a Aegon I, recebendo o Conquistador em Vilavelha para sua unção e coroação sagrada.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_targaryen",
+    "termo": "Casa Targaryen",
+    "aliases": [
+      "A Casa do Dragão",
+      "Os Senhores dos Dragões"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Casa nobre de puro sangue valiriano sobrevivente à Perdição. Estabeleceu-se em Pedra do Dragão em 114 a.C. e unificou seis dos sete reinos sob o comando de Aegon I e suas irmãs Visenya e Rhaenys. Seu lema é 'Fogo e Sangue' e seu brasão é um dragão de três cabeças vermelho em campo negro.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_baratheon",
+    "termo": "Casa Baratheon",
+    "aliases": [
+      "Senhores de Ponta Tempestade"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Fundada por Orys Baratheon após a derrota dos Durrandon. Orys adotou o lema 'Nossa é a Fúria', as armas e as terras de Argilac Durrandon, unindo o sangue dos Reis da Tempestade à dinastia do dragão.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-da-tempestade-baratheon.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras da Tempestade e a Casa Baratheon"
+    }
+  },
+  {
+    "id": "casa_stark",
+    "termo": "Casa Stark",
+    "aliases": [
+      "Senhores de Winterfell",
+      "Reis do Inverno"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Descendentes dos Primeiros Homens e de Brandon, o Construtor. Governaram o Norte como Reis do Inverno por milhares de anos até Torrhen Stark dobrar o joelho perante Aegon I, tornando-se Protetores do Norte. Seu lema é 'O Inverno Está Chegando'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-norte-stark.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Norte e a Casa Stark"
+    }
+  },
+  {
+    "id": "casa_lannister",
+    "termo": "Casa Lannister",
+    "aliases": [
+      "Senhores do Rochedo",
+      "Leões de Casterly"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Descendentes dos Ândalos e de Lann, o Esperto. Governantes ricos das minas de ouro do Oeste a partir do Rochedo Casterly. Seu lema oficial é 'Ouça-me Rugir!'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-ocidentais-lannister.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Ocidentais e a Casa Lannister"
+    }
+  },
+  {
+    "id": "casa_arryn",
+    "termo": "Casa Arryn",
+    "aliases": [
+      "Senhores do Ninho da Águia",
+      "Defensores do Vale"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Uma das linhagens mais puras da nobreza ândala, governando o Vale a partir do formidável castelo do Ninho da Águia. Seu lema é 'Tão Alto Como a Honra'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-vale-arryn.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Vale e a Casa Arryn"
+    }
+  },
+  {
+    "id": "casa_tully",
+    "termo": "Casa Tully",
+    "aliases": [
+      "Senhores de Correrrio",
+      "Senhores Supremos do Tridente"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Casa nobre das Terras Fluviais que nunca fora realeza até liderar a revolta contra Harren o Negro. Nomeada por Aegon como governante suprema dos rios. Seu lema é 'Família, Dever, Honra'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-fluviais-tully.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Fluviais e a Casa Tully"
+    }
+  },
+  {
+    "id": "casa_tyrell",
+    "termo": "Casa Tyrell",
+    "aliases": [
+      "Senhores de Jardim de Cima",
+      "Protetores do Sul"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Mordomos hereditários de Jardim de Cima que entregaram o castelo a Aegon após a morte de Mern IX, sendo elevados a Senhores Supremos da Campina. Seu lema é 'Crescendo Fortes'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_a-campina-tyrell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Campina e a Casa Tyrell"
+    }
+  },
+  {
+    "id": "casa_martell",
+    "termo": "Casa Martell",
+    "aliases": [
+      "Príncipes de Lançassolar",
+      "Senhores de Dorne"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Soberanos de Dorne que combinam tradições ândalas e roinares. Resistiram com sucesso à Conquista de Aegon por meio de guerra no deserto. Seu lema é 'Insubmissos, Não Curvados, Não Quebrados'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_dorne-martell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "Dorne e a Casa Martell"
+    }
+  },
+  {
+    "id": "casa_greyjoy",
+    "termo": "Casa Greyjoy",
+    "aliases": [
+      "Senhores de Pyke",
+      "Ceifadores das Ilhas de Ferro"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Descendentes do Rei Cinzento escolhidos pelos próprios nascidos de ferro em conselho após Aegon aniquilar a dinastia Hoare. Seu lema é 'Nós Não Semeamos'.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_ilhas-de-ferro-greyjoy.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Ilhas de Ferro e a Casa Greyjoy"
+    }
+  },
+  {
+    "id": "casa_velaryon",
+    "termo": "Casa Velaryon",
+    "aliases": [
+      "Senhores de Derivamarca",
+      "Mestres das Marés"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Casa de ascendência valiriana instalada na Baía da Água Negra antes dos Targaryen. Detentora da maior frota naval mercantil e militar da corte de Aegon I.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_celtigar",
+    "termo": "Casa Celtigar",
+    "aliases": [
+      "Senhores da Ilha da Garra"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Linhagem valiriana menor instalada na Ilha da Garra, tradicionalmente encarregada dos impostos e tesouraria na corte de Aegon I.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_durrandon",
+    "termo": "Casa Durrandon",
+    "aliases": [
+      "Reis da Tempestade"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Antiga dinastia fundada na Era dos Heróis por Durran Pesar-dos-Deuses, extinta na linhagem masculina com a morte de Argilac, o Arrogante, sendo continuada via Argella na Casa Baratheon.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_hoare",
+    "termo": "Casa Hoare",
+    "aliases": [
+      "Reis Negros",
+      "Linhagem de Harren"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Dinastia dos nascidos de ferro que conquistou as Terras Fluviais e construiu Harrenhal. Extinta totalmente no Incêndio de Harrenhal por Balerion.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_gardener",
+    "termo": "Casa Gardener",
+    "aliases": [
+      "Reis de Jardim de Cima"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Dinastia milenar que governou a Campina desde a Era dos Heróis. Aniquilada no Campo de Fogo quando o rei Mern IX e todos os seus herdeiros morreram nas chamas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "casa_hightower",
+    "termo": "Casa Hightower",
+    "aliases": [
+      "Senhores da Torralta",
+      "Faróis do Sul"
+    ],
+    "categoria": "grande_casa",
+    "resumo_meistre": "Uma das casas mais ricas e antigas de Westeros, protetores da Cidadela e de Vilavelha, que acolheram e coroaram Aegon I no Septo Estrelado.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "fogonegro",
+    "termo": "Fogonegro",
+    "aliases": [
+      "Blackfyre",
+      "A Espada do Rei Aegon"
+    ],
+    "categoria": "artefato_espada",
+    "resumo_meistre": "Lâmina bastarda forjada em aço valiriano de cor negra reluzente, empunhada por Aegon I durante toda a Conquista. Tornou-se o símbolo supremo da monarquia legítima da Casa Targaryen.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "irma_sombria",
+    "termo": "Irmã Sombria",
+    "aliases": [
+      "Dark Sister",
+      "Espada da Rainha Visenya"
+    ],
+    "categoria": "artefato_espada",
+    "resumo_meistre": "Espada longa de aço valiriano de lâmina mais esguia forjada para a mão de uma mulher, empunhada com maestria mortal pela rainha Visenya Targaryen.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "mesa_pintada",
+    "termo": "A Mesa Pintada",
+    "aliases": [
+      "Mesa de Pedra de Pedra do Dragão"
+    ],
+    "categoria": "artefato_espada",
+    "resumo_meistre": "Maciça mesa de pedra de mais de quinze metros de comprimento entalhada no formato de Westeros, com todos os rios, colinas e castelos do continente pintados, encomendada por Aegon anos antes da Conquista para planejar a unificação.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "trono_de_ferro",
+    "termo": "O Trono de Ferro",
+    "aliases": [
+      "Trono dos Sete Reinos"
+    ],
+    "categoria": "artefato_espada",
+    "resumo_meistre": "Assento real forjado por ferreiros a mando de Aegon I com as mil espadas rendidas de seus inimigos, fundidas e entrelaçadas pelo sopro incandescente de Balerion. Repleto de pontas pontiagudas, lâminas e rebarbas, pois Aegon acreditava que um rei nunca deveria sentar-se confortavelmente.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "coroa_valiriana",
+    "termo": "Coroa Valiriana de Aegon",
+    "aliases": [
+      "Circulo de Aço Valiriano"
+    ],
+    "categoria": "artefato_espada",
+    "resumo_meistre": "Aro simples de aço valiriano engastado com grandes rubis quadrados, usado por Aegon I em sua coroação e em cerimônias de estado.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "pedra_do_dragao",
+    "termo": "Pedra do Dragão",
+    "aliases": [
+      "Dragonstone",
+      "Fortaleza Insular"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Cidadela insular situada no Mar Estreito, construída com alvenaria valiriana fundida na forma de dragões negros, gárgulas e muralhas indestrutíveis. Posto avançado de Valíria e berço da Conquista.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "forte_de_aegon",
+    "termo": "O Forte de Aegon (Aegonfort)",
+    "aliases": [
+      "Porto Real Primitivo",
+      "Berço da Capital"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Forte simples de madeira e paliçada erguido no cume da mais alta das três colinas na foz da Torrente da Água Negra, onde Aegon desembarcou e que mais tarde deu lugar à Fortaleza Vermelha e à cidade de Porto Real.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "harrenhal",
+    "termo": "Harrenhal",
+    "aliases": [
+      "O Castelo Amaldiçoado",
+      "Harrenhal das Cinco Torres"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "A maior fortaleza já erguida em Westeros, situada às margens do Olho de Deus. Suas cinco torres descomunais foram calcinadas e retorcidas pelo fogo de Balerion no dia em que foi concluída.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ponta_tempestade",
+    "termo": "Ponta Tempestade",
+    "aliases": [
+      "Storm's End",
+      "Sede dos Reis da Tempestade"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Fortaleza colossal erguida na Baía dos Naufrágios, com uma enorme muralha de tambor protegida por suposta magia ancestral contra as tempestades e feitiços.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ninho_da_aguia",
+    "termo": "O Ninho da Águia",
+    "aliases": [
+      "Eyrie",
+      "Sede da Casa Arryn"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Castelo situado no topo da Lança do Gigante, considerado impenetrável por terra, mas conquistado pacificamente quando Visenya pousou no pátio interno com Vhagar.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "rochedo_casterly",
+    "termo": "Rochedo Casterly",
+    "aliases": [
+      "Casterly Rock",
+      "O Rochedo"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Montanha fortificada à beira do Mar Poente escavada com salas, passagens e ricas minas de ouro, sede lendária dos Lannister.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-ocidentais-lannister.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Ocidentais e a Casa Lannister"
+    }
+  },
+  {
+    "id": "jardim_de_cima",
+    "termo": "Jardim de Cima",
+    "aliases": [
+      "Highgarden",
+      "Sede da Campina"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Belo castelo cercado por jardins e muralhas concêntricas às margens do rio Vago, transferido pacificamente aos Tyrell por Aegon I.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_a-campina-tyrell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Campina e a Casa Tyrell"
+    }
+  },
+  {
+    "id": "winterfell",
+    "termo": "Winterfell",
+    "aliases": [
+      "Sede do Norte"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Antigo castelo dos Reis do Inverno construído sobre fontes termais quentes no centro do Norte, protegido por muralhas duplas de granito e pelo Bosque Sagrado dos Primeiros Homens.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-norte-stark.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Norte e a Casa Stark"
+    }
+  },
+  {
+    "id": "vilavelha",
+    "termo": "Vilavelha",
+    "aliases": [
+      "Oldtown",
+      "Cidade da Torralta"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "A cidade mais antiga e populosa de Westeros, lar da Cidadela dos Meistres, da Torralta e do Septo Estrelado, centro religioso onde Aegon foi ungido pelo Alto Septão.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "lancassolar",
+    "termo": "Lançassolar",
+    "aliases": [
+      "Sunspear",
+      "Sede de Dorne"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Castelo murado banhado pelas águas do Mar de Verão, sede da Casa Martell, defendido com sucesso contra os ataques aéreos durante as guerras dornesas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_dorne-martell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "Dorne e a Casa Martell"
+    }
+  },
+  {
+    "id": "toca_do_inferno",
+    "termo": "Toca do Inferno (Hellholt)",
+    "aliases": [
+      "Sede dos Uller"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Castelo desértico da Casa Uller em Dorne, célebre pela morte da rainha Rhaenys e do dragão Meraxes abatidos por uma balista de ferro.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "baia_da_agua_negra",
+    "termo": "Baía da Água Negra",
+    "aliases": [
+      "Blackwater Bay"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Grande baía na costa oriental de Westeros, local estratégico de desembarque de Aegon e foz do rio Água Negra.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "o_tridente",
+    "termo": "O Tridente",
+    "aliases": [
+      "Rio Tridente",
+      "Os Três Ramos"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Grande rede fluvial das Terras Fluviais (Ramos Vermelho, Verde e Azul), onde Torrhen Stark reuniu seu exército antes de dobrar o joelho.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "a_muralha",
+    "termo": "A Muralha",
+    "aliases": [
+      "O Muro de Gelo"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Colossal barreira de gelo sólido de mais de duzentos metros de altura na fronteira norte de Westeros, guarnecida pela Patrulha da Noite.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/cenario_a-muralha-e-alem.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Muralha e Além"
+    }
+  },
+  {
+    "id": "o_desembarque_de_aegon",
+    "termo": "O Desembarque de Aegon",
+    "aliases": [
+      "Aegon's Landing",
+      "O Marco 2 a.C."
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "O momento inicial em 2 a.C. em que Aegon e suas irmãs desembarcaram com cerca de mil soldados na foz da Água Negra e ergueram a primeira paliçada de madeira.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "incendio_de_harrenhal",
+    "termo": "O Incêndio de Harrenhal",
+    "aliases": [
+      "A Queima de Harrenhal"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "O ataque aéreo noturno no qual Aegon montou Balerion acima do alcance dos arqueiros e mergulhou sobre Harrenhal, derretendo a pedra e aniquilando a linhagem do rei Harren.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "batalha_do_ultimo_risco",
+    "termo": "A Batalha do Último Risco",
+    "aliases": [
+      "The Last Storm"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Violento confronto travado em meio a uma terrível tempestade de chuva e vento nas Terras da Tempestade, onde Orys Baratheon e Rhaenys derrotaram e mataram o rei Argilac.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "campo_de_fogo",
+    "termo": "O Campo de Fogo",
+    "aliases": [
+      "Field of Fire"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "A maior batalha campal da Conquista, travada nas planícies abertas da Campina. Foi a única ocasião na história em que os três dragões (Balerion, Vhagar e Meraxes) atacaram juntos ao mesmo tempo, queimando vivos mais de quatro mil soldados dos Reis Gardener e Lannister.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "rendicao_no_tridente",
+    "termo": "A Rendição no Tridente",
+    "aliases": [
+      "O Rei que Ajoelhou"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Momento solene em que o rei Torrhen Stark, diante do poder avassalador dos três dragões no céu do Tridente, entregou a Coroa de Bronze e Ferro a Aegon I, salvando o Norte da destruição.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "primeira_guerra_dornesa",
+    "termo": "A Primeira Guerra Dornesa",
+    "aliases": [
+      "Guerra de Dorne",
+      "Ira do Dragão"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Conflito sangrento e prolongado (4 d.C. a 13 d.C.) em que os Targaryen tentaram subjugar Dorne pelo fogo, resultando na morte de Rhaenys e na subsequente devastação de fortalezas dornesas por Balerion e Vhagar.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "carta_de_dorne",
+    "termo": "A Carta de Dorne",
+    "aliases": [
+      "A Mensagem Secreta de Nymor"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Documento lacrado entregue em mãos por Deria Martell a Aegon I em 13 d.C. O conteúdo fez a mão do rei sangrar e encerrou imediatamente as hostilidades, permanecendo um dos maiores mistérios históricos de Westeros.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "meistres_cidadela",
+    "termo": "Meistres da Cidadela",
+    "aliases": [
+      "A Ordem dos Meistres",
+      "Eruditos de Vilavelha"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Irmandade secular de eruditos, médicos, astrônomos e conselheiros formados na Cidadela de Vilavelha, identificados pelos elos de sua corrente ao pescoço.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "alto_septao",
+    "termo": "O Alto Septão",
+    "aliases": [
+      "Voz dos Sete",
+      "Sua Alta Santidade"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Líder supremo da Fé dos Sete sediado no Septo Estrelado de Vilavelha, cuja visão divina de que a cidade queimaria o levou a ordenar a rendição pacífica a Aegon I.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "fe_dos_sete",
+    "termo": "A Fé dos Sete",
+    "aliases": [
+      "Os Sete Deuses",
+      "Religião dos Ândalos"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Religião dominante na maior parte de Westeros, adorando os sete aspectos da divindade: Pai, Mãe, Guerreiro, Donzela, Ferreiro, Velha e Estranho.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/historia_a-conquista.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "guarda_real",
+    "termo": "A Guarda Real",
+    "aliases": [
+      "Espadas Brancas",
+      "Guarda Branca de Aegon"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Irmandade de sete cavaleiros nobres juramentados para proteger a vida do rei até a morte, criada pela rainha Visenya após uma tentativa de assassinato contra Aegon nas ruas de Porto Real.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "mao_do_rei",
+    "termo": "A Mão do Rei",
+    "aliases": [
+      "Voz do Rei",
+      "Primeiro Oficial"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "O mais alto cargo de confiança e conselho no reino, instituído formalmente com Orys Baratheon, o 'escudo, mão e braço forte' de Aegon.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "aco_valiriano",
+    "termo": "Aço Valiriano",
+    "aliases": [
+      "Valyrian Steel"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Metal lendário forjado com magia e fogo de dragão na antiga Valíria, infinitamente mais afiado, leve e resistente do que o ferro comum, apresentando padrões ondulados característicos.",
+    "fonte": {
+      "arquivo_md": "corpus_md/regras_rpg/regras_combate.md",
+      "livro": "Game of Thrones RPG - Livro Básico",
+      "capitulo": "Capítulo 9: Combate"
+    }
+  },
+  {
+    "id": "patrulha_da_noite",
+    "termo": "A Patrulha da Noite",
+    "aliases": [
+      "Night's Watch",
+      "Irmãos Juramentados da Muralha"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Ordem militar milenar neutra que guarnece a Muralha contra as ameaças do norte congelado, que não participou das guerras da Conquista.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/cenario_a-muralha-e-alem.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Muralha e Além"
+    }
+  },
+  {
+    "id": "perversao_valiriana",
+    "termo": "Incesto Sagrado Valiriano",
+    "aliases": [
+      "Casamento Consanguíneo Targaryen"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Tradição das antigas famílias de senhores dos dragões de casar irmão com irmã para preservar a pureza do sangue e a afinidade com os dragões, adotada por Aegon, Visenya e Rhaenys.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ano_ac_dc",
+    "termo": "Datação AC e DC",
+    "aliases": [
+      "Antes da Conquista / Depois da Conquista"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Sistema cronológico padrão de Westeros criado pelos meistres, calculando as datas a partir da coroação de Aegon em Vilavelha.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "garth_mao_verde",
+    "termo": "Garth Mão Verde",
+    "aliases": [
+      "O Alto Rei da Campina"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Figura mitológica da Era dos Heróis ancestral dos Gardener e da maioria das casas nobres da Campina.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_a-campina-tyrell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Campina e a Casa Tyrell"
+    }
+  },
+  {
+    "id": "lann_o_esperto",
+    "termo": "Lann, o Esperto",
+    "aliases": [
+      "Lann the Clever"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Trapaceiro lendário que usurpou o Rochedo Casterly dos nobres Casterly apenas com sua astúcia.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-ocidentais-lannister.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Ocidentais e a Casa Lannister"
+    }
+  },
+  {
+    "id": "brandon_o_construtor",
+    "termo": "Brandon, o Construtor",
+    "aliases": [
+      "Bran the Builder"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Fundador da Casa Stark creditado pela construção de Winterfell, da Muralha e de Ponta Tempestade.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-norte-stark.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Norte e a Casa Stark"
+    }
+  },
+  {
+    "id": "artys_arryn",
+    "termo": "Sor Artys Arryn",
+    "aliases": [
+      "O Cavaleiro Alado"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Primeiro Rei da Montanha e do Vale que derrotou os Primeiros Homens na Batalha das Sete Estrelas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-vale-arryn.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Vale e a Casa Arryn"
+    }
+  },
+  {
+    "id": "nymeria_roinar",
+    "termo": "Rainha Nymeria",
+    "aliases": [
+      "A Princesa Guerreira do Roine"
+    ],
+    "categoria": "personagem",
+    "resumo_meistre": "Líder guerreira roinar que fugiu dos senhores de dragões em dez mil navios e casou-se com Mors Martell para unificar Dorne.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_dorne-martell.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "Dorne e a Casa Martell"
+    }
+  },
+  {
+    "id": "olho_de_deus",
+    "termo": "Olho de Deus",
+    "aliases": [
+      "Gods Eye"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "O maior lago de Westeros, nas Terras Fluviais, em cujas margens foi erguido Harrenhal e no centro repousa a misteriosa Ilha das Caras.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ilha_das_caras",
+    "termo": "A Ilha das Caras",
+    "aliases": [
+      "Isle of Faces"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Ilha sagrada no meio do Olho de Deus guardada pela Ordem dos Homens Verdes, onde o Pacto entre os Primeiros Homens e os Filhos da Floresta foi selado.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/historia_a-conquista.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "mar_estreito",
+    "termo": "O Mar Estreito",
+    "aliases": [
+      "The Narrow Sea"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "O mar que separa o continente de Westeros de Essos e das Cidades Livres.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "derivamarca",
+    "termo": "Derivamarca",
+    "aliases": [
+      "Driftmark"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Ilha fértil e rochosa na Baía da Água Negra, sede ancestral da Casa Velaryon.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "ilha_da_garra",
+    "termo": "Ilha da Garra",
+    "aliases": [
+      "Claw Isle"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Ilha rochosa no Mar Estreito habitada pelos Celtigar, adornada com tapeçarias e taças de ouro valirianas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "vila_gaivota",
+    "termo": "Vila Gaivota",
+    "aliases": [
+      "Gulltown"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Principal cidade portuária do Vale, palco da batalha naval em que Visenya incendiou a frota dos Arryn após a perda de Daemon Velaryon.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "septo_estrelado",
+    "termo": "O Septo Estrelado",
+    "aliases": [
+      "Starry Sept"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Grande templo de pedra negra reluzente em Vilavelha onde o Alto Septão residia e onde corou Aegon I.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "gargalo",
+    "termo": "O Gargalo",
+    "aliases": [
+      "The Neck"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Região pantanosa impenetrável que separa os reinos do Sul do Norte, lar dos cranogumanos e do castelo móvel de Atalaia da Água Cinzenta.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-norte-stark.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Norte e a Casa Stark"
+    }
+  },
+  {
+    "id": "valiria",
+    "termo": "Valíria Antiga",
+    "aliases": [
+      "A Cidade Franca",
+      "O Império Valiriano"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Coração da mais avançada civilização do mundo conhecido, destruída pelas Quatorze Chamas na Perdição de Valíria.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "batalha_dos_juncos",
+    "termo": "Batalha dos Juncos",
+    "aliases": [
+      "Confronto no Olho de Deus"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Combate fluvial em que as forças de Harren atacaram Aegon nos juncos do Olho de Deus antes do cerco definitivo a Harrenhal.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "pacifiacao_das_ilhas_de_ferro",
+    "termo": "Pacificação das Ilhas de Ferro",
+    "aliases": [
+      "A Campanha de 2 d.C."
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Expedição de Aegon com Balerion até Pyke para conter os pretendentes que lutavam pelo espólio de Harren, permitindo que os homens de ferro elegessem Vickon Greyjoy.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "queda_de_hellholt",
+    "termo": "Queda de Hellholt",
+    "aliases": [
+      "A Morte de Meraxes"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "A tragédia militar de 10 d.C. em que Meraxes foi alvejada no olho por um escorpião, matando a rainha Rhaenys e dando início à fase mais cruel da guerra.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "paz_de_dorne_13_dc",
+    "termo": "A Paz de Dorne (13 d.C.)",
+    "aliases": [
+      "O Tratado de Nymor"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "O fim formal da Primeira Guerra Dornesa, garantindo a independência soberana de Dorne sob os Martell até séculos depois.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "primeira_coroacao",
+    "termo": "A Primeira Coroação no Forte de Aegon",
+    "aliases": [
+      "Coroação de 2 a.C."
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Cerimônia modesta no Forte de Aegon onde Visenya colocou o diadema de rubis na cabeça de Aegon e Rhaenys o proclamou Rei de Toda Westeros.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "segunda_coroacao",
+    "termo": "A Grande Coroação de Vilavelha (1 d.C.)",
+    "aliases": [
+      "A Unção Sagrada"
+    ],
+    "categoria": "batalha_evento",
+    "resumo_meistre": "Coroação oficial pelo Alto Septão com os sete óleos sagrados no Septo Estrelado, marcando o início do calendário oficial DC.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "fogo_de_dragao",
+    "termo": "Fogo de Dragão",
+    "aliases": [
+      "Sopro de Dragão"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Chama de temperatura sobrenatural expelida por dragões maduros, capaz de fundir pedra, queimar ferro e incinerar homens instantaneamente em suas armaduras.",
+    "fonte": {
+      "arquivo_md": "corpus_md/regras_rpg/suplemento_dragoes.md",
+      "livro": "Suplemento de Dragões",
+      "capitulo": "Regras e Estatísticas de Dragões"
+    }
+  },
+  {
+    "id": "senhor_dos_sete_reinos",
+    "termo": "Senhor dos Sete Reinos",
+    "aliases": [
+      "Título Real do Conquistador"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Título monárquico reivindicado por Aegon I ao consolidar sob uma única lei as regiões anteriormente fragmentadas entre reis rivais.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "protetor_do_reino",
+    "termo": "Protetor do Território (Reino)",
+    "aliases": [
+      "Protector of the Realm"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "O posto supremo de comando militar de todos os exércitos combinados de Westeros detido pelo monarca no Trono de Ferro.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "flechas_de_represeiro",
+    "termo": "Flechas de Represeiro",
+    "aliases": [
+      "Weirwood Arrows"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Projéteis talhados na sagrada madeira branca de represeiro dos Deuses Antigos, que segundo a tradição do Norte e Brandon Snow possuíam propriedades mágicas capazes de perfurar a couraça de dragões.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "escorpiao_balista",
+    "termo": "Escorpião Anti-Aéreo",
+    "aliases": [
+      "Balista Dornesa"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Arma de cerco móvel montada sobre trilhos e eixos, capaz de disparar dardos de ferro maciço de um metro a alta velocidade, demonstrando em Hellholt ser uma ameaça letal contra dragões.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_02_reinado-do-dragao-guerras.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Reinado do Dragão: As guerras do rei Aegon I"
+    }
+  },
+  {
+    "id": "deuses_antigos",
+    "termo": "Os Deuses Antigos",
+    "aliases": [
+      "Old Gods of the Forest"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Divindades sem nome adoradas pelos Filhos da Floresta e pelos Primeiros Homens, veneradas silenciosamente através dos rostos esculpidos nos represeiros sagrados.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_o-norte-stark.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "O Norte e a Casa Stark"
+    }
+  },
+  {
+    "id": "deus_afogado",
+    "termo": "O Deus Afogado",
+    "aliases": [
+      "Drowned God"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Divindade marítima severa adorada exclusivamente pelos habitantes das Ilhas de Ferro, que prega o costume antigo do saque e o batismo por imersão.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_ilhas-de-ferro-greyjoy.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Ilhas de Ferro e a Casa Greyjoy"
+    }
+  },
+  {
+    "id": "correrrio",
+    "termo": "Correrrio",
+    "aliases": [
+      "Riverrun"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "Castelo triangular e fortaleza estratégica da Casa Tully, posicionado entre os rios Pedregoso e Ramo Vermelho.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-fluviais-tully.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Fluviais e a Casa Tully"
+    }
+  },
+  {
+    "id": "torralta",
+    "termo": "A Torralta de Vilavelha",
+    "aliases": [
+      "Hightower"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "O mais alto edifício de pedra do mundo conhecido, erguido sobre a Ilha da Batalha na foz do rio Vinho de Mel, com um farol que guia marinheiros por centenas de milhas.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/historia_a-conquista.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "A Conquista de Aegon"
+    }
+  },
+  {
+    "id": "porto_real",
+    "termo": "Porto Real",
+    "aliases": [
+      "King's Landing"
+    ],
+    "categoria": "local_castelo",
+    "resumo_meistre": "A capital construída em torno do Forte de Aegon na foz da Água Negra, tornando-se em poucos anos o centro político e econômico de Westeros.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_03_tres-cabecas-governo.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Três cabeças tinha o dragão: O governo do rei Aegon I"
+    }
+  },
+  {
+    "id": "rochedocasterly_minas",
+    "termo": "Minas de Ouro do Ocidente",
+    "aliases": [
+      "Riqueza dos Lannister"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Depósitos subterrâneos monumentais de ouro e prata no Rochedo Casterly e Dente Dourado que garantiram a supremacia financeira do Oeste.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_terras-ocidentais-lannister.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Terras Ocidentais e a Casa Lannister"
+    }
+  },
+  {
+    "id": "costume_antigo",
+    "termo": "O Costume Antigo",
+    "aliases": [
+      "Old Way"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "A tradição predatória dos nascidos de ferro de pagar o preço do ferro por tudo que possuem, em oposição ao pagamento em ouro.",
+    "fonte": {
+      "arquivo_md": "corpus_md/enciclopedia/grandes-casas_ilhas-de-ferro-greyjoy.md",
+      "livro": "O Mundo de Gelo e Fogo",
+      "capitulo": "As Ilhas de Ferro e a Casa Greyjoy"
+    }
+  },
+  {
+    "id": "progressos_reais",
+    "termo": "Progressos Reais de Aegon",
+    "aliases": [
+      "As Viagens do Conquistador"
+    ],
+    "categoria": "instituicao_conceito",
+    "resumo_meistre": "Tradição instituída por Aegon I de passar metade de cada ano cavalgando e voando de castelo em castelo com mil cavaleiros para aplicar a justiça e aproximar a coroa dos lordes.",
+    "fonte": {
+      "arquivo_md": "corpus_md/jornada_1_conquista/fogo-e-sangue_03_tres-cabecas-governo.md",
+      "livro": "Fogo & Sangue - Volume 1",
+      "capitulo": "Três cabeças tinha o dragão: O governo do rei Aegon I"
+    }
+  }
+]
