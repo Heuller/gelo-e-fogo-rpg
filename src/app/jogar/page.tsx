@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { TopBar } from '@/components/game/TopBar';
 import { CharacterPanel } from '@/components/game/CharacterPanel';
 import { NarrativeScroll, EscolhaNarrativa } from '@/components/game/NarrativeScroll';
+import { IntervencaoVoz } from '@/components/game/InternalVoices';
 import { DiceRoller2d6 } from '@/components/game/DiceRoller2d6';
 import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
@@ -17,12 +18,16 @@ import {
   obterCenaInicialAction,
   obterCenaPorIdAction,
   processarEscolhaAction,
+  processarAcaoLivreAction,
 } from '@/app/actions/gameActions';
 import { Map, Dices, Scroll } from 'lucide-react';
 
 export default function JogarPage() {
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
   const [nodeAtual, setNodeAtual] = useState<NodeJornada | null>(null);
+  const [textoCenaExibido, setTextoCenaExibido] = useState<string>('');
+  const [vozesExibidas, setVozesExibidas] = useState<IntervencaoVoz[]>([]);
+  const [modoIA, setModoIA] = useState<boolean>(true);
   const [abaLateral, setAbaLateral] = useState<'mapa' | 'dados' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -58,11 +63,12 @@ export default function JogarPage() {
   const [historico, setHistorico] = useState<TurnEvent[]>([]);
 
   useEffect(() => {
-    // Carrega o glossário da Cidadela e a cena inicial do Ato 1
     Promise.all([getGlossaryEntriesAction(), obterCenaInicialAction()])
       .then(([verbetesData, cenaData]) => {
         setVerbetes(verbetesData);
         setNodeAtual(cenaData.node);
+        setTextoCenaExibido(cenaData.node.fallbackText);
+        setVozesExibidas(cenaData.node.internalVoices || []);
         setFicha(cenaData.fichaInicial);
         setWorldState(cenaData.worldStateInicial);
         setHistorico([
@@ -88,15 +94,26 @@ export default function JogarPage() {
     if (!nodeAtual) return;
 
     try {
+      setFeedback('Consultando os desígnios da crônica...');
       const res = await processarEscolhaAction({
         nodeId: nodeAtual.id,
         escolhaId,
         ficha,
         worldState,
         turnNumber: historico.length + 1,
+        usarIA: modoIA,
       });
 
       setNodeAtual(res.proximoNode);
+      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
+      
+      const vozesBase = res.proximoNode.internalVoices || [];
+      const vozesAdicionadas: IntervencaoVoz[] = (res.vozesExtras || []).map((v) => ({
+        atributo: v.voz,
+        fala: v.fala,
+      }));
+      setVozesExibidas([...vozesBase, ...vozesAdicionadas]);
+
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
       setHistorico([res.turnEvent, ...historico]);
@@ -113,6 +130,48 @@ export default function JogarPage() {
     }
   }
 
+  async function handleAcaoLivre(textoAcao: string) {
+    if (!nodeAtual) return;
+
+    try {
+      setFeedback('O Mestre avalia vossa ordem com os vassalos e meistres...');
+      const res = await processarAcaoLivreAction({
+        nodeId: nodeAtual.id,
+        textoAcaoLivre: textoAcao,
+        ficha,
+        worldState,
+        turnNumber: historico.length + 1,
+        usarIA: modoIA,
+      });
+
+      setNodeAtual(res.proximoNode);
+      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
+
+      const vozesBase = res.proximoNode.internalVoices || [];
+      const vozesAdicionadas: IntervencaoVoz[] = (res.vozesExtras || []).map((v) => ({
+        atributo: v.voz,
+        fala: v.fala,
+      }));
+      setVozesExibidas([...vozesBase, ...vozesAdicionadas]);
+
+      setFicha(res.fichaAtualizada);
+      setWorldState(res.worldStateAtualizado);
+      setHistorico([res.turnEvent, ...historico]);
+
+      if (res.resultadoRolagem) {
+        setResultadoRolagem(res.resultadoRolagem);
+        setAbaLateral('dados');
+      }
+
+      const msgClassificacao = res.classificacao
+        ? `[Mestre]: ${res.classificacao.justificativa}`
+        : `Ação livre executada: "${textoAcao}"`;
+      setFeedback(msgClassificacao);
+    } catch (err: any) {
+      setFeedback('Erro ao processar ação livre: ' + err.message);
+    }
+  }
+
   async function handleDesfazerTurno() {
     if (historico.length <= 1) {
       setFeedback('Nenhum turno anterior para desfazer.');
@@ -124,6 +183,8 @@ export default function JogarPage() {
       const nodeRestaurado = await obterCenaPorIdAction(turnoAnterior.nodeId);
       if (nodeRestaurado) {
         setNodeAtual(nodeRestaurado);
+        setTextoCenaExibido(nodeRestaurado.fallbackText);
+        setVozesExibidas(nodeRestaurado.internalVoices || []);
         setHistorico([turnoAnterior, ...resto]);
         setFeedback(`Turno desfeito. Retornado à cena '${nodeRestaurado.titulo}'.`);
       }
@@ -136,6 +197,8 @@ export default function JogarPage() {
     try {
       const inicio = await obterCenaInicialAction();
       setNodeAtual(inicio.node);
+      setTextoCenaExibido(inicio.node.fallbackText);
+      setVozesExibidas(inicio.node.internalVoices || []);
       setFicha(inicio.fichaInicial);
       setWorldState(inicio.worldStateInicial);
       setHistorico([
@@ -179,8 +242,7 @@ export default function JogarPage() {
     );
   }
 
-  // Divide o fallbackText em parágrafos separados
-  const paragrafos = nodeAtual.fallbackText
+  const paragrafos = textoCenaExibido
     .split('\n\n')
     .map((p) => p.trim())
     .filter((p) => p.length > 0);
@@ -207,6 +269,8 @@ export default function JogarPage() {
         localizacao={nodeAtual.localizacao || 'Westeros'}
         slotAtivo={1}
         statusSalvamento="Sincronizado"
+        modoIA={modoIA}
+        onToggleModoIA={() => setModoIA(!modoIA)}
       />
 
       {feedback && (
@@ -235,11 +299,11 @@ export default function JogarPage() {
             anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
             localizacao={nodeAtual.localizacao || 'Westeros'}
             paragrafos={paragrafos}
-            vozesInternas={nodeAtual.internalVoices || []}
+            vozesInternas={vozesExibidas}
             escolhas={escolhasNarrativas}
             verbetes={verbetes}
             onEscolha={handleEscolha}
-            onAcaoLivre={(txt) => setFeedback(`Ação personalizada apresentada ao Mestre: "${txt}"`)}
+            onAcaoLivre={handleAcaoLivre}
           />
         </div>
 

@@ -9,8 +9,15 @@ import {
   rolar2d6,
   aplicarDeltaEstado,
   DeltaEstado,
+  AtributoVoz,
 } from '@/server/engine/rpgEngine';
 import { TurnEvent } from '@/server/engine/saveManager';
+import {
+  classificarAcaoLivre,
+  enriquecerCenaComIA,
+  ClassificacaoAcaoLivre,
+  VozExtra,
+} from '@/server/ai/geminiMaster';
 
 export async function obterCenaInicialAction(): Promise<{
   node: NodeJornada;
@@ -61,15 +68,24 @@ export interface ProcessarEscolhaParams {
   worldState: WorldState;
   turnNumber: number;
   dadosFixos?: [number, number];
+  usarIA?: boolean;
 }
 
-export async function processarEscolhaAction(params: ProcessarEscolhaParams): Promise<{
+export interface RespostaTurnoAction {
   proximoNode: NodeJornada;
   resultadoRolagem: ResultadoRolagem | null;
   fichaAtualizada: FichaPersonagem;
   worldStateAtualizado: WorldState;
   turnEvent: TurnEvent;
-}> {
+  classificacao?: ClassificacaoAcaoLivre;
+  textoEnriquecido?: string;
+  vozesExtras?: VozExtra[];
+  usouFallbackIA?: boolean;
+}
+
+export async function processarEscolhaAction(
+  params: ProcessarEscolhaParams
+): Promise<RespostaTurnoAction> {
   const nodeAtual = obterNodeAto1(params.nodeId);
   if (!nodeAtual) {
     throw new Error(`Cena '${params.nodeId}' não encontrada.`);
@@ -87,7 +103,6 @@ export async function processarEscolhaAction(params: ProcessarEscolhaParams): Pr
   if (escolha.tipo === 'simples') {
     proximoNodeId = escolha.nextNodeId;
   } else {
-    // Teste de Atributo
     const valorAtributo = params.ficha.atributos[escolha.atributo];
     resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
       riscoMortal: escolha.riscoMortal,
@@ -105,7 +120,6 @@ export async function processarEscolhaAction(params: ProcessarEscolhaParams): Pr
       deltaConsequencia.honra = -1;
       deltaConsequencia.compostura = -1;
     } else {
-      // FALHA_CRITICA
       proximoNodeId = escolha.onCriticalFailureNodeId || escolha.onPartialFailureNodeId;
       deltaConsequencia.honra = -2;
       deltaConsequencia.sangue = -3;
@@ -141,11 +155,72 @@ export async function processarEscolhaAction(params: ProcessarEscolhaParams): Pr
     timestamp: new Date().toISOString(),
   };
 
+  let textoEnriquecido = proximoNode.fallbackText;
+  let vozesExtras: VozExtra[] = [];
+  let usouFallbackIA = true;
+
+  if (params.usarIA) {
+    const resIA = await enriquecerCenaComIA({
+      noDestino: proximoNode,
+      resultadoDado: resultadoRolagem,
+      escolhaTexto: escolha.texto,
+      ficha: fichaAtualizada,
+      worldState: worldStateAtualizado,
+    });
+    textoEnriquecido = resIA.textoEnriquecido;
+    vozesExtras = resIA.vozesExtras;
+    usouFallbackIA = resIA.usouFallback;
+  }
+
   return {
     proximoNode,
     resultadoRolagem,
     fichaAtualizada,
     worldStateAtualizado,
     turnEvent,
+    textoEnriquecido,
+    vozesExtras,
+    usouFallbackIA,
   };
+}
+
+export interface ProcessarAcaoLivreParams {
+  nodeId: string;
+  textoAcaoLivre: string;
+  ficha: FichaPersonagem;
+  worldState: WorldState;
+  turnNumber: number;
+  dadosFixos?: [number, number];
+  usarIA?: boolean;
+}
+
+export async function processarAcaoLivreAction(
+  params: ProcessarAcaoLivreParams
+): Promise<RespostaTurnoAction> {
+  const nodeAtual = obterNodeAto1(params.nodeId);
+  if (!nodeAtual) {
+    throw new Error(`Cena '${params.nodeId}' não encontrada.`);
+  }
+
+  const classificacao = await classificarAcaoLivre(
+    params.textoAcaoLivre,
+    nodeAtual,
+    params.ficha
+  );
+
+  const resEscolha = await processarEscolhaAction({
+    nodeId: params.nodeId,
+    escolhaId: classificacao.escolhaId,
+    ficha: params.ficha,
+    worldState: params.worldState,
+    turnNumber: params.turnNumber,
+    dadosFixos: params.dadosFixos,
+    usarIA: params.usarIA,
+  });
+
+  // Atualiza o evento de turno com a ação personalizada do jogador
+  resEscolha.turnEvent.choiceMade = `[Ação Livre] ${params.textoAcaoLivre}`;
+  resEscolha.classificacao = classificacao;
+
+  return resEscolha;
 }
