@@ -46,17 +46,26 @@ Acima deles, Balerion rugiu nos céus, e sua sombra titânica engoliu as margens
       escolhas: [
         {
           id: 'esc_parlamento_harrenhal',
-          texto: 'Cavalgar sob o estandarte de trégua até os portões de Harrenhal para exigir a rendição direta de Harren, o Negro.',
+          texto: 'Cavalgar sob o estandarte de trégua até os portões de Harrenhal para intimar Harren, o Negro, à rendição.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_parlamento_harrenhal',
         },
         {
           id: 'esc_estudar_infiltracao_harrenhal',
-          texto: 'Consultar os desertores fluviais para encontrar passagens secretas nas cloacas e capturar Harren sem incendiar a fortaleza.',
+          texto: 'Consultar desertores fluviais e pescadores do Olho de Deus para infiltrar comandos pelas cloacas submersas.',
           tipo: 'teste_atributo',
           atributo: 'astucia',
           dc: 11,
           onSuccessNodeId: 'j1_a2_whatif_infiltracao_harrenhal',
+          onPartialFailureNodeId: 'j1_a2_parlamento_harrenhal',
+        },
+        {
+          id: 'esc_reunir_conselho_fluvial_erudicao',
+          texto: 'Consultar meistres e lordes sobre a história dos Hoare para usar rivalidades antigas a favor do cerco.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_parlamento_harrenhal',
           onPartialFailureNodeId: 'j1_a2_parlamento_harrenhal',
         },
       ],
@@ -104,16 +113,25 @@ Aegon contemplou as torres colossais e proferiu a sentença que ecoaria nos séc
       escolhas: [
         {
           id: 'esc_aguardar_por_do_sol',
-          texto: 'Retornar ao acampamento com honra e esperar o crepúsculo para montar em Balerion.',
+          texto: 'Dar as costas com serenidade régia e aguardar o pôr do sol para montar Balerion.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_preparativos_noite_harrenhal',
         },
         {
           id: 'esc_intimidar_harren_comando',
-          texto: 'Desembainhar Blackfyre e convocar os soldados da guarnição de Harren a abandonarem o tirano antes do cair da noite.',
+          texto: 'Desembainhar Blackfyre e intimar a guarnição dos homens de ferro a prender o tirano antes do cair da noite.',
           tipo: 'teste_atributo',
           atributo: 'comando',
           dc: 10,
+          onSuccessNodeId: 'j1_a2_preparativos_noite_harrenhal',
+          onPartialFailureNodeId: 'j1_a2_preparativos_noite_harrenhal',
+        },
+        {
+          id: 'esc_profetizar_fogo_pressagio',
+          texto: 'Invocar o fogo de Valíria e o destino dos deuses antigos sobre as muralhas diante de todo o exército.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 9,
           onSuccessNodeId: 'j1_a2_preparativos_noite_harrenhal',
           onPartialFailureNodeId: 'j1_a2_preparativos_noite_harrenhal',
         },
@@ -141,6 +159,12 @@ No entanto, quando a última nesga de luz solar se extinguiu no horizonte, Aegon
           dcPassiva: 7,
           fala: 'O Terror Negro caça no silêncio da escuridão. O mundo aprenderá esta noite o que significa a fúria da antiga Valíria.',
         },
+        {
+          atributo: 'furia',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 8,
+          fala: 'O fogo negro purificará séculos de opressão no Tridente. Não haverá sobreviventes nas cinco torres.',
+        },
       ],
       loreContext: {
         idVerbete: 'balerion',
@@ -153,9 +177,18 @@ No entanto, quando a última nesga de luz solar se extinguiu no horizonte, Aegon
       escolhas: [
         {
           id: 'esc_mergulho_balerion',
-          texto: 'Mergulhar do ápice do céu noturno com Balerion e desencadear a tempestade de chamas negras sobre as cinco torres.',
+          texto: 'Mergulhar do ápice das nuvens noturnas e desencadear o cataclismo de fogo sobre as cinco torres.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_queima_de_harrenhal',
+        },
+        {
+          id: 'esc_tentativa_furtiva_ultima_hora',
+          texto: 'Ordenar que comandos fluviais forcem as portas inferiores enquanto Balerion atrai a atenção nos céus.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 10,
+          onSuccessNodeId: 'j1_a2_whatif_infiltracao_harrenhal',
+          onPartialFailureNodeId: 'j1_a2_queima_de_harrenhal',
         },
       ],
     },
@@ -200,9 +233,27 @@ Gritos horríveis ecoaram no pátio quando o Rei Harren Hoare e todos os seus fi
       escolhas: [
         {
           id: 'esc_consagrar_edmyn_tully',
-          texto: 'Pousar Balerion no pátio enegrecido e nomear Lorde Edmyn Tully Senhor Supremo do Tridente.',
+          texto: 'Pousar Balerion no pátio enegrecido e aclamar Lorde Edmyn Tully Senhor Supremo do Tridente, cedendo Harrenhal a Sor Quenton Qoherys.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_senhor_supremo_tridente',
+        },
+        {
+          id: 'esc_ceder_harrenhal_tully_politica',
+          texto: 'Conceder os domínios de Harrenhal diretamente aos Tully de Correrrio para concentrar o poder fluvial em um único aliado leal.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_senhor_supremo_tridente',
+          onPartialFailureNodeId: 'j1_a2_senhor_supremo_tridente',
+        },
+        {
+          id: 'esc_reclamar_harrenhal_coroa_comando',
+          texto: 'Proclamar Harrenhal fortaleza de guarnição direta da Coroa Real de Pedra do Dragão.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 10,
+          onSuccessNodeId: 'j1_a2_senhor_supremo_tridente',
+          onPartialFailureNodeId: 'j1_a2_senhor_supremo_tridente',
         },
       ],
     },
@@ -228,6 +279,12 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
           dcPassiva: 10,
           fala: 'Uma vitória magistral sem desperdício de fogo. A maior fortaleza do continente agora é vossa, intacta.',
         },
+        {
+          atributo: 'erudicao',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 9,
+          fala: 'A arquitetura monumental de Harrenhal servirá ao império em vez de se tornar um memorial de pedra derretida.',
+        },
       ],
       loreContext: {
         fonte: {
@@ -239,10 +296,19 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
       },
       escolhas: [
         {
-          id: 'esc_avancar_pos_infiltracao',
-          texto: 'Nomear a Casa Tully governante das Terras Fluviais e marchar em auxílio das outras frentes.',
+          id: 'esc_avancar_pos_infiltracao_canonico',
+          texto: 'Nomear a Casa Tully governante dos rios e conceder Harrenhal intacta a Sor Quenton Qoherys.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_senhor_supremo_tridente',
+        },
+        {
+          id: 'esc_guarnecer_harrenhal_intacta',
+          texto: 'Instalar uma guarnição mista de cavaleiros valirianos e dos rios para proteger o castelo contra retaliações das Ilhas de Ferro.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_senhor_supremo_tridente',
+          onPartialFailureNodeId: 'j1_a2_senhor_supremo_tridente',
         },
       ],
     },
@@ -344,6 +410,24 @@ Orys Baratheon liderava as forças Targaryen com sua couraça de aço martelado 
           tipo: 'simples',
           nextNodeId: 'j1_a2_batalha_ultima_tempestade',
         },
+        {
+          id: 'esc_sondar_passos_astucia',
+          texto: 'Enviar Meraxes voando rente aos pinheiros para dispersar os batedores de Argilac antes que o vendaval bloqueie a visão.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 10,
+          onSuccessNodeId: 'j1_a2_batalha_ultima_tempestade',
+          onPartialFailureNodeId: 'j1_a2_batalha_ultima_tempestade',
+        },
+        {
+          id: 'esc_ler_pressagio_vento',
+          texto: 'Interpretar as correntes de vento da Baía dos Naufrágios para posicionar a vanguarda a favor das rajadas.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_batalha_ultima_tempestade',
+          onPartialFailureNodeId: 'j1_a2_batalha_ultima_tempestade',
+        },
       ],
     },
 
@@ -399,6 +483,15 @@ Na terceira carga, o próprio cavalo de Argilac foi derrubado pelas chamas, e o 
           onSuccessNodeId: 'j1_a2_duelo_orys_argilac',
           onPartialFailureNodeId: 'j1_a2_duelo_orys_argilac',
         },
+        {
+          id: 'esc_cortesia_apelo_argilac',
+          texto: 'Exortar Argilac em nome dos deuses a depor a espada para poupar os poucos guerreiros que restam à tempestade.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j1_a2_duelo_orys_argilac',
+          onPartialFailureNodeId: 'j1_a2_duelo_orys_argilac',
+        },
       ],
     },
 
@@ -439,6 +532,15 @@ Com a morte de seu soberano, o exército da tempestade quebrou as fileiras e fug
           texto: 'Marchar triunfalmente para receber a capitulação do castelo de Ponta Tempestade.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_motim_ponta_tempestade',
+        },
+        {
+          id: 'esc_resgatar_coroa_durrandon_erudicao',
+          texto: 'Recolher a coroa antiga de ferro e bronze de Argilac para preservá-la com respeito nos registros da corte.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 8,
+          onSuccessNodeId: 'j1_a2_motim_ponta_tempestade',
+          onPartialFailureNodeId: 'j1_a2_motim_ponta_tempestade',
         },
       ],
     },
@@ -499,10 +601,10 @@ Ao amanhecer, quando o exército de Orys e Meraxes chegou aos pés das muralhas 
           fala: 'Que infâmia covarde! Entregar a própria princesa despida ao inimigo para salvar a própria pele podre.',
         },
         {
-          atributo: 'cortesia',
+          atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O destino de uma dinastia inteira é medido pela forma como tratamos prisioneiros indefesos.',
+          fala: 'Quem trai seu rei uma vez trairá o novo suserano. A guarnição de traidores deve ser punida com rigor.',
         },
       ],
       loreContext: {
@@ -520,6 +622,15 @@ Ao amanhecer, quando o exército de Orys e Meraxes chegou aos pés das muralhas 
           texto: 'Apear, desacorrentar a princesa pessoalmente, cobri-la com o manto de guerra e fundar a Casa Baratheon com honra.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_honra_argella_baratheon',
+        },
+        {
+          id: 'esc_punir_amotinados_comando',
+          texto: 'Ordenar a prisão e execução imediata dos chefes do motim diante das muralhas antes de entrar no castelo.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 10,
+          onSuccessNodeId: 'j1_a2_honra_argella_baratheon',
+          onPartialFailureNodeId: 'j1_a2_honra_argella_baratheon',
         },
       ],
     },
@@ -564,9 +675,18 @@ Em reconhecimento à nobreza dos Durrandon, Orys tomou para sua nova Casa os bra
       escolhas: [
         {
           id: 'esc_avancar_ato2_checkpoint',
-          texto: 'Celebrar a submissão do sul e convergir todos os exércitos para o clímax da guerra no oeste.',
+          texto: 'Celebrar a submissão do sul e marchar em direção ao oeste para o confronto iminente contra os Dois Reis.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        },
+        {
+          id: 'esc_reforcar_guarnicao_tempestade',
+          texto: 'Deixar Orys Baratheon fortalecendo Ponta Tempestade enquanto Aegon e as rainhas convergem para a Campina.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+          onPartialFailureNodeId: 'j1_a2_checkpoint_campo_de_fogo',
         },
       ],
     },
@@ -614,6 +734,15 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
           tipo: 'simples',
           nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
         },
+        {
+          id: 'esc_recrutar_arqueiros_garra_astucia',
+          texto: 'Recrutar os melhores batedores dos pântanos da Garra Rachada como patrulheiros de elite do exército real.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 9,
+          onSuccessNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+          onPartialFailureNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        },
       ],
     },
 
@@ -622,11 +751,11 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
     // ==========================================
     j1_a2_checkpoint_campo_de_fogo: {
       id: 'j1_a2_checkpoint_campo_de_fogo',
+      isEnding: true,
       titulo: 'Conclusão do Ato II & A Reunião dos Dragões',
       anoHistorico: '2 a.C.',
       localizacao: 'Acampamento Real & Terras da Coroa',
       regionId: 'pedra_dragao',
-      isEnding: true,
       fallbackText: `O Ato II da grande Conquista chega ao fim com duas das maiores potências de Westeros derrotadas: a Casa Hoare ardeu em cinzas em Harrenhal, e a Casa Durrandon foi sucedida pelo leão negro de Orys Baratheon em Ponta Tempestade.
 
 Porém, as maiores ameaças ainda erguem suas coroas no horizonte. Em Rochedo Casterly e Jardim de Cima, o Rei Loren Lannister e o Rei Mern IX Gardener reuniram o maior exército que Westeros já contemplou em toda a sua história: cinquenta e cinco mil homens marchando juntos para esmagar os invasores.
@@ -656,11 +785,11 @@ Aegon convoca suas duas rainhas irmãs, Visenya e Rhaenys. Pela primeira vez des
     // ==========================================
     j1_a2_checkpoint_norte_tridente: {
       id: 'j1_a2_checkpoint_norte_tridente',
+      isEnding: true,
       titulo: 'Conclusão do Ato II & O Vento do Inverno no Tridente',
       anoHistorico: '2 a.C.',
       localizacao: 'Tridente & Correrrio',
       regionId: 'tridente',
-      isEnding: true,
       fallbackText: `Com o Tridente pacificado sob a liderança de Lorde Edmyn Tully e Harrenhal reduzida a um monumento de granito derretido, os corvos trazem notícias perturbadoras dos ermos gelados do Norte.
 
 O Rei Torrhen Stark cruzou o Gargalo com trinta mil guerreiros nortenhos em fúria, marchando dia e noite para expulsar os invasores valirianos do continente.

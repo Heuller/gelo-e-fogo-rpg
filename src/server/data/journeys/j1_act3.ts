@@ -62,6 +62,15 @@ Do outro lado, as tropas combinadas dos Targaryen não passavam de dez mil comba
           onSuccessNodeId: 'j1_a3_posicionamento_campo_fogo',
           onPartialFailureNodeId: 'j1_a3_posicionamento_campo_fogo',
         },
+        {
+          id: 'esc_pressagio_fogo_conselho',
+          texto: 'Consultar o presságio das labaredas de Balerion para determinar o minuto exato da investida aérea.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 9,
+          onSuccessNodeId: 'j1_a3_posicionamento_campo_fogo',
+          onPartialFailureNodeId: 'j1_a3_posicionamento_campo_fogo',
+        },
       ],
     },
 
@@ -86,6 +95,12 @@ Nas celas de couro trabalhado, Aegon ajustava as rédeas de Balerion, enquanto a
           dcPassiva: 7,
           fala: 'O solo treme sob vinte mil cascos ferrados. Em poucos minutos, a terra se tornará um túmulo incandescente.',
         },
+        {
+          atributo: 'comando',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 8,
+          fala: 'Mantenham as pontas das lanças firmes até o dragão tocar os céus!',
+        },
       ],
       loreContext: {
         idVerbete: 'campo_de_fogo',
@@ -101,6 +116,15 @@ Nas celas de couro trabalhado, Aegon ajustava as rédeas de Balerion, enquanto a
           texto: 'Liderar a defesa na linha de frente e dar o sinal para o vôo simultâneo dos três dragões.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_carga_cavalaria_gardener',
+        },
+        {
+          id: 'esc_manobra_recuo_fingido_astucia',
+          texto: 'Executar um recuo tático fingido para atrair a cavalaria inimiga para o centro do trigal mais seco.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 10,
+          onSuccessNodeId: 'j1_a3_carga_cavalaria_gardener',
+          onPartialFailureNodeId: 'j1_a3_carga_cavalaria_gardener',
         },
       ],
     },
@@ -142,6 +166,17 @@ O próprio Aegon combateu a cavalo durante os primeiros minutos para conter o p�
           tipo: 'teste_atributo',
           atributo: 'comando',
           dc: 10,
+          riscoMortal: true,
+          onSuccessNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
+          onPartialFailureNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
+          onCriticalFailureNodeId: 'j1_a3_morte_campo_de_fogo',
+        },
+        {
+          id: 'esc_furia_pessoal_combate_vanguarda',
+          texto: 'Golpear com Blackfyre abrindo espaço na vanguarda antes de erguer Balerion em voo rasante.',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 11,
           riscoMortal: true,
           onSuccessNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
           onPartialFailureNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
@@ -193,6 +228,15 @@ Quatro mil homens arderam vivos na planície, incluindo o Rei Mern IX Gardener e
           texto: 'Inspecionar as cinzas do campo de batalha e confirmar a extinção da linhagem dos Gardener.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_fim_casa_gardener',
+        },
+        {
+          id: 'esc_socorrer_feridos_cortesia',
+          texto: 'Ordenar aos meistres que apliquem pomadas e socorram os cavaleiros sobreviventes em sinal de misericórdia imperial.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a3_fim_casa_gardener',
+          onPartialFailureNodeId: 'j1_a3_fim_casa_gardener',
         },
       ],
     },
@@ -269,6 +313,15 @@ Enquanto isso, patrulheiros de Orys Baratheon capturavam nos bosques próximos o
           tipo: 'simples',
           nextNodeId: 'j1_a3_submissao_loren_lannister',
         },
+        {
+          id: 'esc_coletar_espadas_gardener_comando',
+          texto: 'Comandar a coleta de todas as espadas intactas e curvadas no fogo para a forja da futura coroa e trono.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 8,
+          onSuccessNodeId: 'j1_a3_submissao_loren_lannister',
+          onPartialFailureNodeId: 'j1_a3_submissao_loren_lannister',
+        },
       ],
     },
 
@@ -314,9 +367,18 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
       escolhas: [
         {
           id: 'esc_marchar_jardim_de_cima',
-          texto: 'Marchar imediatamente com o exército vitorioso até Jardim de Cima para consolidar o domínio da Campina.',
+          texto: 'Marchar imediatamente com o exército vitorioso até Jardim de Cima para resolver a sucessão da Campina.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_rendicao_jardim_de_cima',
+        },
+        {
+          id: 'esc_exigir_refens_ocidente_comando',
+          texto: 'Exigir filhos de lordes ocidentais como pajens em Pedra do Dragão para garantir a lealdade do Rochedo.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 10,
+          onSuccessNodeId: 'j1_a3_rendicao_jardim_de_cima',
+          onPartialFailureNodeId: 'j1_a3_rendicao_jardim_de_cima',
         },
       ],
     },
@@ -326,7 +388,7 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
     // ==========================================
     j1_a3_rendicao_jardim_de_cima: {
       id: 'j1_a3_rendicao_jardim_de_cima',
-      titulo: 'As Chaves de Jardim de Cima & A Ascensão Tyrell',
+      titulo: 'As Chaves de Jardim de Cima & A Sucessão da Campina',
       anoHistorico: '2 a.C.',
       localizacao: 'Jardim de Cima',
       regionId: 'campina',
@@ -334,7 +396,7 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
 
 Ao ver a sombra imensa de Balerion surgir no horizonte, Harlen não hesitou. Ordenou que as portas colossais fossem abertas de par em par, instruiu seus guardas a deporem as armas e caminhou a pé até Aegon trazendo em almofadas de veludo as chaves de ouro de todas as torres da fortaleza.
 
-Em recompensa por ter evitado o derramamento de sangue e entregue o castelo incólume, Aegon I tomou uma das decisões políticas mais duradouras da história: elevou a Casa Tyrell de simples intendentes a Senhores Supremos do Mander e Protetores do Sul, desprezando as pretensões de Casas mais antigas como Florent e Rowan.`,
+Porém, nas antessalas do castelo, emissários da Casa Florent de Fortaleza de Águas Claras clamavam pelo sangue de Garth Mão-Verde, argumentando que a linhagem dos Gardener pertencia a eles por direito hereditário, e não a um simples intendente.`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -360,10 +422,28 @@ Em recompensa por ter evitado o derramamento de sangue e entregue o castelo inc�
       },
       escolhas: [
         {
-          id: 'esc_enfrentar_ameaca_norte',
-          texto: 'Receber notícias urgentes da descida do exército de Winterfell e marchar para o Tridente.',
+          id: 'esc_nomear_harlen_tyrell_canonico',
+          texto: 'Nomear Harlen Tyrell Senhor Supremo do Mander e Protetor do Sul (Caminho Canônico).',
           tipo: 'simples',
           nextNodeId: 'j1_a3_lobo_no_tridente',
+        },
+        {
+          id: 'esc_nomear_florent_campina_whatif',
+          texto: 'Atender à reivindicação de sangue ancestral da Casa Florent, nomeando-os governantes da Campina.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_lobo_no_tridente',
+          onPartialFailureNodeId: 'j1_a3_lobo_no_tridente',
+        },
+        {
+          id: 'esc_dividir_governo_campina_astucia',
+          texto: 'Manter Jardim de Cima com Tyrell, mas conceder privilégios fiscais aos Florent para conter rebeliões futuras.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 10,
+          onSuccessNodeId: 'j1_a3_lobo_no_tridente',
+          onPartialFailureNodeId: 'j1_a3_lobo_no_tridente',
         },
       ],
     },
@@ -419,6 +499,15 @@ Porém, quando os batedores nortenhos subiram as colinas, avistaram as forças d
           atributo: 'cortesia',
           dc: 10,
           onSuccessNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          onPartialFailureNodeId: 'j1_a3_conspiracao_brandon_snow',
+        },
+        {
+          id: 'esc_demonstrar_poder_aereo_furia',
+          texto: 'Fazer Balerion sobrevoar o acampamento de Winterfell cuspindo fogo nas nuvens para abalar a moral dos soldados.',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_conspiracao_brandon_snow',
           onPartialFailureNodeId: 'j1_a3_conspiracao_brandon_snow',
         },
       ],
@@ -481,6 +570,15 @@ Do outro lado do rio, as sentinelas reais sentiram o peso de um presságio teneb
           onPartialFailureNodeId: 'j1_a3_emboscada_noturna_brandon',
           onCriticalFailureNodeId: 'j1_a3_morte_flecha_represeiro',
         },
+        {
+          id: 'esc_desafiar_batalha_tridente_furia',
+          texto: 'Rejeitar negociações noturnas e ordenar que as trombetas soem para a Batalha do Tridente ao amanhecer.',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_emboscada_noturna_brandon',
+          onPartialFailureNodeId: 'j1_a3_emboscada_noturna_brandon',
+        },
       ],
     },
 
@@ -519,6 +617,15 @@ Brandon lutou com a destreza selvagem dos lobos do Norte, cravando uma adaga de 
           texto: 'Conduzir Torrhen Stark ao centro da ponte de barcas para a cerimônia solene de submissão do Norte.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+        },
+        {
+          id: 'esc_exigir_flechas_represeiro_erudicao',
+          texto: 'Guardar as três flechas de represeiro como relíquia sagrada na corte para estudar os mistérios do Norte.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 8,
+          onSuccessNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          onPartialFailureNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
         },
       ],
     },
@@ -596,10 +703,28 @@ Com dignidade régia incomparável, Torrhen despiu a antiga coroa de bronze enta
       },
       escolhas: [
         {
-          id: 'esc_voar_ninho_da_aguia',
-          texto: 'Acompanhar a Rainha Visenya no vôo audacioso até as alturas inexpugnáveis do Ninho da Águia.',
+          id: 'esc_voar_ninho_da_aguia_canonico',
+          texto: 'Aceitar o joelho dobrado de Torrhen em paz e acompanhar a Rainha Visenya no vôo ao Ninho da Águia.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+        },
+        {
+          id: 'esc_exigir_refens_stark_comando',
+          texto: 'Exigir que Brandon Snow e filhos de lordes nortenhos venham à corte como protegidos de honra.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 10,
+          onSuccessNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+          onPartialFailureNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+        },
+        {
+          id: 'esc_pacto_norte_sangue_antigo',
+          texto: 'Propor um juramento secreto sob o represeiro de Correrrio selando o respeito mútuo aos Deuses Antigos.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 9,
+          onSuccessNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+          onPartialFailureNodeId: 'j1_a3_ninho_da_aguia_ronnel',
         },
       ],
     },
@@ -643,20 +768,29 @@ Quando a Rainha Sharra e seus guardas correram ao pátio com espadas desembainha
       },
       escolhas: [
         {
-          id: 'esc_forjar_trono_de_ferro',
-          texto: 'Transportar os milhares de espadas recolhidas de todos os reis rendidos até o Forte de Aegon para forjar o Trono de Ferro.',
+          id: 'esc_forjar_trono_de_ferro_porto_real',
+          texto: 'Transportar as mil espadas para o Forte de Aegon e fundar a capital em Porto Real com o Trono de Ferro.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_epilogo_trono_ferro',
+        },
+        {
+          id: 'esc_visenya_guarnecer_vale_comando',
+          texto: 'Deixar Vhagar e uma corte de cavaleiros honrados instruindo o jovem Ronnel Arryn na falcoaria e na lealdade.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 9,
+          onSuccessNodeId: 'j1_a3_epilogo_trono_ferro',
+          onPartialFailureNodeId: 'j1_a3_epilogo_trono_ferro',
         },
       ],
     },
 
     // ==========================================
-    // CENA 15: O FORJAMENTO DO TRONO DE FERRO
+    // CENA 15: O FORJAMENTO DO TRONO DE FERRO & A CAPITAL
     // ==========================================
     j1_a3_epilogo_trono_ferro: {
       id: 'j1_a3_epilogo_trono_ferro',
-      titulo: 'O Sopro de Balerion & A Forja do Trono de Ferro',
+      titulo: 'O Sopro de Balerion & O Trono de Ferro',
       anoHistorico: '1 a.C. - 1 d.C.',
       localizacao: 'Forte de Aegon & Três Colinas',
       regionId: 'pedra_dragao',
@@ -664,7 +798,7 @@ Quando a Rainha Sharra e seus guardas correram ao pátio com espadas desembainha
 
 No grande pátio do Forte de Aegon, Balerion cuspiu suas labaredas negras dia e noite. Sob o calor vulcânico do Terror Negro, as lâminas se fundiram e retorceram em uma massa colossal de aço negro, arestas vivas e pontas denteadas.
 
-Nenhum rei deveria sentar-se confortavelmente em seu posto, declarou Aegon. O Trono de Ferro nasceu como uma besta imensa de lâminas entrelaçadas, pronta para cortar qualquer soberano descuidado que se apoiasse na soberba. O símbolo de um continente unido estava forjado no fogo e no sangue.`,
+Nenhum rei deveria sentar-se confortavelmente em seu posto, declarou Aegon. O Trono de Ferro nasceu como uma besta imensa de lâminas entrelaçadas, pronta para cortar qualquer soberano descuidado que se apoiasse na soberba. O símbolo de um continente unido estava forjado no fogo e no sangue. Restava agora a sagração final em Vilavelha diante dos deuses e dos meistres.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -690,43 +824,52 @@ Nenhum rei deveria sentar-se confortavelmente em seu posto, declarou Aegon. O Tr
       },
       escolhas: [
         {
-          id: 'esc_coroacao_vilavelha_vitoria',
-          texto: 'Marchar até Vilavelha para receber a unção sagrada do Alto Septão e consagrar o Ano 1 da Conquista.',
+          id: 'esc_coroacao_vilavelha_canonico',
+          texto: 'Marchar até Vilavelha para receber a unção sagrada do Alto Septão, mantendo Porto Real como sede da coroa.',
           tipo: 'simples',
           nextNodeId: 'j1_a3_vitoria_conquista',
+        },
+        {
+          id: 'esc_estabelecer_capital_vilavelha_whatif',
+          texto: 'Atender à petição dos Hightower e da Fé para transferir a capital imperial permanente para Vilavelha.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_vitoria_conquista',
+          onPartialFailureNodeId: 'j1_a3_vitoria_conquista',
         },
       ],
     },
 
     // ==========================================
-    // CENA 16: O GRANDE FINAL DA CONQUISTA (VITÓRIA)
+    // CENA 16: A UNÇÃO EM VILAVELHA (TRANSIÇÃO PARA ATO 4)
     // ==========================================
     j1_a3_vitoria_conquista: {
       id: 'j1_a3_vitoria_conquista',
+      isEnding: true,
       titulo: 'A Unção em Vilavelha & O Nascimento dos Sete Reinos',
       anoHistorico: '1 d.C.',
       localizacao: 'Septo Estrelado & Vilavelha',
       regionId: 'campina',
-      isEnding: true,
       fallbackText: `As portas monumentais de Vilavelha, a mais antiga e esplêndida cidade do mundo ocidental, abriram-se sem um único disparo de besta. Lorde Manfred Hightower, aconselhado pela visão dos Sete Deuses no Septo Estrelado de que a cidade arderia se resistisse, acolheu o Conquistador com cortejo e taças de vinho dourado.
 
 No ápice do Septo Estrelado, sob a bênção sagrada dos Sete e perante centenas de meistres da Cidadela e lordes de todo o continente, o Alto Septão ungiu a fronte de Aegon I com os sete óleos sagrados e depositou sobre suas têmporas a coroa de ouro e rubis.
 
 "Aegon da Casa Targaryen", entoou a voz venerável que ecoou pelos séculos, "Primeiro de Seu Nome, Rei de Toda a Westeros e Protetor do Reino."
 
-A Conquista estava terminada. Não havia mais sete reinos dispersos sangrando em discórdia mútua, mas um único império sob o Dragão. O calendário de toda a história humana recomeçava agora: o Ano 1 do Reinado de Aegon, o Conquistador!`,
+A maior parte do continente estava unida, mas as sombras ainda persistiam: nas Ilhas de Ferro, pretendentes afogados guerreavam entre si, e ao sul das Montanhas Vermelhas, os dorneses recusavam-se a dobrar os joelhos. O Ato IV e o teste de fogo nas areias de Dorne começam agora!`,
       internalVoices: [
         {
           atributo: 'pressagio',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 7,
-          fala: 'O sonho de Daenys a Sonhadora cumpriu-se. O fogo de Valíria tornou-se a chama protetora de toda a humanidade.',
+          fala: 'O sonho de Daenys a Sonhadora cumpriu-se. Mas enquanto as areias de Dorne e as ondas de Pyke não se curvarem, a coroa não terá descanso.',
         },
         {
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Sete Coroas forjadas em uma só. Vosso nome será cantado enquanto homens tiverem língua para cantar.',
+          fala: 'A unção foi feita. Agora é hora de pacificar os homens de ferro e enfrentar o Sol Insubmisso de Dorne.',
         },
       ],
       loreContext: {
@@ -736,7 +879,7 @@ A Conquista estava terminada. Não havia mais sete reinos dispersos sangrando em
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'O Alto Septão unge Aegon em Vilavelha, marcando o Ano 1 da Conquista de Westeros.',
+        notaHistorica: 'O Alto Septão unge Aegon em Vilavelha, marcando o Ano 1 d.C.',
       },
       escolhas: [],
     },

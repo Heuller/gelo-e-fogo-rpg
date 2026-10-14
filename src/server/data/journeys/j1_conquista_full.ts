@@ -3,15 +3,19 @@ import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
 import { grafoAto1 } from './j1_act1';
 import { grafoAto2 } from './j1_act2';
 import { grafoAto3 } from './j1_act3';
+import { grafoAto4 } from './j1_act4';
 
-// Unifica os nós dos 3 Atos e conecta os nós de transição/checkpoint
 const todosNos: Record<string, NodeJornada> = {
   ...grafoAto1.nodes,
   ...grafoAto2.nodes,
   ...grafoAto3.nodes,
+  ...grafoAto4.nodes,
 };
 
-// 1. Conecta os Checkpoints do Fim do Ato 1 ao início do Ato 2
+// =========================================================================
+// CONEXÃO ATO 1 -> ATO 2
+// =========================================================================
+
 todosNos['j1_a1_checkpoint_naval'] = {
   ...todosNos['j1_a1_checkpoint_naval'],
   isEnding: false,
@@ -36,10 +40,16 @@ todosNos['j1_a1_checkpoint_fluvial'] = {
   isEnding: false,
   escolhas: [
     {
-      id: 'esc_transicao_a1_a2_fluvial_direto',
-      texto: 'Avançar com a Rebelião dos Rios e marchar diretamente para cercar Harrenhal (Ato II).',
+      id: 'esc_transicao_a1_a2_harrenhal_direto',
+      texto: 'Avançar com Balerion até os muros de Harrenhal e exigir a rendição do Rei Harren, o Negro (Ato II).',
       tipo: 'simples',
       nextNodeId: 'j1_a2_revolta_terras_fluviais',
+    },
+    {
+      id: 'esc_transicao_a1_a2_garra_apoio',
+      texto: 'Enviar emissários à Ponta da Garra Rachada antes do assalto final ao Olho de Deus (Ato II).',
+      tipo: 'simples',
+      nextNodeId: 'j1_a2_submissao_garra_rachada',
     },
   ],
 };
@@ -49,22 +59,25 @@ todosNos['j1_a1_checkpoint_tempestade'] = {
   isEnding: false,
   escolhas: [
     {
-      id: 'esc_transicao_a1_a2_tempestade_direto',
-      texto: 'Marchar com Orys Baratheon e a Rainha Rhaenys para travar a Batalha da Última Tempestade (Ato II).',
+      id: 'esc_transicao_a1_a2_tempestade',
+      texto: 'Marchar com Orys Baratheon e a Rainha Rhaenys para enfrentar Argilac, o Arrogante (Ato II).',
       tipo: 'simples',
       nextNodeId: 'j1_a2_marcha_ultima_tempestade',
     },
   ],
 };
 
-// 2. Conecta os Checkpoints do Fim do Ato 2 ao início do Ato 3
+// =========================================================================
+// CONEXÃO ATO 2 -> ATO 3
+// =========================================================================
+
 todosNos['j1_a2_checkpoint_campo_de_fogo'] = {
   ...todosNos['j1_a2_checkpoint_campo_de_fogo'],
   isEnding: false,
   escolhas: [
     {
-      id: 'esc_transicao_a2_a3_campo_fogo',
-      texto: 'Reunir Balerion, Vhagar e Meraxes para enfrentar os cinquenta e cinco mil homens no Campo de Fogo (Ato III).',
+      id: 'esc_avancar_ato3_campo_fogo',
+      texto: 'Montar em Balerion e marchar com os três dragões para as planícies da Campina (Ato III).',
       tipo: 'simples',
       nextNodeId: 'j1_a3_alianca_dois_reis',
     },
@@ -76,18 +89,44 @@ todosNos['j1_a2_checkpoint_norte_tridente'] = {
   isEnding: false,
   escolhas: [
     {
-      id: 'esc_transicao_a2_a3_norte',
-      texto: 'Avançar com urgência para interceptar os trinta mil homens do Rei Torrhen Stark no Tridente (Ato III).',
+      id: 'esc_avancar_ato3_norte_direto',
+      texto: 'Voar imediatamente para o Tridente ao encontro do exército de Torrhen Stark (Ato III).',
       tipo: 'simples',
       nextNodeId: 'j1_a3_lobo_no_tridente',
     },
   ],
 };
 
+// =========================================================================
+// CONEXÃO ATO 3 -> ATO 4
+// =========================================================================
+
+todosNos['j1_a3_vitoria_conquista'] = {
+  ...todosNos['j1_a3_vitoria_conquista'],
+  isEnding: false,
+  escolhas: [
+    {
+      id: 'esc_avancar_ato4_ilhas_ferro',
+      texto: 'Partir imediatamente com Balerion para sufocar a anarquia sangrenta nas Ilhas de Ferro (Ato IV).',
+      tipo: 'simples',
+      nextNodeId: 'j1_a4_expedicao_ilhas_ferro',
+    },
+    {
+      id: 'esc_avancar_ato4_dorne_diplomacia',
+      texto: 'Enviar uma primeira embaixada solene e altiva a Lançassolar exigindo a submissão de Dorne (Ato IV).',
+      tipo: 'teste_atributo',
+      atributo: 'cortesia',
+      dc: 10,
+      onSuccessNodeId: 'j1_a4_primeira_embaixada_dorne',
+      onPartialFailureNodeId: 'j1_a4_expedicao_ilhas_ferro',
+    },
+  ],
+};
+
 export const grafoJornada1Completo: GrafoJornada = {
   id: 'jornada_1_conquista_completa',
-  titulo: 'Jornada 1: A Conquista de Aegon (Completa)',
-  startNodeId: grafoAto1.startNodeId,
+  titulo: 'A Conquista de Aegon &bull; Os Quatro Atos Completos (2 a.C. a 13 d.C.)',
+  startNodeId: 'j1_a1_mesa_pintada',
   nodes: todosNos,
 };
 
