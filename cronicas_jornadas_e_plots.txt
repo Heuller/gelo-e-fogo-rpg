@@ -1,0 +1,1163 @@
+================================================================================
+CRÔNICAS DE SANGUE E GELO (v2.1) - COMPÊNDIO DE JORNADAS, ATOS E PLOTS
+================================================================================
+
+DOCUMENTO COMPLETO DE DESIGN NARRATIVO, GRAFOS DETERMINÍSTICOS E CANÔNICOS
+Base Histórica: Fogo & Sangue (George R. R. Martin) | Tradução Oficial: Jorge Candeias (LeYa)
+Motor: 2d6 Determinístico + 6 Vozes de Atributo + Camada IA Controlada (Gemini 2.5 Flash)
+
+================================================================================
+1. ESTRUTURA GERAL DA JORNADA 1: A CONQUISTA DE AEGON (2 a.C. a 1 d.C.)
+================================================================================
+
+Título da Jornada: Jornada 1: A Conquista de Aegon
+Versão da Bíblia da Cidadela: 2.1
+Período Histórico: 2 a.C. a 1 d.C. (Da Mesa Pintada à Unção em Vilavelha)
+Protagonista: Aegon I Targaryen (O Conquistador / Primeiro de Seu Nome)
+Traço de Origem do Protagonista: Sangue Valiriano (Domínio de Balerion, Imunidade ao Terror de Dragões)
+
+OS TRÊS GRANDES DRAGÕES DA CONQUISTA:
+--------------------------------------------------------------------------------
+  * Balerion, o Terror Negro
+    Montador(a) na Conquista: Aegon I Targaryen
+    Porte e Envergadura: Colossal (sombra cobria cidades inteiras, mandíbula engolia mamutes)
+    Escamas: Negro fosco | Chamas: Negras com reflexos vermelhos incandescentes
+    Feitos Canônicos Notáveis:
+      - Derreteu a pedra e as torres de Harrenhal no cerco a Harren o Negro.
+      - Liderou o Campo de Fogo matando o rei Mern IX e dispersando 55 mil inimigos.
+      - Forjou o Trono de Ferro derretendo milhares de espadas dos lordes vencidos.
+
+  * Vhagar
+    Montador(a) na Conquista: Visenya Targaryen
+    Porte e Envergadura: Enorme (o segundo maior dragão da Conquista)
+    Escamas: Bronze escuro com reflexos verde-mar | Chamas: Douradas e verdejantes de altíssimo calor
+    Feitos Canônicos Notáveis:
+      - Queimou a frota de Vila Gaivota na Batalha naval do Vale.
+      - Causou estragos decisivos no flanco esquerdo do Campo de Fogo.
+      - Pousou no pátio do Ninho da Águia sem disparar uma chama, rendendo o Vale sem sangue.
+
+  * Meraxes
+    Montador(a) na Conquista: Rhaenys Targaryen
+    Porte e Envergadura: Grande e ágil (capaz de engolir cavalos inteiros, mais veloz no ar)
+    Escamas: Prateadas brilhantes com membranas douradas | Chamas: Douradas e alaranjadas
+    Feitos Canônicos Notáveis:
+      - Queimou as linhas defensivas de Argilac na Batalha do Último Risco.
+      - Incendiou o flanco direito no Campo de Fogo.
+      - Abatida por um escorpião em Hellholt no ano 10 d.C.
+
+PERSONAGENS HISTÓRICOS CENTRAIS:
+--------------------------------------------------------------------------------
+  * Aegon I Targaryen [Rei de Toda Westeros, Senhor dos Sete Reinos, Protetor do Território]
+    Montaria: Balerion, o Terror Negro
+    Arma Valiriana/Notável: Fogonegro (Aço Valiriano)
+    Personalidade: Pragmático, Reservado, Magnânimo com os submissos, Impiedoso com rebeldes, Fiel às irmãs
+    Desígnio em 2 a.C.: Conquistar e unificar os Sete Reinos sob um único trono e uma única lei, transformando reinos rivais em um império duradouro.
+
+  * Visenya Targaryen [Rainha de Westeros, Guerreira do Dragão]
+    Montaria: Vhagar
+    Arma Valiriana/Notável: Irmã Sombria (Aço Valiriano)
+    Personalidade: Severa, Implacável, Estrategista militar brilhante, Desconfiada, Pragmática até a frieza
+    Desígnio em 2 a.C.: Garantir a supremacia absoluta do sangue valiriano e proteger Aegon a qualquer custo, impondo a ordem pela espada e pelo fogo.
+
+  * Rhaenys Targaryen [Rainha de Westeros, A Amada do Povo]
+    Montaria: Meraxes
+    Arma Valiriana/Notável: Arco e adagas leves
+    Personalidade: Curiosa, Passional, Amante das artes e da música, Audaciosa no voo, Generosa
+    Desígnio em 2 a.C.: Construir alianças de paz e casamentos que unam o povo de Westeros sob o domínio Targaryen, explorando novos horizontes além do mar.
+
+  * Orys Baratheon [Senhor de Ponta Tempestade, Primeira Mão do Rei]
+    Montaria: Cavalo de guerra negro
+    Arma Valiriana/Notável: Espada de duas mãos e machado de batalha
+    Personalidade: Leal até a morte, Guerreiro feroz, Honrado, Orgulhoso de sua força, Firme governante
+    Desígnio em 2 a.C.: Provar seu valor como comandante ao lado de seu irmão Aegon e consolidar uma linhagem nobre própria em Westeros.
+
+  * Daemon Velaryon [Senhor de Derivamarca, Mestre dos Navios]
+    Montaria: Galés de guerra
+    Arma Valiriana/Notável: Sabre naval
+    Personalidade: Navegador audaz, Leal, Orgulhoso de seu sangue valiriano
+    Desígnio em 2 a.C.: Garantir o domínio naval do Mar Estreito e assegurar que a frota Velaryon seja o esteio marítimo da Conquista.
+
+  * Crispian Celtigar [Senhor da Ilha da Garra, Mestre da Moeda]
+    Montaria: Navio mercante
+    Arma Valiriana/Notável: Adaga valiriana
+    Personalidade: Metódico, Apegado a riquezas, Conselheiro prudente
+    Desígnio em 2 a.C.: Administrar o tesouro de Aegon e expandir o prestígio financeiro de sua casa entre a nobreza de Westeros.
+
+  * Argilac Durrandon [Argilac, o Arrogante, Rei da Tempestade]
+    Montaria: Garanhão blindado
+    Arma Valiriana/Notável: Montante pesado
+    Personalidade: Orgulhoso, Agressivo, Inflexível, Bravura desesperada
+    Desígnio em 2 a.C.: Conter a expansão de Harren o Negro no norte de suas fronteiras e esmagar a audácia dos invasores valirianos.
+
+  * Harren Hoare [Harren, o Negro, Rei das Ilhas e dos Rios]
+    Montaria: Nenhuma (refugiou-se no alto da Torre do Terror)
+    Arma Valiriana/Notável: Espada de lâmina larga
+    Personalidade: Cruel, Tirano impiedoso, Megalomaniaco, Confiante em muralhas de pedra
+    Desígnio em 2 a.C.: Concluir a colossal Harrenhal e demonstrar que seu império de ferro sobre o Tridente jamais seria dobrado por homens ou deuses.
+
+  * Edmyn Tully [Senhor de Correrrio, Senhor Supremo do Tridente]
+    Montaria: Cavalo de guerra tricolor
+    Arma Valiriana/Notável: Espada bastarda
+    Personalidade: Diplomático, Protetor do povo dos rios, Estrategista de alianças, Honrado
+    Desígnio em 2 a.C.: Libertar as Terras Fluviais do jugo sanguinário dos homens de ferro e garantir a prosperidade e liderança de sua Casa.
+
+  * Mern IX Gardener [Rei da Campina]
+    Montaria: Corcel de guerra ornado em ouro
+    Arma Valiriana/Notável: Lança de torneio e espada dourada
+    Personalidade: Confiante em números, Tradicionalista, Presunçoso em relação à cavalaria pesada
+    Desígnio em 2 a.C.: Aniquilar os invasores Targaryen nas planícies abertas da Campina com o maior exército já reunido na história.
+
+  * Loren I Lannister [Rei do Rochedo, Senhor de Rochedo Casterly]
+    Montaria: Garanhão dourado
+    Arma Valiriana/Notável: Espada de aço com punho de leão
+    Personalidade: Pragmático, Sobrevivente, Calculista de custos políticos
+    Desígnio em 2 a.C.: Manter o ouro e as terras do Oeste protegidos e seguros, aliando-se à Campina para derrotar a ameaça dos dragões.
+
+  * Torrhen Stark [O Rei que Ajoelhou, Senhor de Winterfell, Protetor do Norte]
+    Montaria: Cavalo do norte rústico
+    Arma Valiriana/Notável: Espada de aço e escudo com o lobo gigante
+    Personalidade: Sábio, Protetor fervoroso do seu povo, Humilde na liderança, Prudente
+    Desígnio em 2 a.C.: Preservar a vida de seu povo e as tradições ancestrais do Norte, evitando que seus homens fossem incinerados como no Campo de Fogo.
+
+  * Brandon Snow [O Bastardo de Winterfell]
+    Montaria: Pônei da floresta
+    Arma Valiriana/Notável: Arco longo de represeiro
+    Personalidade: Audacioso, Letal com o arco, Apegado aos Deuses Antigos, Inconformado com a rendição
+    Desígnio em 2 a.C.: Matar os três dragões invasores com flechas mágicas de represeiro para manter o Norte soberano e livre de conquistadores sulistas.
+
+  * Sharra Arryn [Flor da Montanha, Rainha Regente do Vale]
+    Montaria: Mula de montanha
+    Arma Valiriana/Notável: Diplomacia e influência
+    Personalidade: Bela e orgulhosa, Amor maternal incondicional, Diplomata astuta
+    Desígnio em 2 a.C.: Garantir a sobrevivência e a soberania do Vale e de seu filho Ronnel perante a expansão de Aegon.
+
+  * Ronnel Arryn [O Rei Menino, Senhor do Ninho da Águia]
+    Montaria: O dorso de Vhagar durante o voo pacificador
+    Arma Valiriana/Notável: Nenhuma (criança)
+    Personalidade: Inocente, Fascinado por dragões, Curioso
+    Desígnio em 2 a.C.: Voar nos céus no dorso de um dragão de verdade.
+
+  * Meria Martell [O Sapo Amarelo de Dorne, Princesa de Dorne]
+    Montaria: Liteira de seda carregada por criados
+    Arma Valiriana/Notável: Veneno, escorpiões e o próprio deserto escaldante
+    Personalidade: Indomável, Estrategista de guerrilha genial, Irônica, Resiliente
+    Desígnio em 2 a.C.: Humilhar os Senhores dos Dragões e manter Dorne para sempre independente e soberana.
+
+  * Deria Martell [Princesa de Dorne]
+    Montaria: Corcel da areia
+    Arma Valiriana/Notável: A carta lacrada de Nymor Martell
+    Personalidade: Corajosa, Hermética, Determinada na paz
+    Desígnio em 2 a.C.: Mais tarde (em 13 d.C.), entregar a mensagem decisiva que salvaria Dorne e selaria a paz honrosa com Aegon I.
+
+CRONOLOGIA CANÔNICA DOS FATOS (FOGO & SANGUE):
+--------------------------------------------------------------------------------
+  * [2 a.C.] O Planejamento na Mesa Pintada e as Cartas aos Reis (Pedra do Dragão)
+    - Aegon recusa a aliança matrimonial insultuosa de Argilac Durrandon, oferecendo Orys Baratheon em seu lugar.
+    - Argilac decepa as mãos do emissário de Aegon e envia com a mensagem: 'Estas são as únicas mãos que seu bastardo receberá de mim'.
+    - Aegon reúne seus vassalos (Velaryon e Celtigar) em Pedra do Dragão e ora no septo antes de enviar corvos aos sete reis anunciando que 'haverá apenas um rei em Westeros'.
+
+  * [2 a.C.] O Desembarque e a Primeira Coroação (Foz da Água Negra (Forte de Aegon))
+    - Aegon desembarca com menos de três mil homens na foz da Torrente da Água Negra e ergue uma paliçada de terra e madeira no cume de uma colina.
+    - Submete os senhores locais (Rosby, Stokeworth e Duskendale).
+    - Visenya coroa Aegon com o aro valiriano de rubis e Rhaenys o proclama Rei de Toda Westeros diante dos primeiros vassalos juramentados.
+
+  * [2 a.C.] A Queda do Rei Harren e a Queima de Harrenhal (Harrenhal (Terras Fluviais))
+    - Edmyn Tully deserta Harren e reúne os lordes dos rios sob o estandarte do dragão de Aegon.
+    - Aegon oferece a Harren a oportunidade de manter as Ilhas de Ferro se dobrar o joelho; Harren responde que 'pedra não queima'.
+    - Ao cair da noite, Balerion sobrevoa as nuvens e queima Harrenhal de cima para baixo, derretendo a pedra e extinguindo a Casa Hoare.
+
+  * [2 a.C.] A Batalha do Último Risco e a Fundação da Casa Baratheon (Terras da Tempestade (Próximo a Ponta Tempestade))
+    - Argilac Durrandon marcha com seu exército ao encontro de Orys Baratheon em plena tempestade furiosa.
+    - Meraxes desce dos céus e incendeia a vanguarda e a cavalaria dos Reis da Tempestade.
+    - Orys e Argilac lutam em duelo singular; Orys vence o velho rei e poupa a herdeira Argella Durrandon, fundando a Casa Baratheon.
+
+  * [2 a.C.] O Campo de Fogo e o Fim dos Reis Gardener (Planícies da Campina)
+    - A aliança dos Dois Reis (Mern IX da Campina e Loren Lannister do Oeste) reúne 55 mil soldados contra os 10 mil de Aegon.
+    - Aegon, Visenya e Rhaenys lançam Balerion, Vhagar e Meraxes juntos contra o capim seco e a cavalaria pesada inimiga.
+    - Mais de quatro mil homens morrem queimados, o rei Mern IX e todos os seus herdeiros morrem, e Loren Lannister se rende no dia seguinte.
+
+  * [2 a.C. / 1 a.C.] A Rendição de Torrhen Stark e a Submissão do Norte (Margens do Rio Tridente)
+    - Torrhen Stark desce com trinta mil homens até o Tridente; encontra o exército de Aegon reforçado por senhores dos rios, do oeste e do sul, além dos três dragões.
+    - Brandon Snow se oferece para cruzar o rio à noite e flechar os dragões adormecidos com flechas de represeiro.
+    - Torrhen rejeita o plano suicida, ouve os meistres e ajoelha perante Aegon, entregando a coroa antiga dos Reis do Inverno.
+
+  * [1 a.C.] A Visita de Visenya e o Voo de Ronnel Arryn (O Ninho da Águia (Vale de Arryn))
+    - Sharra Arryn havia guarnecido as portas de pedra e o Portão de Sangue contra invasores terrestres.
+    - Visenya sobrevoa as defesas com Vhagar e pousa diretamente no pátio do Ninho da Águia.
+    - O pequeno rei Ronnel pede para voar no dragão; Sharra entrega as três coroas do Vale e o menino ganha seu voo sobre a Lança do Gigante.
+
+  * [1 d.C.] A Unção do Alto Septão e a Fundação do Calendário (Septo Estrelado (Vilavelha))
+    - O Alto Septão jejua por sete dias e vê que a Torralta arderá se Manfred Hightower resistir.
+    - Vilavelha abre seus portões; Aegon é ungido com os sete óleos santos e aclamado como Senhor dos Sete Reinos.
+    - Os meistres adotam o dia da coroação como o início do ano 1 Depois da Conquista (1 d.C.).
+
+  * [4 d.C. – 10 d.C.] A Primeira Guerra Dornesa e a Morte de Rhaenys e Meraxes (Dorne e Toca do Inferno (Hellholt))
+    - A invasão de Dorne transforma-se em um atoleiro de guerrilha no deserto sob comando da princesa Meria Martell.
+    - Em 10 d.C., um disparo de escorpião em Hellholt acerta o olho de Meraxes; o dragão cai sobre o castelo, matando a fera e a rainha Rhaenys.
+    - Aegon e Visenya entram na 'Ira do Dragão', queimando fortalezas e castelos dorneses ano após ano.
+
+  * [13 d.C.] A Embaixada da Princesa Deria Martell e a Carta Misteriosa (Porto Real)
+    - O novo Príncipe Nymor Martell envia sua filha Deria com o crânio de Meraxes propondo paz perpétua como nação soberana.
+    - Os nobres do conselho exigem vingança, mas Deria entrega uma carta pessoal e lacrada do pai a Aegon I.
+    - Aegon lê a carta em silêncio, aperta a mão até sangrar, voa em Balerion até Pedra do Dragão e retorna na manhã seguinte aceitando a paz incondicional com Dorne.
+
+GANCHOS DE RAMIFICAÇÃO E WHAT IF:
+--------------------------------------------------------------------------------
+  * O Atirador do Tridente (Brandon Snow obtém sucesso) [gancho_brandon_snow_abate_dragoes]
+    Ponto de Divergência: 
+    Consequência Mecânica/Narrativa: 
+
+  * O Resgate de Rhaenys e Meraxes em Hellholt [gancho_rhaenys_resgatada_em_hellholt]
+    Ponto de Divergência: 
+    Consequência Mecânica/Narrativa: 
+
+  * Vilavelha como Capital Eterna dos Sete Reinos [gancho_vilavelha_capital]
+    Ponto de Divergência: 
+    Consequência Mecânica/Narrativa: 
+
+  * A Aliança de Sangue com Argilac Durrandon [gancho_pacto_com_argilac]
+    Ponto de Divergência: 
+    Consequência Mecânica/Narrativa: 
+
+================================================================================
+2. MAPEAMENTO DETALHADO DOS ATOS E DOS 52 NÓS NARRATIVOS
+================================================================================
+
+--------------------------------------------------------------------------------
+ATO 1: A MESA PINTADA E O DESEMBARQUE (2 a.C.)
+Arquivo Fonte: src/server/data/journeys/j1_act1.ts | Total de Cenas: 21
+--------------------------------------------------------------------------------
+
+Detalhamento das Cenas do ATO 1: A MESA PINTADA E O DESEMBARQUE (2 a.C.):
+
+  [01] Nó ID: j1_a1_mesa_pintada
+       Título: A Mesa Pintada de Pedra do Dragão
+       Localização: Pedra do Dragão | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: Aegon I Targaryen contemplava a grandiosa Mesa Pintada na câmara alta da fortaleza de Pedra do Dragão. Diante de seus olhos repousava a silhueta esculpida dos Sete Reinos, com mais de quinze metros de comprimento, entalhada nas feições exatas da terra por ordem de Lorde Gaemon, s...
+
+  [02] Nó ID: j1_a1_oferta_argilac
+       Título: A Oferta do Rei da Tempestade
+       Localização: Pedra do Dragão | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: Os enviados de Ponta Tempestade ajoelharam-se na câmara da Mesa Pintada, desdobrando pergaminhos timbrados com o veado coroado da Casa Durrandon. A proposta de Argilac, o Arrogante, era suntuosa, porém traiçoeira: oferecia a mão de sua única donzela e herdeira, a princesa Argella...
+       Decisões Disponíveis:
+         * [Teste: CORTESIA DC 8] Despachar os termos oferecendo a mão de Orys Baratheon com juramento solene de vassalagem.
+         * [Teste: FURIA DC 9] Rasgar os termos na frente dos emissários e exigir a submissão incondicional de Ponta Tempestade.
+
+  [03] Nó ID: j1_a1_maos_cortadas
+       Título: O Baú de Ferro e a Ira do Dragão
+       Localização: Pedra do Dragão | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: A resposta de Argilac Durrandon não veio por tinta, mas por sangue. Um mensageiro dornês entregou aos guardas de Pedra do Dragão uma pesada caixa de ferro forjado. Ao ser aberta perante a corte, o silêncio desabou sobre o salão: sobre o veludo repousavam as duas mãos decepadas do...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Mobilizar a frota de Derivamarca e içar as velas rumo à costa de Westeros.
+         * [Decisão Canônica] Consagrar as espadas Fogonegro e Irmã Sombria nos óleos santos antes da travessia.
+
+  [04] Nó ID: j1_a1_desembarque_agua_negra
+       Título: O Desembarque na Foz da Água Negra
+       Localização: Foz do Rio Água Negra | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: Menos de três mil homens desembarcaram na foz do rio Água Negra, na costa oriental de Westeros. Era um exército minúsculo se comparado às hostes dos reis dos Sete Reinos, mas acima das velas enfunadas rasgavam os céus três titãs alados. Balerion, o Terror Negro, projetava uma som...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Enviar as rainhas Visenya e Rhaenys montadas em dragões para exigir a rendição de Rosby e Stokeworth.
+         * [Decisão Canônica] Consolidar as defesas do Forte de Aegon antes de estender o raio de manobra militar.
+
+  [05] Nó ID: j1_a1_submissao_rosby_stokeworth
+       Título: A Queda de Rosby e Stokeworth
+       Localização: Terras da Coroa | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: A marcha contra os castelos vizinhos foi rápida e implacável. Diante de Rosby, o rugido de Meraxes fez tremer as vigas de carvalho. Quando a rainha Rhaenys desceu dos céus com seus trajes de seda e montaria escarlate, os portões de ferro do castelo se abriram de par em par sem qu...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Liderar o exército pessoalmente ao lado de Orys Baratheon e interceptar as hostes de Valdocaso.
+
+  [06] Nó ID: j1_a1_batalha_darklyn_mooton
+       Título: O Primeiro Teste de Ferro: Valdocaso e Lagoa da Donzela
+       Localização: Campos de Valdocaso | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: Os três mil homens de Robin Darklyn e Jon Mooton formaram uma sólida parede de lanças e escudos nos descampados ao norte da baía. Cavaleiros em cotas de malha prateada gritavam ordens, confiantes em sua superioridade numérica sobre os recém-desembarcados. Orys Baratheon posiciono...
+       Decisões Disponíveis:
+         * [Teste: FURIA DC 11 [RISCO MORTAL]] Cavalgar à frente de batalha para confrontar Robin Darklyn no choque de ferro.
+         * [Teste: COMANDO DC 9 [RISCO MORTAL]] Permanecer nas costas de Balerion incendiando a retaguarda inimiga para forçar o cerco.
+
+  [07] Nó ID: j1_a1_morte_darklyn
+       Título: Morte Canônica: O Sangue do Dragão Derramado
+       Localização: Campos de Valdocaso | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: No tumulto lamacento do campo de batalha, a fumaça das chamas de Balerion cegou cavaleiros e montarias. Em meio ao caos da vanguarda, uma lança de freixo arremessada com fúria cega por um veterano de Darklyn encontrou uma brecha sob a couraça de aço valiriano de Aegon. O Conquist...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [08] Nó ID: j1_a1_vitoria_darklyn
+       Título: A Rendição de Valdocaso e Lagoa da Donzela
+       Localização: Forte de Aegon | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: A vitória foi total e retumbante. Lorde Jon Mooton sucumbiu no campo de batalha, trespassado por lanças, enquanto Lorde Robin Darklyn, coberto de cinzas e com sua guarda aniquilada, entregou sua espada aos pés de Orys Baratheon. A hoste inimiga dispersou-se pelos bosques ou rende...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Retornar ao Forte de Aegon para a cerimônia de coroação e distribuição dos grandes ofícios do reino.
+
+  [09] Nó ID: j1_a1_coroacao_forte_aegon
+       Título: A Coroação e o Primeiro Conselho do Reino
+       Localização: O Forte de Aegon (Aegonfort) | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Prosa/Sinopse: No pátio central do Forte de Aegon, diante de uma multidão de soldados, marinheiros, meistres e senhores recém-submissos, a rainha Visenya Targaryen ergueu a coroa régia: um circuito de aço valiriano puro, cravejado com grandes rubis que cintilavam como brasas sob a luz da aurora...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Apoiar Lorde Daemon Velaryon e Visenya na Batalha Naval contra a frota de Vila Gaivota.
+         * [Decisão Canônica] Marchar para noroeste com Balerion rumo ao Tridente para desafiar o império de Harren o Negro.
+         * [Decisão Canônica] Acompanhar a vanguarda sulista com Orys Baratheon e Rhaenys rumo às florestas de Ponta Tempestade.
+
+  [10] Nó ID: j1_a1_frente_naval_valegaivota
+       Título: A Batalha das Águas de Vila Gaivota
+       Localização: Águas de Vila Gaivota | Ano: 2 a.C.
+       Região do Mapa: vale
+       Prosa/Sinopse: A frota Targaryen, comandada por Lorde Daemon Velaryon e acompanhada pela rainha Visenya nas asas de Vhagar, navegou para o norte em direção a Vila Gaivota. Contudo, os senhores do Vale de Arryn haviam reunido uma armada considerável com auxílio de mercenários das Três Irmãs e ga...
+       Decisões Disponíveis:
+         * [Teste: PRESSAGIO DC 12] Executar um mergulho arriscado com Vhagar cortando os mastros inimigos para resgatar Lorde Daemon.
+         * [Teste: FURIA DC 9] Queimar impiedosamente toda a baía de Vila Gaivota priorizando a destruição da frota Arryn.
+
+  [11] Nó ID: j1_a1_daemon_velaryon_salvo
+       Título: Divergência Canônica: Daemon Velaryon Resgatado
+       Localização: Vila Gaivota | Ano: 2 a.C.
+       Região do Mapa: vale
+       Prosa/Sinopse: Contra todas as probabilidades e desafiando o registro das antigas crônicas da Cidadela, o mergulho cirúrgico de Vhagar despedaçou os mastros das trirremes Arryn sem tocar a nau capitânia de Derivamarca. Uma lufada de vento favorável permitiu a Lorde Daemon Velaryon repelir os in...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Consolidar a vitória naval e registrar o término vitorioso do Ato I.
+
+  [12] Nó ID: j1_a1_daemon_velaryon_morto
+       Título: A Batalha das Chamas e o Sacrifício de Velaryon
+       Localização: Vila Gaivota | Ano: 2 a.C.
+       Região do Mapa: vale
+       Prosa/Sinopse: A batalha foi sangrenta e implacável. Embora Visenya e Vhagar tenham descido dos céus como um furacão de fogo que incinerou a frota do Vale até a linha d'água, o auxílio chegou tarde demais para a nau capitânia. Lorde Daemon Velaryon tombou com a espada na mão, cravado de flechas...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Honrar a memória de Lorde Daemon e assinalar a conclusão do Ato I.
+
+  [13] Nó ID: j1_a1_frente_fluvial_harrenhal
+       Título: A Marcha para o Olho de Deus
+       Localização: As Terras Fluviais | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Aegon montou Balerion e liderou a coluna principal rumo a noroeste, cruzando as florestas de salgueiros em direção ao Olho de Deus. O rei Harren, o Negro, ciente do desembarque, havia convocado os senhores dos rios e retirado-se para as muralhas monstruosas de Harrenhal, confiant...
+       Decisões Disponíveis:
+         * [Teste: ASTUCIA DC 10] Enviar emissários secretos prometendo elevar a Casa Tully à suserania do Tridente em troca de sua rebelião.
+         * [Teste: COMANDO DC 9] Avançar diretamente contra as barcas de guerra dos homens de ferro na Batalha dos Juncos.
+
+  [14] Nó ID: j1_a1_tully_revolta
+       Título: A Aliança de Correrrio e a Queda dos Hoare
+       Localização: Correrrio & Tridente | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: A resposta de Lorde Edmyn Tully transformou a guerra nos rios em uma avalanche. Em Correrrio, a truta prateada foi içada ao lado do dragão vermelho de três cabeças. O senhor do Ramo Vermelho abandonou a causa de Harrenhal e cavalgou com todos os seus cavaleiros para encontrar Aeg...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Cercar as muralhas de Harrenhal e registrar o término do Ato I nas Terras Fluviais.
+
+  [15] Nó ID: j1_a1_batalha_dos_juncos
+       Título: A Batalha dos Juncos e os Filhos de Harren
+       Localização: O Olho de Deus | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Nas margens alagadas e juncais do sul do Olho de Deus, dois filhos de Harren atacaram de surpresa as colunas de suprimento Targaryen com barcaças de fundo chato e guerreiros de machado. O choque foi feroz nas águas turvas do pântano, e a infantaria sofreu baixas significativas no...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Avançar com as hostes vitoriosas rumo às muralhas de Harrenhal e fechar o Ato I.
+
+  [16] Nó ID: j1_a1_frente_tempestade_orys
+       Título: A Marcha pelas Matas da Tempestade
+       Localização: Florestas da Tempestade | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Prosa/Sinopse: Ao sul, a Mão do Rei, Orys Baratheon, liderava o exército de avanço rumo a Ponta Tempestade, com a rainha Rhaenys voando alto nas asas douradas de Meraxes. Contudo, as Terras da Tempestade eram famosas por seus despenhadeiros cobertos de mata virgem e chuvas torrenciais que trans...
+       Decisões Disponíveis:
+         * [Teste: FURIA DC 11 [RISCO MORTAL]] Liderar um contra-ataque feroz na mata contra o posto de comando de Lorde Errol.
+         * [Teste: COMANDO DC 8 [RISCO MORTAL]] Ordenar a Meraxes que crie uma barreira de fogo à retaguarda da emboscada forçando a rendição.
+
+  [17] Nó ID: j1_a1_morte_emboscada_tempestade
+       Título: Morte Canônica: O Fim na Garganta de Wendwater
+       Localização: Garganta de Wendwater | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: No meio da folhagem espessa e da tempestade súbita que apagou as tochas, os arqueiros de Lorde Buckler descarregaram virotes envenenados das copas dos carvalhos. Uma saraivada concentrada atingiu os cavaleiros de vanguarda antes que Meraxes pudesse varrer a mata. O comandante val...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [18] Nó ID: j1_a1_vitoria_bosque
+       Título: A Vitória no Wendwater e a Fuga dos Senhores
+       Localização: Terras da Tempestade | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Com precisão e bravura titânica, a investida quebrou a linha dos emboscadores. Meraxes fez arder as encostas laterais em chamas douradas e rubras, cercando os homens da tempestade em um círculo de calor insuportável. Lorde Errol pereceu nas labaredas, e as tropas remanescentes de...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Avançar com Orys e Meraxes rumo ao campo do Último Risco e concluir o Ato I.
+
+  [19] Nó ID: j1_a1_checkpoint_naval
+       Título: Conclusão do Ato I &bull; O Domínio do Mar Estreito
+       Localização: Águas de Vila Gaivota | Ano: 2 a.C.
+       Região do Mapa: vale
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Com as frotas dos Arryn e das Três Irmãs em cinzas na Baía de Vila Gaivota, o controle marítimo do Mar Estreito pertence irrevogavelmente à Casa Targaryen. A rainha Sharra Arryn recuou para as alturas inexpugnáveis do Ninho da Águia, impotente diante das asas de Vhagar. O Forte d...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [20] Nó ID: j1_a1_checkpoint_fluvial
+       Título: Conclusão do Ato I &bull; A Rebelião dos Rios
+       Localização: O Olho de Deus & Harrenhal | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: A aliança com a Casa Tully e a adesão maciça dos Senhores dos Rios transformaram a invasão em uma marcha triunfal de libertação contra os homens de ferro. Mais de quarenta mil guerreiros cercam Harrenhal, enquanto Balerion projeta sua sombra sobre o lago. O rei Harren, o Negro, r...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [21] Nó ID: j1_a1_checkpoint_tempestade
+       Título: Conclusão do Ato I &bull; O Rumo do Último Risco
+       Localização: Planícies da Tempestade | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Após superar as emboscadas de Wendwater e dispersar os senhores da mata, a vanguarda de Orys Baratheon e a rainha Rhaenys encontram o campo aberto diante das colinas de Ponta Tempestade. O vento uiva com fúria crescente nos rochedos, prenunciando a tempestade lendária que dará no...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+
+--------------------------------------------------------------------------------
+ATO 2: HARRENHAL E A ÚLTIMA TEMPESTADE (2 a.C.)
+Arquivo Fonte: src/server/data/journeys/j1_act2.ts | Total de Cenas: 15
+--------------------------------------------------------------------------------
+
+Detalhamento das Cenas do ATO 2: HARRENHAL E A ÚLTIMA TEMPESTADE (2 a.C.):
+
+  [22] Nó ID: j1_a2_revolta_terras_fluviais
+       Título: A Rebelião dos Rios & O Cerco de Harrenhal
+       Localização: Margens do Olho de Deus | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: As águas serenas do lago Olho de Deus refletiam a silhueta monstruosa de Harrenhal, a maior fortaleza jamais erguida em Westeros pelo suor e sangue de quarenta anos de trabalho forçado. Ao redor de suas muralhas gigantescas, as bandeiras dos Senhores dos Rios ondulavam ao vento: ...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Cavalgar sob o estandarte de trégua até os portões de Harrenhal para exigir a rendição direta de Harren, o Negro.
+         * [Decisão Canônica] Consultar os desertores fluviais para encontrar passagens secretas nas cloacas e capturar Harren sem incendiar a fortaleza.
+
+  [23] Nó ID: j1_a2_parlamento_harrenhal
+       Título: O Parlamento de Fogo & Ferro
+       Localização: Portões de Harrenhal | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Sob a sombra opressiva da muralha de Harrenhal, dois reis se encontraram sob um estandarte de paz. Harren, o Negro, trajava armadura completa de placas pretas entalhadas com crânios e espadas, o rosto envelhecido e sulcado por incontáveis atrocidades nas Ilhas de Ferro e nas Terr...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Retornar ao acampamento com honra e esperar o crepúsculo para montar em Balerion.
+         * [Decisão Canônica] Desembainhar Blackfyre e convocar os soldados da guarnição de Harren a abandonarem o tirano antes do cair da noite.
+
+  [24] Nó ID: j1_a2_preparativos_noite_harrenhal
+       Título: O Pôr do Sol sobre o Olho de Deus
+       Localização: Harrenhal & Olho de Deus | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: À medida que o sol descia além das colinas ocidentais, o céu sobre o lago tingiu-se de vermelho-sangue e cobre. Dentro da fortaleza, Harren reuniu seus filhos, netos e a guarda de elite dos homens de ferro na Torre da Pira do Rei, distribuindo lanças, flechas com pontas de ferro ...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Mergulhar do ápice do céu noturno com Balerion e desencadear a tempestade de chamas negras sobre as cinco torres.
+
+  [25] Nó ID: j1_a2_queima_de_harrenhal
+       Título: A Queima de Harrenhal & O Fim dos Hoare
+       Localização: Harrenhal | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Do meio das nuvens tempestuosas, Balerion despencou como uma montanha viva em chamas. Seu rugido abalou as fundações do lago, e sua bocarra vomitou torrentes de fogo negro com redemoinhos de escarlate sobre as cinco torres colossais. Pedra de fato não arde, mas o calor sobrenatur...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Pousar Balerion no pátio enegrecido e nomear Lorde Edmyn Tully Senhor Supremo do Tridente.
+
+  [26] Nó ID: j1_a2_whatif_infiltracao_harrenhal
+       Título: A Fenda nas Muralhas & A Captura de Harrenhal
+       Localização: Passagens Secretas de Harrenhal | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Guiados por pescadores do Olho de Deus e construtores fluviais que conheciam as entranhas do castelo, os batedores de Aegon infiltraram-se pelos canais de escoamento submersos. Na escuridão dos corredores inferiores, as espadas valirianas e as lanças dos rios subjugaram os guarda...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Nomear a Casa Tully governante das Terras Fluviais e marchar em auxílio das outras frentes.
+
+  [27] Nó ID: j1_a2_senhor_supremo_tridente
+       Título: Lorde Edmyn Tully & O Tridente Pacificado
+       Localização: Ruínas Fumegantes de Harrenhal | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Prosa/Sinopse: Na manhã seguinte ao cataclismo, a fumaça de Harrenhal subia em colunas negras que podiam ser vistas a cinquenta léguas de distância. Diante de milhares de guerreiros exultantes das Terras dos Rios, Aegon I desembainhou Blackfyre e tocou os ombros curvados de Lorde Edmyn Tully de...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Voltar a atenção e os reforços para a frente de batalha de Orys Baratheon nas Terras da Tempestade.
+         * [Decisão Canônica] Comandar que a Rainha Visenya voe com Vhagar para pacificar a Ponta da Garra Rachada.
+         * [Decisão Canônica] Comandar Lorde Edmyn Tully a vigiar as margens do Tridente antecipando a descida do exército nortenho.
+
+  [28] Nó ID: j1_a2_marcha_ultima_tempestade
+       Título: A Marcha sob a Torrente & O Rugido do Sul
+       Localização: Sul do Rio Água Negra | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Prosa/Sinopse: Enquanto Harrenhal ardia ao norte, o sul mergulhava no caos de uma das piores tempestades do século. Ventos uivantes sopravam da Baía dos Naufrágios com a violência de navalhas, e chuvas torrenciais transformavam as estradas e colinas em pântanos de lama viscosa. Orys Baratheon l...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Travar a Batalha da Última Tempestade nas três colinas contra a fúria dos cavaleiros de Argilac.
+
+  [29] Nó ID: j1_a2_batalha_ultima_tempestade
+       Título: A Batalha da Última Tempestade
+       Localização: Colinas de Bronzegate | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Prosa/Sinopse: Três vezes os cavaleiros blindados de Argilac subiram a colina enlameada contra as lanças de Orys Baratheon, e três vezes o ímpeto da tempestade pareceu arrastar as linhas reais. A cavalaria da tempestade rasgou o flanco de Orys, e parecia que a ferocidade de Argilac triunfaria c...
+       Decisões Disponíveis:
+         * [Teste: FURIA DC 10 [RISCO MORTAL]] Apear e cruzar espadas pessoalmente contra Argilac Durrandon no duelo mortal na lama.
+         * [Teste: COMANDO DC 11 [RISCO MORTAL]] Comandar Orys e a infantaria pesada para cercar e desarmar o rei antes do golpe fatal.
+
+  [30] Nó ID: j1_a2_duelo_orys_argilac
+       Título: O Duelo na Lama & A Queda do Último Rei
+       Localização: Colinas de Bronzegate | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: O duelo entre Orys Baratheon e o Rei Argilac foi o confronto marcial mais feroz da Conquista. Argilac lutava com a força descomunal de cinquenta batalhas passadas, ferindo Orys duas vezes na coxa e no ombro, rachando o escudo do comandante do Dragão. Mas a juventude e a obstinaçã...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Marchar triunfalmente para receber a capitulação do castelo de Ponta Tempestade.
+
+  [31] Nó ID: j1_a2_morte_duelo_argilac
+       Título: Fim Trágico nas Colinas da Tempestade
+       Localização: Colinas de Bronzegate | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: A lama traiçoeira fez o pé escorregar no momento crucial do embate. A lâmina pesada de duas mãos do Rei Argilac desceu com força brutal, partindo o elmo e a têmpora do comandante real antes que os escudeiros pudessem intervir. Com a queda de sua liderança, as forças do Dragão for...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [32] Nó ID: j1_a2_motim_ponta_tempestade
+       Título: A Traição dos Covardes & A Princesa Acorrentada
+       Localização: Ponta Tempestade | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Prosa/Sinopse: Quando as notícias da derrota e da morte de Argilac alcançaram Ponta Tempestade, a princesa Argella Durrandon trancou os portões imensos e declarou-se Rainha da Tempestade perante a guarnição. Ela prometeu lutar até o último sopro de vida, jurando que nenhum estrangeiro pisaria n...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Apear, desacorrentar a princesa pessoalmente, cobri-la com o manto de guerra e fundar a Casa Baratheon com honra.
+
+  [33] Nó ID: j1_a2_honra_argella_baratheon
+       Título: Nossa é a Fúria & O Nascimento da Casa Baratheon
+       Localização: Salão dos Reis de Ponta Tempestade | Ano: 2 a.C.
+       Região do Mapa: tempestade
+       Prosa/Sinopse: Orys Baratheon apeou de seu cavalo e caminhou até a jovem princesa caída. Com a ponta de sua adaga, rompeu as cordas e correntes que a prendiam; retirou seu próprio manto carmesim de lã forrado de pele e cobriu os ombros de Argella, erguendo-a do chão com reverência régia. Ele a ...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Celebrar a submissão do sul e convergir todos os exércitos para o clímax da guerra no oeste.
+
+  [34] Nó ID: j1_a2_submissao_garra_rachada
+       Título: A Rainha na Névoa & A Ponta da Garra Rachada
+       Localização: Ponta da Garra Rachada | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Enquanto o fogo e o ferro abalavam os grandes reinos, a Rainha Visenya montou Vhagar e voou sobre as florestas densas, colinas pedregosas e pântanos nevoentos da Ponta da Garra Rachada. Os pequenos senhores locais — lordes Brune, Boggs, Cave, Pyne e Crabb — sempre haviam repelido...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Retornar ao Forte de Aegon e preparar a frota e os dragões para o confronto contra os reis do oeste.
+
+  [35] Nó ID: j1_a2_checkpoint_campo_de_fogo
+       Título: Conclusão do Ato II & A Reunião dos Dragões
+       Localização: Acampamento Real & Terras da Coroa | Ano: 2 a.C.
+       Região do Mapa: pedra_dragao
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: O Ato II da grande Conquista chega ao fim com duas das maiores potências de Westeros derrotadas: a Casa Hoare ardeu em cinzas em Harrenhal, e a Casa Durrandon foi sucedida pelo leão negro de Orys Baratheon em Ponta Tempestade. Porém, as maiores ameaças ainda erguem suas coroas no...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [36] Nó ID: j1_a2_checkpoint_norte_tridente
+       Título: Conclusão do Ato II & O Vento do Inverno no Tridente
+       Localização: Tridente & Correrrio | Ano: 2 a.C.
+       Região do Mapa: tridente
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Com o Tridente pacificado sob a liderança de Lorde Edmyn Tully e Harrenhal reduzida a um monumento de granito derretido, os corvos trazem notícias perturbadoras dos ermos gelados do Norte. O Rei Torrhen Stark cruzou o Gargalo com trinta mil guerreiros nortenhos em fúria, marchand...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+
+--------------------------------------------------------------------------------
+ATO 3: O CAMPO DE FOGO E O REI QUE SE AJOELHOU (2 a.C. - 1 d.C.)
+Arquivo Fonte: src/server/data/journeys/j1_act3.ts | Total de Cenas: 16
+--------------------------------------------------------------------------------
+
+Detalhamento das Cenas do ATO 3: O CAMPO DE FOGO E O REI QUE SE AJOELHOU (2 a.C. - 1 d.C.):
+
+  [37] Nó ID: j1_a3_alianca_dois_reis
+       Título: O Banquete dos Dois Reis & O Exército Dourado
+       Localização: Planícies ao Sul da Água Negra | Ano: 2 a.C.
+       Região do Mapa: campina
+       Prosa/Sinopse: Nas planícies férteis ao sul da Baía da Água Negra, sob o calor sufocante do fim do verão, dois dos mais ricos e antigos soberanos de Westeros uniram suas forças em um espetáculo jamais visto. O Rei Mern IX da Casa Gardener, soberano da florescente Campina, cavalgou à frente de s...
+
+  [38] Nó ID: j1_a3_posicionamento_campo_fogo
+       Título: O Som dos Clarins & O Vento do Meio-Dia
+       Localização: Planícies de Trigo da Campina | Ano: 2 a.C.
+       Região do Mapa: campina
+       Prosa/Sinopse: Os clarins de bronze dos Gardener e Lannister soaram ao mesmo tempo, um brado estrondoso que sacudiu as colinas. O sol do meio-dia fazia brilhar milhares de escudos e pontas de lança num mar reluzente. Aegon I alinhou seus homens na encosta suave, instruindo os arqueiros e piquei...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Liderar a defesa na linha de frente e dar o sinal para o vôo simultâneo dos três dragões.
+
+  [39] Nó ID: j1_a3_carga_cavalaria_gardener
+       Título: A Carga de Aço & A Linha Partida
+       Localização: Planícies de Trigo da Campina | Ano: 2 a.C.
+       Região do Mapa: campina
+       Prosa/Sinopse: O impacto da cavalaria da Campina e do Ocidente foi devastador. Os corcéis blindados romperam as primeiras fileiras de piqueiros reais como se fossem gravetos secos; cavaleiros com as armaduras pintadas de esmeralda e ouro trespassavam homens com lanças pesadas de freixo. O centr...
+       Decisões Disponíveis:
+         * [Teste: COMANDO DC 10 [RISCO MORTAL]] Comandar Balerion, Vhagar e Meraxes para incendiar os trigais e criar o turbilhão de fogo mortal.
+
+  [40] Nó ID: j1_a3_tres_dragoes_campo_de_fogo
+       Título: O Campo de Fogo & O Vôo dos Três Dragões
+       Localização: Planícies de Trigo da Campina | Ano: 2 a.C.
+       Região do Mapa: campina
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Esta foi a única vez em toda a Conquista em que Balerion, Vhagar e Meraxes voaram juntos no mesmo céu. Os três dragões mergulharam em formação triangular, cuspindo torrentes ininterruptas de fogo negro, rubro e prateado. O vento seco da tarde soprou as labaredas diretamente contr...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Inspecionar as cinzas do campo de batalha e confirmar a extinção da linhagem dos Gardener.
+
+  [41] Nó ID: j1_a3_morte_campo_de_fogo
+       Título: A Queda sob os Cascos do Ocidente
+       Localização: Planícies da Campina | Ano: 2 a.C.
+       Região do Mapa: campina
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Durante a fúria inicial da investida da cavalaria inimiga, uma lança pesada de freixo atingiu o flanco desprotegido do rei antes da decolagem dos dragões. Desmontado violentamente, Aegon foi pisoteado pela maré imparável de cinco mil cavaleiros montados. Apesar do fogo posterior ...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [42] Nó ID: j1_a3_fim_casa_gardener
+       Título: As Cinzas dos Reis da Campina
+       Localização: Campo de Cinzas da Campina | Ano: 2 a.C.
+       Região do Mapa: campina
+       Prosa/Sinopse: O cheiro de carne queimada, trigo calcinado e couro tostado impregnava o ar a muitas léguas de distância. No centro do círculo de destruição, entre escudos derretidos e carcaças calcinadas de cavalos, os soldados encontraram o corpo carbonizado do Rei Mern IX Gardener. Ao redor d...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Receber a submissão formal de Loren Lannister e conceder-lhe a dignidade de Protetor do Oeste.
+
+  [43] Nó ID: j1_a3_submissao_loren_lannister
+       Título: O Leão Ajoelhado & O Rochedo Casterly
+       Localização: Acampamento da Água Negra | Ano: 2 a.C.
+       Região do Mapa: ocidente
+       Prosa/Sinopse: O Rei Loren I Lannister foi conduzido à presença de Aegon I com as mãos amarradas com cordas de cânhamo. Reconhecendo a derrota total de seu exército e a loucura de qualquer desafio ulterior ao fogo dos três dragões, o soberano de Rochedo Casterly dobrou ambos os joelhos na poeir...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Marchar imediatamente com o exército vitorioso até Jardim de Cima para consolidar o domínio da Campina.
+
+  [44] Nó ID: j1_a3_rendicao_jardim_de_cima
+       Título: As Chaves de Jardim de Cima & A Ascensão Tyrell
+       Localização: Jardim de Cima | Ano: 2 a.C.
+       Região do Mapa: campina
+       Prosa/Sinopse: As muralhas brancas e os jardins perfumados de Jardim de Cima, capital da Campina às margens do idílico Rio Mander, aguardavam a chegada dos dragões com medo paralisante. Sem um único membro sobrevivente da Casa Gardener para liderar a defesa, o castelo caíra nas mãos do intenden...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Receber notícias urgentes da descida do exército de Winterfell e marchar para o Tridente.
+
+  [45] Nó ID: j1_a3_lobo_no_tridente
+       Título: O Lobo no Tridente & O Exército de Winterfell
+       Localização: Margens do Rio Tridente | Ano: 2 a.C.
+       Região do Mapa: norte
+       Prosa/Sinopse: Enquanto o sul ardia, o Rei do Norte, Torrhen Stark, completara a marcha titânica através do Gargalo. Trinta mil ferozes guerreiros nortenhos — barbudos, vestidos com pesadas peles de urso e armaduras de malha de ferro — acamparam na margem setentrional do Rio Tridente. Ao longo ...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Manter sentinelas alertas na névoa noturna do Tridente e investigar rumores de uma trama secreta dos nortenhos.
+         * [Decisão Canônica] Enviar meistres e arautos com mensagens de honra para convidar Torrhen Stark a um parlamento pacífico.
+
+  [46] Nó ID: j1_a3_conspiracao_brandon_snow
+       Título: As Flechas de Represeiro & O Plano de Brandon Snow
+       Localização: Acampamento Nortenho & Névoa do Rio | Ano: 2 a.C.
+       Região do Mapa: norte
+       Prosa/Sinopse: Na calada da noite anterior à batalha decisiva, na tenda de campanha de Winterfell iluminada por archotes fumaçantes, o irmão bastardo de Torrhen Stark, Brandon Snow, reuniu três flechas artesanais esculpidas no cerne de madeira branca de represeiro com pontas de obsidiana. "Senh...
+       Decisões Disponíveis:
+         * [Teste: CORTESIA DC 10 [RISCO MORTAL]] Enviar meistres pela névoa com relatos fidedignos de Harrenhal e do Campo de Fogo para demover Torrhen da loucura.
+         * [Teste: ASTUCIA DC 11 [RISCO MORTAL]] Montar emboscada pessoalmente nas margens enevoadas para capturar Brandon Snow com Blackfyre.
+
+  [47] Nó ID: j1_a3_emboscada_noturna_brandon
+       Título: O Choque na Névoa do Tridente
+       Localização: Águas Rasas do Rio Tridente | Ano: 2 a.C.
+       Região do Mapa: norte
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Entre os juncos altos e as águas geladas do Tridente, as sombras de Brandon Snow e seus três caçadores das montanhas foram descobertas pelos guardas valirianos. O som de aço contra ferro quebrou o silêncio da noite quando as espadas se chocaram no lodo. Brandon lutou com a destre...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Conduzir Torrhen Stark ao centro da ponte de barcas para a cerimônia solene de submissão do Norte.
+
+  [48] Nó ID: j1_a3_morte_flecha_represeiro
+       Título: A Flecha Negra na Névoa do Norte
+       Localização: Margens do Rio Tridente | Ano: 2 a.C.
+       Região do Mapa: norte
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: A névoa fria escondeu com perfeição o arqueiro dos deuses antigos. Da escuridão dos juncos, o arco curvado de represeiro zuniu no silêncio da noite, e uma flecha afiada de obsidiana atravessou a garganta do rei antes que qualquer aviso pudesse ser gritado. O Dragão caiu de joelho...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+  [49] Nó ID: j1_a3_o_rei_que_se_ajoelhou
+       Título: O Rei que se Ajoelhou & A Paz no Tridente
+       Localização: Margens do Rio Tridente | Ano: 2 a.C.
+       Região do Mapa: norte
+       Prosa/Sinopse: Ao raiar do dia seguinte, sob uma névoa diáfana que se dissipava com a luz dourada do sol, o Rei Torrhen Stark cruzou o Rio Tridente escoltado por seus meistres e pelos lordes Umber, Karstark, Bolton e Glover. Diante de seu exército e perante as hostes reunidas do Conquistador, T...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Acompanhar a Rainha Visenya no vôo audacioso até as alturas inexpugnáveis do Ninho da Águia.
+
+  [50] Nó ID: j1_a3_ninho_da_aguia_ronnel
+       Título: As Asas no Ninho da Águia & O Vôo do Menino Rei
+       Localização: O Ninho da Águia & Montanhas da Lua | Ano: 2 a.C.
+       Região do Mapa: vale
+       Prosa/Sinopse: Enquanto os exércitos marchavam pelas planícies, a Rainha Regente Sharra Arryn fortalecera o formidável Portão Sangrento com arqueiros, besteiros e catapultas, convencida de que nenhuma hoste na terra jamais penetraria no Vale de Arryn. O Ninho da Águia, empoleirado no topo da La...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Transportar os milhares de espadas recolhidas de todos os reis rendidos até o Forte de Aegon para forjar o Trono de Ferro.
+
+  [51] Nó ID: j1_a3_epilogo_trono_ferro
+       Título: O Sopro de Balerion & A Forja do Trono de Ferro
+       Localização: Forte de Aegon & Três Colinas | Ano: 1 a.C. - 1 d.C.
+       Região do Mapa: pedra_dragao
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: Carroças sem fim abarrotadas de ferro, aço e bronze convergiam para a colina mais alta da foz da Água Negra: as espadas recolhidas dos cavaleiros caídos no Campo de Fogo, as lâminas dos homens de ferro de Harrenhal, as espadas do Vale, do Tridente e das Terras da Tempestade. Eram...
+       Decisões Disponíveis:
+         * [Decisão Canônica] Marchar até Vilavelha para receber a unção sagrada do Alto Septão e consagrar o Ano 1 da Conquista.
+
+  [52] Nó ID: j1_a3_vitoria_conquista
+       Título: A Unção em Vilavelha & O Nascimento dos Sete Reinos
+       Localização: Septo Estrelado & Vilavelha | Ano: 1 d.C.
+       Região do Mapa: campina
+       Status: [PONTO FINAL / CHECKPOINT DA CAMPANHA]
+       Prosa/Sinopse: As portas monumentais de Vilavelha, a mais antiga e esplêndida cidade do mundo ocidental, abriram-se sem um único disparo de besta. Lorde Manfred Hightower, aconselhado pela visão dos Sete Deuses no Septo Estrelado de que a cidade arderia se resistisse, acolheu o Conquistador com...
+       Decisões: [Nó de Fechamento ou Transição de Ato]
+
+
+================================================================================
+3. GLOSSÁRIO VIVO DA CIDADELA (106 VERBETES CANÔNICOS)
+================================================================================
+
+CATEGORIA: ARTEFATO_ESPADA (5 verbetes)
+--------------------------------------------------------------------------------
+  * Fogonegro [fogonegro]
+    Definição: None
+    Termos Relacionados: 
+
+  * Irmã Sombria [irma_sombria]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Mesa Pintada [mesa_pintada]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Trono de Ferro [trono_de_ferro]
+    Definição: None
+    Termos Relacionados: 
+
+  * Coroa Valiriana de Aegon [coroa_valiriana]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: BATALHA_EVENTO (13 verbetes)
+--------------------------------------------------------------------------------
+  * O Desembarque de Aegon [o_desembarque_de_aegon]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Incêndio de Harrenhal [incendio_de_harrenhal]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Batalha do Último Risco [batalha_do_ultimo_risco]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Campo de Fogo [campo_de_fogo]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Rendição no Tridente [rendicao_no_tridente]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Primeira Guerra Dornesa [primeira_guerra_dornesa]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Carta de Dorne [carta_de_dorne]
+    Definição: None
+    Termos Relacionados: 
+
+  * Batalha dos Juncos [batalha_dos_juncos]
+    Definição: None
+    Termos Relacionados: 
+
+  * Pacificação das Ilhas de Ferro [pacifiacao_das_ilhas_de_ferro]
+    Definição: None
+    Termos Relacionados: 
+
+  * Queda de Hellholt [queda_de_hellholt]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Paz de Dorne (13 d.C.) [paz_de_dorne_13_dc]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Primeira Coroação no Forte de Aegon [primeira_coroacao]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Grande Coroação de Vilavelha (1 d.C.) [segunda_coroacao]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: DRAGAO (3 verbetes)
+--------------------------------------------------------------------------------
+  * Balerion, o Terror Negro [balerion]
+    Definição: None
+    Termos Relacionados: 
+
+  * Vhagar [vhagar]
+    Definição: None
+    Termos Relacionados: 
+
+  * Meraxes [meraxes]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: GRANDE_CASA (15 verbetes)
+--------------------------------------------------------------------------------
+  * Casa Targaryen [casa_targaryen]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Baratheon [casa_baratheon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Stark [casa_stark]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Lannister [casa_lannister]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Arryn [casa_arryn]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Tully [casa_tully]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Tyrell [casa_tyrell]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Martell [casa_martell]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Greyjoy [casa_greyjoy]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Velaryon [casa_velaryon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Celtigar [casa_celtigar]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Durrandon [casa_durrandon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Hoare [casa_hoare]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Gardener [casa_gardener]
+    Definição: None
+    Termos Relacionados: 
+
+  * Casa Hightower [casa_hightower]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: INSTITUICAO_CONCEITO (19 verbetes)
+--------------------------------------------------------------------------------
+  * Meistres da Cidadela [meistres_cidadela]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Alto Septão [alto_septao]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Fé dos Sete [fe_dos_sete]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Guarda Real [guarda_real]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Mão do Rei [mao_do_rei]
+    Definição: None
+    Termos Relacionados: 
+
+  * Aço Valiriano [aco_valiriano]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Patrulha da Noite [patrulha_da_noite]
+    Definição: None
+    Termos Relacionados: 
+
+  * Incesto Sagrado Valiriano [perversao_valiriana]
+    Definição: None
+    Termos Relacionados: 
+
+  * Datação AC e DC [ano_ac_dc]
+    Definição: None
+    Termos Relacionados: 
+
+  * Fogo de Dragão [fogo_de_dragao]
+    Definição: None
+    Termos Relacionados: 
+
+  * Senhor dos Sete Reinos [senhor_dos_sete_reinos]
+    Definição: None
+    Termos Relacionados: 
+
+  * Protetor do Território (Reino) [protetor_do_reino]
+    Definição: None
+    Termos Relacionados: 
+
+  * Flechas de Represeiro [flechas_de_represeiro]
+    Definição: None
+    Termos Relacionados: 
+
+  * Escorpião Anti-Aéreo [escorpiao_balista]
+    Definição: None
+    Termos Relacionados: 
+
+  * Os Deuses Antigos [deuses_antigos]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Deus Afogado [deus_afogado]
+    Definição: None
+    Termos Relacionados: 
+
+  * Minas de Ouro do Ocidente [rochedocasterly_minas]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Costume Antigo [costume_antigo]
+    Definição: None
+    Termos Relacionados: 
+
+  * Progressos Reais de Aegon [progressos_reais]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: LOCAL_CASTELO (26 verbetes)
+--------------------------------------------------------------------------------
+  * Pedra do Dragão [pedra_do_dragao]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Forte de Aegon (Aegonfort) [forte_de_aegon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Harrenhal [harrenhal]
+    Definição: None
+    Termos Relacionados: 
+
+  * Ponta Tempestade [ponta_tempestade]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Ninho da Águia [ninho_da_aguia]
+    Definição: None
+    Termos Relacionados: 
+
+  * Rochedo Casterly [rochedo_casterly]
+    Definição: None
+    Termos Relacionados: 
+
+  * Jardim de Cima [jardim_de_cima]
+    Definição: None
+    Termos Relacionados: 
+
+  * Winterfell [winterfell]
+    Definição: None
+    Termos Relacionados: 
+
+  * Vilavelha [vilavelha]
+    Definição: None
+    Termos Relacionados: 
+
+  * Lançassolar [lancassolar]
+    Definição: None
+    Termos Relacionados: 
+
+  * Toca do Inferno (Hellholt) [toca_do_inferno]
+    Definição: None
+    Termos Relacionados: 
+
+  * Baía da Água Negra [baia_da_agua_negra]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Tridente [o_tridente]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Muralha [a_muralha]
+    Definição: None
+    Termos Relacionados: 
+
+  * Olho de Deus [olho_de_deus]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Ilha das Caras [ilha_das_caras]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Mar Estreito [mar_estreito]
+    Definição: None
+    Termos Relacionados: 
+
+  * Derivamarca [derivamarca]
+    Definição: None
+    Termos Relacionados: 
+
+  * Ilha da Garra [ilha_da_garra]
+    Definição: None
+    Termos Relacionados: 
+
+  * Vila Gaivota [vila_gaivota]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Septo Estrelado [septo_estrelado]
+    Definição: None
+    Termos Relacionados: 
+
+  * O Gargalo [gargalo]
+    Definição: None
+    Termos Relacionados: 
+
+  * Valíria Antiga [valiria]
+    Definição: None
+    Termos Relacionados: 
+
+  * Correrrio [correrrio]
+    Definição: None
+    Termos Relacionados: 
+
+  * A Torralta de Vilavelha [torralta]
+    Definição: None
+    Termos Relacionados: 
+
+  * Porto Real [porto_real]
+    Definição: None
+    Termos Relacionados: 
+
+
+CATEGORIA: PERSONAGEM (25 verbetes)
+--------------------------------------------------------------------------------
+  * Aegon I Targaryen [aegon_i_targaryen]
+    Definição: None
+    Termos Relacionados: 
+
+  * Visenya Targaryen [visenya_targaryen]
+    Definição: None
+    Termos Relacionados: 
+
+  * Rhaenys Targaryen [rhaenys_targaryen]
+    Definição: None
+    Termos Relacionados: 
+
+  * Orys Baratheon [orys_baratheon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Daemon Velaryon [daemon_velaryon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Crispian Celtigar [crispian_celtigar]
+    Definição: None
+    Termos Relacionados: 
+
+  * Triston Massey [triston_massey]
+    Definição: None
+    Termos Relacionados: 
+
+  * Argilac Durrandon [argilac_durrandon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Argella Durrandon [argella_durrandon]
+    Definição: None
+    Termos Relacionados: 
+
+  * Harren Hoare [harren_hoare]
+    Definição: None
+    Termos Relacionados: 
+
+  * Edmyn Tully [edmyn_tully]
+    Definição: None
+    Termos Relacionados: 
+
+  * Mern IX Gardener [mern_ix_gardener]
+    Definição: None
+    Termos Relacionados: 
+
+  * Loren I Lannister [loren_i_lannister]
+    Definição: None
+    Termos Relacionados: 
+
+  * Torrhen Stark [torrhen_stark]
+    Definição: None
+    Termos Relacionados: 
+
+  * Brandon Snow [brandon_snow]
+    Definição: None
+    Termos Relacionados: 
+
+  * Sharra Arryn [sharra_arryn]
+    Definição: None
+    Termos Relacionados: 
+
+  * Ronnel Arryn [ronnel_arryn]
+    Definição: None
+    Termos Relacionados: 
+
+  * Meria Martell [meria_martell]
+    Definição: None
+    Termos Relacionados: 
+
+  * Deria Martell [deria_martell]
+    Definição: None
+    Termos Relacionados: 
+
+  * Manfred Hightower [manfred_hightower]
+    Definição: None
+    Termos Relacionados: 
+
+  * Garth Mão Verde [garth_mao_verde]
+    Definição: None
+    Termos Relacionados: 
+
+  * Lann, o Esperto [lann_o_esperto]
+    Definição: None
+    Termos Relacionados: 
+
+  * Brandon, o Construtor [brandon_o_construtor]
+    Definição: None
+    Termos Relacionados: 
+
+  * Sor Artys Arryn [artys_arryn]
+    Definição: None
+    Termos Relacionados: 
+
+  * Rainha Nymeria [nymeria_roinar]
+    Definição: None
+    Termos Relacionados: 
+
+
+================================================================================
+4. SISTEMA DE REGRAS E MECÂNICAS INTEGRADAS
+================================================================================
+
+  * MOTOR 2D6 DETERMINÍSTICO:
+    - Fórmula: 2d6 + Atributo da Voz (-2 a +5)
+    - Faixas de Resultado: CRÍTICO (>= DC + 4 ou 12 natural), SUCESSO (>= DC), FALHA PARCIAL (DC-1 a DC-3), FALHA CRÍTICA (<= DC-4 ou 2 natural)
+    - Risco Mortal: Sob risco mortal ativo, uma Falha Crítica acarreta dano letal (-10 de Sangue) e transição para Nós de Morte Canônica.
+
+  * AS 6 VOZES INTERNAS (DISCO ELYSIUM STYLE):
+    - COMANDO (O Marechal): Estratégia militar, autoridade régia, coesão de tropas e lealdade de vassalos.
+    - FÚRIA (O Guerreiro): Combate direto, ímpeto marcial, sede de sangue e terror do fogo de dragão.
+    - ASTÚCIA (A Aranha): Espionagem, emboscadas, ardis, venenos, rotas furtivas e subornos.
+    - CORTESIA (O Cortesão): Diplomacia, noivados, casamentos, etiqueta, misericórdia e cartas de trégua.
+    - ERUDIÇÃO (O Meistre): História de Westeros, pergaminhos da Cidadela, leis antigas e linhagens nobres.
+    - PRESSÁGIO (O Corvo): Profecias, sonhos valirianos de Daenys, pressentimentos e intuição mágica.
+
+  * AS 3 BARRAS VITAIS:
+    - SANGUE (0 a 10): Vitalidade física do monarca e marcas de cicatrizes de batalha.
+    - COMPOSTURA (0 a 10): Escudo mental, autocontrole e postura perante intrigas e insultos.
+    - HONRA (-10 a +10): Reputação moral do governante perante a fé, os deuses e os lordes de Westeros.
+
+  * CAMADA DE IA CONTROLADA (GEMINI 2.5 FLASH):
+    - Classificador Semântico de Ações Livres com Fallback Local em TypeScript puro (100% resiliente).
+    - Enriquecedor de prosa sensorial no estilo literário de George R. R. Martin e Jorge Candeias (LeYa).
+    - Proteção Estrita de Integridade: A IA não pode alterar números, barras, atributos ou desfechos do grafo.
+    - Seletor de Modo na TopBar: Alternador elegante entre 'Mestre IA: Ativo' e 'Crônica Pura'.
+
+================================================================================
+FIM DO COMPÊNDIO - CRÔNICAS DE SANGUE E GELO (v2.1)
+================================================================================
