@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { TopBar } from '@/components/game/TopBar';
 import { CharacterPanel } from '@/components/game/CharacterPanel';
 import { NarrativeScroll, EscolhaNarrativa } from '@/components/game/NarrativeScroll';
@@ -22,12 +23,27 @@ import {
 } from '@/app/actions/gameActions';
 import { Map, Dices, Scroll } from 'lucide-react';
 
-export default function JogarPage() {
-  const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
+function getTituloJornadaFormatado(id: string): string {
+  const lower = id.toLowerCase();
+  if (lower.includes('danca') || lower.includes('jornada_2')) {
+    return 'Jornada 2: A Dança dos Dragões';
+  }
+  if (lower.includes('tronos') || lower.includes('guerra') || lower.includes('jornada_3')) {
+    return 'Jornada 3: A Guerra dos Cinco Reis';
+  }
+  return 'Jornada 1: A Conquista de Aegon';
+}
+
+function JogarJogoInterno() {
+  const searchParams = useSearchParams();
+  const journeyParam = searchParams.get('journey') || 'conquista_aegon';
+  const slotParam = searchParams.get('slot') ? parseInt(searchParams.get('slot')!) : 1;
+
+  const [modoIA, setModoIA] = useState(true);
   const [nodeAtual, setNodeAtual] = useState<NodeJornada | null>(null);
   const [textoCenaExibido, setTextoCenaExibido] = useState<string>('');
   const [vozesExibidas, setVozesExibidas] = useState<IntervencaoVoz[]>([]);
-  const [modoIA, setModoIA] = useState<boolean>(true);
+  const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
   const [abaLateral, setAbaLateral] = useState<'mapa' | 'dados' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -51,19 +67,20 @@ export default function JogarPage() {
       honra: 5,
     },
     cicatrizes: [],
-    segredos: ['A carta secreta do Banco de Bravos', 'A profecia de Daenys a Sonhadora'],
+    segredos: ['A profecia de Daenys a Sonhadora'],
   });
 
   const [worldState, setWorldState] = useState<WorldState>({
     reputacaoCasas: { Targaryen: 10 },
     flagsBorboleta: { jogo_iniciado: true },
-    marcosConcluidos: ['2_ac_mesa_pintada'],
+    marcosConcluidos: ['inicio_campanha'],
   });
 
   const [historico, setHistorico] = useState<TurnEvent[]>([]);
 
   useEffect(() => {
-    Promise.all([getGlossaryEntriesAction(), obterCenaInicialAction()])
+    setCarregando(true);
+    Promise.all([getGlossaryEntriesAction(), obterCenaInicialAction(journeyParam)])
       .then(([verbetesData, cenaData]) => {
         setVerbetes(verbetesData);
         setNodeAtual(cenaData.node);
@@ -73,11 +90,11 @@ export default function JogarPage() {
         setWorldState(cenaData.worldStateInicial);
         setHistorico([
           {
-            slotId: 'slot_1',
+            slotId: `slot_${slotParam}`,
             userId: cenaData.fichaInicial.id,
             turnNumber: 1,
             nodeId: cenaData.node.id,
-            choiceMade: 'Início da Crônica na Mesa Pintada',
+            choiceMade: `Início canônico: ${cenaData.node.titulo}`,
             stateDelta: {},
             timestamp: new Date().toISOString(),
           },
@@ -85,10 +102,10 @@ export default function JogarPage() {
         setCarregando(false);
       })
       .catch((err) => {
-        setFeedback('Erro ao carregar cena inicial: ' + err.message);
+        setFeedback('Erro ao carregar crônica inicial: ' + err.message);
         setCarregando(false);
       });
-  }, []);
+  }, [journeyParam, slotParam]);
 
   async function handleEscolha(escolhaId: string) {
     if (!nodeAtual) return;
@@ -102,11 +119,12 @@ export default function JogarPage() {
         worldState,
         turnNumber: historico.length + 1,
         usarIA: modoIA,
+        journeyId: journeyParam,
       });
 
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
-      
+
       const vozesBase = res.proximoNode.internalVoices || [];
       const vozesAdicionadas: IntervencaoVoz[] = (res.vozesExtras || []).map((v) => ({
         atributo: v.voz,
@@ -121,7 +139,7 @@ export default function JogarPage() {
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
         setAbaLateral('dados');
-        setFeedback(`Rolagem: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
+        setFeedback(`Rolagem 2d6: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
       } else {
         setFeedback(`Decisão tomada: "${res.turnEvent.choiceMade}"`);
       }
@@ -134,7 +152,7 @@ export default function JogarPage() {
     if (!nodeAtual) return;
 
     try {
-      setFeedback('O Mestre avalia vossa ordem com os vassalos e meistres...');
+      setFeedback('O Mestre IA está interpretando vossa ação livre...');
       const res = await processarAcaoLivreAction({
         nodeId: nodeAtual.id,
         textoAcaoLivre: textoAcao,
@@ -142,6 +160,7 @@ export default function JogarPage() {
         worldState,
         turnNumber: historico.length + 1,
         usarIA: modoIA,
+        journeyId: journeyParam,
       });
 
       setNodeAtual(res.proximoNode);
@@ -180,7 +199,7 @@ export default function JogarPage() {
 
     const [_, turnoAnterior, ...resto] = historico;
     try {
-      const nodeRestaurado = await obterCenaPorIdAction(turnoAnterior.nodeId);
+      const nodeRestaurado = await obterCenaPorIdAction(turnoAnterior.nodeId, journeyParam);
       if (nodeRestaurado) {
         setNodeAtual(nodeRestaurado);
         setTextoCenaExibido(nodeRestaurado.fallbackText);
@@ -195,7 +214,7 @@ export default function JogarPage() {
 
   async function handleVoltarCheckpoint() {
     try {
-      const inicio = await obterCenaInicialAction();
+      const inicio = await obterCenaInicialAction(journeyParam);
       setNodeAtual(inicio.node);
       setTextoCenaExibido(inicio.node.fallbackText);
       setVozesExibidas(inicio.node.internalVoices || []);
@@ -203,11 +222,11 @@ export default function JogarPage() {
       setWorldState(inicio.worldStateInicial);
       setHistorico([
         {
-          slotId: 'slot_1',
+          slotId: `slot_${slotParam}`,
           userId: inicio.fichaInicial.id,
           turnNumber: 1,
           nodeId: inicio.node.id,
-          choiceMade: 'Reinício no Checkpoint Inicial',
+          choiceMade: 'Reinício no Checkpoint Inicial da Era',
           stateDelta: {},
           timestamp: new Date().toISOString(),
         },
@@ -220,12 +239,12 @@ export default function JogarPage() {
 
   async function handleExportarSave() {
     try {
-      const json = await exportarSave(ficha.id, 'jornada_1_conquista', 1);
+      const json = await exportarSave(ficha.id, journeyParam, slotParam);
       const blob = new Blob([json], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `save_conquista_ato1_${Date.now()}.json`;
+      a.download = `save_${journeyParam}_slot_${slotParam}_${Date.now()}.json`;
       a.click();
       URL.revokeObjectURL(url);
       setFeedback('Save exportado com sucesso em .json!');
@@ -260,14 +279,13 @@ export default function JogarPage() {
 
   return (
     <div className="min-h-screen bg-[#0d0b0a] text-[#E6DEC8] flex flex-col font-garamond pb-20 lg:pb-8">
-      
       {/* Barra de Topo */}
       <TopBar
-        jornadaTitulo="Jornada 1: A Conquista de Aegon"
+        jornadaTitulo={getTituloJornadaFormatado(journeyParam)}
         atoTitulo={nodeAtual.titulo}
         anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
         localizacao={nodeAtual.localizacao || 'Westeros'}
-        slotAtivo={1}
+        slotAtivo={slotParam}
         statusSalvamento="Sincronizado"
         modoIA={modoIA}
         onToggleModoIA={() => setModoIA(!modoIA)}
@@ -277,7 +295,10 @@ export default function JogarPage() {
         <div className="max-w-7xl mx-auto w-full px-4 pt-3">
           <div className="p-3 bg-[#1e1713] border border-[#C5A059]/60 rounded-xl text-amber-200 text-xs flex items-center justify-between">
             <span>{feedback}</span>
-            <button onClick={() => setFeedback(null)} className="text-amber-400 underline cursor-pointer text-[11px]">
+            <button
+              onClick={() => setFeedback(null)}
+              className="text-amber-400 underline cursor-pointer text-[11px]"
+            >
               Fechar
             </button>
           </div>
@@ -286,7 +307,6 @@ export default function JogarPage() {
 
       {/* Conteúdo Principal Responsivo (12 Colunas) */}
       <main className="max-w-7xl mx-auto w-full p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 items-start">
-        
         {/* Coluna Esquerda (3 cols): Ficha do Personagem */}
         <div className="hidden lg:block lg:col-span-3 sticky top-16">
           <CharacterPanel ficha={ficha} />
@@ -295,6 +315,7 @@ export default function JogarPage() {
         {/* Coluna Central (6 cols): Rolo Narrativo */}
         <div className="col-span-1 lg:col-span-6">
           <NarrativeScroll
+            nodeId={nodeAtual.id}
             atoTitulo={nodeAtual.titulo}
             anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
             localizacao={nodeAtual.localizacao || 'Westeros'}
@@ -313,7 +334,9 @@ export default function JogarPage() {
             <button
               onClick={() => setAbaLateral('mapa')}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
-                abaLateral === 'mapa' ? 'bg-[#C5A059] text-black shadow' : 'text-slate-400 hover:text-slate-200'
+                abaLateral === 'mapa'
+                  ? 'bg-[#C5A059] text-black shadow'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Map className="w-3.5 h-3.5" />
@@ -323,7 +346,9 @@ export default function JogarPage() {
             <button
               onClick={() => setAbaLateral('dados')}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
-                abaLateral === 'dados' ? 'bg-[#C5A059] text-black shadow' : 'text-slate-400 hover:text-slate-200'
+                abaLateral === 'dados'
+                  ? 'bg-[#C5A059] text-black shadow'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Dices className="w-3.5 h-3.5" />
@@ -333,7 +358,9 @@ export default function JogarPage() {
             <button
               onClick={() => setAbaLateral('diario')}
               className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
-                abaLateral === 'diario' ? 'bg-[#C5A059] text-black shadow' : 'text-slate-400 hover:text-slate-200'
+                abaLateral === 'diario'
+                  ? 'bg-[#C5A059] text-black shadow'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Scroll className="w-3.5 h-3.5" />
@@ -352,7 +379,6 @@ export default function JogarPage() {
             />
           )}
         </div>
-
       </main>
 
       {/* Navegação Mobile com Gavetas Deslizantes */}
@@ -369,7 +395,20 @@ export default function JogarPage() {
           />
         )}
       />
-
     </div>
+  );
+}
+
+export default function JogarPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#0d0b0a] text-[#C5A059] flex items-center justify-center font-cinzel text-lg">
+          Carregando a Crônica de Westeros...
+        </div>
+      }
+    >
+      <JogarJogoInterno />
+    </Suspense>
   );
 }

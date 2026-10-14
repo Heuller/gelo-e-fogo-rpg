@@ -1,6 +1,11 @@
 'use server';
 
-import { grafoJornada1Completo, obterNodeJornada1 } from '@/server/data/journeys/j1_conquista_full';
+import {
+  obterGrafoJornada,
+  obterNodeQualquerJornada,
+  obterCenaInicialJornada,
+  normalizarIdJornada,
+} from '@/server/data/journeys/index';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import {
   FichaPersonagem,
@@ -9,7 +14,6 @@ import {
   rolar2d6,
   aplicarDeltaEstado,
   DeltaEstado,
-  AtributoVoz,
 } from '@/server/engine/rpgEngine';
 import { TurnEvent } from '@/server/engine/saveManager';
 import {
@@ -19,45 +23,19 @@ import {
   VozExtra,
 } from '@/server/ai/geminiMaster';
 
-export async function obterCenaInicialAction(): Promise<{
+export async function obterCenaInicialAction(journeyId?: string): Promise<{
   node: NodeJornada;
   fichaInicial: FichaPersonagem;
   worldStateInicial: WorldState;
 }> {
-  const node = grafoJornada1Completo.nodes[grafoJornada1Completo.startNodeId];
-
-  const fichaInicial: FichaPersonagem = {
-    id: 'aegon-conquistador',
-    nome: 'Aegon I Targaryen',
-    origem: 'sangue_valiriano',
-    atributos: {
-      comando: 5,
-      furia: 4,
-      astucia: 3,
-      cortesia: 3,
-      erudicao: 3,
-      pressagio: 4,
-    },
-    estado: {
-      sangue: 10,
-      compostura: 10,
-      honra: 5,
-    },
-    cicatrizes: [],
-    segredos: ['A carta secreta do Banco de Bravos', 'A profecia de Daenys a Sonhadora'],
-  };
-
-  const worldStateInicial: WorldState = {
-    reputacaoCasas: { Targaryen: 10 },
-    flagsBorboleta: { jogo_iniciado: true },
-    marcosConcluidos: ['2_ac_mesa_pintada'],
-  };
-
-  return { node, fichaInicial, worldStateInicial };
+  return obterCenaInicialJornada(journeyId);
 }
 
-export async function obterCenaPorIdAction(nodeId: string): Promise<NodeJornada | null> {
-  const node = obterNodeJornada1(nodeId);
+export async function obterCenaPorIdAction(
+  nodeId: string,
+  journeyId?: string
+): Promise<NodeJornada | null> {
+  const node = obterNodeQualquerJornada(nodeId, journeyId);
   return node || null;
 }
 
@@ -69,6 +47,7 @@ export interface ProcessarEscolhaParams {
   turnNumber: number;
   dadosFixos?: [number, number];
   usarIA?: boolean;
+  journeyId?: string;
 }
 
 export interface RespostaTurnoAction {
@@ -86,7 +65,7 @@ export interface RespostaTurnoAction {
 export async function processarEscolhaAction(
   params: ProcessarEscolhaParams
 ): Promise<RespostaTurnoAction> {
-  const nodeAtual = obterNodeJornada1(params.nodeId);
+  const nodeAtual = obterNodeQualquerJornada(params.nodeId, params.journeyId);
   if (!nodeAtual) {
     throw new Error(`Cena '${params.nodeId}' não encontrada.`);
   }
@@ -129,7 +108,7 @@ export async function processarEscolhaAction(
     }
   }
 
-  const proximoNode = obterNodeJornada1(proximoNodeId);
+  const proximoNode = obterNodeQualquerJornada(proximoNodeId, params.journeyId);
   if (!proximoNode) {
     throw new Error(`Nó de destino '${proximoNodeId}' não encontrado.`);
   }
@@ -192,12 +171,13 @@ export interface ProcessarAcaoLivreParams {
   turnNumber: number;
   dadosFixos?: [number, number];
   usarIA?: boolean;
+  journeyId?: string;
 }
 
 export async function processarAcaoLivreAction(
   params: ProcessarAcaoLivreParams
 ): Promise<RespostaTurnoAction> {
-  const nodeAtual = obterNodeJornada1(params.nodeId);
+  const nodeAtual = obterNodeQualquerJornada(params.nodeId, params.journeyId);
   if (!nodeAtual) {
     throw new Error(`Cena '${params.nodeId}' não encontrada.`);
   }
@@ -216,6 +196,7 @@ export async function processarAcaoLivreAction(
     turnNumber: params.turnNumber,
     dadosFixos: params.dadosFixos,
     usarIA: params.usarIA,
+    journeyId: params.journeyId,
   });
 
   // Atualiza o evento de turno com a ação personalizada do jogador

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Crown, Volume2, VolumeX, Save, ArrowLeft, Sparkles, BookOpen } from 'lucide-react';
+import { audioManager } from '@/lib/audio/audioManager';
 
 interface PropsTopBar {
   jornadaTitulo: string;
@@ -26,6 +27,11 @@ export function TopBar({
   onToggleModoIA,
 }: PropsTopBar) {
   const [audioAtivo, setAudioAtivo] = useState(false);
+
+  function handleToggleAudio() {
+    const novoEstado = audioManager.toggleAmbiente();
+    setAudioAtivo(novoEstado);
+  }
 
   return (
     <header className="w-full bg-[#14110F]/95 border-b border-[#2D2620] px-4 py-2.5 backdrop-blur-md sticky top-0 z-40 text-[#E6DEC8] font-cinzel">
@@ -90,15 +96,15 @@ export function TopBar({
             <span className="text-[11px] text-emerald-400 font-semibold">{statusSalvamento}</span>
           </div>
 
-          {/* Botão de Áudio */}
+          {/* Botão de Áudio Sintético */}
           <button
-            onClick={() => setAudioAtivo(!audioAtivo)}
+            onClick={handleToggleAudio}
             className={`p-1.5 rounded border transition-colors cursor-pointer ${
               audioAtivo
                 ? 'bg-amber-950/80 border-amber-600/50 text-[#C5A059]'
                 : 'bg-[#1C1815] border-[#2D2620] text-slate-500 hover:text-slate-300'
             }`}
-            title={audioAtivo ? 'Mudo' : 'Ativar Trilha Medieval'}
+            title={audioAtivo ? 'Silenciar Áudio' : 'Ativar Trilha Medieval Acústica'}
           >
             {audioAtivo ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
           </button>

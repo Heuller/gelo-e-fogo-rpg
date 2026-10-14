@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { FichaPersonagem } from '@/server/engine/rpgEngine';
 import {
   SaveSlot,
   listarSlotsJornada,
@@ -40,7 +41,7 @@ const JORNADAS: JornadaInfo[] = [
     numero: 1,
     titulo: 'A Conquista de Aegon',
     subtitulo: 'Fogo e Sangue na forja dos Sete Reinos',
-    periodo: '2 a.C. â€” 13 d.C.',
+    periodo: '2 a.C. — 13 d.C.',
     ativa: true,
     descricao: 'Desembarque na Foz da Água Negra, queima de Harrenhal, Campo de Fogo e a Rendição no Tridente.',
   },
@@ -49,18 +50,18 @@ const JORNADAS: JornadaInfo[] = [
     numero: 2,
     titulo: 'A Dança dos Dragões',
     subtitulo: 'A Guerra Civil dos Targaryen',
-    periodo: '129 d.C. â€” 131 d.C.',
-    ativa: false,
-    descricao: 'Verdes contra Negros. O Olho de Deus, a Batalha da Goleta e a morte dos últimos grandes dragões.',
+    periodo: '129 d.C. — 131 d.C.',
+    ativa: true,
+    descricao: 'Verdes contra Negros. Ponta Tempestade, Semeadura Vermelha, O Olho de Deus e a Hora do Lobo.',
   },
   {
     id: 'jornada_3_guerra_tronos',
     numero: 3,
     titulo: 'A Guerra dos Cinco Reis',
     subtitulo: 'O Inverno se Aproxima',
-    periodo: '298 d.C.',
-    ativa: false,
-    descricao: 'O Leão de Rochedo Casterly, o Lobo do Norte, o Veado coroado e a muralha que vigia o fim.',
+    periodo: '298 d.C. — 300 d.C.',
+    ativa: true,
+    descricao: 'A queda de Winterfell, o golpe em Porto Real, Bosque dos Murmúrios e a vingança do Casamento Vermelho.',
   },
 ];
 
@@ -68,10 +69,11 @@ export default function PainelPage() {
   const router = useRouter();
   const [jornadaSelecionada, setJornadaSelecionada] = useState<string>('jornada_1_conquista');
   const [slots, setSlots] = useState<(SaveSlot | null)[]>([null, null, null]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [feedback, setFeedback] = useState<string | null>(null);
 
-  const userId = 'd5f86911-0f14-497d-9a9c-7258a2eb18cd';
+  // Usuário autenticado mockado ou do Supabase
+  const userId = 'usr_meistre_cidadela';
 
   useEffect(() => {
     carregarSlots(jornadaSelecionada);
@@ -90,19 +92,62 @@ export default function PainelPage() {
   }
 
   async function handleNovoJogo(slotNumber: number) {
-    const novoSlot: SaveSlot = {
-      userId,
-      jornadaId: jornadaSelecionada,
-      slotNumber,
-      contentVersion: '1.0.0',
-      currentNodeId: 'node_inicio',
-      characterSheet: {
-        id: 'aegon-conquistador',
-        nome: 'Aegon I Targaryen',
+    let characterSheet: FichaPersonagem = {
+      id: 'aegon-conquistador',
+      nome: 'Aegon I Targaryen',
+      origem: 'sangue_valiriano',
+      atributos: {
+        comando: 5,
+        furia: 4,
+        astucia: 3,
+        cortesia: 3,
+        erudicao: 3,
+        pressagio: 4,
+      },
+      estado: {
+        sangue: 10,
+        compostura: 10,
+        honra: 5,
+      },
+      cicatrizes: [],
+      segredos: ['A profecia de Daenys a Sonhadora', 'A carta secreta do Banco de Bravos'],
+    };
+    let currentNodeId = 'j1_a1_mesa_pintada';
+    let capituloTitulo = 'Ato I - A Mesa Pintada';
+    let choiceMade = 'Reunir os meistres e vassalos na Mesa Pintada';
+
+    if (jornadaSelecionada === 'jornada_2_danca') {
+      characterSheet = {
+        id: 'rhaenyra-targaryen',
+        nome: 'Rhaenyra Targaryen',
         origem: 'sangue_valiriano',
         atributos: {
-          comando: 5,
+          comando: 4,
           furia: 4,
+          astucia: 4,
+          cortesia: 4,
+          erudicao: 3,
+          pressagio: 3,
+        },
+        estado: {
+          sangue: 10,
+          compostura: 10,
+          honra: 5,
+        },
+        cicatrizes: [],
+        segredos: ['O testamento solene de Viserys I', 'A aliança matrimonial com a Casa Velaryon'],
+      };
+      currentNodeId = 'j2_a1_morte_viserys_conselho_verde';
+      capituloTitulo = 'Ato I - Os Dois Conselhos & A Dança Começa';
+      choiceMade = 'A Coroação Negra em Pedra do Dragão e a defesa do Trono';
+    } else if (jornadaSelecionada === 'jornada_3_guerra_tronos') {
+      characterSheet = {
+        id: 'eddard-stark',
+        nome: 'Eddard Stark',
+        origem: 'sangue_primeiros_homens',
+        atributos: {
+          comando: 5,
+          furia: 3,
           astucia: 3,
           cortesia: 3,
           erudicao: 3,
@@ -114,16 +159,28 @@ export default function PainelPage() {
           honra: 5,
         },
         cicatrizes: [],
-        segredos: [],
-      },
+        segredos: ['A promessa de Lyanna na Torre da Alegria', 'A carta cifrada de Lysa Arryn'],
+      };
+      currentNodeId = 'j3_a1_desertor_muralha_execucao';
+      capituloTitulo = 'Ato I - O Inverno Está Chegando';
+      choiceMade = 'A Sentença e a Execução do Desertor da Patrulha da Noite';
+    }
+
+    const novoSlot: SaveSlot = {
+      userId,
+      jornadaId: jornadaSelecionada,
+      slotNumber,
+      contentVersion: '1.0.0',
+      currentNodeId,
+      characterSheet,
       worldState: {
-        reputacaoCasas: { Targaryen: 10 },
+        reputacaoCasas: { Targaryen: 10, Stark: 10 },
         flagsBorboleta: { jogo_iniciado: true },
-        marcosConcluidos: ['2_ac_mesa_pintada'],
+        marcosConcluidos: ['inicio_campanha'],
       },
       chapterCheckpoint: {
         atoId: 'ato_1',
-        capituloTitulo: 'Ato I - A Mesa Pintada',
+        capituloTitulo,
         timestamp: new Date().toISOString(),
       },
       turnHistory: [
@@ -131,8 +188,8 @@ export default function PainelPage() {
           slotId: `slot_${slotNumber}`,
           userId,
           turnNumber: 1,
-          nodeId: 'node_inicio',
-          choiceMade: 'Reunir os meistres e vassalos na Mesa Pintada',
+          nodeId: currentNodeId,
+          choiceMade,
           stateDelta: {},
           timestamp: new Date().toISOString(),
         },
@@ -141,8 +198,9 @@ export default function PainelPage() {
 
     const res = await salvarSlot(novoSlot);
     if (res.sucesso) {
-      setFeedback(`Novo jogo iniciado com sucesso no Slot ${slotNumber}!`);
-      carregarSlots(jornadaSelecionada);
+      router.push(`/jogar?journey=${jornadaSelecionada}&slot=${slotNumber}`);
+    } else {
+      setFeedback('Erro ao salvar novo jogo: ' + (res.erro || 'Erro desconhecido'));
     }
   }
 
@@ -352,8 +410,8 @@ export default function PainelPage() {
                     {slot ? (
                       <>
                         <button
-                          onClick={() => setFeedback(`Continuando a campanha no nó '${slot.currentNodeId}'...`)}
-                          className="w-full py-2 bg-amber-600 hover:bg-amber-500 text-black font-bold text-xs rounded transition flex items-center justify-center gap-1.5 cursor-pointer"
+                          onClick={() => router.push(`/jogar?journey=${jornadaSelecionada}&slot=${slotNum}`)}
+                          className="w-full py-2 bg-amber-600 hover:bg-amber-500 text-black font-bold text-xs rounded transition flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
                         >
                           <Play className="w-3.5 h-3.5 fill-current" />
                           <span>Continuar Jornada</span>

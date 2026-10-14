@@ -5,13 +5,14 @@ import { AtributoVoz } from '@/server/engine/rpgEngine';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { LoreText } from './LoreTooltip';
 import { InternalVoices, IntervencaoVoz } from './InternalVoices';
+import { SceneIllustration } from './SceneIllustration';
+import { audioManager } from '@/lib/audio/audioManager';
 import {
   Skull,
   Send,
   Sparkles,
   ChevronDown,
   ChevronUp,
-  ShieldAlert,
   Crown,
   Dices,
 } from 'lucide-react';
@@ -26,6 +27,7 @@ export interface EscolhaNarrativa {
 }
 
 export interface PropsNarrativeScroll {
+  nodeId?: string;
   atoTitulo: string;
   anoHistorico: string;
   localizacao: string;
@@ -38,6 +40,7 @@ export interface PropsNarrativeScroll {
 }
 
 export function NarrativeScroll({
+  nodeId,
   atoTitulo,
   anoHistorico,
   localizacao,
@@ -54,6 +57,7 @@ export function NarrativeScroll({
   function handleEnviarAcaoLivre(e: React.FormEvent) {
     e.preventDefault();
     if (!textoAcaoLivre.trim()) return;
+    audioManager.tocarSomEscolha();
     if (onAcaoLivre) {
       onAcaoLivre(textoAcaoLivre.trim());
       setTextoAcaoLivre('');
@@ -68,7 +72,7 @@ export function NarrativeScroll({
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-80" />
 
       {/* Cabeçalho da Cena */}
-      <header className="text-center pb-8 mb-8 border-b border-[#C5A059]/25">
+      <header className="text-center pb-6 mb-4 border-b border-[#C5A059]/25">
         <span className="text-[11px] font-cinzel uppercase tracking-[0.25em] text-[#C5A059] font-bold">
           {localizacao} &bull; {anoHistorico}
         </span>
@@ -82,8 +86,11 @@ export function NarrativeScroll({
         </div>
       </header>
 
+      {/* Ilustração Vetorial da Cena em Xilogravura Iluminada */}
+      <SceneIllustration nodeId={nodeId} titulo={atoTitulo} localizacao={localizacao} />
+
       {/* Rolo de Parágrafos Narrativos com Letra Capitular no 1º parágrafo */}
-      <div className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[#E6DEC8]">
+      <div className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[#E6DEC8] mt-6">
         {paragrafos.map((paragrafo, idx) => {
           const ehPrimeiro = idx === 0;
 
@@ -119,7 +126,14 @@ export function NarrativeScroll({
           return (
             <button
               key={escolha.id}
-              onClick={() => onEscolha(escolha.id)}
+              onClick={() => {
+                if (ehTeste) {
+                  audioManager.tocarSomDados();
+                } else {
+                  audioManager.tocarSomEscolha();
+                }
+                onEscolha(escolha.id);
+              }}
               className={`w-full text-left p-4 sm:p-5 rounded-xl border transition-all duration-200 group flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer ${
                 temRiscoMortal
                   ? 'bg-gradient-to-r from-[#200f11] to-[#170e10] border-red-700/70 hover:border-red-500 shadow-lg shadow-red-950/30'
@@ -161,7 +175,10 @@ export function NarrativeScroll({
       <div className="mt-6 pt-4 border-t border-slate-800/60">
         <button
           type="button"
-          onClick={() => setAcaoLivreAberta(!acaoLivreAberta)}
+          onClick={() => {
+            audioManager.tocarSomPagina();
+            setAcaoLivreAberta(!acaoLivreAberta);
+          }}
           className="w-full py-2.5 px-4 text-xs font-cinzel uppercase tracking-wider text-slate-400 hover:text-amber-300 flex items-center justify-center gap-2 transition-colors cursor-pointer"
         >
           <Sparkles className="w-4 h-4 text-[#C5A059]" />
