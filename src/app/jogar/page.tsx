@@ -8,20 +8,26 @@ import { DiceRoller2d6 } from '@/components/game/DiceRoller2d6';
 import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
 import { MobileDrawerNav } from '@/components/game/MobileDrawerNav';
-import { FichaPersonagem, ResultadoRolagem, rolar2d6, aplicarDeltaEstado } from '@/server/engine/rpgEngine';
-import { TurnEvent, exportarSave, desfazerUltimoTurno } from '@/server/engine/saveManager';
+import { FichaPersonagem, ResultadoRolagem, WorldState } from '@/server/engine/rpgEngine';
+import { TurnEvent, exportarSave } from '@/server/engine/saveManager';
+import { NodeJornada } from '@/server/engine/storyLinter';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { getGlossaryEntriesAction } from '@/app/actions/loreActions';
-import { IntervencaoVoz } from '@/components/game/InternalVoices';
+import {
+  obterCenaInicialAction,
+  obterCenaPorIdAction,
+  processarEscolhaAction,
+} from '@/app/actions/gameActions';
 import { Map, Dices, Scroll } from 'lucide-react';
 
 export default function JogarPage() {
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
+  const [nodeAtual, setNodeAtual] = useState<NodeJornada | null>(null);
   const [abaLateral, setAbaLateral] = useState<'mapa' | 'dados' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [carregando, setCarregando] = useState(true);
 
-  // Ficha do Protagonista
   const [ficha, setFicha] = useState<FichaPersonagem>({
     id: 'aegon-conquistador',
     nome: 'Aegon I Targaryen',
@@ -43,133 +49,152 @@ export default function JogarPage() {
     segredos: ['A carta secreta do Banco de Bravos', 'A profecia de Daenys a Sonhadora'],
   });
 
-  // Histórico de Turnos da Crônica
-  const [historico, setHistorico] = useState<TurnEvent[]>([
-    {
-      slotId: 'slot_1',
-      userId: 'd5f86911-0f14-497d-9a9c-7258a2eb18cd',
-      turnNumber: 1,
-      nodeId: 'node_mesa_pintada',
-      choiceMade: 'Reunir os vassalos em Pedra do Dragão',
-      stateDelta: { honra: 1 },
-      timestamp: new Date().toISOString(),
-    },
-  ]);
+  const [worldState, setWorldState] = useState<WorldState>({
+    reputacaoCasas: { Targaryen: 10 },
+    flagsBorboleta: { jogo_iniciado: true },
+    marcosConcluidos: ['2_ac_mesa_pintada'],
+  });
+
+  const [historico, setHistorico] = useState<TurnEvent[]>([]);
 
   useEffect(() => {
-    getGlossaryEntriesAction().then(setVerbetes).catch(() => {});
+    // Carrega o glossário da Cidadela e a cena inicial do Ato 1
+    Promise.all([getGlossaryEntriesAction(), obterCenaInicialAction()])
+      .then(([verbetesData, cenaData]) => {
+        setVerbetes(verbetesData);
+        setNodeAtual(cenaData.node);
+        setFicha(cenaData.fichaInicial);
+        setWorldState(cenaData.worldStateInicial);
+        setHistorico([
+          {
+            slotId: 'slot_1',
+            userId: cenaData.fichaInicial.id,
+            turnNumber: 1,
+            nodeId: cenaData.node.id,
+            choiceMade: 'Início da Crônica na Mesa Pintada',
+            stateDelta: {},
+            timestamp: new Date().toISOString(),
+          },
+        ]);
+        setCarregando(false);
+      })
+      .catch((err) => {
+        setFeedback('Erro ao carregar cena inicial: ' + err.message);
+        setCarregando(false);
+      });
   }, []);
 
-  const paragrafosCena = [
-    'Aegon I Targaryen contemplava a grandiosa Mesa Pintada na câmara alta de Pedra do Dragão. Diante de seus olhos repousava a silhueta esculpida dos Sete Reinos, do cimo gélido da Muralha às areias abrasadoras de Dorne, sem qualquer linha que delimitasse fronteiras entre os reis mesquinhos que guerreavam entre si.',
-    'Nas falésias exteriores, o rugido colossal de Balerion, o Terror Negro, estremeceu as sólidas muralhas de obsidiana. Ao seu lado, a rainha Visenya mantinha a mão repousada no pomo de aço valiriano de Irmã Sombria, enquanto a rainha Rhaenys observava o horizonte da Baía da Água Negra.',
-    'Argilac Durrandon, o Rei da Tempestade, enviara as mãos decepadas dos emissários valirianos em uma caixa de ferro. A afronta clamava por fogo. Todos os senhores juramentados aguardavam agora o comando irrevogável do dragão.',
-  ];
+  async function handleEscolha(escolhaId: string) {
+    if (!nodeAtual) return;
 
-  const vozesInternas: IntervencaoVoz[] = [
-    {
-      atributo: 'comando',
-      resultadoPassivo: 'SUCESSO',
-      dcPassiva: 8,
-      fala: 'Os senhores de Westeros conhecem apenas o aço e o fogo. Uma proclamação régia com os termos da submissão deve preceder as asas dos dragões.',
-    },
-    {
-      atributo: 'astucia',
-      resultadoPassivo: 'SUCESSO',
-      dcPassiva: 10,
-      fala: 'Argilac está velho e teme o poderio de Harrenhal. Um pacto com os rebeldes do Tridente antes do ataque quebrará a espinha dorsal dos Hoare.',
-    },
-  ];
-
-  const escolhasCena: EscolhaNarrativa[] = [
-    {
-      id: 'esc_proclamacao',
-      texto: 'Enviar corvos com a Proclamação Real a todas as fortalezas de Westeros: haverá apenas um rei.',
-      tipo: 'teste_atributo',
-      atributo: 'cortesia',
-      dc: 8,
-    },
-    {
-      id: 'esc_desembarque_imediato',
-      texto: 'Içar as velas da frota valiriana e ordenar o desembarque na foz do rio Água Negra.',
-      tipo: 'teste_atributo',
-      atributo: 'comando',
-      dc: 10,
-    },
-    {
-      id: 'esc_duelo_argilac',
-      texto: 'Despachar Orys Baratheon com Vhagar e Meraxes para esmagar as hostes de Argilac na Batalha do Último Risco.',
-      tipo: 'teste_atributo',
-      atributo: 'furia',
-      dc: 12,
-      riscoMortal: true,
-    },
-  ];
-
-  function handleEscolha(escolhaId: string) {
-    const esc = escolhasCena.find((e) => e.id === escolhaId);
-    if (!esc) return;
-
-    if (esc.tipo === 'teste_atributo' && esc.atributo && esc.dc) {
-      // Executa rolagem 2d6
-      const valorAttr = ficha.atributos[esc.atributo];
-      const res = rolar2d6(valorAttr, esc.dc, { riscoMortal: esc.riscoMortal });
-      setResultadoRolagem(res);
-      setAbaLateral('dados'); // Abre automaticamente a bandeja de dados
-
-      // Aplica consequências
-      let deltaHonra = res.resultado === 'CRITICO' ? 2 : res.resultado === 'SUCESSO' ? 1 : -1;
-      let deltaSangue = res.resultado === 'FALHA_CRITICA' ? -3 : 0;
-
-      const { fichaAtualizada } = aplicarDeltaEstado(ficha, { reputacaoCasas: {}, flagsBorboleta: {}, marcosConcluidos: [] }, {
-        honra: deltaHonra,
-        sangue: deltaSangue,
-      });
-      setFicha(fichaAtualizada);
-
-      // Adiciona ao histórico de turnos
-      const novoTurno: TurnEvent = {
-        slotId: 'slot_1',
-        userId: 'd5f86911-0f14-497d-9a9c-7258a2eb18cd',
+    try {
+      const res = await processarEscolhaAction({
+        nodeId: nodeAtual.id,
+        escolhaId,
+        ficha,
+        worldState,
         turnNumber: historico.length + 1,
-        nodeId: 'node_mesa_pintada',
-        choiceMade: esc.texto,
-        stateDelta: { honra: deltaHonra, sangue: deltaSangue },
-        timestamp: new Date().toISOString(),
-      };
-      setHistorico([novoTurno, ...historico]);
+      });
 
-      setFeedback(`Rolagem realizada: [${res.resultado}] Total ${res.total} vs DC ${res.dc}`);
-    } else {
-      setFeedback(`Ação simples decidida: "${esc.texto}"`);
+      setNodeAtual(res.proximoNode);
+      setFicha(res.fichaAtualizada);
+      setWorldState(res.worldStateAtualizado);
+      setHistorico([res.turnEvent, ...historico]);
+
+      if (res.resultadoRolagem) {
+        setResultadoRolagem(res.resultadoRolagem);
+        setAbaLateral('dados');
+        setFeedback(`Rolagem: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
+      } else {
+        setFeedback(`Decisão tomada: "${res.turnEvent.choiceMade}"`);
+      }
+    } catch (err: any) {
+      setFeedback('Erro ao processar escolha: ' + err.message);
     }
   }
 
-  function handleDesfazerTurno() {
+  async function handleDesfazerTurno() {
     if (historico.length <= 1) {
       setFeedback('Nenhum turno anterior para desfazer.');
       return;
     }
-    const [_, ...resto] = historico;
-    setHistorico(resto);
-    setFeedback('Último turno desfeito com sucesso.');
+
+    const [_, turnoAnterior, ...resto] = historico;
+    try {
+      const nodeRestaurado = await obterCenaPorIdAction(turnoAnterior.nodeId);
+      if (nodeRestaurado) {
+        setNodeAtual(nodeRestaurado);
+        setHistorico([turnoAnterior, ...resto]);
+        setFeedback(`Turno desfeito. Retornado à cena '${nodeRestaurado.titulo}'.`);
+      }
+    } catch (err: any) {
+      setFeedback('Erro ao desfazer turno: ' + err.message);
+    }
+  }
+
+  async function handleVoltarCheckpoint() {
+    try {
+      const inicio = await obterCenaInicialAction();
+      setNodeAtual(inicio.node);
+      setFicha(inicio.fichaInicial);
+      setWorldState(inicio.worldStateInicial);
+      setHistorico([
+        {
+          slotId: 'slot_1',
+          userId: inicio.fichaInicial.id,
+          turnNumber: 1,
+          nodeId: inicio.node.id,
+          choiceMade: 'Reinício no Checkpoint Inicial',
+          stateDelta: {},
+          timestamp: new Date().toISOString(),
+        },
+      ]);
+      setFeedback('Retornado com sucesso ao início do Ato I.');
+    } catch (err: any) {
+      setFeedback('Erro ao voltar ao checkpoint: ' + err.message);
+    }
   }
 
   async function handleExportarSave() {
     try {
-      const json = await exportarSave('d5f86911-0f14-497d-9a9c-7258a2eb18cd', 'jornada_1_conquista', 1);
+      const json = await exportarSave(ficha.id, 'jornada_1_conquista', 1);
       const blob = new Blob([json], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'save_jornada1_slot1.json';
+      a.download = `save_conquista_ato1_${Date.now()}.json`;
       a.click();
       URL.revokeObjectURL(url);
       setFeedback('Save exportado com sucesso em .json!');
-    } catch {
-      setFeedback('Progresso exportado em arquivo local.');
+    } catch (err: any) {
+      setFeedback('Erro ao exportar: ' + err.message);
     }
   }
+
+  if (carregando || !nodeAtual) {
+    return (
+      <div className="min-h-screen bg-[#0d0b0a] text-[#C5A059] flex items-center justify-center font-cinzel text-lg">
+        Consultando os pergaminhos da Cidadela...
+      </div>
+    );
+  }
+
+  // Divide o fallbackText em parágrafos separados
+  const paragrafos = nodeAtual.fallbackText
+    .split('\n\n')
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0);
+
+  const escolhasNarrativas: EscolhaNarrativa[] = nodeAtual.escolhas.map((e) => ({
+    id: e.id,
+    texto: e.texto,
+    tipo: e.tipo,
+    atributo: e.tipo === 'teste_atributo' ? e.atributo : undefined,
+    dc: e.tipo === 'teste_atributo' ? e.dc : undefined,
+    riscoMortal: e.tipo === 'teste_atributo' ? e.riscoMortal : undefined,
+  }));
+
+  const regiaoAtiva = nodeAtual.regionId || 'pedra_dragao';
 
   return (
     <div className="min-h-screen bg-[#0d0b0a] text-[#E6DEC8] flex flex-col font-garamond pb-20 lg:pb-8">
@@ -177,9 +202,9 @@ export default function JogarPage() {
       {/* Barra de Topo */}
       <TopBar
         jornadaTitulo="Jornada 1: A Conquista de Aegon"
-        atoTitulo="Ato I: A Mesa Pintada"
-        anoHistorico="2 a.C."
-        localizacao="Pedra do Dragão"
+        atoTitulo={nodeAtual.titulo}
+        anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
+        localizacao={nodeAtual.localizacao || 'Westeros'}
         slotAtivo={1}
         statusSalvamento="Sincronizado"
       />
@@ -195,32 +220,31 @@ export default function JogarPage() {
         </div>
       )}
 
-      {/* Conteúdo Principal Responsivo (12 Colunas no Desktop) */}
+      {/* Conteúdo Principal Responsivo (12 Colunas) */}
       <main className="max-w-7xl mx-auto w-full p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 items-start">
         
-        {/* Coluna Esquerda (3 colunas): Painel do Personagem */}
+        {/* Coluna Esquerda (3 cols): Ficha do Personagem */}
         <div className="hidden lg:block lg:col-span-3 sticky top-16">
           <CharacterPanel ficha={ficha} />
         </div>
 
-        {/* Coluna Central (6 colunas): Rolo Narrativo */}
+        {/* Coluna Central (6 cols): Rolo Narrativo */}
         <div className="col-span-1 lg:col-span-6">
           <NarrativeScroll
-            atoTitulo="Ato I &bull; A Mesa Pintada"
-            anoHistorico="2 a.C."
-            localizacao="Pedra do Dragão"
-            paragrafos={paragrafosCena}
-            vozesInternas={vozesInternas}
-            escolhas={escolhasCena}
+            atoTitulo={nodeAtual.titulo}
+            anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
+            localizacao={nodeAtual.localizacao || 'Westeros'}
+            paragrafos={paragrafos}
+            vozesInternas={nodeAtual.internalVoices || []}
+            escolhas={escolhasNarrativas}
             verbetes={verbetes}
             onEscolha={handleEscolha}
-            onAcaoLivre={(txt) => setFeedback(`Ação submetida ao Mestre: "${txt}"`)}
+            onAcaoLivre={(txt) => setFeedback(`Ação personalizada apresentada ao Mestre: "${txt}"`)}
           />
         </div>
 
-        {/* Coluna Direita (3 colunas): Abas de Mapa, Dados e Diário */}
+        {/* Coluna Direita (3 cols): Mapa, Dados e Diário */}
         <div className="hidden lg:block lg:col-span-3 sticky top-16 space-y-4">
-          {/* Seletor de Abas */}
           <div className="grid grid-cols-3 gap-1 bg-[#12100E] p-1 rounded-xl border border-[#2D2620] text-center font-cinzel">
             <button
               onClick={() => setAbaLateral('mapa')}
@@ -253,15 +277,14 @@ export default function JogarPage() {
             </button>
           </div>
 
-          {/* Painel da Aba Ativa */}
-          {abaLateral === 'mapa' && <WesterosMapSVG regiaoAtualId="pedra_dragao" />}
+          {abaLateral === 'mapa' && <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
           {abaLateral === 'dados' && <DiceRoller2d6 resultado={resultadoRolagem} />}
           {abaLateral === 'diario' && (
             <ChronicleTimeline
               historico={historico}
               onDesfazerTurno={handleDesfazerTurno}
               onExportarSave={handleExportarSave}
-              onVoltarCheckpoint={() => setFeedback('Retornado ao início do capítulo.')}
+              onVoltarCheckpoint={handleVoltarCheckpoint}
             />
           )}
         </div>
@@ -271,14 +294,14 @@ export default function JogarPage() {
       {/* Navegação Mobile com Gavetas Deslizantes */}
       <MobileDrawerNav
         renderFicha={() => <CharacterPanel ficha={ficha} />}
-        renderMapa={() => <WesterosMapSVG regiaoAtualId="pedra_dragao" />}
+        renderMapa={() => <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
         renderDados={() => <DiceRoller2d6 resultado={resultadoRolagem} />}
         renderDiario={() => (
           <ChronicleTimeline
             historico={historico}
             onDesfazerTurno={handleDesfazerTurno}
             onExportarSave={handleExportarSave}
-            onVoltarCheckpoint={() => setFeedback('Retornado ao início do capítulo.')}
+            onVoltarCheckpoint={handleVoltarCheckpoint}
           />
         )}
       />

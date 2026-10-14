@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { AtributoVozEnum } from './rpgEngine';
+import { AtributoVozEnum, DeltaEstadoSchema } from './rpgEngine';
 
 // ==========================================
 // 1. ESQUEMAS ZOD DO GRAFO DE JORNADA
@@ -18,6 +18,14 @@ export const LoreContextSchema = z.object({
   notaHistorica: z.string().optional(),
 });
 export type LoreContext = z.infer<typeof LoreContextSchema>;
+
+export const IntervencaoVozGrafoSchema = z.object({
+  atributo: AtributoVozEnum,
+  resultadoPassivo: z.enum(['SUCESSO', 'FALHA', 'CRITICO']).optional(),
+  dcPassiva: z.number().int().optional(),
+  fala: z.string().min(1),
+});
+export type IntervencaoVozGrafo = z.infer<typeof IntervencaoVozGrafoSchema>;
 
 export const EscolhaSimplesSchema = z.object({
   id: z.string().min(1),
@@ -52,6 +60,11 @@ export const NodeJornadaSchema = z.object({
   titulo: z.string().min(1),
   fallbackText: z.string().min(1, 'fallbackText literário não pode ser vazio'),
   loreContext: LoreContextSchema,
+  regionId: z.string().optional(),
+  anoHistorico: z.string().optional(),
+  localizacao: z.string().optional(),
+  internalVoices: z.array(IntervencaoVozGrafoSchema).optional(),
+  deltaEstado: DeltaEstadoSchema.optional(),
   escolhas: z.array(EscolhaJornadaSchema),
   isEnding: z.boolean().optional(),
 });
@@ -81,19 +94,10 @@ export interface ResultadoValidacaoGrafo {
 // 2. VALIDADOR DO GRAFO (LINTER NARRATIVO)
 // ==========================================
 
-/**
- * Validador que verifica matematicamente qualquer arquivo de Ato/Jornada.
- * Retorna erro se:
- * - Algum nextNodeId (em escolha simples, sucesso, falha parcial ou falha crítica) apontar para um ID inexistente.
- * - Existir algum nó órfão (inalcançável a partir de startNodeId).
- * - Algum nó não tiver fallbackText literário válido ou loreContext com fonte.
- * - Uma opção com riscoMortal: true não tiver nó de destino para morte canônica (onCriticalFailureNodeId).
- */
 export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGrafo {
   const erros: string[] = [];
   const avisos: string[] = [];
 
-  // 1. Validação estrutural de base com Zod
   const parseResult = GrafoJornadaSchema.safeParse(grafo);
   if (!parseResult.success) {
     for (const issue of parseResult.error.issues) {
@@ -105,7 +109,6 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
   const nodeKeys = Object.keys(nodes);
   const totalNos = nodeKeys.length;
 
-  // 2. Verificar se startNodeId existe
   if (!grafo.startNodeId || !nodes[grafo.startNodeId]) {
     erros.push(`[Nó Inicial] startNodeId '${grafo.startNodeId}' não existe no mapa de nós.`);
   }
@@ -113,19 +116,15 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
   let totalEscolhas = 0;
   let testesComRiscoMortal = 0;
 
-  // 3. Validar conexões e integridade de cada nó
   for (const [nodeId, node] of Object.entries(nodes)) {
-    // 3.1. Validar ID consistente
     if (node.id !== nodeId) {
       erros.push(`[Inconsistência] Nó '${nodeId}' possui campo interno id '${node.id}'.`);
     }
 
-    // 3.2. Validar fallbackText literário não vazio
     if (!node.fallbackText || node.fallbackText.trim().length === 0) {
       erros.push(`[Texto Ausente] Nó '${nodeId}' não possui 'fallbackText' literário válido.`);
     }
 
-    // 3.3. Validar loreContext e fonte
     if (!node.loreContext || !node.loreContext.fonte) {
       erros.push(`[Lore Ausente] Nó '${nodeId}' não possui 'loreContext.fonte' definido.`);
     } else {
@@ -137,12 +136,10 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
       }
     }
 
-    // 3.4. Validar se nó final possui escolhas ou isEnding
     if ((!node.escolhas || node.escolhas.length === 0) && !node.isEnding) {
       avisos.push(`[Fim sem Flag] Nó '${nodeId}' não possui escolhas mas 'isEnding' não é true.`);
     }
 
-    // 3.5. Validar cada escolha do nó
     for (const escolha of node.escolhas ?? []) {
       totalEscolhas++;
 
@@ -169,7 +166,6 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
           );
         }
 
-        // Se houver risco mortal:
         if (escolha.riscoMortal) {
           testesComRiscoMortal++;
           if (!escolha.onCriticalFailureNodeId) {
@@ -190,7 +186,7 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
     }
   }
 
-  // 4. Detecção Matemática de Nós Órfãos via Busca em Largura (BFS)
+  // Busca em Largura (BFS) para Nós Órfãos
   const visitados = new Set<string>();
   const fila: string[] = [];
 
@@ -224,7 +220,6 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
     }
   }
 
-  // Verificar nós inalcançáveis (órfãos)
   for (const nodeId of nodeKeys) {
     if (!visitados.has(nodeId)) {
       erros.push(`[Nó Órfão] O nó '${nodeId}' é inalcançável a partir do nó inicial '${grafo.startNodeId}'.`);
