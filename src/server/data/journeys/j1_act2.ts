@@ -190,6 +190,24 @@ No entanto, quando a última nesga de luz solar se extinguiu no horizonte, Aegon
           onSuccessNodeId: 'j1_a2_whatif_infiltracao_harrenhal',
           onPartialFailureNodeId: 'j1_a2_queima_de_harrenhal',
         },
+
+        {
+          id: 'esc_prep_harrenhal_pressagio',
+          texto: 'Observar as cinco torres monumentais ao entardecer e calcular a coluna de calor necessária para derreter a pedra.',
+          tipo: 'simples',
+          tagOrigem: '[SANGUE VALIRIANO]',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_queima_de_harrenhal',
+        },
+        {
+          id: 'esc_prep_harrenhal_ultimato_arautal',
+          texto: 'Enviar um arauto com um ramo de oliveira e uma tocha de enxofre dando a última chance aos filhos de Harren.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 10, visenya: -15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_queima_de_harrenhal',
+        }
       ],
     },
 
@@ -310,6 +328,23 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
           onSuccessNodeId: 'j1_a2_senhor_supremo_tridente',
           onPartialFailureNodeId: 'j1_a2_senhor_supremo_tridente',
         },
+
+        {
+          id: 'esc_whatif_infilt_visenya_severa',
+          texto: 'Exigir que todos os cativos dos homens de ferro sejam acorrentados e levados a Correrrio como servos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['cativos_hoare_servos'] },
+          nextNodeId: 'j1_a2_submissao_garra_rachada',
+        },
+        {
+          id: 'esc_whatif_infilt_pacto_edmyn',
+          texto: 'Ceder a governança provisória de Harrenhal a Edmyn Tully para consolidar a lealdade dos lordes fluviais.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 15, rhaenys: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a2_submissao_garra_rachada',
+        }
       ],
     },
 
@@ -542,6 +577,29 @@ Com a morte de seu soberano, o exército da tempestade quebrou as fileiras e fug
           onSuccessNodeId: 'j1_a2_motim_ponta_tempestade',
           onPartialFailureNodeId: 'j1_a2_motim_ponta_tempestade',
         },
+      
+        {
+          id: 'esc_j1_a2_cercar_retaguarda_durrandon',
+          texto: 'Manobrar arqueiros e cavaleiros sob a chuva torrencial para quebrar a retaguarda de Ponta Tempestade.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a2_honra_argella_baratheon',
+          onPartialFailureNodeId: 'j1_a2_honra_argella_baratheon',
+          aprovacaoCompanheiros: { orys: 10, visenya: 5 },
+          delta: { mundo: { vanguarda_durrandon_cercada: true } },
+        },
+        {
+          id: 'esc_j1_a2_clamar_paz_argilac',
+          texto: 'Clamar pela rendição do Rei da Tempestade em nome dos Deuses Antigos e dos Novos antes do golpe letal.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j1_a2_honra_argella_baratheon',
+          onPartialFailureNodeId: 'j1_a2_honra_argella_baratheon',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: -5 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -632,6 +690,23 @@ Ao amanhecer, quando o exército de Orys e Meraxes chegou aos pés das muralhas 
           onSuccessNodeId: 'j1_a2_honra_argella_baratheon',
           onPartialFailureNodeId: 'j1_a2_honra_argella_baratheon',
         },
+
+        {
+          id: 'esc_motim_severidade_leis',
+          texto: 'Condenar os amotinados por quebrarem o juramento à sua princesa e poupar apenas os soldados rasos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 25, visenya: 15, rhaenys: 10 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j1_a2_honra_argella_baratheon',
+        },
+        {
+          id: 'esc_motim_manto_ouro',
+          texto: 'Presentear Argella com um manto de arminho e escoltá-la pessoalmente aos aposentos mais nobres do castelo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 25, rhaenys: 20, visenya: -5 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a2_honra_argella_baratheon',
+        }
       ],
     },
 
@@ -688,6 +763,23 @@ Em reconhecimento à nobreza dos Durrandon, Orys tomou para sua nova Casa os bra
           onSuccessNodeId: 'j1_a2_checkpoint_campo_de_fogo',
           onPartialFailureNodeId: 'j1_a2_checkpoint_campo_de_fogo',
         },
+
+        {
+          id: 'esc_honra_baratheon_festa',
+          texto: 'Celebrar o banquete nupcial de Orys e Argella com barris de cerveja escura para toda a guarnição.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 25, rhaenys: 20 },
+          delta: { compostura: 2, sangue: 2 },
+          nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        },
+        {
+          id: 'esc_honra_baratheon_vigilia',
+          texto: 'Prestar juramento perante a memória de Argilac de que as Terras da Tempestade permanecerão indomáveis sob o novo brasão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 20, visenya: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        }
       ],
     },
 
@@ -743,75 +835,150 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
           onSuccessNodeId: 'j1_a2_checkpoint_campo_de_fogo',
           onPartialFailureNodeId: 'j1_a2_checkpoint_campo_de_fogo',
         },
+
+        {
+          id: 'esc_garra_pacto_rainha',
+          texto: 'Garantir que os senhores da Ponta da Garra Rachada respondam apenas diretamente ao Trono de Ferro, sem suserano intermediário.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 25, rhaenys: 10 },
+          delta: { flagsAdicionadas: ['vassalagem_direta_garra_rachada'], compostura: 2 },
+          nextNodeId: 'j1_a2_checkpoint_norte_tridente',
+        },
+        {
+          id: 'esc_garra_batedores_pantano',
+          texto: 'Recrutar arqueiros e rastreadores da Garra Rachada para servir como batedores avançados do exército real.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 15 },
+          delta: { flagsAdicionadas: ['batedores_garra_alistados'] },
+          nextNodeId: 'j1_a2_checkpoint_norte_tridente',
+        }
       ],
     },
 
     // ==========================================
     // CENA 14: CHECKPOINT DO ATO 2 (CAMPO DE FOGO)
     // ==========================================
-    j1_a2_checkpoint_campo_de_fogo: {
+        j1_a2_checkpoint_campo_de_fogo: {
       id: 'j1_a2_checkpoint_campo_de_fogo',
-      isEnding: true,
-      titulo: 'Conclusão do Ato II & A Reunião dos Dragões',
+      titulo: 'Acampamento & Conselho Noturno: Planícies da Campina',
       anoHistorico: '2 a.C.',
-      localizacao: 'Acampamento Real & Terras da Coroa',
+      localizacao: 'Acampamento & Pavilhão Real',
       regionId: 'pedra_dragao',
-      fallbackText: `O Ato II da grande Conquista chega ao fim com duas das maiores potências de Westeros derrotadas: a Casa Hoare ardeu em cinzas em Harrenhal, e a Casa Durrandon foi sucedida pelo leão negro de Orys Baratheon em Ponta Tempestade.
-
-Porém, as maiores ameaças ainda erguem suas coroas no horizonte. Em Rochedo Casterly e Jardim de Cima, o Rei Loren Lannister e o Rei Mern IX Gardener reuniram o maior exército que Westeros já contemplou em toda a sua história: cinquenta e cinco mil homens marchando juntos para esmagar os invasores.
-
-Aegon convoca suas duas rainhas irmãs, Visenya e Rhaenys. Pela primeira vez desde o início da guerra, os três grandes dragões — Balerion, Vhagar e Meraxes — voarão juntos no mesmo campo de batalha. O Ato III e o terrível Campo de Fogo aguardam.`,
+      deltaEstado: {
+        sangue: 2,
+        compostura: 2,
+      },
+      fallbackText: `O vento quente da Campina agita os estandartes dourados e vermelhos. As três bestas aladas de Valíria repousam a curta distância, seus olhos incandescentes vigiando o horizonte onde as hostes combinadas de Jardim de Cima e Rochedo Casterly se reúnem.`,
       internalVoices: [
         {
-          atributo: 'comando',
+          atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Dois reis caíram. Agora dois outros marcham com um mar de espadas douradas. É hora de reunir os três dragões.',
+          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+        },
+        {
+          atributo: 'pressagio',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 9,
+          fala: 'As estrelas do poente formam o desenho de uma espada de fogo. O próximo capítulo selará o destino de Westeros.',
         },
       ],
-      loreContext: {
+            loreContext: {
         fonte: {
-          arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
+          arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'Fim do Ato 2 e preparação para o Campo de Fogo.',
+        notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
-      escolhas: [],
+      escolhas: [
+        {
+          id: 'esc_camp_fogo_visenya',
+          texto: 'Conferenciar com a Rainha Visenya sobre o posicionamento conjunto de Balerion, Vhagar e Meraxes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        },
+        {
+          id: 'esc_camp_fogo_orys',
+          texto: 'Reunir os comandantes de infantaria com Orys Baratheon e organizar a linha de escudos na planície.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 15, rhaenys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        },
+        {
+          id: 'esc_camp_fogo_descanso',
+          texto: 'Descansar as montarias e repousar sob o zumbido das chamas que aquecem a terra.',
+          tipo: 'simples',
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_campo_de_fogo',
+        }
+      ],
     },
 
     // ==========================================
     // CENA 15: CHECKPOINT DO ATO 2 (RAMO DO NORTE)
     // ==========================================
-    j1_a2_checkpoint_norte_tridente: {
+        j1_a2_checkpoint_norte_tridente: {
       id: 'j1_a2_checkpoint_norte_tridente',
-      isEnding: true,
-      titulo: 'Conclusão do Ato II & O Vento do Inverno no Tridente',
+      titulo: 'Acampamento & Conselho Noturno: Vaus do Tridente',
       anoHistorico: '2 a.C.',
-      localizacao: 'Tridente & Correrrio',
-      regionId: 'tridente',
-      fallbackText: `Com o Tridente pacificado sob a liderança de Lorde Edmyn Tully e Harrenhal reduzida a um monumento de granito derretido, os corvos trazem notícias perturbadoras dos ermos gelados do Norte.
-
-O Rei Torrhen Stark cruzou o Gargalo com trinta mil guerreiros nortenhos em fúria, marchando dia e noite para expulsar os invasores valirianos do continente.
-
-Os três dragões precisarão decidir se marcham primeiro para o sul dourado ou se encaram a ferocidade milenar dos Reis do Inverno nas margens dos rios.`,
+      localizacao: 'Acampamento & Pavilhão Real',
+      regionId: 'pedra_dragao',
+      deltaEstado: {
+        sangue: 2,
+        compostura: 2,
+      },
+      fallbackText: `Ao norte das águas do Tridente, trinta mil guerreiros nortenhos acampam sob os estandartes do lobo gigante de Winterfell. O ar é frio e límpido, cortado apenas pelo eco distante das trombetas e pelo calor dos dragões.`,
       internalVoices: [
+        {
+          atributo: 'cortesia',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 8,
+          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+        },
         {
           atributo: 'pressagio',
           resultadoPassivo: 'SUCESSO',
-          dcPassiva: 8,
-          fala: 'O lobo gigante desceu de sua floresta com lanças de carvalho e espadas de bronze. A neve se tingirá de sangue.',
+          dcPassiva: 9,
+          fala: 'As estrelas do poente formam o desenho de uma espada de fogo. O próximo capítulo selará o destino de Westeros.',
         },
       ],
-      loreContext: {
+            loreContext: {
         fonte: {
-          arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
+          arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'Marco de transição para o encontro com o Norte.',
+        notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
-      escolhas: [],
+      escolhas: [
+        {
+          id: 'esc_camp_norte_rhaenys',
+          texto: 'Discutir com Rhaenys a natureza dos homens do Norte e a importância de uma rendição honrosa sem sangue.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: -5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_norte_tridente',
+        },
+        {
+          id: 'esc_camp_norte_visenya',
+          texto: 'Vistoriar as defesas ribeirinhas com Visenya e verificar o alcance das flechas nortenhas de represeiro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_norte_tridente',
+        },
+        {
+          id: 'esc_camp_norte_descanso',
+          texto: 'Ceia com pão escuro e repouso revigorante à beira do Tridente.',
+          tipo: 'simples',
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a2_checkpoint_norte_tridente',
+        }
+      ],
     },
   },
 };

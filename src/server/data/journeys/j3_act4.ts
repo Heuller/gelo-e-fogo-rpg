@@ -49,6 +49,23 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           onSuccessNodeId: 'j3_a4_alerta_vento_cinzento_armadilha',
           onPartialFailureNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
         },
+
+        {
+          id: 'esc_karstark_justica_ned',
+          texto: 'Executar Rickard Karstark pessoalmente em nome da justiça e da honra de Eddard Stark.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, peixe_negro: 20, catelyn: -15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a4_alerta_vento_cinzento_armadilha',
+        },
+        {
+          id: 'esc_karstark_poupar_refem',
+          texto: 'Manter Lorde Karstark acorrentado como refém para evitar a deserção dos lanceiros de Karhold.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 20, grande_jon: -10 },
+          delta: { flagsAdicionadas: ['karstark_mantido_refem'], compostura: 2 },
+          nextNodeId: 'j3_a4_alerta_vento_cinzento_armadilha',
+        }
       ],
     },
 
@@ -83,6 +100,23 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           tipo: 'simples',
           nextNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
         },
+
+        {
+          id: 'esc_alerta_vento_entrar_armados',
+          texto: 'Ordenar que cada cavaleiro nortenho entre no salão das Gêmeas com cota de malha e adaga oculta.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, grande_jon: 25, catelyn: 20 },
+          delta: { flagsAdicionadas: ['nortenhos_com_armadura_banquete'], compostura: 2 },
+          nextNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
+        },
+        {
+          id: 'esc_alerta_vento_manter_lobo_perto',
+          texto: 'Recusar prender Vento Cinzento nas estrebarias e mantê-lo deitado aos pés da mesa real de Robb.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, catelyn: 20 },
+          delta: { flagsAdicionadas: ['vento_cinzento_ao_lado_robb'] },
+          nextNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
+        }
       ],
     },
 
@@ -138,6 +172,23 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
           tipo: 'simples',
           nextNodeId: 'j3_a4_morte_canonica_casamento_vermelho',
         },
+
+        {
+          id: 'esc_banquete_catelyn_adaga_guizo',
+          texto: 'Catelyn saca a adaga e agarra o tolo Guizo ao notar a cota de malha sob o gibão de Roose Bolton.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 30, grande_jon: 25 },
+          delta: { flagsAdicionadas: ['cota_malha_bolton_descoberta'], compostura: 2 },
+          nextNodeId: 'j3_a4_morte_canonica_casamento_vermelho',
+        },
+        {
+          id: 'esc_banquete_robb_espada_mesa',
+          texto: 'Robb tenta alcançar sua espada sobre a mesa enquanto os besteiros disparam da galeria de músicos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, peixe_negro: 25 },
+          delta: { sangue: -2, compostura: 1 },
+          nextNodeId: 'j3_a4_morte_canonica_casamento_vermelho',
+        }
       ],
     },
 
@@ -168,6 +219,23 @@ O exército nortenho foi massacrado em suas tendas. A cabeça de Robb foi cortad
           tipo: 'simples',
           nextNodeId: 'j3_a4_batalha_castelo_negro_mance',
         },
+
+        {
+          id: 'esc_morte_casamento_catelyn_sacrificio',
+          texto: 'Lady Catelyn agarra o tolo Guizo e faz o último apelo desesperado em honra à lei sagrada do pão e sal.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 30, grande_jon: 25 },
+          delta: { sangue: -1, compostura: 1 },
+          nextNodeId: 'j3_a4_batalha_castelo_negro_mance',
+        },
+        {
+          id: 'esc_morte_casamento_vinganca_norte',
+          texto: 'Lorde Umber derruba as mesas e esmaga o crânio de dois conspiradores antes de tombar sob os virotes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 25 },
+          delta: { flagsAdicionadas: ['furia_final_umber'] },
+          nextNodeId: 'j3_a4_batalha_castelo_negro_mance',
+        }
       ],
     },
 
@@ -248,6 +316,23 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
           tipo: 'simples',
           nextNodeId: 'j3_a4_eleicao_jon_snow_senhor_comandante',
         },
+
+        {
+          id: 'esc_castelo_negro_stannis_saudacao',
+          texto: 'Jon Snow saúda o Rei Stannis Baratheon e Sor Davos Seaworth como salvadores da Muralha.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 30 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j3_a4_eleicao_jon_snow_senhor_comandante',
+        },
+        {
+          id: 'esc_castelo_negro_parlamentar_mance',
+          texto: 'Negociar com Mance Rayder a passagem pacífica das mulheres e crianças selvagens para o sul do Muro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25 },
+          delta: { flagsAdicionadas: ['selvagens_paz_iniciada'] },
+          nextNodeId: 'j3_a4_eleicao_jon_snow_senhor_comandante',
+        }
       ],
     },
 

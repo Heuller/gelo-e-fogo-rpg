@@ -29,7 +29,9 @@
         "Conquista dos Degraus",
         "Tomada de Harrenhal",
         "Duelo sobre o Olho de Deus contra Vhagar"
-      ]
+      ],
+      "cor_escamas": "Vermelho-sangue escarlate brilhante e corpo serpentino esguio",
+      "cor_chamas": "Labaredas carmesins intensas e brilhantes de calor extremo"
     },
     "vhagar": {
       "nome": "Vhagar, a Rainha dos Dragões",
@@ -40,7 +42,9 @@
         "Abate de Arrax em Ponta Tempestade",
         "Queda de Meleys em Pouso de Gralhas",
         "Queima das Terras Fluviais"
-      ]
+      ],
+      "cor_escamas": "Verde-bronze escuro com marcas e manchas verde-jade colossais",
+      "cor_chamas": "Fogo abrasador dourado-esverdeado capaz de derreter pedras"
     },
     "syrax": {
       "nome": "Syrax",
@@ -50,7 +54,9 @@
       "feitos": [
         "Voo de coroação em Pedra do Dragão",
         "Tomada de Porto Real"
-      ]
+      ],
+      "cor_escamas": "Amarelo-dourado luminoso e escamas reluzentes",
+      "cor_chamas": "Fogo dourado puro e quente"
     },
     "sunfyre": {
       "nome": "Sunfyre, o Dourado",
@@ -60,7 +66,9 @@
       "feitos": [
         "Batalha de Pouso de Gralhas",
         "Combate contra Moondancer em Pedra do Dragão"
-      ]
+      ],
+      "cor_escamas": "Ouro reluzente espetacular sob o sol com membranas rosa-pálido",
+      "cor_chamas": "Fogo dourado resplandecente"
     },
     "meleys": {
       "nome": "Meleys, a Rainha Vermelha",
@@ -69,7 +77,9 @@
       "escamas": "Vermelho escarlate com cristas de cobre",
       "feitos": [
         "Defesa de Pouso de Gralhas enfrentando Sunfyre e Vhagar simultaneamente"
-      ]
+      ],
+      "cor_escamas": "Vermelho-rubi escarlate com membranas de asas cor-de-rosa",
+      "cor_chamas": "Fogo vermelho veloz e furioso"
     },
     "vermithor": {
       "nome": "Vermithor, a Fúria de Bronze",
@@ -79,7 +89,9 @@
       "feitos": [
         "A Semeadura Vermelha",
         "Primeira e Segunda Batalha de Tumbleton"
-      ]
+      ],
+      "cor_escamas": "Bronze envelhecido e castanho-amarelado profundo",
+      "cor_chamas": "Fogo de bronze incandescente que funde aço e pedra"
     },
     "asaprata": {
       "nome": "Asaprata (Silverwing)",
@@ -89,7 +101,9 @@
       "feitos": [
         "A Semeadura Vermelha",
         "Voo conjunto com Vermithor em Tumbleton"
-      ]
+      ],
+      "cor_escamas": "Prata brilhante metálica e elegante",
+      "cor_chamas": "Fogo esbranquiçado e prateado"
     },
     "fumaresia": {
       "nome": "Fumaresia (Seasmoke)",
@@ -98,7 +112,9 @@
       "escamas": "Cinzento claro pálido",
       "feitos": [
         "Ataque noturno heroico na Segunda Batalha de Tumbleton"
-      ]
+      ],
+      "cor_escamas": "Cinza-prateado claro como a névoa marinha de Derivamarca",
+      "cor_chamas": "Fogo cinzento-azulado"
     },
     "rouba_ovelhas": {
       "nome": "Rouba-Ovelhas (Sheepstealer)",
@@ -108,7 +124,9 @@
       "feitos": [
         "Domado com ovelhas frescas por Urtigas",
         "Combate na Batalha da Goela"
-      ]
+      ],
+      "cor_escamas": "Castanho-lama rústico e cor de terra",
+      "cor_chamas": "Fogo alaranjado espesso e selvagem"
     },
     "tessarion": {
       "nome": "Tessarion, a Rainha Azul",
@@ -118,7 +136,9 @@
       "feitos": [
         "Batalha do Vinhomel",
         "Batalhas de Tumbleton"
-      ]
+      ],
+      "cor_escamas": "Azul-cobalto metálico com asas e garras cor de cobre brilhante",
+      "cor_chamas": "Fogo azul-cobalto límpido e cintilante"
     }
   },
   "personagens_canonicos": [

@@ -4,7 +4,7 @@ import { grafoJornada1Completo, obterNodeJornada1 } from './j1_conquista_full';
 import { grafoJornada2Completo, obterNodeJornada2 } from './j2_danca_full';
 import { grafoJornada3Completo, obterNodeJornada3 } from './j3_tronos_full';
 import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
-import { FichaPersonagem, WorldState } from '@/server/engine/rpgEngine';
+import { FichaPersonagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 
 // Aliases para máxima compatibilidade
 export {
@@ -120,6 +120,8 @@ export const FICHA_INICIAL_AEGON: FichaPersonagem = {
     'A profecia do Sonho de Fogo de Daenys a Sonhadora',
     'A carta secreta do Banco de Bravos',
   ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('conquista_aegon'),
 };
 
 export const FICHA_INICIAL_RHAENYRA: FichaPersonagem = {
@@ -144,6 +146,8 @@ export const FICHA_INICIAL_RHAENYRA: FichaPersonagem = {
     'O testamento solene e selado de Viserys I reconhecendo seus direitos',
     'A aliança matrimonial com a Casa Velaryon e as frotas de Derivamarca',
   ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('danca_dragoes'),
 };
 
 export const FICHA_INICIAL_EDDARD_STARK: FichaPersonagem = {
@@ -168,6 +172,8 @@ export const FICHA_INICIAL_EDDARD_STARK: FichaPersonagem = {
     'A promessa solene feita a Lyanna Stark na Torre da Alegria',
     'A carta cifrada de Lysa Arryn acusando os Lannister da morte de Jon Arryn',
   ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('guerra_tronos'),
 };
 
 /**

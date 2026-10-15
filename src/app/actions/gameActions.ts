@@ -6,7 +6,7 @@ import {
   obterCenaInicialJornada,
   normalizarIdJornada,
 } from '@/server/data/journeys/index';
-import { NodeJornada } from '@/server/engine/storyLinter';
+import { NodeJornada, EscolhaNode } from '@/server/engine/storyLinter';
 import {
   FichaPersonagem,
   WorldState,
@@ -14,6 +14,7 @@ import {
   rolar2d6,
   aplicarDeltaEstado,
   DeltaEstado,
+  rerrolarUltimoTesteComInspiracao,
 } from '@/server/engine/rpgEngine';
 import { TurnEvent } from '@/server/engine/saveManager';
 import {
@@ -60,6 +61,8 @@ export interface RespostaTurnoAction {
   textoEnriquecido?: string;
   vozesExtras?: VozExtra[];
   usouFallbackIA?: boolean;
+  notificacoesCompanheiros?: string[];
+  escolhaRealizada?: EscolhaNode;
 }
 
 export async function processarEscolhaAction(
@@ -79,8 +82,15 @@ export async function processarEscolhaAction(
   let resultadoRolagem: ResultadoRolagem | null = null;
   let deltaConsequencia: DeltaEstado = {};
 
+  if (escolha.aprovacaoCompanheiros) {
+    deltaConsequencia.aprovacaoCompanheiros = escolha.aprovacaoCompanheiros;
+  }
+
   if (escolha.tipo === 'simples') {
     proximoNodeId = escolha.nextNodeId;
+    if (escolha.delta) {
+      deltaConsequencia = { ...deltaConsequencia, ...escolha.delta };
+    }
   } else {
     const valorAtributo = params.ficha.atributos[escolha.atributo];
     resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
@@ -90,18 +100,19 @@ export async function processarEscolhaAction(
 
     if (resultadoRolagem.resultado === 'CRITICO') {
       proximoNodeId = escolha.onCriticalSuccessNodeId || escolha.onSuccessNodeId;
-      deltaConsequencia.honra = 2;
+      deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 2;
+      deltaConsequencia.inspiracao = 1;
     } else if (resultadoRolagem.resultado === 'SUCESSO') {
       proximoNodeId = escolha.onSuccessNodeId;
-      deltaConsequencia.honra = 1;
+      deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 1;
     } else if (resultadoRolagem.resultado === 'FALHA_PARCIAL') {
       proximoNodeId = escolha.onPartialFailureNodeId;
-      deltaConsequencia.honra = -1;
-      deltaConsequencia.compostura = -1;
+      deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 1;
+      deltaConsequencia.compostura = (deltaConsequencia.compostura || 0) - 1;
     } else {
       proximoNodeId = escolha.onCriticalFailureNodeId || escolha.onPartialFailureNodeId;
-      deltaConsequencia.honra = -2;
-      deltaConsequencia.sangue = -3;
+      deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 2;
+      deltaConsequencia.sangue = (deltaConsequencia.sangue || 0) - 3;
       if (escolha.riscoMortal) {
         deltaConsequencia.sangue = -10;
       }
@@ -118,7 +129,7 @@ export async function processarEscolhaAction(
     ...(proximoNode.deltaEstado || {}),
   };
 
-  const { fichaAtualizada, worldStateAtualizado } = aplicarDeltaEstado(
+  const { fichaAtualizada, worldStateAtualizado, notificacoesCompanheiros } = aplicarDeltaEstado(
     params.ficha,
     params.worldState,
     deltaTotal
@@ -160,7 +171,54 @@ export async function processarEscolhaAction(
     textoEnriquecido,
     vozesExtras,
     usouFallbackIA,
+    notificacoesCompanheiros: notificacoesCompanheiros.map((n) => n.textoNotificacao),
+    escolhaRealizada: escolha,
   };
+}
+
+export interface RerrolarInspiracaoParams {
+  nodeId: string;
+  escolhaId: string;
+  ficha: FichaPersonagem;
+  worldState: WorldState;
+  turnNumber: number;
+  journeyId?: string;
+}
+
+export async function rerrolarTesteInspiracaoAction(
+  params: RerrolarInspiracaoParams
+): Promise<RespostaTurnoAction> {
+  const nodeAtual = obterNodeQualquerJornada(params.nodeId, params.journeyId);
+  if (!nodeAtual) {
+    throw new Error(`Cena '${params.nodeId}' não encontrada.`);
+  }
+
+  const escolha = nodeAtual.escolhas.find((e) => e.id === params.escolhaId);
+  if (!escolha) {
+    throw new Error(`Escolha '${params.escolhaId}' não encontrada na cena '${params.nodeId}'.`);
+  }
+
+  if (escolha.tipo !== 'teste_atributo') {
+    throw new Error(`A escolha '${params.escolhaId}' não é um teste de atributo para rerrolagem.`);
+  }
+
+  const valorAtributo = params.ficha.atributos[escolha.atributo];
+  const resRerrolagem = rerrolarUltimoTesteComInspiracao(
+    params.ficha,
+    escolha.dc,
+    valorAtributo,
+    { riscoMortal: escolha.riscoMortal }
+  );
+
+  return processarEscolhaAction({
+    nodeId: params.nodeId,
+    escolhaId: params.escolhaId,
+    ficha: resRerrolagem.fichaAtualizada,
+    worldState: params.worldState,
+    turnNumber: params.turnNumber,
+    dadosFixos: resRerrolagem.resultadoRolagem.dados,
+    journeyId: params.journeyId,
+  });
 }
 
 export interface ProcessarAcaoLivreParams {
@@ -199,7 +257,6 @@ export async function processarAcaoLivreAction(
     journeyId: params.journeyId,
   });
 
-  // Atualiza o evento de turno com a ação personalizada do jogador
   resEscolha.turnEvent.choiceMade = `[Ação Livre] ${params.textoAcaoLivre}`;
   resEscolha.classificacao = classificacao;
 

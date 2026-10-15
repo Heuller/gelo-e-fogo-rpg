@@ -70,13 +70,36 @@ Sor Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cerc
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
-      escolhas: [
+            conditionalParagraphs: [
+        {
+          requiredFlag: 'rhaenys_salva',
+          text: 'A imponente presença de Meleys, a Rainha Vermelha, nos céus de Derivamarca impede que a esquadra de Ormund Hightower avance pela Baía da Água Negra, resguardando as linhas marítimas da Rainha.',
+        }
+      ],
+escolhas: [
         {
           id: 'esc_j2_a3_iniciar_duelo_olho_de_deus',
           texto: 'Montar em Caraxes e erguer voo sobre o Olho de Deus para o duelo dos séculos.',
           tipo: 'simples',
           nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
         },
+
+        {
+          id: 'esc_caca_aemond_urtigas_afeto',
+          texto: 'Cavalgar os campos ao lado de Urtigas e compartilhar o vinho sob a proteção dos deuses antigos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, mysaria: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
+        },
+        {
+          id: 'esc_caca_aemond_desafio_pedra',
+          texto: 'Gravar um desafio de sangue com a Irmã Sombria nos troncos do bosque sagrado de Harrenhal convocando Aemond.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, corlys: -5 },
+          delta: { flagsAdicionadas: ['desafio_gravado_harrenhal'] },
+          nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
+        }
       ],
     },
 
@@ -120,6 +143,29 @@ Sor Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cerc
           tipo: 'simples',
           nextNodeId: 'j2_a3_primeira_batalha_tumbleton_canonico',
         },
+      
+        {
+          id: 'esc_j2_a3_envenenar_odres_dos_traidores',
+          texto: 'Usar a rede das sombras de Mysaria para colocar lágrimas de Lys no vinho de Hugh Martelo e Ulf!',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a3_whatif_traicao_evitada',
+          onPartialFailureNodeId: 'j2_a3_primeira_batalha_tumbleton_canonico',
+          aprovacaoCompanheiros: { mysaria: 20, daemon: 5 },
+          delta: { mundo: { sementes_traidoras_envenenadas: true } },
+        },
+        {
+          id: 'esc_j2_a3_apelo_lealdade_bastardos',
+          texto: 'Prometer castelos e títulos de grandes senhores a Hugh e Ulf se permanecerem fiéis à causa de Rhaenyra.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a3_primeira_batalha_tumbleton_canonico',
+          onPartialFailureNodeId: 'j2_a3_primeira_batalha_tumbleton_canonico',
+          aprovacaoCompanheiros: { rhaenys_j2: 10, corlys: -10 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -148,6 +194,23 @@ Hugh Martelo e Ulf, o Branco traíram a rainha pelo ouro e terras prometidos pel
           tipo: 'simples',
           nextNodeId: 'j2_a3_paranoia_rhaenyra_capital',
         },
+
+        {
+          id: 'esc_tumbleton_retirada_ordem',
+          texto: 'Lorde Addam Velaryon cobre a retirada com Fumarescente e poupa centenas de soldados ribeirinhos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, daemon: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
+        },
+        {
+          id: 'esc_tumbleton_furia_traicao',
+          texto: 'Jurar vingança contra Hugh Martelo e Ulf, o Branco, decretando-os traidores sem honra a serem executados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, corlys: 20 },
+          delta: { flagsAdicionadas: ['dois_traidores_condenados'] },
+          nextNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
+        }
       ],
     },
 
@@ -174,6 +237,23 @@ Hugh Martelo e Ulf, o Branco traíram a rainha pelo ouro e terras prometidos pel
           tipo: 'simples',
           nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
         },
+
+        {
+          id: 'esc_whatif_traicao_lealdade_hugh',
+          texto: 'Garantir que Hugh Martelo e Ulf recebam seus senhorios por escrito para mantê-los leais à Rainha.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, daemon: 15 },
+          delta: { flagsAdicionadas: ['traidores_apaziguados_senhorios'], compostura: 2 },
+          nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
+        },
+        {
+          id: 'esc_whatif_traicao_vinho_veneno',
+          texto: 'Eliminar os traidores discretamente com veneno nas taças de vinho antes que possam montar em seus dragões.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { mysaria: 25, daemon: 20, corlys: -10 },
+          delta: { flagsAdicionadas: ['traidores_envenenados_secretamente'] },
+          nextNodeId: 'j2_a3_duelo_lendario_olho_de_deus',
+        }
       ],
     },
 
@@ -221,6 +301,29 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
           tipo: 'simples',
           nextNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
         },
+      
+        {
+          id: 'esc_j2_a3_enviar_barcos_pesca_resgate',
+          texto: 'Mobilizar barcos de pesca e mergulhadores de Harrenhal imediatamente para varrer o Olho de Deus.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a3_whatif_daemon_sobrevive',
+          onPartialFailureNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
+          aprovacaoCompanheiros: { corlys: 15, mysaria: 15 },
+          delta: { mundo: { busca_lago_iniciada: true } },
+        },
+        {
+          id: 'esc_j2_a3_recolher_dark_sister_lago',
+          texto: 'Rastrear a lâmina ancestral Irmã Sombria incrustada no crânio de Aemond nas águas profundas.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 12,
+          onSuccessNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
+          onPartialFailureNodeId: 'j2_a3_morte_dupla_daemon_aemond_canonico',
+          aprovacaoCompanheiros: { daemon: 15, corlys: 10 },
+          delta: { ficha: { compostura: 1 }, mundo: { dark_sister_recuperada: true } },
+        },
       ],
     },
 
@@ -247,6 +350,23 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
           tipo: 'simples',
           nextNodeId: 'j2_a3_paranoia_rhaenyra_capital',
         },
+
+        {
+          id: 'esc_morte_dupla_luto_lendario',
+          texto: 'Chorar a queda de Daemon Targaryen como o maior guerreiro de sua era e imortalizá-lo em canções.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, mysaria: 25 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        },
+        {
+          id: 'esc_morte_dupla_resgatar_corpos',
+          texto: 'Enviar mergulhadores e pescadores do Olho de Deus em busca da Irmã Sombria e dos crânios dos dragões.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 15 },
+          delta: { flagsAdicionadas: ['busca_irma_sombria_lago'] },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        }
       ],
     },
 
@@ -273,6 +393,23 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
           tipo: 'simples',
           nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
         },
+
+        {
+          id: 'esc_sobrevive_daemon_retorno_pr',
+          texto: 'Voltar a cavalo pelos bosques fluviais em direção a Porto Real para resgatar Rhaenyra.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 30, corlys: 20 },
+          delta: { sangue: 2, compostura: 2 },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        },
+        {
+          id: 'esc_sobrevive_daemon_reunir_sementes',
+          texto: 'Mandar chamar Nettles e Addam Velaryon para consolidar a supremacia aérea sobre as Terras Fluviais.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, mysaria: 20, corlys: 15 },
+          delta: { flagsAdicionadas: ['reuniao_sementes_harrenhal'] },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        }
       ],
     },
 
@@ -318,6 +455,23 @@ Por sua lealdade, Corlys foi espancado e jogado nas masmorras. A frota Velaryon 
           tipo: 'simples',
           nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
         },
+
+        {
+          id: 'esc_paranoia_conferir_mysaria',
+          texto: 'Conferenciar com Mysaria nos subterrâneos para identificar espiões infiltrados antes de assinar novas sentenças.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { mysaria: 25, corlys: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        },
+        {
+          id: 'esc_paranoia_corlys_reconciliacao',
+          texto: 'Ouvir as súplicas de Corlys Velaryon para libertar Addam e restabelecer a honra da Casa do Cavalo-Marinho.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, mysaria: -10 },
+          delta: { flagsAdicionadas: ['corlys_apaziguado_paranoia'], compostura: 2 },
+          nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+        }
       ],
     },
 
@@ -371,6 +525,30 @@ Presos em correntes de ferro, Shrykos, Morghul e Tyraxes lutaram bravamente, que
           tipo: 'simples',
           nextNodeId: 'j2_a3_ruina_canonica_fosso_dragoes',
         },
+      
+        {
+          id: 'esc_j2_a3_assassinar_o_pastor_fanatico',
+          texto: 'Despachar atiradores de elite nos telhados para atravessar o coração do Pastor profeta com uma seta certeira!',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a3_whatif_fosso_dragoes_salvo',
+          onPartialFailureNodeId: 'j2_a3_ruina_canonica_fosso_dragoes',
+          aprovacaoCompanheiros: { mysaria: 20, corlys: 10 },
+          delta: { mundo: { pastor_eliminado_flecha: true } },
+        },
+        {
+          id: 'esc_j2_a3_libertar_correntes_dragoes',
+          texto: 'Penetrar nas catacumbas e romper as correntes de ferro para que os dragões alcem voo pela cúpula quebrada!',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 12,
+          tagOrigem: '[DOMADOR DE DRAGÕES]',
+          onSuccessNodeId: 'j2_a3_whatif_fosso_dragoes_salvo',
+          onPartialFailureNodeId: 'j2_a3_ruina_canonica_fosso_dragoes',
+          aprovacaoCompanheiros: { daemon: 20, corlys: 5 },
+          delta: { mundo: { dragoes_libertos_fosso: true } },
+        },
       ],
     },
 
@@ -419,6 +597,23 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
           tipo: 'simples',
           nextNodeId: 'j2_a3_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_ruina_fosso_luto_syrax',
+          texto: 'A Rainha chora sobre as janelas da Fortaleza Vermelha a morte de Syrax e dos jovens dragões aprisionados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 15 },
+          delta: { sangue: -1, compostura: -1 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_ruina_fosso_fuga_porto_real',
+          texto: 'Reunir os guardas remanescentes e evacuar a Rainha pelos portões da cidade antes que a turba invada o palácio.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, mysaria: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        }
       ],
     },
 
@@ -445,6 +640,23 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
           tipo: 'simples',
           nextNodeId: 'j2_a3_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_fosso_salvo_reforçar_cupula',
+          texto: 'Contratar pedreiros de Essos para restaurar as correntes e os portões de ferro do domo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, daemon: 20 },
+          delta: { flagsAdicionadas: ['cupula_fosso_reforçada'], compostura: 2 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_fosso_salvo_alimentar_bestas',
+          texto: 'Alimentar Syrax e os dragões jovens com gado fresco trazido das herdades de Rosby.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 20, rhaenys_j2: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        }
       ],
     },
 
@@ -486,6 +698,29 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
           tipo: 'simples',
           nextNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
         },
+      
+        {
+          id: 'esc_j2_a3_infiltrar_agitadores_manto_ouro',
+          texto: 'Misturar Mantos Dourados leais à multidão para espalhar pânico e boatos sobre os líderes do motim.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+          onPartialFailureNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+          aprovacaoCompanheiros: { mysaria: 15, daemon: 10 },
+          delta: { mundo: { motim_sabotado_por_dentro: true } },
+        },
+        {
+          id: 'esc_j2_a3_discurso_balcao_fortaleza_vermelha',
+          texto: 'Rhaenyra sobe ao balcão com a coroa de Viserys I e fala diretamente com o povo faminto de Porto Real.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+          onPartialFailureNodeId: 'j2_a3_assalto_fosso_dos_dragoes_pastor',
+          aprovacaoCompanheiros: { rhaenys_j2: 15, daemon: -10 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -520,6 +755,23 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
           tipo: 'simples',
           nextNodeId: 'j2_a3_caca_aemond_harrenhal',
         },
+
+        {
+          id: 'esc_roddy_carga_lobos',
+          texto: 'Celebrar a coragem inabalável de Roddy Ruína e dos Lobos do Inverno que decapitaram Ormund Hightower.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, daemon: 20 },
+          delta: { flagsAdicionadas: ['gloria_lobos_inverno'], compostura: 2 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_roddy_funeral_norte',
+          texto: 'Honrar os caídos nortenhos com oferendas solenes nos bosques sagrados do Tridente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a3_checkpoint_conclusao',
+        }
       ],
     },
 

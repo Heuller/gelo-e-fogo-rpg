@@ -64,6 +64,12 @@ todosNos['j1_a1_checkpoint_tempestade'] = {
       tipo: 'simples',
       nextNodeId: 'j1_a2_marcha_ultima_tempestade',
     },
+    {
+      id: 'esc_transicao_a1_a2_batalha_direto',
+      texto: 'Avançar pela Mata de Chuva em linha de batalha contra a vanguarda dos Durrandon (Ato II).',
+      tipo: 'simples',
+      nextNodeId: 'j1_a2_batalha_ultima_tempestade',
+    },
   ],
 };
 
@@ -81,6 +87,12 @@ todosNos['j1_a2_checkpoint_campo_de_fogo'] = {
       tipo: 'simples',
       nextNodeId: 'j1_a3_alianca_dois_reis',
     },
+    {
+      id: 'esc_avancar_ato3_posicionamento_estrategico',
+      texto: 'Reunir os comandantes ribeirinhos e planejar o posicionamento no Campo de Fogo (Ato III).',
+      tipo: 'simples',
+      nextNodeId: 'j1_a3_posicionamento_campo_fogo',
+    },
   ],
 };
 
@@ -93,6 +105,12 @@ todosNos['j1_a2_checkpoint_norte_tridente'] = {
       texto: 'Voar imediatamente para o Tridente ao encontro do exército de Torrhen Stark (Ato III).',
       tipo: 'simples',
       nextNodeId: 'j1_a3_lobo_no_tridente',
+    },
+    {
+      id: 'esc_avancar_ato3_conspiracao_snow',
+      texto: 'Investigar os espias nortenhos ao redor das fogueiras do Tridente (Ato III).',
+      tipo: 'simples',
+      nextNodeId: 'j1_a3_conspiracao_brandon_snow',
     },
   ],
 };

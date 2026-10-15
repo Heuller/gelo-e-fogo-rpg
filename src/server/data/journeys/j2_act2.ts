@@ -48,6 +48,29 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
           onSuccessNodeId: 'j2_a2_aviso_armadilha_cole',
           onPartialFailureNodeId: 'j2_a2_marcha_cole_pouso_gralhas',
         },
+      
+        {
+          id: 'esc_j2_a2_interrogar_servicais_pedra_dragao',
+          texto: 'Interrogar criados e pescadores de Pedra do Dragão para expor qualquer cúmplice infiltrado.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a2_marcha_cole_pouso_gralhas',
+          onPartialFailureNodeId: 'j2_a2_marcha_cole_pouso_gralhas',
+          aprovacaoCompanheiros: { mysaria: 15, daemon: 10 },
+          delta: { mundo: { espioes_ilha_revelados: true } },
+        },
+        {
+          id: 'esc_j2_a2_sepultamento_honrado_gemeos',
+          texto: 'Enterrar Erryk e Arryk lado a lado com todas as honras da Guarda Real, comovendo a guarnição.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a2_marcha_cole_pouso_gralhas',
+          onPartialFailureNodeId: 'j2_a2_marcha_cole_pouso_gralhas',
+          aprovacaoCompanheiros: { rhaenys_j2: 15, corlys: 10 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -74,6 +97,23 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
           tipo: 'simples',
           nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
         },
+
+        {
+          id: 'esc_cole_contra_cerco',
+          texto: 'Enviar uma flotilha rápida de Velaryon para evacuar a guarnição de Pouso de Gralhas pelo mar.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, rhaenys_j2: 15, daemon: -5 },
+          delta: { flagsAdicionadas: ['guarnicao_gralhas_evacuada'] },
+          nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
+        },
+        {
+          id: 'esc_cole_armadilha_floresta',
+          texto: 'Ordenar que arqueiros ribeirinhos armem emboscadas na floresta para atrasar as carroças de cerco de Cole.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { mysaria: 20, corlys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
+        }
       ],
     },
 
@@ -100,6 +140,23 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
           tipo: 'simples',
           nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
         },
+
+        {
+          id: 'esc_marcha_cole_reforcar_gralhas',
+          texto: 'Enviar batedores montados para desviar a vanguarda de Criston Cole em direção aos pântanos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 15, mysaria: 15 },
+          delta: { flagsAdicionadas: ['vanguarda_cole_atrasada'] },
+          nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
+        },
+        {
+          id: 'esc_marcha_cole_convocar_meleys',
+          texto: 'A Princesa Rhaenys monta Meleys decidida a interceptar o exército de Cole antes do cerco.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 25, daemon: 15, corlys: -10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a2_batalha_pouso_de_gralhas_climax',
+        }
       ],
     },
 
@@ -153,6 +210,29 @@ Rhaenys não fugiu. Rindo com desdém valiriano, ela lançou Meleys diretamente 
           tipo: 'simples',
           nextNodeId: 'j2_a2_queda_canonica_rhaenys_meleys',
         },
+      
+        {
+          id: 'esc_j2_a2_disparar_balistas_vhagar',
+          texto: 'Coordenar saraivada concentrada de escorpiões navais contra os olhos de Vhagar para cobrir a fuga de Meleys.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a2_whatif_rhaenys_salva',
+          onPartialFailureNodeId: 'j2_a2_queda_canonica_rhaenys_meleys',
+          aprovacaoCompanheiros: { corlys: 20, rhaenys_j2: 10 },
+          delta: { mundo: { vhagar_ferida_olho: true } },
+        },
+        {
+          id: 'esc_j2_a2_desafio_aereo_aegon_sunfyre',
+          texto: 'Concentrar todo o ataque contra Sunfyre para incapacitar o monarca Verde antes do impacto de Vhagar!',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 13,
+          onSuccessNodeId: 'j2_a2_queda_canonica_rhaenys_meleys',
+          onPartialFailureNodeId: 'j2_a2_queda_canonica_rhaenys_meleys',
+          aprovacaoCompanheiros: { daemon: 20, rhaenys_j2: -5 },
+          delta: { mundo: { sunfyre_mutilado_pouso: true } },
+        },
       ],
     },
 
@@ -201,6 +281,23 @@ Mas a vitória dos Verdes teve um custo devastador: uma das asas de Sunfyre foi 
           tipo: 'simples',
           nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
         },
+
+        {
+          id: 'esc_queda_meleys_luto_corlys',
+          texto: 'Corlys Velaryon amaldiçoa a imprudência de Rhaenyra e exige que a frota permaneça em Derivamarca.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, rhaenys_j2: 20, daemon: -15 },
+          delta: { sangue: -1, compostura: 1 },
+          nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
+        },
+        {
+          id: 'esc_queda_meleys_furia_vinganca',
+          texto: 'Jurar perante os restos fumegantes de Meleys que Pouso de Gralhas e Criston Cole pagarão com sangue.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, corlys: 15 },
+          delta: { flagsAdicionadas: ['juramento_vinganca_meleys'] },
+          nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
+        }
       ],
     },
 
@@ -227,6 +324,23 @@ Mas a vitória dos Verdes teve um custo devastador: uma das asas de Sunfyre foi 
           tipo: 'simples',
           nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
         },
+
+        {
+          id: 'esc_salva_rhaenys_convalescenca',
+          texto: 'Levar a Princesa Rhaenys e Meleys ferida para os estaleiros de Derivamarca sob cuidados dos melhores boticários.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 30, rhaenys_j2: 25, daemon: 10 },
+          delta: { sangue: 2, compostura: 2 },
+          nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
+        },
+        {
+          id: 'esc_salva_rhaenys_proclamar_heroina',
+          texto: 'Enviar corvos a todos os castelos do reino proclamando que Meleys sobreviveu e mutilou o dragão do Rei Usurpador.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 20, corlys: 20, mysaria: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
+        }
       ],
     },
 
@@ -329,6 +443,23 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
           tipo: 'simples',
           nextNodeId: 'j2_a2_batalha_da_goela_frota',
         },
+
+        {
+          id: 'esc_vermithor_juramento_bronze',
+          texto: 'Exigir de Hugh Martelo juramento sagrado diante da Mesa Pintada antes de conceder-lhe terras de cavaleiro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, rhaenys_j2: 15, daemon: 10 },
+          delta: { flagsAdicionadas: ['juramento_sagrado_hugh'], compostura: 2 },
+          nextNodeId: 'j2_a2_semeadura_concluida_sementes',
+        },
+        {
+          id: 'esc_vermithor_manto_ouro',
+          texto: 'Dar a Hugh Martelo um broche de dragão de bronze e armadura forjada pelos ferreiros reais.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 20, mysaria: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a2_semeadura_concluida_sementes',
+        }
       ],
     },
 
@@ -355,6 +486,23 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
           tipo: 'simples',
           nextNodeId: 'j2_a2_batalha_da_goela_frota',
         },
+
+        {
+          id: 'esc_urtigas_afeto_paterno',
+          texto: 'Acolher Urtigas na tenda de comando com carinho e provisões fartas para alimentar Rouba-Ovelhas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, mysaria: 20, rhaenys_j2: 10 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j2_a2_semeadura_concluida_sementes',
+        },
+        {
+          id: 'esc_urtigas_ouro_e_armas',
+          texto: 'Conceder à jovem plebeia um estipêndio generoso de Derivamarca e roupas dignas de uma princesa alada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 25 },
+          delta: { flagsAdicionadas: ['urtigas_patrocinada_velaryon'] },
+          nextNodeId: 'j2_a2_semeadura_concluida_sementes',
+        }
       ],
     },
 
@@ -381,6 +529,23 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
           tipo: 'simples',
           nextNodeId: 'j2_a2_batalha_da_goela_frota',
         },
+
+        {
+          id: 'esc_semeadura_banquete_alianca',
+          texto: 'Oferecer um banquete solene em honra aos novos cavaleiros de dragão na câmara de Pedra do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 20, corlys: 15, mysaria: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a2_batalha_da_goela_frota',
+        },
+        {
+          id: 'esc_semeadura_vigilia_sementes',
+          texto: 'Fazer com que os bastardos valirianos jurem lealdade solene com adagas sobre a Mesa Pintada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, daemon: 15 },
+          delta: { flagsAdicionadas: ['juramento_sementes_selado'] },
+          nextNodeId: 'j2_a2_batalha_da_goela_frota',
+        }
       ],
     },
 
@@ -426,6 +591,29 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
           tipo: 'simples',
           nextNodeId: 'j2_a2_queda_jacaerys_canonico',
         },
+      
+        {
+          id: 'esc_j2_a2_queimar_galeotes_triarquia',
+          texto: 'Liderar os dragões em rasantes devastadores sobre os conveses de madeira de Lys e Tyrosh!',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 12,
+          onSuccessNodeId: 'j2_a2_whatif_jacaerys_salvo',
+          onPartialFailureNodeId: 'j2_a2_queda_jacaerys_canonico',
+          aprovacaoCompanheiros: { corlys: 15, daemon: 10 },
+          delta: { mundo: { frota_triarquia_devastada: true } },
+        },
+        {
+          id: 'esc_j2_a2_sinalizar_manobra_velaryon',
+          texto: 'Usar trombetas de guerra para organizar as quinas marítimas e fechar a rota de fuga das galés inimigas.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a2_queda_jacaerys_canonico',
+          onPartialFailureNodeId: 'j2_a2_queda_jacaerys_canonico',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 10 },
+          delta: { ficha: { compostura: 1 } },
+        },
       ],
     },
 
@@ -452,6 +640,23 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
           tipo: 'simples',
           nextNodeId: 'j2_a2_queda_de_porto_real_trono',
         },
+
+        {
+          id: 'esc_queda_jace_vinganca_triarquia',
+          texto: 'Ordenar que Caraxes e Vermax remanescentes persigam as galés da Triarquia e afundem seus sobreviventes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, corlys: 20 },
+          delta: { flagsAdicionadas: ['triarquia_estracalhada'] },
+          nextNodeId: 'j2_a2_queda_de_porto_real_trono',
+        },
+        {
+          id: 'esc_queda_jace_luto_nobreza',
+          texto: 'Decretar luto oficial em Derivamarca e proclamar o Príncipe Joffrey herdeiro de Pedra do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, rhaenys_j2: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a2_queda_de_porto_real_trono',
+        }
       ],
     },
 
@@ -478,6 +683,23 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
           tipo: 'simples',
           nextNodeId: 'j2_a2_queda_de_porto_real_trono',
         },
+
+        {
+          id: 'esc_salvo_jace_reorganizar_mar',
+          texto: 'Nomear Jacaerys Comandante Geral dos Estreitos ao lado de Corlys para vingar a nau Gay Abandon.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, rhaenys_j2: 20, daemon: 15 },
+          delta: { flagsAdicionadas: ['jacaerys_almirante_estreitos'], compostura: 2 },
+          nextNodeId: 'j2_a2_queda_de_porto_real_trono',
+        },
+        {
+          id: 'esc_salvo_jace_agradecer_deuses',
+          texto: 'Orar nos septos e bosques sagrados de Pedra do Dragão em ação de graças pelo resgate do Príncipe de Pedra do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 25, corlys: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a2_queda_de_porto_real_trono',
+        }
       ],
     },
 
@@ -507,13 +729,36 @@ A Rainha Alicent rendeu a Fortaleza Vermelha, mas Aegon II e seus dois filhos ha
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
-      escolhas: [
+            conditionalParagraphs: [
+        {
+          requiredFlag: 'lucerys_salvo',
+          text: 'O jovem Príncipe Lucerys Velaryon, salvo em Ponta Tempestade, atua como arauto de sua mãe, conquistando os corações dos marinheiros do cais que celebram sua bravura contra Vhagar.',
+        }
+      ],
+escolhas: [
         {
           id: 'esc_j2_a2_avancar_ato3_checkpoint',
           texto: 'Concluir o Ato II e consolidar o governo de Rhaenyra na Fortaleza Vermelha.',
           tipo: 'simples',
           nextNodeId: 'j2_a2_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_queda_pr_disciplina_manto_ouro',
+          texto: 'Nomear Daemon comandante da capital para reestabelecer a disciplina da Patrulha da Cidade sem saques.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, corlys: 20, mysaria: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a2_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_queda_pr_anistia_povo',
+          texto: 'Distribuir cevada e peixe seco aos plebeus da Baixada das Pulgas, conquistando a aclamação das ruas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 25, daemon: -5 },
+          delta: { flagsAdicionadas: ['aclamacao_popular_porto_real'] },
+          nextNodeId: 'j2_a2_checkpoint_conclusao',
+        }
       ],
     },
 

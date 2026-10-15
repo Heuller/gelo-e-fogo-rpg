@@ -58,6 +58,23 @@ A visão do Terror Negro rasgando os céus salgados quebrou qualquer resistênci
           onSuccessNodeId: 'j1_a4_eleicao_pyke_greyjoy',
           onPartialFailureNodeId: 'j1_a4_eleicao_pyke_greyjoy',
         },
+
+        {
+          id: 'esc_ilhas_astucia_dividir',
+          texto: 'Alimentar as disputas entre os capitães de ferro para enfraquecer qualquer resistência unificada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 10 },
+          delta: { flagsAdicionadas: ['disputa_ilhas_ferro_explorada'] },
+          nextNodeId: 'j1_a4_eleicao_pyke_greyjoy',
+        },
+        {
+          id: 'esc_ilhas_demonstracao_balerion',
+          texto: 'Fazer Balerion sobrevoar o Trono de Pedra do Mar até que os sacerdotes do Deus Afogado dobrem os joelhos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 15, rhaenys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a4_eleicao_pyke_greyjoy',
+        }
       ],
     },
 
@@ -105,6 +122,23 @@ Com o Norte ajoelhado, o Oeste domado, o Vale pacificado e as Ilhas de Ferro em 
           tipo: 'simples',
           nextNodeId: 'j1_a4_invasao_passo_principe',
         },
+
+        {
+          id: 'esc_pyke_greyjoy_juramento',
+          texto: 'Exigir que Vickon Greyjoy envie o filho mais velho como pajem na corte de Porto Real para assegurar a paz.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 15 },
+          delta: { flagsAdicionadas: ['refem_greyjoy_porto_real'], compostura: 1 },
+          nextNodeId: 'j1_a4_primeira_embaixada_dorne',
+        },
+        {
+          id: 'esc_pyke_greyjoy_autonomia',
+          texto: 'Conceder aos homens de ferro a liberdade de manter sua Fé nas Ilhas, desde que cessem os saques na costa de Westeros.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: -10 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a4_primeira_embaixada_dorne',
+        }
       ],
     },
 
@@ -145,6 +179,36 @@ Aegon ofereceu casamentos de honra, isenção de tributos e respeito absoluto ao
           tipo: 'simples',
           nextNodeId: 'j1_a4_invasao_passo_principe',
         },
+
+        {
+          id: 'esc_embaixada_cortesia_ouro',
+          texto: 'Oferecer garantias solenes de respeito aos costumes dorneses e manutenção de suas leis se aceitarem a paz.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a4_emboscada_wyl_de_wyl',
+          onPartialFailureNodeId: 'j1_a4_emboscada_wyl_de_wyl',
+          aprovacaoCompanheiros: { rhaenys: 15, visenya: -10 },
+        },
+        {
+          id: 'esc_embaixada_astucia_mapas',
+          texto: 'Subornar guias locais das fronteiras para traçar rotas secretas pelos Passos do Príncipe.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 9,
+          onSuccessNodeId: 'j1_a4_emboscada_wyl_de_wyl',
+          onPartialFailureNodeId: 'j1_a4_emboscada_wyl_de_wyl',
+          tagOrigem: '[SUBORNO DE AREIA]',
+          aprovacaoCompanheiros: { visenya: 15, orys: -5 },
+        },
+        {
+          id: 'esc_embaixada_furia_dragao',
+          texto: 'Exibir a majestade de Balerion nos céus da fronteira para que as montanhas tremam perante o fogo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 10, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['demonstracao_forca_fronteira'] },
+          nextNodeId: 'j1_a4_emboscada_wyl_de_wyl',
+        }
       ],
     },
 
@@ -204,6 +268,23 @@ No ponto em que o Caminho do Espinhaço cruzava o traiçoeiro Rio Wyl, sobre uma
           onSuccessNodeId: 'j1_a4_castelos_vazios_dorne',
           onPartialFailureNodeId: 'j1_a4_emboscada_wyl_de_wyl',
         },
+
+        {
+          id: 'esc_passo_principe_batedores_fogo',
+          texto: 'Enviar batedores montados nos dragões para iluminar as fendas das rochas e detectar emboscadas com antecedência.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: 15, orys: 15 },
+          delta: { flagsAdicionadas: ['fendas_rochas_iluminadas'] },
+          nextNodeId: 'j1_a4_castelos_vazios_dorne',
+        },
+        {
+          id: 'esc_passo_principe_colunas_lentas',
+          texto: 'Marcha em colunas cerradas com carroças de água na retaguarda para resistir à sede implacável.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 20, rhaenys: 10 },
+          delta: { sangue: 1 },
+          nextNodeId: 'j1_a4_castelos_vazios_dorne',
+        }
       ],
     },
 
@@ -244,6 +325,23 @@ Quando Orys finalmente retornou à corte, com o coto curado e uma barra de ferro
           tipo: 'simples',
           nextNodeId: 'j1_a4_castelos_vazios_dorne',
         },
+
+        {
+          id: 'esc_wyl_contra_ataque_aereo',
+          texto: 'Mergulhar com Meraxes e queimar as encostas rochosas onde os homens de Wyl se escondem.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, rhaenys: 10, orys: 15 },
+          delta: { flagsAdicionadas: ['encostas_de_wyl_queimadas'] },
+          nextNodeId: 'j1_a4_castelos_vazios_dorne',
+        },
+        {
+          id: 'esc_wyl_socorro_feridos',
+          texto: 'Liderar pessoalmente o resgate dos soldados caídos e estancar a hemorragia do braço decepado de Orys.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 25, rhaenys: 15, visenya: -5 },
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a4_castelos_vazios_dorne',
+        }
       ],
     },
 
@@ -284,6 +382,23 @@ Quando as forças reais finalmente convergiram para Lançassolar, a capital dos 
           tipo: 'simples',
           nextNodeId: 'j1_a4_confronto_lancassolar_meria',
         },
+
+        {
+          id: 'esc_castelos_astucia_pocos',
+          texto: 'Ferver e purificar a água dos poços com fogo de dragão antes de permitir que os soldados bebam.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, rhaenys: 10 },
+          delta: { flagsAdicionadas: ['pocos_purificados'] },
+          nextNodeId: 'j1_a4_confronto_lancassolar_meria',
+        },
+        {
+          id: 'esc_castelos_vigilia_noite',
+          texto: 'Dobrar as sentinelas e manter as montarias aladas vigilantes contra guerreiros rastejantes das dunas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a4_confronto_lancassolar_meria',
+        }
       ],
     },
 
@@ -328,6 +443,23 @@ Aegon e Rhaenys declararam Dorne conquistada, deixando Lorde Jon Rosby como cast
           tipo: 'simples',
           nextNodeId: 'j1_a4_revolta_das_areias',
         },
+
+        {
+          id: 'esc_meria_cortesia_paciencia',
+          texto: 'Ouvir as ameaças da Rã Amarela com serenidade régia e declarar que o tempo trará a sabedoria às areias.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: -15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a4_revolta_das_areias',
+        },
+        {
+          id: 'esc_meria_intimidacao_fogo',
+          texto: 'Fazer o chão aos pés de Meria estalar com uma labareda controlada de Meraxes para lembrá-la do destino de Harrenhal.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 10, rhaenys: -15 },
+          delta: { flagsAdicionadas: ['aviso_de_fogo_lancassolar'] },
+          nextNodeId: 'j1_a4_revolta_das_areias',
+        }
       ],
     },
 
@@ -368,6 +500,23 @@ Pior destino coube a Lorde Harlen Tyrell. O governante de Jardim de Cima marchou
           tipo: 'simples',
           nextNodeId: 'j1_a4_ataque_hellholt_climax',
         },
+
+        {
+          id: 'esc_revolta_socorro_rosby',
+          texto: 'Enviar uma flotilha rápida de Derivamarca pelo Mar de Dorne para resgatar os nobres leais cercados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 20, orys: 10 },
+          delta: { flagsAdicionadas: ['resgate_naval_rosby'] },
+          nextNodeId: 'j1_a4_ataque_hellholt_climax',
+        },
+        {
+          id: 'esc_revolta_retaliacao_total',
+          texto: 'Declarar lei marcial nas cidades costeiras e queimar as enseadas contrabandistas que financiam a insurreição.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['enseadas_dorne_queimadas'] },
+          nextNodeId: 'j1_a4_ataque_hellholt_climax',
+        }
       ],
     },
 
@@ -427,6 +576,24 @@ Meraxes descia em mergulho rasante para expelir suas chamas douradas sobre as am
           onSuccessNodeId: 'j1_a4_salvamento_rhaenys_whatif',
           onPartialFailureNodeId: 'j1_a4_ira_do_dragao',
         },
+
+        {
+          id: 'esc_hellholt_astucia_fumaça',
+          texto: 'Lançar troncos em chamas para criar uma densa cortina de fumaça negra antes da investida aérea de Meraxes.',
+          tipo: 'simples',
+          tagOrigem: '[ASTUCIA DE FOGO]',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: 20 },
+          delta: { flagsAdicionadas: ['cortina_fumaca_hellholt'], compostura: 1 },
+          nextNodeId: 'j1_a4_salvamento_rhaenys_whatif',
+        },
+        {
+          id: 'esc_hellholt_furia_cega',
+          texto: 'Carregar sem hesitação contra a torre mais alta, desafiando os virotes de ferro dos escorpiões.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 15, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['investida_cega_hellholt'] },
+          nextNodeId: 'j1_a4_ira_do_dragao',
+        }
       ],
     },
 
@@ -473,6 +640,23 @@ Com as três montarias da Conquista intactas e os três soberanos reinando junto
           tipo: 'simples',
           nextNodeId: 'j1_a4_embaixada_deria_martell',
         },
+
+        {
+          id: 'esc_rhaenys_recuo_estrategico',
+          texto: 'Voar imediatamente para Pedra do Dragão com Rhaenys e Meraxes para tratar as asas feridas do dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 25, orys: 15, visenya: 10 },
+          delta: { sangue: 2, compostura: 2 },
+          nextNodeId: 'j1_a4_noite_dos_assassinos_guarda_real',
+        },
+        {
+          id: 'esc_rhaenys_chamas_hellholt',
+          texto: 'Exigir que as muralhas de Hellholt sejam reduzidas a cinzas fumegantes antes de qualquer retirada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 15, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['hellholt_arrasada'] },
+          nextNodeId: 'j1_a4_noite_dos_assassinos_guarda_real',
+        }
       ],
     },
 
@@ -514,6 +698,23 @@ Os dois anos seguintes ficaram conhecidos como "A Ira do Dragão". Balerion e Vh
           tipo: 'simples',
           nextNodeId: 'j1_a4_noite_dos_assassinos_guarda_real',
         },
+
+        {
+          id: 'esc_ira_recompensa_ouro',
+          texto: 'Oferecer recompensas de ouro e senhorios valirianos pela cabeça de qualquer nobre dornês que empunhar armas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 10 },
+          delta: { flagsAdicionadas: ['recompensas_cabecas_dorne'] },
+          nextNodeId: 'j1_a4_noite_dos_assassinos_guarda_real',
+        },
+        {
+          id: 'esc_ira_retirada_tencao',
+          texto: 'Reconhecer que o deserto não pode ser domado pelo fogo cego e concentrar a defesa na fronteira.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 15, visenya: -15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a4_noite_dos_assassinos_guarda_real',
+        }
       ],
     },
 
@@ -561,6 +762,26 @@ Quando os guardas reais hesitaram, a Rainha Visenya sacou a espada de aço valir
           tipo: 'simples',
           nextNodeId: 'j1_a4_morte_princesa_meria',
         },
+
+        {
+          id: 'esc_guarda_visenya_irmandade',
+          texto: 'Conceder à Rainha Visenya plenos poderes para selecionar os cavaleiros mais honrados dos Sete Reinos para os Mantos Brancos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 25, orys: 15, rhaenys: 10 },
+          delta: { flagsAdicionadas: ['guarda_real_fundada_visenya'], compostura: 2 },
+          nextNodeId: 'j1_a4_morte_princesa_meria',
+        },
+        {
+          id: 'esc_guarda_espionagem_contra',
+          texto: 'Criar uma rede de contra-espionagem nos cortiços de Porto Real com espiões de Essos para caçar assassinos dorneses.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 9,
+          onSuccessNodeId: 'j1_a4_morte_princesa_meria',
+          onPartialFailureNodeId: 'j1_a4_morte_princesa_meria',
+          tagOrigem: '[CONTRA-ESPIONAGEM]',
+          aprovacaoCompanheiros: { visenya: 20, orys: -5 },
+        }
       ],
     },
 
@@ -601,6 +822,25 @@ A comitiva de Deria não vinha desarmada: traziam um cortejo solene escoltando u
           tipo: 'simples',
           nextNodeId: 'j1_a4_embaixada_deria_martell',
         },
+
+        {
+          id: 'esc_morte_meria_oferta_ouro',
+          texto: 'Enviar uma embaixada prévia com presentes nupciais para sondar as intenções do novo Príncipe Nymor.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a4_embaixada_deria_martell',
+          onPartialFailureNodeId: 'j1_a4_embaixada_deria_martell',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: 10, visenya: -10 },
+        },
+        {
+          id: 'esc_morte_meria_bloqueio_costeiro',
+          texto: 'Mandar as galés de Velaryon intensificarem o patrulhamento em torno dos Portões de Ferro do Mar de Dorne.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 15, visenya: 10 },
+          delta: { flagsAdicionadas: ['pressao_naval_dorne'] },
+          nextNodeId: 'j1_a4_embaixada_deria_martell',
+        }
       ],
     },
 
@@ -648,6 +888,23 @@ Mas a princesa permaneceu impassível. Com um passo à frente, ela retirou de su
           tipo: 'simples',
           nextNodeId: 'j1_a4_a_carta_de_nymor',
         },
+
+        {
+          id: 'esc_deria_honra_solene',
+          texto: 'Garantir que a Princesa Deria seja tratada com a sacrossanta lei da hospitalidade e segurança régia plena.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 20, rhaenys: 20, visenya: -10 },
+          delta: { compostura: 2, flagsAdicionadas: ['hospitalidade_honrada_deria'] },
+          nextNodeId: 'j1_a4_a_carta_de_nymor',
+        },
+        {
+          id: 'esc_deria_intimidador_fogo',
+          texto: 'Exigir que Deria entregue a carta perante Balerion acorrentado aos pés da colina para demonstrar o poder real.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 10, rhaenys: -15 },
+          delta: { flagsAdicionadas: ['intimidacao_a_deria'] },
+          nextNodeId: 'j1_a4_a_carta_de_nymor',
+        }
       ],
     },
 
@@ -694,6 +951,23 @@ Sem proferir uma única palavra aos lordes ou a Visenya, o rei levantou-se, cami
           tipo: 'simples',
           nextNodeId: 'j1_a4_encruzilhada_destinos',
         },
+
+        {
+          id: 'esc_carta_vigilia_solitaria',
+          texto: 'Voar a Pedra do Dragão em Balerion para meditar perante a Mesa Pintada e os rolos sagrados de Valíria.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 15, visenya: 15 },
+          delta: { compostura: 2, flagsAdicionadas: ['vigilia_pedra_dragao_concluida'] },
+          nextNodeId: 'j1_a4_encruzilhada_destinos',
+        },
+        {
+          id: 'esc_carta_conselho_visenya_orys',
+          texto: 'Compartilhar o peso da decisão com a Rainha Visenya e Orys Baratheon nos aposentos reais.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 20, rhaenys: -5 },
+          delta: { compostura: 1, sangue: 1 },
+          nextNodeId: 'j1_a4_encruzilhada_destinos',
+        }
       ],
     },
 
@@ -738,32 +1012,42 @@ Aegon ergueu sua mão enfaixada e proclamou seu desígnio imutável ao mundo.`,
           id: 'esc_final_tres_cabecas_whatif',
           texto: 'Celebrar a união de Dorne ao império ao lado de Rhaenys e Visenya vivas sob as Três Cabeças do Dragão (Final 2: Épico).',
           tipo: 'simples',
+          requiredFlags: ['rhaenys_e_meraxes_vivas'],
+          motivoBloqueio: 'Exige que a Rainha Rhaenys e Meraxes tenham sobrevivido ao ataque de Hellholt.',
           nextNodeId: 'j1_final_tres_cabecas_triunfantes',
         },
         {
           id: 'esc_final_furia_fogo_total',
           texto: 'Queimar a carta na frente de Deria e lançar Balerion para reduzir Lançassolar a vidro negro e governar pelo medo (Final 3: Fogo Total).',
           tipo: 'simples',
+          requiredFlags: ['ira_do_dragao_total'],
+          motivoBloqueio: 'Exige ter adotado a política de terra arrasada e chamas implacáveis contra Dorne.',
           nextNodeId: 'j1_final_furia_fogo_total',
         },
         {
           id: 'esc_final_vilavelha_estrelada',
           texto: 'Ratificar a capital imperial em Vilavelha governando em comunhão com o Alto Septão e a Cidadela (Final 4: Trono Estrelado).',
           tipo: 'simples',
+          requiredFlags: ['alianca_cidadela_fe'],
+          motivoBloqueio: 'Exige união sacra plena com a Fé dos Sete e a Cidadela em Vilavelha.',
           nextNodeId: 'j1_final_trono_estrelado_vilavelha',
         },
         {
           id: 'esc_final_visenya_marcial',
           texto: 'Entregar o comando militar e a regência à Rainha Visenya e à Ordem da Irmã Sombria (Final 5: Ordem Marcial).',
           tipo: 'simples',
+          requiredFlags: ['regencia_visenya_aceita'],
+          motivoBloqueio: 'Exige ter concedido a regência militar suprema à Rainha Visenya.',
           nextNodeId: 'j1_final_coroa_visenya_irma_sombria',
         },
         {
           id: 'esc_final_pacto_secreto_dornes',
           texto: 'Firmar o Pacto Secreto de Pedra do Dragão em nome da profecia da Longa Noite vindoura (Final 6: Místico).',
           tipo: 'simples',
+          requiredFlags: ['pacto_profecia_valiriana'],
+          motivoBloqueio: 'Exige ter descoberto os segredos da profecia da Longa Noite na carta de Nymor.',
           nextNodeId: 'j1_final_pacto_secreto_dornes',
-        },
+        }
       ],
     },
 

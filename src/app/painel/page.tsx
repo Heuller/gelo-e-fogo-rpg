@@ -1,100 +1,61 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/supabase/client';
-import { FichaPersonagem } from '@/server/engine/rpgEngine';
 import {
-  SaveSlot,
   listarSlotsJornada,
   salvarSlot,
-  desfazerUltimoTurno,
+  SaveSlot,
+  obterSlot,
   exportarSave,
   importarSave,
 } from '@/server/engine/saveManager';
+import { FichaPersonagem, WorldState, AtributoVoz, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 import {
-  Scroll,
   Play,
   RotateCcw,
   Download,
   Upload,
-  LogOut,
-  Flame,
-  ShieldAlert,
-  Crown,
   Sparkles,
+  BookOpen,
+  Crown,
+  Scroll,
+  LogOut,
+  X,
+  Swords,
+  Eye,
+  Shield,
 } from 'lucide-react';
 
 interface JornadaInfo {
   id: string;
   numero: number;
   titulo: string;
-  subtitulo: string;
   periodo: string;
-  ativa: boolean;
   descricao: string;
+  ativa: boolean;
+  protagonista: {
+    id: string;
+    nome: string;
+    titulo: string;
+    origem: string;
+    atributos: Record<AtributoVoz, number>;
+  };
 }
 
-const JORNADAS: JornadaInfo[] = [
+const JORNADAS_DISPONIVEIS: JornadaInfo[] = [
   {
-    id: 'jornada_1_conquista',
+    id: 'conquista_aegon',
     numero: 1,
     titulo: 'A Conquista de Aegon',
-    subtitulo: 'Fogo e Sangue na forja dos Sete Reinos',
-    periodo: '2 a.C. — 13 d.C.',
+    periodo: '2 a.C. a 1 d.C.',
+    descricao:
+      'Unifique os Sete Reinos sob a dinastia Targaryen a partir da Mesa Pintada com Balerion, Vhagar e Meraxes.',
     ativa: true,
-    descricao: 'Desembarque na Foz da Água Negra, queima de Harrenhal, Campo de Fogo e a Rendição no Tridente.',
-  },
-  {
-    id: 'jornada_2_danca',
-    numero: 2,
-    titulo: 'A Dança dos Dragões',
-    subtitulo: 'A Guerra Civil dos Targaryen',
-    periodo: '129 d.C. — 131 d.C.',
-    ativa: true,
-    descricao: 'Verdes contra Negros. Ponta Tempestade, Semeadura Vermelha, O Olho de Deus e a Hora do Lobo.',
-  },
-  {
-    id: 'jornada_3_guerra_tronos',
-    numero: 3,
-    titulo: 'A Guerra dos Cinco Reis',
-    subtitulo: 'O Inverno se Aproxima',
-    periodo: '298 d.C. — 300 d.C.',
-    ativa: true,
-    descricao: 'A queda de Winterfell, o golpe em Porto Real, Bosque dos Murmúrios e a vingança do Casamento Vermelho.',
-  },
-];
-
-export default function PainelPage() {
-  const router = useRouter();
-  const [jornadaSelecionada, setJornadaSelecionada] = useState<string>('jornada_1_conquista');
-  const [slots, setSlots] = useState<(SaveSlot | null)[]>([null, null, null]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [feedback, setFeedback] = useState<string | null>(null);
-
-  // Usuário autenticado mockado ou do Supabase
-  const userId = 'usr_meistre_cidadela';
-
-  useEffect(() => {
-    carregarSlots(jornadaSelecionada);
-  }, [jornadaSelecionada]);
-
-  async function carregarSlots(jornadaId: string) {
-    setLoading(true);
-    try {
-      const lista = await listarSlotsJornada(userId, jornadaId);
-      setSlots(lista);
-    } catch (err: any) {
-      setFeedback('Erro ao carregar slots: ' + err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function handleNovoJogo(slotNumber: number) {
-    let characterSheet: FichaPersonagem = {
+    protagonista: {
       id: 'aegon-conquistador',
       nome: 'Aegon I Targaryen',
+      titulo: 'Senhor de Pedra do Dragão',
       origem: 'sangue_valiriano',
       atributos: {
         comando: 5,
@@ -104,77 +65,178 @@ export default function PainelPage() {
         erudicao: 3,
         pressagio: 4,
       },
-      estado: {
-        sangue: 10,
-        compostura: 10,
-        honra: 5,
+    },
+  },
+  {
+    id: 'jornada_2_danca',
+    numero: 2,
+    titulo: 'A Dança dos Dragões',
+    periodo: '129 d.C. a 131 d.C.',
+    descricao:
+      'A sangrenta guerra civil entre Pretos e Verdes pela sucessão do Trono de Ferro com fogo e sangue.',
+    ativa: true,
+    protagonista: {
+      id: 'rhaenyra-targaryen',
+      nome: 'Rhaenyra Targaryen',
+      titulo: 'A Rainha dos Sete Reinos',
+      origem: 'sangue_valiriano',
+      atributos: {
+        comando: 4,
+        furia: 4,
+        astucia: 4,
+        cortesia: 4,
+        erudicao: 3,
+        pressagio: 3,
       },
-      cicatrizes: [],
-      segredos: ['A profecia de Daenys a Sonhadora', 'A carta secreta do Banco de Bravos'],
-    };
+    },
+  },
+  {
+    id: 'jornada_3_guerra_tronos',
+    numero: 3,
+    titulo: 'A Guerra dos Cinco Reis',
+    periodo: '298 d.C. em diante',
+    descricao:
+      'A conspiração das grandes Casas após a morte de Jon Arryn e o colapso do reinado de Robert Baratheon.',
+    ativa: true,
+    protagonista: {
+      id: 'eddard-stark',
+      nome: 'Eddard Stark',
+      titulo: 'Senhor de Winterfell & Protetor do Norte',
+      origem: 'honra_do_norte',
+      atributos: {
+        comando: 4,
+        furia: 3,
+        astucia: 2,
+        cortesia: 3,
+        erudicao: 4,
+        pressagio: 4,
+      },
+    },
+  },
+];
+
+const ORIGENS_DISPONIVEIS = [
+  { id: 'sangue_valiriano', nome: 'Sangue Valiriano', desc: 'A afinidade milenar com as chamas e o vínculo ancestral com montarias aladas.' },
+  { id: 'honra_do_norte', nome: 'Honra do Norte', desc: 'A têmpera dos Primeiros Homens, a palavra inquebrável e a lealdade do represeiro.' },
+  { id: 'astucia_rochedo', nome: 'Astúcia de Rochedo', desc: 'O poderio das minas de ouro, os subornos e as manobras implacáveis da corte.' },
+  { id: 'furia_tempestade', nome: 'Fúria da Tempestade', desc: 'A coragem tempestuosa dos guerreiros costeiros, bravura em duelo de machado e aço.' },
+  { id: 'sangue_roinar', nome: 'Sangue Roinar', desc: 'Insubmisso, Incurvado, Inquebrável: guerrilha do deserto e soberania das areias.' },
+  { id: 'homem_de_ferro', nome: 'Homem de Ferro', desc: 'O preço do ferro, as galés saqueadoras e a recusa da servidão a qualquer coroa.' },
+];
+
+export default function PainelPage() {
+  const router = useRouter();
+  const [jornadaSelecionada, setJornadaSelecionada] = useState<string>('conquista_aegon');
+  const [slots, setSlots] = useState<(SaveSlot | null)[]>([null, null, null]);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  // Estado do Modal Baldur's Gate 3 para "Novo Jogo"
+  const [modalNovoJogoAberto, setModalNovoJogoAberto] = useState(false);
+  const [slotNovoJogo, setSlotNovoJogo] = useState<number | null>(null);
+  const [tipoCriacao, setTipoCriacao] = useState<'canonico' | 'customizado'>('canonico');
+  const [nomeCustom, setNomeCustom] = useState('');
+  const [tituloCustom, setTituloCustom] = useState('');
+  const [origemCustom, setOrigemCustom] = useState('sangue_valiriano');
+  const [atributosCustom, setAtributosCustom] = useState<Record<AtributoVoz, number>>({
+    comando: 4,
+    furia: 4,
+    astucia: 3,
+    cortesia: 3,
+    erudicao: 4,
+    pressagio: 4,
+  });
+
+  const jornadaInfoAtual =
+    JORNADAS_DISPONIVEIS.find((j) => j.id === jornadaSelecionada) || JORNADAS_DISPONIVEIS[0];
+
+  useEffect(() => {
+    carregarSlots();
+  }, [jornadaSelecionada]);
+
+  async function carregarSlots() {
+    const slotsCarregados = await listarSlotsJornada('player_default', jornadaSelecionada);
+    setSlots(slotsCarregados);
+  }
+
+  function abrirModalNovoJogo(slotNum: number) {
+    setSlotNovoJogo(slotNum);
+    setTipoCriacao('canonico');
+    setNomeCustom(jornadaInfoAtual.protagonista.nome);
+    setTituloCustom(jornadaInfoAtual.protagonista.titulo);
+    setOrigemCustom(jornadaInfoAtual.protagonista.origem);
+    setAtributosCustom({ ...jornadaInfoAtual.protagonista.atributos });
+    setModalNovoJogoAberto(true);
+  }
+
+  async function handleConfirmarCriacao() {
+    if (!slotNovoJogo) return;
+
+    let characterSheet: FichaPersonagem;
     let currentNodeId = 'j1_a1_mesa_pintada';
     let capituloTitulo = 'Ato I - A Mesa Pintada';
     let choiceMade = 'Reunir os meistres e vassalos na Mesa Pintada';
 
     if (jornadaSelecionada === 'jornada_2_danca') {
-      characterSheet = {
-        id: 'rhaenyra-targaryen',
-        nome: 'Rhaenyra Targaryen',
-        origem: 'sangue_valiriano',
-        atributos: {
-          comando: 4,
-          furia: 4,
-          astucia: 4,
-          cortesia: 4,
-          erudicao: 3,
-          pressagio: 3,
-        },
-        estado: {
-          sangue: 10,
-          compostura: 10,
-          honra: 5,
-        },
-        cicatrizes: [],
-        segredos: ['O testamento solene de Viserys I', 'A aliança matrimonial com a Casa Velaryon'],
-      };
       currentNodeId = 'j2_a1_morte_viserys_conselho_verde';
-      capituloTitulo = 'Ato I - Os Dois Conselhos & A Dança Começa';
-      choiceMade = 'A Coroação Negra em Pedra do Dragão e a defesa do Trono';
-    } else if (jornadaSelecionada === 'jornada_3_guerra_tronos') {
-      characterSheet = {
-        id: 'eddard-stark',
-        nome: 'Eddard Stark',
-        origem: 'sangue_primeiros_homens',
-        atributos: {
-          comando: 5,
-          furia: 3,
-          astucia: 3,
-          cortesia: 3,
-          erudicao: 3,
-          pressagio: 4,
-        },
-        estado: {
-          sangue: 10,
-          compostura: 10,
-          honra: 5,
-        },
-        cicatrizes: [],
-        segredos: ['A promessa de Lyanna na Torre da Alegria', 'A carta cifrada de Lysa Arryn'],
-      };
-      currentNodeId = 'j3_a1_desertor_muralha_execucao';
-      capituloTitulo = 'Ato I - O Inverno Está Chegando';
-      choiceMade = 'A Sentença e a Execução do Desertor da Patrulha da Noite';
+      capituloTitulo = 'Ato I - A Morte do Rei Viserys';
+      choiceMade = 'Reunir o Conselho Negro em Pedra do Dragão';
+    } else if (
+      jornadaSelecionada === 'jornada_3_guerra_tronos' ||
+      jornadaSelecionada === 'guerra_tronos'
+    ) {
+      currentNodeId = 'j3_a1_execucao_desertor_lobos';
+      capituloTitulo = 'Ato I - A Lâmina de Gelo & A Ninhada na Neve';
+      choiceMade = 'Executar o desertor e adotar a ninhada de lobos';
     }
 
-    const novoSlot: SaveSlot = {
-      userId,
+    const companheirosIniciais = obterCompanheirosIniciais(jornadaSelecionada);
+
+    if (tipoCriacao === 'canonico') {
+      const proto = jornadaInfoAtual.protagonista;
+      characterSheet = {
+        id: proto.id,
+        nome: proto.nome,
+        titulo: proto.titulo,
+        origem: proto.origem,
+        inspiracao: 2,
+        atributos: { ...proto.atributos },
+        estado: {
+          sangue: 10,
+          compostura: 10,
+          honra: 5,
+        },
+        cicatrizes: [],
+        segredos: ['As crônicas secretas da Cidadela sobre Westeros'],
+        companheiros: companheirosIniciais,
+      };
+    } else {
+      characterSheet = {
+        id: `custom_${Date.now()}`,
+        nome: nomeCustom.trim() || 'Lorde de Westeros',
+        titulo: tituloCustom.trim() || 'Senhor de Terras Antigas',
+        origem: origemCustom,
+        inspiracao: 2,
+        atributos: { ...atributosCustom },
+        estado: {
+          sangue: 10,
+          compostura: 10,
+          honra: 5,
+        },
+        cicatrizes: [],
+        segredos: ['As profecias e segredos da vossa linhagem ancestral'],
+        companheiros: companheirosIniciais,
+      };
+    }
+
+    const novoSave: SaveSlot = {
+      slotNumber: slotNovoJogo,
+      userId: 'player_default',
       jornadaId: jornadaSelecionada,
-      slotNumber,
       contentVersion: '1.0.0',
       currentNodeId,
       characterSheet,
       worldState: {
-        reputacaoCasas: { Targaryen: 10, Stark: 10 },
+        reputacaoCasas: { [jornadaSelecionada]: 10 },
         flagsBorboleta: { jogo_iniciado: true },
         marcosConcluidos: ['inicio_campanha'],
       },
@@ -182,11 +244,13 @@ export default function PainelPage() {
         atoId: 'ato_1',
         capituloTitulo,
         timestamp: new Date().toISOString(),
+        dataFiccao: jornadaInfoAtual.periodo,
+        snapshotFicha: characterSheet,
       },
       turnHistory: [
         {
-          slotId: `slot_${slotNumber}`,
-          userId,
+          slotId: `slot_${slotNovoJogo}`,
+          userId: 'player_default',
           turnNumber: 1,
           nodeId: currentNodeId,
           choiceMade,
@@ -194,40 +258,53 @@ export default function PainelPage() {
           timestamp: new Date().toISOString(),
         },
       ],
+      updatedAt: new Date().toISOString(),
     };
 
-    const res = await salvarSlot(novoSlot);
-    if (res.sucesso) {
-      router.push(`/jogar?journey=${jornadaSelecionada}&slot=${slotNumber}`);
-    } else {
-      setFeedback('Erro ao salvar novo jogo: ' + (res.erro || 'Erro desconhecido'));
-    }
+    await salvarSlot(novoSave);
+    await carregarSlots();
+    setModalNovoJogoAberto(false);
+    setFeedback(`Novo jogo iniciado com ${characterSheet.nome} no Slot ${slotNovoJogo}!`);
+    router.push(`/jogar?journey=${jornadaSelecionada}&slot=${slotNovoJogo}`);
   }
 
   async function handleDesfazerTurno(slotNumber: number) {
-    const res = await desfazerUltimoTurno(userId, jornadaSelecionada, slotNumber);
-    if (res.sucesso) {
-      setFeedback(`Último turno desfeito no Slot ${slotNumber}. O tempo retrocedeu.`);
-      carregarSlots(jornadaSelecionada);
-    } else {
-      setFeedback(res.motivo || 'Não foi possível retroceder.');
+    const slot = await obterSlot('player_default', jornadaSelecionada, slotNumber);
+    if (!slot || slot.turnHistory.length <= 1) {
+      setFeedback('Não é possível desfazer o primeiro turno da campanha.');
+      return;
     }
+
+    const historicoAtualizado = slot.turnHistory.slice(0, -1);
+    const ultimoTurno = historicoAtualizado[historicoAtualizado.length - 1];
+
+    const slotAtualizado: SaveSlot = {
+      ...slot,
+      currentNodeId: ultimoTurno.nodeId,
+      turnHistory: historicoAtualizado,
+      updatedAt: new Date().toISOString(),
+    };
+
+    await salvarSlot(slotAtualizado);
+    await carregarSlots();
+    setFeedback(`Último turno desfeito com sucesso no Slot ${slotNumber}.`);
   }
 
   async function handleExportarSave(slotNumber: number) {
-    try {
-      const json = await exportarSave(userId, jornadaSelecionada, slotNumber);
-      const blob = new Blob([json], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `save_${jornadaSelecionada}_slot_${slotNumber}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      setFeedback(`Save do Slot ${slotNumber} exportado em arquivo .json!`);
-    } catch (err: any) {
-      setFeedback('Falha na exportação: ' + err.message);
+    const json = await exportarSave('player_default', jornadaSelecionada, slotNumber);
+    if (!json) {
+      setFeedback('Nenhum dado encontrado para exportação neste slot.');
+      return;
     }
+
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `gelo_fogo_${jornadaSelecionada}_slot_${slotNumber}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    setFeedback(`Pergaminho do Slot ${slotNumber} exportado.`);
   }
 
   function handleImportarSave(e: React.ChangeEvent<HTMLInputElement>, slotNumber: number) {
@@ -235,77 +312,74 @@ export default function PainelPage() {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = async (evt) => {
-      const content = evt.target?.result as string;
+    reader.onload = async (event) => {
       try {
-        await importarSave(content, userId, slotNumber);
-        setFeedback(`Save importado com sucesso no Slot ${slotNumber}!`);
-        carregarSlots(jornadaSelecionada);
-      } catch (err: any) {
-        setFeedback('Erro ao importar arquivo de save: ' + err.message);
+        const conteudo = event.target?.result as string;
+        await importarSave(conteudo, 'player_default', slotNumber);
+        await carregarSlots();
+        setFeedback(`Pergaminho importado com sucesso para o Slot ${slotNumber}.`);
+      } catch (err) {
+        setFeedback('Falha ao restaurar o pergaminho. Arquivo corrompido ou formato inválido.');
       }
     };
     reader.readAsText(file);
   }
 
-  async function handleLogout() {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push('/login');
-  }
+  const somaAtributos = Object.values(atributosCustom).reduce((a, b) => a + b, 0);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0c] text-slate-100 p-6 md:p-10 font-sans">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <main className="min-h-screen bg-[#0a0a0c] text-slate-100 p-6 md:p-12 font-sans">
+      <div className="max-w-6xl mx-auto space-y-10">
         
         {/* Cabeçalho do Painel */}
-        <header className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-amber-950/60 pb-6 gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-lg bg-red-950 border border-amber-600/60 flex items-center justify-center text-amber-500 shadow-lg">
-              <Crown className="w-6 h-6" />
-            </div>
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold font-serif text-amber-400">
-                Crônicas de Sangue e Gelo
+        <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-6 gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <Crown className="w-6 h-6 text-amber-500" />
+              <h1 className="text-3xl font-extrabold font-serif tracking-wider text-amber-400">
+                A Fortaleza da Memória
               </h1>
-              <p className="text-xs uppercase tracking-wider text-slate-400">
-                Painel das Três Grandes Eras de Westeros
-              </p>
             </div>
+            <p className="text-slate-400 text-sm mt-1">
+              Painel de Crônicas &bull; As Crônicas de Gelo e Fogo RPG
+            </p>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-slate-300">
-              Meistre: <strong className="text-amber-400">meistre@cidadela.westeros</strong>
-            </span>
-            <button
-              onClick={handleLogout}
-              className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-900 rounded-lg transition-colors cursor-pointer"
-              title="Encerrar Sessão"
-            >
-              <LogOut className="w-5 h-5" />
-            </button>
-          </div>
+          <button
+            onClick={() => router.push('/login')}
+            className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-700/80 hover:bg-slate-800 rounded-lg text-xs font-semibold text-slate-300 transition cursor-pointer self-start md:self-auto"
+          >
+            <LogOut className="w-4 h-4 text-slate-400" />
+            <span>Sair da Fortaleza</span>
+          </button>
         </header>
 
+        {/* Mensagem de Feedback */}
         {feedback && (
-          <div className="p-4 bg-amber-950/40 border border-amber-600/40 rounded-lg text-amber-200 text-sm flex items-center justify-between">
+          <div className="p-4 bg-[#1a151b] border border-amber-500/40 rounded-xl text-amber-200 text-sm flex items-center justify-between">
             <span>{feedback}</span>
-            <button onClick={() => setFeedback(null)} className="text-xs text-amber-400 underline cursor-pointer">
+            <button
+              onClick={() => setFeedback(null)}
+              className="text-xs text-amber-400 underline cursor-pointer ml-4"
+            >
               Fechar
             </button>
           </div>
         )}
 
-        {/* Seleção das 3 Jornadas Cronológicas */}
-        <section>
-          <h2 className="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-4">
-            Escolha a Era Histórica
-          </h2>
+        {/* Seletor das 3 Grandes Eras / Jornadas */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold font-serif text-slate-200 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-amber-500" />
+              <span>Escolha a Era Histórica de Westeros</span>
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {JORNADAS.map((j) => {
+            {JORNADAS_DISPONIVEIS.map((j) => {
               const selecionada = jornadaSelecionada === j.id;
+
               return (
                 <div
                   key={j.id}
@@ -393,8 +467,9 @@ export default function PainelPage() {
                           </div>
                         </div>
 
-                        <div className="text-[11px] text-slate-400">
-                          Turnos jogados: <strong className="text-slate-200">{slot.turnHistory.length}</strong>
+                        <div className="text-[11px] text-slate-400 flex items-center justify-between">
+                          <span>Turnos jogados: <strong className="text-slate-200">{slot.turnHistory.length}</strong></span>
+                          <span className="text-amber-400">★ {slot.characterSheet.inspiracao ?? 2}/4</span>
                         </div>
                       </div>
                     ) : (
@@ -448,7 +523,7 @@ export default function PainelPage() {
                       </>
                     ) : (
                       <button
-                        onClick={() => handleNovoJogo(slotNum)}
+                        onClick={() => abrirModalNovoJogo(slotNum)}
                         className="w-full py-2.5 bg-red-950 hover:bg-red-900 border border-red-800/60 text-amber-400 font-bold text-xs rounded transition flex items-center justify-center gap-1.5 cursor-pointer"
                       >
                         <Sparkles className="w-3.5 h-3.5" />
@@ -464,6 +539,214 @@ export default function PainelPage() {
         </section>
 
       </div>
+
+      {/* MODAL BALDUR'S GATE 3: NOVO JOGO & CRIAÇÃO DE PERSONAGEM */}
+      {modalNovoJogoAberto && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#171412] border-2 border-[#C5A059] rounded-2xl max-w-2xl w-full p-6 sm:p-8 text-[#E6DEC8] shadow-2xl relative max-h-[90vh] overflow-y-auto font-garamond">
+            {/* Fechar */}
+            <button
+              onClick={() => setModalNovoJogoAberto(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-amber-200 hover:bg-white/5 cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <header className="text-center pb-4 border-b border-[#C5A059]/30">
+              <span className="text-[11px] font-cinzel uppercase tracking-[0.25em] text-[#C5A059] font-bold">
+                {jornadaInfoAtual.titulo}
+              </span>
+              <h2 className="text-2xl font-cinzel font-bold text-amber-200 mt-1 uppercase">
+                Origem & Ficha do Protagonista
+              </h2>
+            </header>
+
+            {/* Alternador Canônico vs Customizado */}
+            <div className="grid grid-cols-2 gap-2 my-5 p-1 bg-[#100e0c] border border-stone-800 rounded-xl font-cinzel text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setTipoCriacao('canonico')}
+                className={`py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  tipoCriacao === 'canonico'
+                    ? 'bg-[#C5A059] text-stone-950 shadow'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <Crown className="w-4 h-4" />
+                <span>Protagonista Canônico</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTipoCriacao('customizado')}
+                className={`py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  tipoCriacao === 'customizado'
+                    ? 'bg-[#C5A059] text-stone-950 shadow'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Customizar Ficha & Traço</span>
+              </button>
+            </div>
+
+            {tipoCriacao === 'canonico' ? (
+              <div className="space-y-4 bg-[#12100E] border border-stone-800 p-5 rounded-xl">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-full bg-red-950 border-2 border-[#C5A059] flex items-center justify-center text-[#C5A059]">
+                    <Crown className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-cinzel font-bold text-amber-200">
+                      {jornadaInfoAtual.protagonista.nome}
+                    </h3>
+                    <p className="text-xs text-slate-400 font-cinzel">
+                      {jornadaInfoAtual.protagonista.titulo}
+                    </p>
+                    <span className="inline-block mt-1 text-[10px] font-cinzel uppercase px-2 py-0.5 rounded bg-red-950/80 border border-red-700/60 text-red-300 font-bold">
+                      {jornadaInfoAtual.protagonista.origem.replace(/_/g, ' ')}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 text-xs font-cinzel pt-2">
+                  {Object.entries(jornadaInfoAtual.protagonista.atributos).map(([attr, val]) => (
+                    <div key={attr} className="p-2 rounded bg-black/40 border border-stone-800 flex justify-between">
+                      <span className="capitalize text-slate-300">{attr}:</span>
+                      <strong className="text-amber-400">{val}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-cinzel uppercase tracking-wider text-amber-400 mb-1">
+                      Nome do Protagonista
+                    </label>
+                    <input
+                      type="text"
+                      value={nomeCustom}
+                      onChange={(e) => setNomeCustom(e.target.value)}
+                      placeholder="Ex.: Valerius Targaryen"
+                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[#C5A059]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-cinzel uppercase tracking-wider text-amber-400 mb-1">
+                      Título Nobiliárquico
+                    </label>
+                    <input
+                      type="text"
+                      value={tituloCustom}
+                      onChange={(e) => setTituloCustom(e.target.value)}
+                      placeholder="Ex.: Herdeiro de Pedra do Dragão"
+                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[#C5A059]"
+                    />
+                  </div>
+                </div>
+
+                {/* Seleção de Traço de Origem */}
+                <div>
+                  <label className="block text-xs font-cinzel uppercase tracking-wider text-amber-400 mb-1.5">
+                    Traço de Origem (Baldur's Gate 3)
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {ORIGENS_DISPONIVEIS.map((origem) => (
+                      <div
+                        key={origem.id}
+                        onClick={() => setOrigemCustom(origem.id)}
+                        className={`p-2.5 rounded-lg border text-xs cursor-pointer transition-all ${
+                          origemCustom === origem.id
+                            ? 'bg-amber-950/60 border-amber-500 text-amber-200'
+                            : 'bg-[#100e0c] border-stone-800 text-slate-400 hover:border-stone-700'
+                        }`}
+                      >
+                        <strong className="block font-cinzel">{origem.nome}</strong>
+                        <span className="text-[11px] text-slate-400 font-garamond">{origem.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Distribuição dos 6 Atributos */}
+                <div className="pt-2">
+                  <div className="flex items-center justify-between text-xs font-cinzel mb-2">
+                    <span className="text-amber-400 uppercase tracking-wider">
+                      Distribuir Pontos nos 6 Atributos-Vozes
+                    </span>
+                    <span className="text-slate-400">Total: {somaAtributos} / 22 pts</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-cinzel">
+                    {(Object.keys(atributosCustom) as AtributoVoz[]).map((attr) => (
+                      <div
+                        key={attr}
+                        className="p-2 rounded-lg bg-[#100e0c] border border-stone-800 flex items-center justify-between"
+                      >
+                        <span className="capitalize text-slate-300">{attr}</span>
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (atributosCustom[attr] > 1) {
+                                setAtributosCustom({
+                                  ...atributosCustom,
+                                  [attr]: atributosCustom[attr] - 1,
+                                });
+                              }
+                            }}
+                            className="w-5 h-5 rounded bg-stone-800 hover:bg-stone-700 text-slate-200 flex items-center justify-center font-bold"
+                          >
+                            -
+                          </button>
+                          <span className="w-4 text-center font-bold text-amber-400">
+                            {atributosCustom[attr]}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (atributosCustom[attr] < 5 && somaAtributos < 24) {
+                                setAtributosCustom({
+                                  ...atributosCustom,
+                                  [attr]: atributosCustom[attr] + 1,
+                                });
+                              }
+                            }}
+                            className="w-5 h-5 rounded bg-stone-800 hover:bg-stone-700 text-slate-200 flex items-center justify-center font-bold"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Rodapé de Confirmação */}
+            <div className="mt-6 pt-4 border-t border-[#C5A059]/30 flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setModalNovoJogoAberto(false)}
+                className="px-4 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 text-slate-300 font-cinzel text-xs font-bold uppercase tracking-wider cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmarCriacao}
+                className="px-6 py-2 rounded-lg bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-stone-950 font-cinzel text-xs font-bold uppercase tracking-wider shadow-lg shadow-amber-900/40 cursor-pointer flex items-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 fill-current" />
+                <span>Iniciar Crônica</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </main>
   );
 }

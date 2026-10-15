@@ -45,6 +45,23 @@ O ataque surpresa foi devastador: as tendas dos Verdes arderam enquanto dormiam 
           tipo: 'simples',
           nextNodeId: 'j2_a4_batalha_estrada_do_rei',
         },
+
+        {
+          id: 'esc_tumbleton2_sacrificio_addam',
+          texto: 'Reconhecer que Addam provou ser leal até a última gota de sangue valiriano ao lado de Fumarescente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 30 },
+          delta: { flagsAdicionadas: ['lealdade_addam_imortalizada'], compostura: 2 },
+          nextNodeId: 'j2_a4_batalha_estrada_do_rei',
+        },
+        {
+          id: 'esc_tumbleton2_recuo_disciplinado',
+          texto: 'Reagrupar a infantaria ribeirinha sobrevivente para marchar em socorro das vanguardas nortenhas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a4_batalha_estrada_do_rei',
+        }
       ],
     },
 
@@ -100,6 +117,29 @@ Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala,
           tipo: 'simples',
           nextNodeId: 'j2_a4_morte_canonica_rhaenyra_sunfyre',
         },
+      
+        {
+          id: 'esc_j2_a4_atacar_sunfyre_ferido',
+          texto: 'Lançar virotes de balista nos ferimentos abertos de Sunfyre para repelir o rei usurpador!',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 12,
+          onSuccessNodeId: 'j2_a4_whatif_rhaenyra_salva',
+          onPartialFailureNodeId: 'j2_a4_morte_canonica_rhaenyra_sunfyre',
+          aprovacaoCompanheiros: { daemon: 20, corlys: 10 },
+          delta: { mundo: { sunfyre_repelido_balistas: true } },
+        },
+        {
+          id: 'esc_j2_a4_oferecer_troca_refens_aegon',
+          texto: 'Negociar a abdicação e o exílio voluntário de Rhaenyra em Essos em troca de poupar a vida do jovem Aegon III.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a4_morte_canonica_rhaenyra_sunfyre',
+          onPartialFailureNodeId: 'j2_a4_morte_canonica_rhaenyra_sunfyre',
+          aprovacaoCompanheiros: { corlys: 15, daemon: -15 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -148,6 +188,23 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
           tipo: 'simples',
           nextNodeId: 'j2_a4_batalha_estrada_do_rei',
         },
+
+        {
+          id: 'esc_morte_rhaenyra_sacrificio_aegon3',
+          texto: 'O jovem Príncipe Aegon III assiste com horror ao destino de sua mãe, guardando no peito um silêncio sombrio.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25 },
+          delta: { flagsAdicionadas: ['aegon_iii_trauma_dragoes'], compostura: 1 },
+          nextNodeId: 'j2_a4_porto_real_tres_reis_e_ordem',
+        },
+        {
+          id: 'esc_morte_rhaenyra_juramento_vinganca',
+          texto: 'Os leais de Derivamarca juram que Sunfyre e Aegon II não escaparão ao julgamento final da história.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a4_porto_real_tres_reis_e_ordem',
+        }
       ],
     },
 
@@ -174,6 +231,23 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
           tipo: 'simples',
           nextNodeId: 'j2_final_triunfo_negro_rhaenyra',
         },
+
+        {
+          id: 'esc_salva_rhaenyra_pedra_dragao',
+          texto: 'Tomar o castelo de Pedra do Dragão de assalto e aprisionar Aegon II em sua própria liteira.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 30, corlys: 25 },
+          delta: { flagsAdicionadas: ['aegon_ii_capturado_pedra_dragao'], compostura: 2 },
+          nextNodeId: 'j2_a4_julgamento_larys_corlys',
+        },
+        {
+          id: 'esc_salva_rhaenyra_fuga_essos',
+          texto: 'Embarcar Rhaenyra e o pequeno Aegon em uma galé rápida de Derivamarca com destino a Pentos.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, mysaria: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a4_julgamento_larys_corlys',
+        }
       ],
     },
 
@@ -202,6 +276,23 @@ Lorde Corlys Velaryon e Larys Strong aconselharam o rei a render-se e vestir o n
           tipo: 'simples',
           nextNodeId: 'j2_a4_julgamento_larys_corlys',
         },
+
+        {
+          id: 'esc_pr_ordem_corlys_regente',
+          texto: 'Apoiar Lorde Corlys Velaryon na pacificação da capital e emissão de perdões gerais aos soldados de ambos os lados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 30, rhaenys_j2: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a4_julgamento_larys_corlys',
+        },
+        {
+          id: 'esc_pr_ordem_guardas_lobos',
+          texto: 'Aguardar as vanguardas dos Rapazes e dos Lobos de Cregan Stark para restaurar a ordem na espada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 15, daemon: 15 },
+          delta: { flagsAdicionadas: ['cregan_stark_justica_plena'] },
+          nextNodeId: 'j2_a4_julgamento_larys_corlys',
+        }
       ],
     },
 
@@ -317,6 +408,23 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
           tipo: 'simples',
           nextNodeId: 'j2_a4_porto_real_tres_reis_e_ordem',
         },
+
+        {
+          id: 'esc_estrada_rei_cregan_marcha',
+          texto: 'Abrir os portões da capital para a grande hoste de Winterfell liderada por Cregan Stark.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25 },
+          delta: { flagsAdicionadas: ['hora_do_lobo_iniciada'], compostura: 2 },
+          nextNodeId: 'j2_a4_hora_do_lobo_cregan_stark',
+        },
+        {
+          id: 'esc_estrada_rei_apaziguar_lordes',
+          texto: 'Enviar emissários com bandeira de trégua aos lordes da tempestade para evitar novo banho de sangue.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a4_julgamento_larys_corlys',
+        }
       ],
     },
 
@@ -346,11 +454,58 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
       },
       escolhas: [
         {
-          id: 'esc_j2_a4_concluir_julgamento_cregan',
-          texto: 'Finalizar as sentenças capitais e presidir a consagração dos novos monarcas.',
+          id: 'esc_j2_a4_conferenciar_com_cregan_hora_do_lobo',
+          texto: 'Levar os condenados perante Lorde Cregan Stark na Sala do Trono para que a espada Gelo fale.',
           tipo: 'simples',
           nextNodeId: 'j2_a4_hora_do_lobo_cregan_stark',
+          aprovacaoCompanheiros: { corlys: 15 },
         },
+        {
+          id: 'esc_j2_final_canonico_lobo',
+          texto: 'Apoiar o julgamento implacável de Cregan Stark e o casamento unificador de Aegon III com Jaehaera (Final 1: Canônico - A Hora do Lobo).',
+          tipo: 'simples',
+          nextNodeId: 'j2_final_canonico_hora_do_lobo',
+        },
+        {
+          id: 'esc_j2_final_rhaenyra_triunfante',
+          texto: 'Coroar a Rainha Rhaenyra I restaurada em glória perante os dragões sobreviventes (Final 2: Triunfo Negro).',
+          tipo: 'simples',
+          requiredFlags: ['rhaenyra_salva'],
+          motivoBloqueio: 'Exige que a Rainha Rhaenyra tenha sido resgatada ou impedido o ataque de Sunfyre.',
+          nextNodeId: 'j2_final_triunfo_negro_rhaenyra',
+        },
+        {
+          id: 'esc_j2_final_hegemonia_verde',
+          texto: 'Consolidar a vitória dos Verdes com a dinastia de Aegon II preservada sob a bênção de Vilavelha (Final 3: Hegemonia Dourada).',
+          tipo: 'simples',
+          requiredFlags: ['aegon2_mantido_trono'],
+          motivoBloqueio: 'Exige vitória dos partidários de Aegon II e envenenamento dos Pretos.',
+          nextNodeId: 'j2_final_hegemonia_verde_dourada',
+        },
+        {
+          id: 'esc_j2_final_sementes_vermithor',
+          texto: 'Proclamar a nova ordem das Sementes de Dragão sob a Fúria de Bronze de Vermithor (Final 4: Coroa de Bronze).',
+          tipo: 'simples',
+          requiredFlags: ['domou_vermithor'],
+          motivoBloqueio: 'Exige ter domado Vermithor com uma Semente de Dragão e conquistado lealdade popular.',
+          nextNodeId: 'j2_final_imperio_sementes_vermithor',
+        },
+        {
+          id: 'esc_j2_final_grande_paz',
+          texto: 'Assinar o Grande Tratado de Harrenhal dividindo os Sete Reinos em paz permanente sob conselho de Corlys (Final 5: Partilha de Paz).',
+          tipo: 'simples',
+          requiredFlags: ['acordo_partilha_reinos'],
+          motivoBloqueio: 'Exige ter negociado com Corlys Velaryon a partição pacífica dos Sete Reinos.',
+          nextNodeId: 'j2_final_grande_paz_harrenhal',
+        },
+        {
+          id: 'esc_j2_final_justica_cregan',
+          texto: 'Executar a purga de sangue no Conselho e governar sob a austeridade do Norte com Cregan Stark (Final 6: A Lâmina de Gelo).',
+          tipo: 'simples',
+          requiredFlags: ['cregan_stark_justica_plena'],
+          motivoBloqueio: 'Exige a purga completa do Conselho Negro e Verde pelo Protetor do Norte.',
+          nextNodeId: 'j2_final_justica_gelo_cregan',
+        }
       ],
     },
 
@@ -384,6 +539,40 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
           texto: 'Presenciar o juramento de Cregan Stark e selar a Hora do Lobo (Final 1).',
           tipo: 'simples',
           nextNodeId: 'j2_final_canonico_hora_do_lobo',
+        },
+      
+        {
+          id: 'esc_j2_a4_exigir_julgamento_justo_cregan',
+          texto: 'Apoiar Cregan Stark na decapitação implacável de todos os conspiradores do veneno.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 12,
+          onSuccessNodeId: 'j2_final_justica_gelo_cregan',
+          onPartialFailureNodeId: 'j2_final_justica_gelo_cregan',
+          aprovacaoCompanheiros: { daemon: 10, corlys: -5 },
+          delta: { ficha: { honra: 1 } },
+        },
+        {
+          id: 'esc_j2_a4_selar_pacto_grande_paz',
+          texto: 'Mediar um tratado perpétuo de união entre Pretos e Verdes que conceda anistia geral em Harrenhal.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 11,
+          onSuccessNodeId: 'j2_final_grande_paz_harrenhal',
+          onPartialFailureNodeId: 'j2_final_grande_paz_harrenhal',
+          aprovacaoCompanheiros: { corlys: 20, rhaenys_j2: 15 },
+          delta: { ficha: { compostura: 1 } },
+        },
+        {
+          id: 'esc_j2_a4_assegurar_triunfo_negro_aegon_iii',
+          texto: 'Garantir que apenas os partidários de Rhaenyra assumam os assentos do Pequeno Conselho de Regência.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_final_triunfo_negro_rhaenyra',
+          onPartialFailureNodeId: 'j2_final_triunfo_negro_rhaenyra',
+          aprovacaoCompanheiros: { mysaria: 15, daemon: 15 },
+          delta: { mundo: { regencia_preta_pura: true } },
         },
       ],
     },

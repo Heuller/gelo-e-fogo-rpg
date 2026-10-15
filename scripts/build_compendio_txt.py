@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Gerador Robusto do Compêndio Unificado de Westeros (cronicas_jornadas_e_plots.txt)
+Versão 3.0: Baldur's Gate 3 Evolution (Aprovação de Companheiros, Parágrafos Condicionais,
+3-4 Escolhas por Cena e 18 Finais com Flags Reativas).
+"""
+
 import os
 import json
 import re
@@ -21,54 +28,102 @@ with open(glossario_path, "r", encoding="utf-8") as f:
     glossario_raw = json.load(f)
 
 glossario = glossario_raw if isinstance(glossario_raw, list) else glossario_raw.get("verbetes", [])
-
 out_file = base_dir / "cronicas_jornadas_e_plots.txt"
 
-def parse_act_file(rel_path):
+def parse_act_file_robust(rel_path):
     full_p = base_dir / rel_path
-    with open(full_p, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # Find nodes
+    content = full_p.read_text(encoding="utf-8")
+    
+    node_matches = list(re.finditer(r"(j\d_[a-z0-9_]+):\s*\{", content))
     nodes = []
-    # Match node definitions: jX_...: {
-    matches = re.finditer(r"([a-z0-9_]+):\s*\{\s*id:\s*'([a-z0-9_]+)',\s*titulo:\s*'([^']+)'", content)
-    for m in matches:
-        var_name, node_id, titulo = m.group(1), m.group(2), m.group(3)
-        pos = m.start()
-        # Extract block
-        block = content[pos:pos+4000]
+    
+    for i, m in enumerate(node_matches):
+        node_id = m.group(1)
+        start = m.start()
+        end = node_matches[i+1].start() if i+1 < len(node_matches) else len(content)
+        block = content[start:end]
         
-        loc_m = re.search(r"localizacao:\s*'([^']+)'", block)
-        reg_m = re.search(r"regionId:\s*'([^']+)'", block)
-        ano_m = re.search(r"anoHistorico:\s*'([^']+)'", block)
+        # Titulo
+        t_m = re.search(r"titulo:\s*['`]([^'`]+)['`]", block)
+        titulo = t_m.group(1) if t_m else node_id
+        
+        loc_m = re.search(r"localizacao:\s*['`]([^'`]+)['`]", block)
+        reg_m = re.search(r"regionId:\s*['`]([^'`]+)['`]", block)
+        ano_m = re.search(r"anoHistorico:\s*['`]([^'`]+)['`]", block)
         fb_m = re.search(r"fallbackText:\s*`([^`]+)`", block)
         
         prosa = ""
         if fb_m:
-            prosa = " ".join(fb_m.group(1).split())[:260] + "..."
+            prosa = " ".join(fb_m.group(1).split())[:280] + "..."
             
         vozes_m = re.findall(r"atributo:\s*'([a-z]+)',\s*resultadoPassivo:\s*'([A-Z]+)',\s*dcPassiva:\s*([0-9]+),\s*fala:\s*'([^']+)'", block)
         
-        # Escolhas
-        escolhas_block = re.search(r"escolhas:\s*\[([\s\S]*?)\]\s*,\s*\}", block)
-        escolhas = []
-        if escolhas_block:
-            sub = re.findall(r"\{\s*id:\s*'([a-z0-9_]+)'[\s\S]*?texto:\s*'([^']+)'[\s\S]*?tipo:\s*'([^']+)'", escolhas_block.group(1))
-            for esc_id, esc_txt, esc_tipo in sub:
-                c_chunk = escolhas_block.group(1)[escolhas_block.group(1).find(esc_id):escolhas_block.group(1).find(esc_id)+500]
-                attr_m = re.search(r"atributo:\s*'([^']+)'", c_chunk)
-                dc_m = re.search(r"dc:\s*([0-9]+)", c_chunk)
-                mortal = "riscoMortal: true" in c_chunk
-                escolhas.append({
-                    "id": esc_id,
-                    "texto": esc_txt,
-                    "tipo": esc_tipo,
-                    "atributo": attr_m.group(1) if attr_m else None,
-                    "dc": dc_m.group(1) if dc_m else None,
-                    "riscoMortal": mortal
+        # Conditional paragraphs
+        cond_paragraphs = []
+        pos_cond = block.find("conditionalParagraphs: [")
+        if pos_cond != -1:
+            for item_m in re.finditer(r"requiredFlag:\s*'([^']+)',\s*text:\s*['`]([^'`]+)['`]", block[pos_cond:]):
+                cond_paragraphs.append({
+                    "flag": item_m.group(1),
+                    "text": " ".join(item_m.group(2).split())[:180] + "..."
                 })
-                
+        
+        # Escolhas usando bracket matching
+        escolhas = []
+        pos_esc = block.find("escolhas: [")
+        if pos_esc != -1:
+            depth = 0
+            in_str = None
+            pos_end = -1
+            for idx in range(pos_esc + len("escolhas: [") - 1, len(block)):
+                ch = block[idx]
+                if in_str:
+                    if ch == in_str and block[idx-1] != '\\':
+                        in_str = None
+                else:
+                    if ch in ("'", '"', '`'):
+                        in_str = ch
+                    elif ch == '[':
+                        depth += 1
+                    elif ch == ']':
+                        depth -= 1
+                        if depth == 0:
+                            pos_end = idx
+                            break
+            if pos_end != -1:
+                esc_str = block[pos_esc:pos_end+1]
+                choice_starts = list(re.finditer(r"\{\s*id:\s*'([^']+)'", esc_str))
+                for c_idx, cm in enumerate(choice_starts):
+                    cid = cm.group(1)
+                    c_start = cm.start()
+                    c_end = choice_starts[c_idx+1].start() if c_idx+1 < len(choice_starts) else len(esc_str)
+                    c_chunk = esc_str[c_start:c_end]
+                    
+                    texto_m = re.search(r"texto:\s*['`]([^'`]+)['`]", c_chunk)
+                    tipo_m = re.search(r"tipo:\s*['`]([^'`]+)['`]", c_chunk)
+                    attr_m = re.search(r"atributo:\s*['`]([^'`]+)['`]", c_chunk)
+                    dc_m = re.search(r"dificuldade:\s*([0-9]+)|dc:\s*([0-9]+)", c_chunk)
+                    dc_val = dc_m.group(1) or dc_m.group(2) if dc_m else None
+                    tag_m = re.search(r"tagOrigem:\s*['`]([^'`]+)['`]", c_chunk)
+                    motivo_m = re.search(r"motivoBloqueio:\s*['`]([^'`]+)['`]", c_chunk)
+                    flags_req_m = re.findall(r"requiredFlags:\s*\[([^\]]+)\]", c_chunk)
+                    
+                    # aprovacao companheiros
+                    aprov_m = re.search(r"aprovacaoCompanheiros:\s*\{([^}]+)\}", c_chunk)
+                    aprov_str = aprov_m.group(1).strip() if aprov_m else None
+                    
+                    escolhas.append({
+                        "id": cid,
+                        "texto": texto_m.group(1) if texto_m else "",
+                        "tipo": tipo_m.group(1) if tipo_m else "simples",
+                        "atributo": attr_m.group(1) if attr_m else None,
+                        "dc": dc_val,
+                        "tagOrigem": tag_m.group(1) if tag_m else None,
+                        "motivoBloqueio": motivo_m.group(1) if motivo_m else None,
+                        "requiredFlags": flags_req_m[0].replace("'", "").strip() if flags_req_m else None,
+                        "aprovacao": aprov_str
+                    })
+        
         is_ending = "isEnding: true" in block
         nodes.append({
             "id": node_id,
@@ -78,6 +133,7 @@ def parse_act_file(rel_path):
             "anoHistorico": ano_m.group(1) if ano_m else "",
             "prosa": prosa,
             "vozes": vozes_m,
+            "cond_paragraphs": cond_paragraphs,
             "escolhas": escolhas,
             "isEnding": is_ending
         })
@@ -149,126 +205,100 @@ jornadas_config = [
     }
 ]
 
-sep = "=" * 80
-subsep = "-" * 80
+out = []
+out.append("================================================================================")
+out.append("AS CRÔNICAS DE GELO E FOGO RPG — COMPÊNDIO UNIFICADO DAS 3 JORNADAS E PLOTS")
+out.append("ARQUITETURA DETERMINÍSTICA, SISTEMA DE REATIVIDADE BG3 E COMPANHEIROS")
+out.append("================================================================================\n")
+out.append("Este documento reúne a totalidade do conteúdo narrativo, mitológico e tático das 3")
+out.append("Grandes Eras de Westeros, auditadas segundo o padrão de qualidade Baldur's Gate 3:")
+out.append("- 3 a 4 escolhas por cena baseadas nas 4 abordagens de RPG (Força, Lábia, Sombra, Saber).")
+out.append("- Sistema de Aprovação de Companheiros (-100 a +100, Hostil a Devotado).")
+out.append("- Parágrafos Condicionais [Eco das Suas Escolhas] que reagem a decisões anteriores.")
+out.append("- Cenas de Acampamento & Conselho Noturno nos checkpoints (+2 Sangue / Compostura).")
+out.append("- 18 Finais Distintos com requiredFlags e motivos de bloqueio históricos.\n")
 
-with open(out_file, "w", encoding="utf-8") as out:
-    out.write(sep + "\n")
-    out.write("CRÔNICAS DE SANGUE E GELO (v2.1) - COMPÊNDIO GERAL DAS TRÊS JORNADAS DE WESTEROS\n")
-    out.write(sep + "\n\n")
-    out.write("DOCUMENTO MESTRE DE DESIGN NARRATIVO, GRAFOS DETERMINÍSTICOS E CANÔNICOS\n")
-    out.write("Obras de Base: Fogo & Sangue | As Crônicas de Gelo e Fogo (Livros 1 a 3)\n")
-    out.write("Tradução Oficial Brasileira: Jorge Candeias (LeYa)\n")
-    out.write("Motor: 2d6 Determinístico + 6 Vozes de Atributo + Camada IA Controlada (Gemini 2.5 Flash)\n\n")
-    out.write(f"Total de Verbetes no Glossário Vivo da Cidadela: {len(glossario)}\n")
-    out.write("Total de Finais Distintos de Campanha: 18 Finais (6 por Jornada)\n\n")
-
-    grand_total_nodes = 0
-
-    for j in jornadas_config:
-        out.write(sep + "\n")
-        out.write(f"JORNADA {j['numero']}: {j['titulo'].upper()} ({j['periodo']})\n")
-        out.write(sep + "\n\n")
-        out.write(f"Protagonista(s): {j['protagonista']}\n")
+for j in jornadas_config:
+    out.append("################################################################################")
+    out.append(f"JORNADA {j['numero']}: {j['titulo'].upper()} ({j['periodo']})")
+    out.append(f"Protagonista: {j['protagonista']}")
+    out.append("################################################################################\n")
+    
+    b = j["biblia"]
+    out.append("--- 1. CÂNONE HISTÓRICO & MITOLOGIA DA ERA ---")
+    if "regioes" in b:
+        out.append(f"Regiões Canônicas Mapeadas: {len(b['regioes'])} províncias")
+    if "faccoes" in b:
+        out.append(f"Facções Ativas: {len(b['faccoes'])} grandes casas e alianças")
+    if "dragoes" in b:
+        dragoes_raw = b["dragoes"]
+        dragoes_list = list(dragoes_raw.values()) if isinstance(dragoes_raw, dict) else dragoes_raw
+        out.append(f"Dragões da Era ({len(dragoes_list)} montarias aladas):")
+        for d in dragoes_list:
+            if isinstance(d, dict):
+                nome = d.get('nome', 'Dragão')
+                montador = d.get('montador_conquista') or d.get('montador_historico') or d.get('montador', 'Selvagem')
+                status = d.get('status_inicio', '')
+                esc = d.get('cor_escamas', 'desconhecida')
+                chama = d.get('cor_chamas', 'desconhecida')
+                out.append(f"  * {nome}: montado por {montador} | Status: {status} | Escamas: {esc} | Chamas: {chama}")
+            else:
+                out.append(f"  * {d}")
+    out.append("")
+    
+    out.append("--- 2. OS 4 ATOS DA CAMPANHA & GRAFO NARRATIVO BG3 ---")
+    total_j_nodes = 0
+    total_j_choices = 0
+    
+    for ato_nome, rel_path in j["atos"]:
+        nodes = parse_act_file_robust(rel_path)
+        total_j_nodes += len(nodes)
+        out.append(f"\n========================================================")
+        out.append(f"{ato_nome} [{len(nodes)} CENAS DETALHADAS]")
+        out.append(f"========================================================")
         
-        # Dragões ou Personagens Notáveis
-        dragoes = j['biblia'].get('dragoes', {})
-        if dragoes:
-            out.write("DRAGÕES CENTRAIS DA ERA:\n")
-            out.write(subsep + "\n")
-            for drag_id, drag in dragoes.items():
-                nome = drag.get('nome', drag_id.capitalize())
-                montador = drag.get('montador_conquista') or drag.get('montador') or drag.get('montador_danca', 'Vários')
-                out.write(f"  * {nome} (Montador: {montador}) | Escamas: {drag.get('cor_escamas', '')} | Chamas: {drag.get('cor_chamas', '')}\n")
-            out.write("\n")
+        for n in nodes:
+            out.append(f"\n[Cena: {n['id']}] — \"{n['titulo']}\"")
+            out.append(f"Local: {n['localizacao']} ({n['regionId']}) | Ano: {n['anoHistorico']}")
+            out.append(f"Prosa Histórica: {n['prosa']}")
+            
+            if n["cond_paragraphs"]:
+                out.append("  [Eco das Suas Escolhas - Parágrafos Condicionais]:")
+                for cp in n["cond_paragraphs"]:
+                    out.append(f"    * Se flag [{cp['flag']}]: \"{cp['text']}\"")
+                    
+            if n["vozes"]:
+                out.append("  Vozes Internas do Conselho:")
+                for voz, res, dc, fala in n["vozes"]:
+                    out.append(f"    - [{voz.upper()} {res} DC {dc}]: \"{fala}\"")
+                    
+            if n["isEnding"]:
+                out.append("  ==> [NÓ DE DESFECHO / FINAL]")
+            else:
+                out.append(f"  Decisões Disponíveis ({len(n['escolhas'])} opções estilo BG3):")
+                total_j_choices += len(n['escolhas'])
+                for esc in n["escolhas"]:
+                    tipo_txt = f"Teste {esc['atributo']} DC {esc['dc']}" if esc["tipo"] == "teste" or esc["tipo"] == "teste_atributo" else "Decisão Direta"
+                    tag_txt = f" {esc['tagOrigem']}" if esc.get("tagOrigem") else ""
+                    bloq_txt = f" [EXIGE: {esc['requiredFlags']} - Bloqueio: '{esc['motivoBloqueio']}']" if esc.get("requiredFlags") else ""
+                    aprov_txt = f" [Reações: {esc['aprovacao']}]" if esc.get("aprovacao") else ""
+                    out.append(f"    * [{tipo_txt}]{tag_txt} \"{esc['texto']}\"{aprov_txt}{bloq_txt}")
+    
+    out.append(f"\n--- 3. OS 6 FINAIS DA JORNADA {j['numero']} ({len(j['finais'])} DESFECHOS DISPONÍVEIS) ---")
+    for fid, fnome in j["finais"]:
+        out.append(f"  * [{fid}] -> {fnome}")
+        
+    out.append(f"\nEstatísticas da Jornada {j['numero']}: {total_j_nodes} Cenas | {total_j_choices} Escolhas Mapeadas (Média: {total_j_choices/max(1, total_j_nodes):.1f} escolhas/cena)\n")
 
-        # Personagens Centrais
-        personagens = j['biblia'].get('personagens_canonicos', [])
-        if personagens:
-            out.write("FIGURAS HISTÓRICAS CENTRAIS:\n")
-            out.write(subsep + "\n")
-            for p in personagens[:12]:
-                titulos = ", ".join(p.get("titulos", []))
-                out.write(f"  * {p.get('nome')} [{titulos or 'Nobre'}]\n")
-            out.write("\n")
+out.append("================================================================================")
+out.append(f"GLOSSÁRIO VIVO DA CIDADELA ({len(glossario)} VERBETES HISTÓRICOS)")
+out.append("================================================================================\n")
+for item in glossario:
+    nome = item.get("termo") or item.get("nome", "Verbete")
+    categoria = item.get("categoria", "Geral")
+    resumo = item.get("resumo_meistre") or item.get("definicao", "")
+    out.append(f"* {nome.upper()} [{categoria}]: {resumo}")
 
-        # Os 6 Finais da Jornada
-        out.write("OS 6 FINAIS DISTINTOS DESTA JORNADA:\n")
-        out.write(subsep + "\n")
-        for fid, ftitle in j['finais']:
-            out.write(f"  * [{fid}] {ftitle}\n")
-        out.write("\n")
-
-        # Atos e Nós
-        out.write(f"DETALHAMENTO DOS 4 ATOS E NÓS DA JORNADA {j['numero']}:\n\n")
-        j_node_count = 0
-        for ato_titulo, ato_file in j['atos']:
-            nodes = parse_act_file(ato_file)
-            j_node_count += len(nodes)
-            grand_total_nodes += len(nodes)
-            out.write(subsep + "\n")
-            out.write(f"{ato_titulo}\n")
-            out.write(f"Arquivo: {ato_file} | Cenas no Grafo: {len(nodes)}\n")
-            out.write(subsep + "\n\n")
-
-            for idx, node in enumerate(nodes, 1):
-                out.write(f"  [{idx:02d}] Nó ID: {node['id']}\n")
-                out.write(f"       Título: {node['titulo']}\n")
-                out.write(f"       Localização: {node['localizacao']} | Ano: {node['anoHistorico']}\n")
-                if node['isEnding']:
-                    out.write("       Status: [DESFECHO DE ATO OU FINAL DE CAMPANHA]\n")
-                else:
-                    out.write(f"       Status: [CENA DE NARRATIVA E DECISÃO INTERATIVA]\n")
-                out.write(f"       Prosa/Sinopse: {node['prosa']}\n")
-
-                if node['vozes']:
-                    out.write("       Vozes Internas:\n")
-                    for attr, res, dc, fala in node['vozes'][:2]:
-                        out.write(f"         - {attr.upper()} (DC {dc}): \"{fala}\"\n")
-
-                if node['escolhas']:
-                    out.write(f"       Decisões Disponíveis ({len(node['escolhas'])} opções):\n")
-                    for esc in node['escolhas']:
-                        if esc['tipo'] == 'teste_atributo' and esc['atributo'] and esc['dc']:
-                            mortal = " [RISCO MORTAL]" if esc['riscoMortal'] else ""
-                            out.write(f"         * [Teste {esc['atributo'].upper()} DC {esc['dc']}{mortal}] {esc['texto']}\n")
-                        else:
-                            out.write(f"         * [Decisão Estratégica] {esc['texto']}\n")
-                out.write("\n")
-            out.write("\n")
-
-        out.write(f"Total de Cenas na Jornada {j['numero']}: {j_node_count} nós narrativos.\n\n")
-
-    # Glossário
-    out.write(sep + "\n")
-    out.write(f"GLOSSÁRIO VIVO DA CIDADELA ({len(glossario)} VERBETES CANÔNICOS DAS 3 ERAS)\n")
-    out.write(sep + "\n\n")
-
-    categorias = {}
-    for v in glossario:
-        cat = v.get("categoria", "geral")
-        categorias.setdefault(cat, []).append(v)
-
-    for cat, items in sorted(categorias.items()):
-        out.write(f"CATEGORIA: {cat.upper()} ({len(items)} verbetes)\n")
-        out.write(subsep + "\n")
-        for item in items:
-            out.write(f"  * {item.get('termo')} [ID: {item.get('id')}]\n")
-            aliases = item.get("aliases", [])
-            if aliases:
-                out.write(f"    Outros Nomes / Alcunhas: {', '.join(aliases)}\n")
-            resumo = item.get("resumo_meistre")
-            if resumo:
-                out.write(f"    Resumo do Meistre: {resumo}\n")
-            fonte = item.get("fonte", {})
-            if isinstance(fonte, dict) and fonte.get("capitulo"):
-                out.write(f"    Fonte: {fonte.get('livro', 'Crônicas')} &bull; Capítulo: \"{fonte.get('capitulo')}\"\n")
-            out.write("\n")
-        out.write("\n")
-
-    out.write(sep + "\n")
-    out.write(f"TOTAL GERAL DA PLATAFORMA: {grand_total_nodes} NÓS NARRATIVOS | 18 FINAIS | {len(glossario)} VERBETES\n")
-    out.write("FIM DO COMPÊNDIO - CRÔNICAS DE SANGUE E GELO (v2.1)\n")
-    out.write(sep + "\n")
-
-print(f"Compêndio mestre das 3 jornadas gerado com sucesso: {grand_total_nodes} nós.")
+out_text = "\n".join(out)
+out_file.write_text(out_text, encoding="utf-8")
+print(f"Compêndio cronicas_jornadas_e_plots.txt regerado com sucesso! Tamanho: {len(out_text)} caracteres.")

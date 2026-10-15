@@ -55,6 +55,23 @@ Visitando uma forja na Colina de Visenya, Ned encontrou Gendry, um rapaz forte c
           onSuccessNodeId: 'j3_a2_confissao_velada_pycelle',
           onPartialFailureNodeId: 'j3_a2_torneio_da_mao_montanha',
         },
+
+        {
+          id: 'esc_investigacao_consultar_meistre',
+          texto: 'Comparar a linhagem com os registros de meistres leais para confirmar a herança genética dos Baratheon.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_confissao_velada_pycelle',
+        },
+        {
+          id: 'esc_investigacao_visitar_ferreiro',
+          texto: 'Procurar Gendry na oficina do ferreiro Tobho Mott para testemunhar a fisionomia do Rei Robert.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 15, peixe_negro: 20 },
+          delta: { flagsAdicionadas: ['gendry_encontrado_ferreiro'] },
+          nextNodeId: 'j3_a2_confissao_velada_pycelle',
+        }
       ],
     },
 
@@ -90,6 +107,23 @@ Visitando uma forja na Colina de Visenya, Ned encontrou Gendry, um rapaz forte c
           tipo: 'simples',
           nextNodeId: 'j3_a2_torneio_da_mao_montanha',
         },
+
+        {
+          id: 'esc_pycelle_interrogatorio_firme',
+          texto: 'Pressionar Pycelle sobre o paradeiro das Lágrimas de Lys que envenenaram Lorde Arryn.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 20, catelyn: 15 },
+          delta: { flagsAdicionadas: ['lagrimas_lys_reveladas'] },
+          nextNodeId: 'j3_a2_torneio_da_mao_montanha',
+        },
+        {
+          id: 'esc_pycelle_copiar_pergaminhos',
+          texto: 'Fazer com que meistres leais copiem os registros médicos da morte de Jon Arryn em segredo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a2_torneio_da_mao_montanha',
+        }
       ],
     },
 
@@ -128,6 +162,23 @@ Naquela mesma tarde, corvos trouxeram notícias alarmantes do Tridente: na Estal
           tipo: 'simples',
           nextNodeId: 'j3_a2_emboscada_jaime_chuva',
         },
+
+        {
+          id: 'esc_torneio_premiar_clegane',
+          texto: 'Agradecer a Sandor Clegane por salvar Loras Tyrell da fúria da Montanha e premiá-lo com ouro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 15, grande_jon: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_emboscada_jaime_chuva',
+        },
+        {
+          id: 'esc_torneio_seguranca_reforçada',
+          texto: 'Ordenar que os guardas nortenhos escoltem a família Stark em formação cerrada até a Fortaleza.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 20 },
+          delta: { flagsAdicionadas: ['escolta_torneio_reforcada'] },
+          nextNodeId: 'j3_a2_emboscada_jaime_chuva',
+        }
       ],
     },
 
@@ -166,6 +217,23 @@ Jory Cassel e os fiéis guardas de Winterfell foram massacrados na lama diante d
           tipo: 'simples',
           nextNodeId: 'j3_a2_confronto_bosque_sagrado_cersei',
         },
+
+        {
+          id: 'esc_jaime_chuva_proteger_jory',
+          texto: 'Lançar-se na lama para proteger Jory Cassel e os homens do Norte com a própria lâmina.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, catelyn: 20, peixe_negro: 20 },
+          delta: { sangue: -1, compostura: 2 },
+          nextNodeId: 'j3_a2_confronto_bosque_sagrado_cersei',
+        },
+        {
+          id: 'esc_jaime_chuva_desafio_honra',
+          texto: 'Exigir que Jaime Lannister lute homem a homem ou se retire sob a vergonha do assassinato covarde.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, peixe_negro: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a2_confronto_bosque_sagrado_cersei',
+        }
       ],
     },
 
@@ -219,6 +287,23 @@ Cersei ergueu a cabeça dourada, olhando-o com escárnio e compaixão cortante:
           tipo: 'simples',
           nextNodeId: 'j3_a2_leito_morte_robert_javali',
         },
+
+        {
+          id: 'esc_cersei_misericordia_filhos',
+          texto: 'Alertar Cersei para fugir com as crianças antes que Robert retorne da caçada e a fúria seja incontrolável.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: -10 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_leito_morte_robert_javali',
+        },
+        {
+          id: 'esc_cersei_guardas_confinamento',
+          texto: 'Ordenar que guardas de Winterfell vigiem os aposentos da rainha para impedir comunicações com Rochedo Casterly.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, grande_jon: 20 },
+          delta: { flagsAdicionadas: ['cersei_vigiada_aposentos'] },
+          nextNodeId: 'j3_a2_leito_morte_robert_javali',
+        }
       ],
     },
 
@@ -264,6 +349,23 @@ Robert assinou com mão trêmula e fechou os olhos. A contagem regressiva para o
           tipo: 'simples',
           nextNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
         },
+
+        {
+          id: 'esc_leito_morte_promessa_honra',
+          texto: 'Escrever no testamento "herdeiro legítimo" em vez de "Joffrey", guardando a honra da sucessão no peito.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+        },
+        {
+          id: 'esc_leito_morte_aliviar_dores',
+          texto: 'Dar a mão a Robert e assegurar-lhe que seus filhos serão protegidos até o último sopro de vida.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+        }
       ],
     },
 
@@ -311,6 +413,29 @@ Ned recusou com a honra cega do Norte:
           tipo: 'simples',
           nextNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
         },
+      
+        {
+          id: 'esc_j3_a2_propor_pacto_com_stannis_primeiro',
+          texto: 'Afirmar que a coroa pertence por direito a Stannis, exigindo que Renly una suas espadas ao irmão mais velho.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+          onPartialFailureNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+          aprovacaoCompanheiros: { catelyn: 15, peixe_negro: 10 },
+          delta: { ficha: { honra: 1 } },
+        },
+        {
+          id: 'esc_j3_a2_evacuar_filhas_porto_real',
+          texto: 'Colocar Arya e Sansa a bordo de um navio no cais da Baía da Água Negra antes do amanhecer fatal!',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+          onPartialFailureNodeId: 'j3_a2_pacto_traicoeiro_mindinho',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 15 },
+          delta: { mundo: { filhas_evacuadas_navio: true } },
+        },
       ],
     },
 
@@ -355,6 +480,23 @@ Ned recusou com a honra cega do Norte:
           onSuccessNodeId: 'j3_a2_whatif_golpe_lobo_venceu',
           onPartialFailureNodeId: 'j3_a2_traicao_sala_do_trono_mindinho',
         },
+
+        {
+          id: 'esc_pacto_mindinho_recusa_firme',
+          texto: 'Rejeitar a conspiração de Mindinho e declarar que Stannis Baratheon é o herdeiro legal por direito de sangue.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_traicao_sala_do_trono_mindinho',
+        },
+        {
+          id: 'esc_pacto_mindinho_sondar_ouro',
+          texto: 'Fingir aceitar os termos de Baelish enquanto despacha mensageiros a cavalo para Pedra do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 15 },
+          delta: { flagsAdicionadas: ['mensageiro_stannis_enviado_noite'] },
+          nextNodeId: 'j3_a2_traicao_sala_do_trono_mindinho',
+        }
       ],
     },
 
@@ -393,6 +535,23 @@ Ned ordenou que Janos Slynt prendesse a rainha e o menino. Num relance de aço, 
           tipo: 'simples',
           nextNodeId: 'j3_a2_masmorras_escuras_acordo_varys',
         },
+
+        {
+          id: 'esc_mindinho_furia_norte',
+          texto: 'Segurar Mindinho pela garganta antes que os mantos dourados fechem o círculo de lanças.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 20 },
+          delta: { sangue: -1, compostura: 2 },
+          nextNodeId: 'j3_a2_septo_baelor_execucao_ned',
+        },
+        {
+          id: 'esc_mindinho_proclamar_testamento',
+          texto: 'Exibir a carta assinada pelo Rei Robert declarando Eddard Protetor do Reino perante a guarda.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 25 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a2_septo_baelor_execucao_ned',
+        }
       ],
     },
 
@@ -429,6 +588,29 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
           dc: 11,
           onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
           onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+        },
+      
+        {
+          id: 'esc_j3_a2_negociar_com_rochedo_casterly',
+          texto: 'Enviar termos de paz solenes a Tywin Lannister garantindo a vida de Cersei em troca do recuo no Tridente.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
+          onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+          aprovacaoCompanheiros: { catelyn: 15, peixe_negro: 10 },
+          delta: { ficha: { honra: 1 } },
+        },
+        {
+          id: 'esc_j3_a2_despachar_guardas_para_muralha',
+          texto: 'Enviar fundos da Coroa e duzentos recrutas dos Mantos Dourados para fortalecer a Patrulha da Noite.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 11,
+          onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
+          onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+          aprovacaoCompanheiros: { jon_snow: 20, grande_jon: 10 },
+          delta: { mundo: { reforcos_muralha_enviados: true } },
         },
       ],
     },
@@ -471,6 +653,23 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
           tipo: 'simples',
           nextNodeId: 'j3_a2_septo_baelor_execucao_ned',
         },
+
+        {
+          id: 'esc_masmorras_recusar_falso_jura',
+          texto: 'Recusar manchar a honra de uma vida inteira confessando uma traição que nunca existiu.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_septo_baelor_execucao_ned',
+        },
+        {
+          id: 'esc_masmorras_proteger_sansa',
+          texto: 'Concordar em confessar diante do povo unicamente para resguardar a vida de Sansa nas garras dos Lannister.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 30, jon_snow: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_septo_baelor_execucao_ned',
+        }
       ],
     },
 
@@ -527,6 +726,23 @@ Mas o Rei Joffrey deu um passo à frente com um sorriso sádico:
           tipo: 'simples',
           nextNodeId: 'j3_a2_morte_canonica_ned_stark',
         },
+
+        {
+          id: 'esc_septo_baelor_gritar_verdade',
+          texto: 'Erguer a voz diante da multidão declarando que Joffrey é bastardo nascido do incesto.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 25 },
+          delta: { flagsAdicionadas: ['verdade_incesto_gritada_praca'], compostura: 2 },
+          nextNodeId: 'j3_a2_morte_canonica_ned_stark',
+        },
+        {
+          id: 'esc_septo_baelor_silencio_digno',
+          texto: 'Aceitar o destino de cabeça erguida, sabendo que o Norte jamais esquecerá o Protetor.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, jon_snow: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_morte_canonica_ned_stark',
+        }
       ],
     },
 
@@ -556,6 +772,23 @@ O Norte recebia o chamado definitivo para a guerra.`,
           tipo: 'simples',
           nextNodeId: 'j3_a2_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_morte_ned_olhar_arya',
+          texto: 'Olhar para a estátua de Baelor e sussurrar o nome de Yoren para resgatar Arya na multidão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 30, jon_snow: 30 },
+          delta: { flagsAdicionadas: ['arya_resgatada_yoren'], compostura: 2 },
+          nextNodeId: 'j3_a2_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_morte_ned_honra_indomita',
+          texto: 'Encarar o aço de Gelo com a altivez de quem nunca quebrou a honra dos Primeiros Homens.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a2_checkpoint_conclusao',
+        }
       ],
     },
 
@@ -592,6 +825,29 @@ Ned Stark teve os ferros trocados pelo manto negro da Patrulha da Noite e foi en
           dc: 11,
           onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
           onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+        },
+      
+        {
+          id: 'esc_j3_a2_recrutar_veteranos_estrada_rei',
+          texto: 'Reunir patrulheiros e espadas juramentadas pelo Tridente para marchar em força rumo a Castelo Negro.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 11,
+          onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
+          onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+          aprovacaoCompanheiros: { grande_jon: 15, peixe_negro: 15 },
+          delta: { mundo: { caravana_yoren_reforcada: true } },
+        },
+        {
+          id: 'esc_j3_a2_aconselhar_robb_manter_trono',
+          texto: 'Despachar carta clandestina a Robb aconselhando prudência diplomática e cooperação com os Tully.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 11,
+          onSuccessNodeId: 'j3_a2_checkpoint_conclusao',
+          onPartialFailureNodeId: 'j3_a2_checkpoint_conclusao',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 10 },
+          delta: { ficha: { honra: 1 } },
         },
       ],
     },

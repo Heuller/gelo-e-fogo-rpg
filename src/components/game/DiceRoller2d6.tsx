@@ -1,18 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ResultadoRolagem, AtributoVoz, rolar2d6 } from '@/server/engine/rpgEngine';
-import { Dices, Sparkles, Skull, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { ResultadoRolagem, rolar2d6 } from '@/server/engine/rpgEngine';
+import { Dices, Sparkles, Skull, CheckCircle2, AlertTriangle, RotateCcw } from 'lucide-react';
 
 interface PropsDiceRoller {
   resultado?: ResultadoRolagem | null;
+  inspiracao?: number;
   onRolarNovo?: (res: ResultadoRolagem) => void;
+  onRolar?: (attr: any, dc: any) => void;
+  onRerrolarComInspiracao?: () => void;
   className?: string;
 }
 
 // Representação visual dos pontos do dado de 6 faces (SVG)
 function DadoVisual({ valor, animando }: { valor: number; animando?: boolean }) {
-  // Posições dos pontos
   const pontosMap: Record<number, [number, number][]> = {
     1: [[50, 50]],
     2: [[28, 28], [72, 72]],
@@ -39,11 +41,22 @@ function DadoVisual({ valor, animando }: { valor: number; animando?: boolean }) 
   );
 }
 
-export function DiceRoller2d6({ resultado, onRolarNovo, className = '' }: PropsDiceRoller) {
+export function DiceRoller2d6({
+  resultado,
+  inspiracao = 0,
+  onRolarNovo,
+  onRerrolarComInspiracao,
+  className = '',
+}: PropsDiceRoller) {
   const [animando, setAnimando] = useState(false);
   const [resultadoLocal, setResultadoLocal] = useState<ResultadoRolagem | null>(resultado || null);
 
   const res = resultado || resultadoLocal;
+  const podeRerrolar =
+    res &&
+    (res.resultado === 'FALHA_PARCIAL' || res.resultado === 'FALHA_CRITICA') &&
+    inspiracao > 0 &&
+    Boolean(onRerrolarComInspiracao);
 
   function rolarTesteManual(atributoVal: number = 3, dc: number = 10, riscoMortal: boolean = false) {
     setAnimando(true);
@@ -107,7 +120,7 @@ export function DiceRoller2d6({ resultado, onRolarNovo, className = '' }: PropsD
                   <span>Sucesso Crítico</span>
                 </div>
                 <p className="text-xs font-garamond italic mt-1 text-amber-100">
-                  Os deuses contemplam vosso triunfo com assombro.
+                  Os deuses contemplam vosso triunfo com assombro. (+1 Inspiração)
                 </p>
               </div>
             )}
@@ -148,6 +161,18 @@ export function DiceRoller2d6({ resultado, onRolarNovo, className = '' }: PropsD
                     : 'Uma calamidade diplomática e militar irrompe nos salões.'}
                 </p>
               </div>
+            )}
+
+            {/* Botão de Rerrolagem com Inspiração Estilo Baldur's Gate 3 */}
+            {podeRerrolar && (
+              <button
+                type="button"
+                onClick={onRerrolarComInspiracao}
+                className="w-full mt-3 py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-stone-950 font-cinzel font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-900/40 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300/50"
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span>✨ Usar 1 Inspiração para Rerrolar (Restam: {inspiracao})</span>
+              </button>
             )}
           </div>
         </div>

@@ -126,6 +126,24 @@ Nas celas de couro trabalhado, Aegon ajustava as rédeas de Balerion, enquanto a
           onSuccessNodeId: 'j1_a3_carga_cavalaria_gardener',
           onPartialFailureNodeId: 'j1_a3_carga_cavalaria_gardener',
         },
+
+        {
+          id: 'esc_pos_campo_fogo_visenya_vento',
+          texto: 'Calcular a direção do vento seco com Visenya para soprar as labaredas diretamente sobre os olhos da cavalaria inimiga.',
+          tipo: 'simples',
+          tagOrigem: '[TATICA DE FOGO]',
+          aprovacaoCompanheiros: { visenya: 25, orys: 15 },
+          delta: { flagsAdicionadas: ['vento_fogo_favoravel'], compostura: 1 },
+          nextNodeId: 'j1_a3_carga_cavalaria_gardener',
+        },
+        {
+          id: 'esc_pos_campo_fogo_prece_rhaenys',
+          texto: 'Entoar uma prece silenciosa no dorso de Meraxes para que a carnificina termine antes do cair da noite.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 5, visenya: -10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a3_carga_cavalaria_gardener',
+        }
       ],
     },
 
@@ -182,6 +200,23 @@ O próprio Aegon combateu a cavalo durante os primeiros minutos para conter o p�
           onPartialFailureNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
           onCriticalFailureNodeId: 'j1_a3_morte_campo_de_fogo',
         },
+
+        {
+          id: 'esc_carga_gardener_mergulho_triplo',
+          texto: 'Mandar o sinal de ataque simultâneo para que Balerion, Vhagar e Meraxes mergulhem em formação de triângulo flamejante.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 25, rhaenys: 15, orys: 15 },
+          delta: { flagsAdicionadas: ['mergulho_triplo_dragoes'] },
+          nextNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
+        },
+        {
+          id: 'esc_carga_gardener_retaguarda_orys',
+          texto: 'Ordenar que Orys segure a infantaria disciplinada e deixe as chamas consumirem o ímpeto dos cavaleiros de ferro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 20, visenya: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a3_tres_dragoes_campo_de_fogo',
+        }
       ],
     },
 
@@ -237,6 +272,30 @@ Quatro mil homens arderam vivos na planície, incluindo o Rei Mern IX Gardener e
           dc: 8,
           onSuccessNodeId: 'j1_a3_fim_casa_gardener',
           onPartialFailureNodeId: 'j1_a3_fim_casa_gardener',
+        },
+      
+        {
+          id: 'esc_j1_a3_cortar_linhas_suprimento_jardim',
+          texto: 'Incendiar os comboios de trigo e munições da Campina antes do choque das três hostes.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_submissao_loren_lannister',
+          onPartialFailureNodeId: 'j1_a3_submissao_loren_lannister',
+          aprovacaoCompanheiros: { visenya: 10, orys: 5 },
+          delta: { mundo: { suprimentos_campina_queimados: true } },
+        },
+        {
+          id: 'esc_j1_a3_pressagio_cinzas_ouro',
+          texto: 'Intuir a direção do vento seco para canalizar o inferno de fogo contra o centro da falange de Mern.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 12,
+          tagOrigem: '[SANGUE VALIRIANO]',
+          onSuccessNodeId: 'j1_a3_submissao_loren_lannister',
+          onPartialFailureNodeId: 'j1_a3_submissao_loren_lannister',
+          aprovacaoCompanheiros: { rhaenys: 10, visenya: 10 },
+          delta: { ficha: { compostura: 1 } },
         },
       ],
     },
@@ -322,6 +381,23 @@ Enquanto isso, patrulheiros de Orys Baratheon capturavam nos bosques próximos o
           onSuccessNodeId: 'j1_a3_submissao_loren_lannister',
           onPartialFailureNodeId: 'j1_a3_submissao_loren_lannister',
         },
+
+        {
+          id: 'esc_fim_gardener_entregar_jardim_tyrell',
+          texto: 'Nomear Harlan Tyrell como Lorde Soberano da Campina por entregar Jardim de Cima sem resistência.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 15, visenya: 10 },
+          delta: { flagsAdicionadas: ['tyrell_soberanos_campina'], compostura: 2 },
+          nextNodeId: 'j1_a3_submissao_loren_lannister',
+        },
+        {
+          id: 'esc_fim_gardener_honras_caidos',
+          texto: 'Autorizar que os meistres de Vilavelha sepultem os corpos de Mern IX e de seus filhos com honras régias no campo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 25, visenya: -10 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a3_submissao_loren_lannister',
+        }
       ],
     },
 
@@ -380,6 +456,23 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
           onSuccessNodeId: 'j1_a3_rendicao_jardim_de_cima',
           onPartialFailureNodeId: 'j1_a3_rendicao_jardim_de_cima',
         },
+
+        {
+          id: 'esc_loren_lealdade_ouro',
+          texto: 'Exigir que Rochedo Casterly forneça lingotes de ouro para cunhar a primeira moeda com a efígie do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 15 },
+          delta: { flagsAdicionadas: ['ouro_de_casterly_cunhado'] },
+          nextNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+        },
+        {
+          id: 'esc_loren_perdao_solene',
+          texto: 'Erguer Loren Lannister do chão poeirento e confirmar seu senhorio do Oeste como Protetor leal da coroa.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 15, visenya: -5 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a3_ninho_da_aguia_ronnel',
+        }
       ],
     },
 
@@ -627,6 +720,29 @@ Brandon lutou com a destreza selvagem dos lobos do Norte, cravando uma adaga de 
           onSuccessNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
           onPartialFailureNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
         },
+      
+        {
+          id: 'esc_j1_a3_parlamentar_noite_neve',
+          texto: 'Enviar emissários desarmados na neve oferecendo respeito incondicional às tradições do Norte.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          onPartialFailureNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: 5 },
+          delta: { ficha: { honra: 1 } },
+        },
+        {
+          id: 'esc_j1_a3_desafio_honra_stark',
+          texto: 'Fazer Balerion sobrevoar o acampamento de Torrhen em silêncio majestoso sem disparar chamas.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 11,
+          onSuccessNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          onPartialFailureNodeId: 'j1_a3_o_rei_que_se_ajoelhou',
+          aprovacaoCompanheiros: { visenya: 15, rhaenys: -5 },
+          delta: { mundo: { demonstracao_aerea_norte: true } },
+        },
       ],
     },
 
@@ -782,6 +898,23 @@ Quando a Rainha Sharra e seus guardas correram ao pátio com espadas desembainha
           onSuccessNodeId: 'j1_a3_epilogo_trono_ferro',
           onPartialFailureNodeId: 'j1_a3_epilogo_trono_ferro',
         },
+
+        {
+          id: 'esc_ninho_ronnel_presente',
+          texto: 'Presentear o menino rei Ronnel Arryn com um broche de dragão de rubi e selar a aliança do Vale.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: 20, orys: 10 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a3_epilogo_trono_ferro',
+        },
+        {
+          id: 'esc_ninho_guarnicao_valiriana',
+          texto: 'Deixar uma pequena guarda permanente em Vila Gaivota para garantir o comércio aberto com Pedra do Dragão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 20, visenya: 15 },
+          delta: { flagsAdicionadas: ['guarnicao_vila_gaivota'] },
+          nextNodeId: 'j1_a3_epilogo_trono_ferro',
+        }
       ],
     },
 
@@ -837,6 +970,23 @@ Nenhum rei deveria sentar-se confortavelmente em seu posto, declarou Aegon. O Tr
           dc: 11,
           onSuccessNodeId: 'j1_a3_vitoria_conquista',
           onPartialFailureNodeId: 'j1_a3_vitoria_conquista',
+        },
+      
+        {
+          id: 'esc_j1_a3_consagrar_fe_sete',
+          texto: 'Prestar reverência ao Alto Septão e consolidar a unção sagrada na Septa Estrelada de Vilavelha.',
+          tipo: 'simples',
+          nextNodeId: 'j1_a3_vitoria_conquista',
+          aprovacaoCompanheiros: { rhaenys: 10, orys: 10 },
+          delta: { ficha: { honra: 1 }, mundo: { uncao_vilavelha_confirmada: true } },
+        },
+        {
+          id: 'esc_j1_a3_decretar_leis_reino_unido',
+          texto: 'Redigir com Visenya as primeiras leis que unificam os tributos e as pontes entre os Sete Reinos.',
+          tipo: 'simples',
+          nextNodeId: 'j1_a3_vitoria_conquista',
+          aprovacaoCompanheiros: { visenya: 15, daemon_v: 10 },
+          delta: { ficha: { compostura: 1 }, mundo: { leis_unificadas_conquista: true } },
         },
       ],
     },

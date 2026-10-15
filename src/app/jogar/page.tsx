@@ -10,7 +10,7 @@ import { DiceRoller2d6 } from '@/components/game/DiceRoller2d6';
 import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
 import { MobileDrawerNav } from '@/components/game/MobileDrawerNav';
-import { FichaPersonagem, ResultadoRolagem, WorldState } from '@/server/engine/rpgEngine';
+import { FichaPersonagem, ResultadoRolagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 import { TurnEvent, exportarSave } from '@/server/engine/saveManager';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import { VerbeteGlossario } from '@/server/data/lore';
@@ -20,6 +20,7 @@ import {
   obterCenaPorIdAction,
   processarEscolhaAction,
   processarAcaoLivreAction,
+  rerrolarTesteInspiracaoAction,
 } from '@/app/actions/gameActions';
 import { Map, Dices, Scroll } from 'lucide-react';
 
@@ -48,11 +49,15 @@ function JogarJogoInterno() {
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [carregando, setCarregando] = useState(true);
+  const [notificacoesCompanheiros, setNotificacoesCompanheiros] = useState<string[]>([]);
+  const [ultimaEscolhaId, setUltimaEscolhaId] = useState<string | null>(null);
+  const [ultimoNodeId, setUltimoNodeId] = useState<string | null>(null);
 
   const [ficha, setFicha] = useState<FichaPersonagem>({
     id: 'aegon-conquistador',
     nome: 'Aegon I Targaryen',
     origem: 'sangue_valiriano',
+    inspiracao: 2,
     atributos: {
       comando: 5,
       furia: 4,
@@ -68,6 +73,7 @@ function JogarJogoInterno() {
     },
     cicatrizes: [],
     segredos: ['A profecia de Daenys a Sonhadora'],
+    companheiros: obterCompanheirosIniciais('j1_conquista'),
   });
 
   const [worldState, setWorldState] = useState<WorldState>({
@@ -112,6 +118,9 @@ function JogarJogoInterno() {
 
     try {
       setFeedback('Consultando os desígnios da crônica...');
+      setUltimoNodeId(nodeAtual.id);
+      setUltimaEscolhaId(escolhaId);
+
       const res = await processarEscolhaAction({
         nodeId: nodeAtual.id,
         escolhaId,
@@ -136,6 +145,12 @@ function JogarJogoInterno() {
       setWorldState(res.worldStateAtualizado);
       setHistorico([res.turnEvent, ...historico]);
 
+      if (res.notificacoesCompanheiros && res.notificacoesCompanheiros.length > 0) {
+        setNotificacoesCompanheiros(res.notificacoesCompanheiros);
+      } else {
+        setNotificacoesCompanheiros([]);
+      }
+
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
         setAbaLateral('dados');
@@ -145,6 +160,41 @@ function JogarJogoInterno() {
       }
     } catch (err: any) {
       setFeedback('Erro ao processar escolha: ' + err.message);
+    }
+  }
+
+  async function handleRerrolarComInspiracao() {
+    if (!ultimoNodeId || !ultimaEscolhaId) {
+      setFeedback('Nenhum teste recente para rerrolar com Inspiração.');
+      return;
+    }
+    if ((ficha.inspiracao ?? 0) <= 0) {
+      setFeedback('Não possuís Pontos de Inspiração suficientes.');
+      return;
+    }
+
+    try {
+      setFeedback('✨ Gastando 1 Ponto de Inspiração para rerrolar o teste...');
+      const res = await rerrolarTesteInspiracaoAction({
+        nodeId: ultimoNodeId,
+        escolhaId: ultimaEscolhaId,
+        ficha,
+        worldState,
+        turnNumber: historico.length,
+        journeyId: journeyParam,
+      });
+
+      setNodeAtual(res.proximoNode);
+      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
+      setFicha(res.fichaAtualizada);
+      setWorldState(res.worldStateAtualizado);
+
+      if (res.resultadoRolagem) {
+        setResultadoRolagem(res.resultadoRolagem);
+        setFeedback(`✨ Rerrolagem com Inspiração: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
+      }
+    } catch (err: any) {
+      setFeedback('Erro ao rerrolar com Inspiração: ' + err.message);
     }
   }
 
@@ -176,6 +226,12 @@ function JogarJogoInterno() {
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
       setHistorico([res.turnEvent, ...historico]);
+
+      if (res.notificacoesCompanheiros && res.notificacoesCompanheiros.length > 0) {
+        setNotificacoesCompanheiros(res.notificacoesCompanheiros);
+      } else {
+        setNotificacoesCompanheiros([]);
+      }
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
@@ -273,9 +329,15 @@ function JogarJogoInterno() {
     atributo: e.tipo === 'teste_atributo' ? e.atributo : undefined,
     dc: e.tipo === 'teste_atributo' ? e.dc : undefined,
     riscoMortal: e.tipo === 'teste_atributo' ? e.riscoMortal : undefined,
+    requiredFlags: e.requiredFlags,
+    forbiddenFlags: e.forbiddenFlags,
+    tagOrigem: e.tagOrigem,
+    motivoBloqueio: e.motivoBloqueio,
+    aprovacaoCompanheiros: e.aprovacaoCompanheiros,
   }));
 
   const regiaoAtiva = nodeAtual.regionId || 'pedra_dragao';
+  const worldFlags = Object.keys(worldState.flagsBorboleta || {});
 
   return (
     <div className="min-h-screen bg-[#0d0b0a] text-[#E6DEC8] flex flex-col font-garamond pb-20 lg:pb-8">
@@ -320,6 +382,9 @@ function JogarJogoInterno() {
             anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
             localizacao={nodeAtual.localizacao || 'Westeros'}
             paragrafos={paragrafos}
+            conditionalParagraphs={nodeAtual.conditionalParagraphs || []}
+            worldFlags={worldFlags}
+            notificacoesCompanheiros={notificacoesCompanheiros}
             vozesInternas={vozesExibidas}
             escolhas={escolhasNarrativas}
             verbetes={verbetes}
@@ -368,30 +433,44 @@ function JogarJogoInterno() {
             </button>
           </div>
 
-          {abaLateral === 'mapa' && <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
-          {abaLateral === 'dados' && <DiceRoller2d6 resultado={resultadoRolagem} />}
-          {abaLateral === 'diario' && (
-            <ChronicleTimeline
-              historico={historico}
-              onDesfazerTurno={handleDesfazerTurno}
-              onExportarSave={handleExportarSave}
-              onVoltarCheckpoint={handleVoltarCheckpoint}
-            />
-          )}
+          <div className="transition-all">
+            {abaLateral === 'mapa' && <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
+            {abaLateral === 'dados' && (
+              <DiceRoller2d6
+                resultado={resultadoRolagem}
+                inspiracao={ficha.inspiracao ?? 2}
+                onRerrolarComInspiracao={handleRerrolarComInspiracao}
+              />
+            )}
+            {abaLateral === 'diario' && (
+              <ChronicleTimeline
+                historico={historico}
+                onDesfazerTurno={handleDesfazerTurno}
+                onVoltarCheckpoint={handleVoltarCheckpoint}
+                onExportarSave={handleExportarSave}
+              />
+            )}
+          </div>
         </div>
       </main>
 
-      {/* Navegação Mobile com Gavetas Deslizantes */}
+      {/* Gavetas deslizantes Mobile para celular (Ficha, Mapa e Diário) */}
       <MobileDrawerNav
         renderFicha={() => <CharacterPanel ficha={ficha} />}
         renderMapa={() => <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
-        renderDados={() => <DiceRoller2d6 resultado={resultadoRolagem} />}
+        renderDados={() => (
+          <DiceRoller2d6
+            resultado={resultadoRolagem}
+            inspiracao={ficha.inspiracao ?? 2}
+            onRerrolarComInspiracao={handleRerrolarComInspiracao}
+          />
+        )}
         renderDiario={() => (
           <ChronicleTimeline
             historico={historico}
             onDesfazerTurno={handleDesfazerTurno}
-            onExportarSave={handleExportarSave}
             onVoltarCheckpoint={handleVoltarCheckpoint}
+            onExportarSave={handleExportarSave}
           />
         )}
       />
@@ -404,7 +483,7 @@ export default function JogarPage() {
     <Suspense
       fallback={
         <div className="min-h-screen bg-[#0d0b0a] text-[#C5A059] flex items-center justify-center font-cinzel text-lg">
-          Carregando a Crônica de Westeros...
+          Abrindo os pergaminhos de Westeros...
         </div>
       }
     >

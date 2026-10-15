@@ -48,6 +48,23 @@ Nas ruínas de Fosso Cailin, Robb uniu suas forças à Senhora Catelyn, preparan
           onSuccessNodeId: 'j3_a3_pacto_nupcial_gemeas_frey',
           onPartialFailureNodeId: 'j3_a3_pacto_nupcial_gemeas_frey',
         },
+
+        {
+          id: 'esc_robb_desafio_umber',
+          texto: 'Encarar o Grande Jon Umber até que Vento Cinzento arranque dois dedos do lorde em sinal de liderança.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, catelyn: 20 },
+          delta: { flagsAdicionadas: ['lealdade_umber_conquistada'], compostura: 2 },
+          nextNodeId: 'j3_a3_pacto_nupcial_gemeas_frey',
+        },
+        {
+          id: 'esc_robb_conselho_catelyn_estrategia',
+          texto: 'Aconselhar-se com Lady Catelyn e Sor Brynden sobre a divisão das forças em duas colunas no Tridente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a3_pacto_nupcial_gemeas_frey',
+        }
       ],
     },
 
@@ -84,6 +101,23 @@ Robb aceitou os termos solenes, e quatro mil lanceiros Frey uniram-se à marcha 
           tipo: 'simples',
           nextNodeId: 'j3_a3_batalha_bosque_dos_murmurios',
         },
+
+        {
+          id: 'esc_frey_juramento_catelyn',
+          texto: 'Fazer com que Walder Frey jure sobre pão e sal entregar todo o contingente de cavalaria aos Stark.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 15 },
+          delta: { flagsAdicionadas: ['cavalaria_frey_alistada'], compostura: 2 },
+          nextNodeId: 'j3_a3_batalha_bosque_dos_murmurios',
+        },
+        {
+          id: 'esc_frey_vigilia_retaguarda',
+          texto: 'Manter arqueiros de confiança vigiando as duas torres das Gêmeas durante a travessia das hostes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, grande_jon: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a3_batalha_bosque_dos_murmurios',
+        }
       ],
     },
 
@@ -121,6 +155,23 @@ O Regicida era prisioneiro dos Stark.`,
           tipo: 'simples',
           nextNodeId: 'j3_a3_proclamacao_rei_no_norte',
         },
+
+        {
+          id: 'esc_murmurios_guardar_regicida',
+          texto: 'Trancar Jaime Lannister sob pesados grilhões em Correrrio sob guarda de guerreiros de confiança.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 20 },
+          delta: { flagsAdicionadas: ['regicida_acorrentado_correrrio'], compostura: 2 },
+          nextNodeId: 'j3_a3_proclamacao_rei_no_norte',
+        },
+        {
+          id: 'esc_murmurios_celebrar_vitoria',
+          texto: 'Permitir que os soldados bebam à saúde do Jovem Lobo e de Vento Cinzento pelas margens do riacho.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, catelyn: 10 },
+          delta: { sangue: 2, compostura: 2 },
+          nextNodeId: 'j3_a3_proclamacao_rei_no_norte',
+        }
       ],
     },
 
@@ -158,6 +209,23 @@ Cinqüenta espadas desembainhadas reluziram nas tochas. 'O Rei no Norte! O Rei n
           tipo: 'simples',
           nextNodeId: 'j3_a3_muralha_criatura_garra_longa',
         },
+
+        {
+          id: 'esc_rei_norte_coroa_bronze',
+          texto: 'Aceitar a coroa de ferro e bronze forjada com espadas antigas em honra aos Reis do Inverno.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 20, catelyn: -10 },
+          delta: { flagsAdicionadas: ['coroa_bronze_robb_aceita'], compostura: 2 },
+          nextNodeId: 'j3_a3_muralha_criatura_garra_longa',
+        },
+        {
+          id: 'esc_rei_norte_cautela_catelyn',
+          texto: 'Lembrar aos lordes que a guerra contra os Lannister ainda não terminou e exige diplomacia.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 20, grande_jon: -15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a3_muralha_criatura_garra_longa',
+        }
       ],
     },
 
@@ -195,6 +263,23 @@ Como recompensa pelo ato heroico, Jeor Mormont entregou a Jon a espada ancestral
           tipo: 'simples',
           nextNodeId: 'j3_a3_grande_patrulha_punho_primeiros_homens',
         },
+
+        {
+          id: 'esc_garra_longa_agradecer_mormont',
+          texto: 'Juramentar lealdade ao Senhor Comandante Jeor Mormont e honrar o aço valiriano herdado.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 30 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j3_a3_grande_patrulha_punho_primeiros_homens',
+        },
+        {
+          id: 'esc_garra_longa_queimar_corpos',
+          texto: 'Mandar queimar os restos da criatura com tochas e piche até que sobrem apenas cinzas frias.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25 },
+          delta: { flagsAdicionadas: ['criatura_incinerada_muralha'] },
+          nextNodeId: 'j3_a3_grande_patrulha_punho_primeiros_homens',
+        }
       ],
     },
 
@@ -231,6 +316,23 @@ Enviado com o lendário batedor Qhorin Meia-Mão nas gargantas glaciais, Jon cap
           tipo: 'simples',
           nextNodeId: 'j3_a3_sombra_melisandre_ponta_tempestade',
         },
+
+        {
+          id: 'esc_punho_vidro_dragao',
+          texto: 'Distribuir as pontas de flecha e adagas de obsidiana encontradas entre os irmãos juramentados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 30 },
+          delta: { flagsAdicionadas: ['adagas_obsidiana_distribuidas'], compostura: 2 },
+          nextNodeId: 'j3_a3_sombra_melisandre_ponta_tempestade',
+        },
+        {
+          id: 'esc_punho_honra_qhorin',
+          texto: 'Aceitar a missão perigosa ao lado de Qhorin Meia-Mão nas entranhas das Presas de Gelo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25 },
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j3_a3_sombra_melisandre_ponta_tempestade',
+        }
       ],
     },
 
@@ -267,6 +369,23 @@ Ali, no lodo escuro, a sacerdotisa vermelha despiu suas vestes de seda e pariu u
           tipo: 'simples',
           nextNodeId: 'j3_a3_batalha_da_agua_negra_climax',
         },
+
+        {
+          id: 'esc_sombra_recusar_feitiçaria',
+          texto: 'Davos Seaworth manifesta horror e suplica a Stannis que lute com homens de aço, não sombras.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a3_batalha_da_agua_negra_climax',
+        },
+        {
+          id: 'esc_sombra_pacto_fogo',
+          texto: 'Contemplar em silêncio o poder do Senhor da Luz que abre as portas de Ponta Tempestade.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: -10 },
+          delta: { flagsAdicionadas: ['sombra_magica_testemunhada'] },
+          nextNodeId: 'j3_a3_batalha_da_agua_negra_climax',
+        }
       ],
     },
 
@@ -315,6 +434,23 @@ Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o 
           onSuccessNodeId: 'j3_a3_pos_agua_negra_conselho',
           onPartialFailureNodeId: 'j3_a3_pos_agua_negra_conselho',
         },
+
+        {
+          id: 'esc_agua_negra_tyrion_corrente',
+          texto: 'Erguer a grande corrente de ferro da foz para prender as galés de Stannis no inferno de fogo-vivo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 15 },
+          delta: { flagsAdicionadas: ['corrente_ferro_agua_negra'] },
+          nextNodeId: 'j3_a3_pos_agua_negra_conselho',
+        },
+        {
+          id: 'esc_agua_negra_resgate_davos',
+          texto: 'Observar a destruição do alto das muralhas enquanto os cavaleiros de Tywin e Tyrell quebram as linhas rebeldes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a3_pos_agua_negra_conselho',
+        }
       ],
     },
 
@@ -343,6 +479,23 @@ Nas celas e nos corredores, os preparativos para o fim da rebelião do Norte com
           tipo: 'simples',
           nextNodeId: 'j3_a3_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_pos_agua_negra_alianca_stannis',
+          texto: 'Despachar emissários a Pedra do Dragão propondo um pacto de pinça militar contra Tywin Lannister.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, catelyn: 20, grande_jon: -5 },
+          delta: { flagsAdicionadas: ['emissarios_stannis_enviados'], compostura: 2 },
+          nextNodeId: 'j3_a3_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_pos_agua_negra_reforcar_tridente',
+          texto: 'Recuar as tropas em ordem disciplinada e reforçar os vaus do Ramo Vermelho contra a investida leão.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 25, grande_jon: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a3_checkpoint_conclusao',
+        }
       ],
     },
 

@@ -57,6 +57,24 @@ No regresso através da mata nevada, Robb e Jon Snow encontraram a carcaça de u
           onSuccessNodeId: 'j3_a1_pressagio_frio_muralha',
           onPartialFailureNodeId: 'j3_a1_chegada_comitiva_real_robert',
         },
+
+        {
+          id: 'esc_execucao_ouvir_palavras',
+          texto: 'Ouvir com gravidade o relato trêmulo do patrulheiro sobre as sombras de olhos azuis na floresta assombrada.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25, catelyn: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_pressagio_frio_muralha',
+        },
+        {
+          id: 'esc_execucao_oracao_antiga',
+          texto: 'Tocar a casca cinzenta do represeiro ao limpar a lâmina de Gelo, pedindo aos deuses que afastem o frio.',
+          tipo: 'simples',
+          tagOrigem: '[HONRA DO NORTE]',
+          aprovacaoCompanheiros: { catelyn: 20, jon_snow: 20 },
+          delta: { inspiracao: 1, compostura: 2 },
+          nextNodeId: 'j3_a1_pressagio_frio_muralha',
+        }
       ],
     },
 
@@ -91,6 +109,23 @@ No regresso através da mata nevada, Robb e Jon Snow encontraram a carcaça de u
           tipo: 'simples',
           nextNodeId: 'j3_a1_chegada_comitiva_real_robert',
         },
+
+        {
+          id: 'esc_pressagio_prece_bosque',
+          texto: 'Ajoelhar-se diante do represeiro antigo e pedir proteção aos deuses pelos filhos de Winterfell.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, jon_snow: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_banquete_e_conversa_tyrion',
+        },
+        {
+          id: 'esc_pressagio_vigilia_muralha',
+          texto: 'Conversar com Jon Snow sobre os deveres da Patrulha da Noite e a honra de empunhar o aço no gelo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25, catelyn: -10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_banquete_e_conversa_tyrion',
+        }
       ],
     },
 
@@ -136,6 +171,23 @@ Ao seu lado desceram a Rainha Cersei em sedas e peles douradas, Sor Jaime Lannis
           onSuccessNodeId: 'j3_a1_banquete_e_conversa_tyrion',
           onPartialFailureNodeId: 'j3_a1_banquete_e_conversa_tyrion',
         },
+
+        {
+          id: 'esc_comitiva_homenagem_criptas',
+          texto: 'Conduzir Robert pessoalmente às criptas profundas para depositar uma rosa de inverno no túmulo de Lyanna.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, jon_snow: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_banquete_e_conversa_tyrion',
+        },
+        {
+          id: 'esc_comitiva_vigilia_nobre',
+          texto: 'Designar os guerreiros Umber e Cassel para a guarda de honra dos portões de granito.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, catelyn: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_banquete_e_conversa_tyrion',
+        }
       ],
     },
 
@@ -173,6 +225,23 @@ No dia seguinte, o rei partiu para uma caçada nos bosques. Bran Stark, escaland
           tipo: 'simples',
           nextNodeId: 'j3_a1_queda_de_bran_torre',
         },
+
+        {
+          id: 'esc_banquete_dialogo_robert',
+          texto: 'Beber com o Rei Robert e recordar os dias de juventude no Ninho da Águia com Jon Arryn.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 15, grande_jon: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_queda_de_bran_torre',
+        },
+        {
+          id: 'esc_banquete_observar_lannister',
+          texto: 'Manter olhar atento sobre a Rainha Cersei e Sor Jaime durante todo o serviço de jantar.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 15 },
+          delta: { flagsAdicionadas: ['lannister_observados_banquete'] },
+          nextNodeId: 'j3_a1_queda_de_bran_torre',
+        }
       ],
     },
 
@@ -210,6 +279,26 @@ Um gemido escapou de seus lábios. Jaime virou-se com agilidade felina, agarrou 
           tipo: 'simples',
           nextNodeId: 'j3_a1_vigilia_catelyn_assassino',
         },
+
+        {
+          id: 'esc_queda_bran_vigilia_solene',
+          texto: 'Montar vigília ininterrupta com guardas leais na porta dos aposentos de Bran ferido.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, grande_jon: 15 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j3_a1_vigilia_catelyn_assassino',
+        },
+        {
+          id: 'esc_queda_bran_investigar_torre',
+          texto: 'Subir à torre abandonada em busca de pegadas, fios de cabelo ou pegadas de botas no parapeito.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 8,
+          onSuccessNodeId: 'j3_a1_vigilia_catelyn_assassino',
+          onPartialFailureNodeId: 'j3_a1_vigilia_catelyn_assassino',
+          tagOrigem: '[INVESTIGACAO DO NORTE]',
+          aprovacaoCompanheiros: { peixe_negro: 20, catelyn: 15 },
+        }
       ],
     },
 
@@ -262,6 +351,30 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
           onSuccessNodeId: 'j3_a1_pista_adaga_corte',
           onPartialFailureNodeId: 'j3_a1_partida_catelyn_estrada_sul',
         },
+      
+        {
+          id: 'esc_j3_a1_investigar_pegadas_bosque_sagrado',
+          texto: 'Varrer o Bosque Sagrado em busca de vestígios do cúmplice que abriu os portões de Winterfell.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j3_a1_partida_catelyn_estrada_sul',
+          onPartialFailureNodeId: 'j3_a1_partida_catelyn_estrada_sul',
+          aprovacaoCompanheiros: { catelyn: 15, grande_jon: 5 },
+          delta: { mundo: { vestigios_assassino_encontrados: true } },
+        },
+        {
+          id: 'esc_j3_a1_oracao_arvore_coracao_bran',
+          texto: 'Ajoelhar diante do represeiro ancestral buscando a sabedoria dos Deuses Antigos para salvar Bran.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 11,
+          tagOrigem: '[HONRA DO NORTE]',
+          onSuccessNodeId: 'j3_a1_partida_catelyn_estrada_sul',
+          onPartialFailureNodeId: 'j3_a1_partida_catelyn_estrada_sul',
+          aprovacaoCompanheiros: { jon_snow: 15, catelyn: 10 },
+          delta: { ficha: { compostura: 1 } },
+        },
       ],
     },
 
@@ -288,6 +401,23 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
           tipo: 'simples',
           nextNodeId: 'j3_a1_partida_catelyn_estrada_sul',
         },
+
+        {
+          id: 'esc_pista_adaga_catelyn_viagem',
+          texto: 'Apoiar Catelyn em sua jornada secreta a cavalo até Porto Real com Sor Rodrik Cassel.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 20 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_estrada_final_porto_real',
+        },
+        {
+          id: 'esc_pista_adaga_guardar_winterfell',
+          texto: 'Manter a adaga guardada sob sete chaves e confiar a governança do castelo a Robb Stark.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 20, catelyn: 15 },
+          delta: { flagsAdicionadas: ['adaga_sob_guarda_norte'] },
+          nextNodeId: 'j3_a1_estrada_final_porto_real',
+        }
       ],
     },
 
@@ -321,6 +451,29 @@ Ned cavalgava para o sul pela Estrada do Rei com Sansa, Arya e as lobas Lady e N
           texto: 'Seguir com a comitiva de Ned e as meninas até a encruzilhada do Tridente.',
           tipo: 'simples',
           nextNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
+        },
+      
+        {
+          id: 'esc_j3_a1_escoltar_catelyn_porto_branco',
+          texto: 'Escoltar Lady Catelyn e Sor Rodrik Cassel até Porto Branco para fretar uma galé rápida e segura.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 11,
+          onSuccessNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
+          onPartialFailureNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
+          aprovacaoCompanheiros: { catelyn: 20, grande_jon: 10 },
+          delta: { mundo: { viagem_porto_branco_segura: true } },
+        },
+        {
+          id: 'esc_j3_a1_permanecer_winterfell_com_robb',
+          texto: 'Permanecer em Winterfell instruindo o jovem Robb na colheita e nas defesas da fortaleza.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 11,
+          onSuccessNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
+          onPartialFailureNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
+          aprovacaoCompanheiros: { grande_jon: 15, jon_snow: 10 },
+          delta: { ficha: { honra: 1 } },
         },
       ],
     },
@@ -358,6 +511,23 @@ Com ajuda de Tyrion e seu lobo Fantasma, Jon venceu a hostilidade inicial e juro
           tipo: 'simples',
           nextNodeId: 'j3_a1_incidente_tridente_nymeria_joffrey',
         },
+
+        {
+          id: 'esc_jon_muralha_despedida_ned',
+          texto: 'Abraçar Jon Snow e prometer-lhe que quando nos virmos novamente conversaremos sobre sua mãe.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 30, catelyn: -15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_julgamento_darry_lady',
+        },
+        {
+          id: 'esc_jon_muralha_garra_fantasma',
+          texto: 'Observar o lobo albino Fantasma ao lado de Jon e desejar que o Norte permaneça sempre em seu coração.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { jon_snow: 25 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_julgamento_darry_lady',
+        }
       ],
     },
 
@@ -403,6 +573,23 @@ Arya atacou o príncipe com um pedaço de pau. Quando Joffrey ergueu a lâmina p
           onSuccessNodeId: 'j3_a1_whatif_lady_salva',
           onPartialFailureNodeId: 'j3_a1_julgamento_darry_lady',
         },
+
+        {
+          id: 'esc_tridente_acalmar_arya',
+          texto: 'Abraçar Arya com firmeza e ordenar que espalhe carne fresca para que Nymeria fuja para as matas do Tridente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, jon_snow: 20 },
+          delta: { flagsAdicionadas: ['nymeria_liberta_florestas'], compostura: 2 },
+          nextNodeId: 'j3_a1_julgamento_darry_lady',
+        },
+        {
+          id: 'esc_tridente_repreender_joffrey',
+          texto: 'Exigir que Joffrey aprenda a honrar as damas e cesse as provocações perante a guarda.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 25, catelyn: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_julgamento_darry_lady',
+        }
       ],
     },
 
@@ -441,6 +628,23 @@ Ned recusou que o carrasco Ilyn Payne tocasse na criatura:
           tipo: 'simples',
           nextNodeId: 'j3_a1_estrada_final_porto_real',
         },
+
+        {
+          id: 'esc_darry_confrontar_cersei',
+          texto: 'Exigir que o Rei Robert faça justiça entre os meninos sem sacrificar uma loba inocente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, grande_jon: 25 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_whatif_lady_salva',
+        },
+        {
+          id: 'esc_darry_sacrificio_doloroso',
+          texto: 'Executar Lady pessoalmente para que ela não sinta as mãos cruéis de Ilyn Payne.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 15, grande_jon: 10 },
+          delta: { sangue: -1, compostura: -1 },
+          nextNodeId: 'j3_a1_estrada_final_porto_real',
+        }
       ],
     },
 
@@ -469,6 +673,23 @@ Lady foi enviada secretamente de volta a Winterfell em segurança.`,
           tipo: 'simples',
           nextNodeId: 'j3_a1_estrada_final_porto_real',
         },
+
+        {
+          id: 'esc_salva_lady_enviar_winterfell',
+          texto: 'Despachar Lady com batedores nortenhos para que retorne em segurança aos bosques de Winterfell.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, jon_snow: 20 },
+          delta: { flagsAdicionadas: ['lady_salva_em_winterfell'], compostura: 2 },
+          nextNodeId: 'j3_a1_estrada_final_porto_real',
+        },
+        {
+          id: 'esc_salva_lady_guardar_sansa',
+          texto: 'Manter a loba vigiada e protegida sob a guarda de Jory Cassel na comitiva real.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_estrada_final_porto_real',
+        }
       ],
     },
 
@@ -497,6 +718,23 @@ Sor Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned.
           tipo: 'simples',
           nextNodeId: 'j3_a1_torre_da_mao_aposentos',
         },
+
+        {
+          id: 'esc_estrada_final_batedores_alerta',
+          texto: 'Redobrar os piquetes de batedores e entrar na capital em coluna cerrada com as cores Stark.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { grande_jon: 20, peixe_negro: 20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j3_a1_torre_da_mao_aposentos',
+        },
+        {
+          id: 'esc_estrada_final_confortar_filhas',
+          texto: 'Confortar Sansa e Arya diante da visão imponente das muralhas vermelhas de Porto Real.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_torre_da_mao_aposentos',
+        }
       ],
     },
 
@@ -523,6 +761,23 @@ Sor Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned.
           tipo: 'simples',
           nextNodeId: 'j3_a1_conselho_primeiro_contato',
         },
+
+        {
+          id: 'esc_torre_mao_trocar_guardas',
+          texto: 'Substituir os guardas dos corredores da Torre da Mão por homens de Winterfell sob o comando de Jory.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 25 },
+          delta: { flagsAdicionadas: ['guardas_norte_torre_mao'], compostura: 2 },
+          nextNodeId: 'j3_a1_conselho_primeiro_contato',
+        },
+        {
+          id: 'esc_torre_mao_examinar_contas',
+          texto: 'Abrir os livros de despesas deixados por Jon Arryn e constatar o endividamento catastrófico da coroa.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 20, catelyn: 15 },
+          delta: { flagsAdicionadas: ['divida_coroa_descoberta'] },
+          nextNodeId: 'j3_a1_conselho_primeiro_contato',
+        }
       ],
     },
 
@@ -551,6 +806,23 @@ Ao seu lado, o eunuco Varys cheirava a pó de lilás e água de rosas, com passo
           tipo: 'simples',
           nextNodeId: 'j3_a1_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_conselho_firmeza_norte',
+          texto: 'Repreender os gastos do Pequeno Conselho com o Torneio da Mão e impor disciplina orçamentária.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 20, grande_jon: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j3_a1_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_conselho_sondar_varys',
+          texto: 'Ouvir os sussurros enigmáticos do eunuco Varys sobre os perigos ocultos que cercam o trono.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { peixe_negro: 15, catelyn: 10 },
+          delta: { flagsAdicionadas: ['aviso_varys_recebido'] },
+          nextNodeId: 'j3_a1_checkpoint_conclusao',
+        }
       ],
     },
 

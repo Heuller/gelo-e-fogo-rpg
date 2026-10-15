@@ -108,12 +108,14 @@ const REGIOES_CONQUISTA: RegiaoConquista[] = [
 
 interface PropsWesterosMap {
   regiaoAtualId?: string;
+  activeRegionId?: string;
   className?: string;
 }
 
-export function WesterosMapSVG({ regiaoAtualId = 'pedra_dragao', className = '' }: PropsWesterosMap) {
+export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }: PropsWesterosMap) {
+  const idEfetivo = regiaoAtualId || activeRegionId || 'pedra_dragao';
   const [regiaoSelecionada, setRegiaoSelecionada] = useState<RegiaoConquista>(
-    REGIOES_CONQUISTA.find((r) => r.id === regiaoAtualId) || REGIOES_CONQUISTA[3]
+    REGIOES_CONQUISTA.find((r) => r.id === idEfetivo) || REGIOES_CONQUISTA[3]
   );
 
   return (

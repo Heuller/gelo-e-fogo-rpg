@@ -59,6 +59,24 @@ Orys Baratheon, irmão bastardo de Aegon e seu companheiro mais leal desde a inf
           onSuccessNodeId: 'j1_a1_desembarque_agua_negra',
           onPartialFailureNodeId: 'j1_a1_maos_cortadas',
         },
+
+        {
+          id: 'esc_mesa_astucia_suborno',
+          texto: 'Enviar emissários secretos aos meistres da Cidadela para obter plantas detalhadas das capitanias do continente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 15, visenya: 10, rhaenys: 5 },
+          delta: { compostura: 1, flagsAdicionadas: ['plantas_cidadela_obtidas'] },
+          nextNodeId: 'j1_a1_oferta_argilac',
+        },
+        {
+          id: 'esc_mesa_pressagio_valiriano',
+          texto: 'Realizar libações valirianas com as duas irmãs e meditar sobre o Sonho de Daenys, a Iluminada.',
+          tipo: 'simples',
+          tagOrigem: '[SANGUE VALIRIANO]',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: 15, orys: 10 },
+          delta: { inspiracao: 1, compostura: 2 },
+          nextNodeId: 'j1_a1_oferta_argilac',
+        }
       ],
     },
 
@@ -117,6 +135,17 @@ Aegon já possuía duas esposas e não desonraria Visenya e Rhaenys tomando uma 
           onSuccessNodeId: 'j1_a1_maos_cortadas',
           onPartialFailureNodeId: 'j1_a1_maos_cortadas',
         },
+
+        {
+          id: 'esc_argilac_astucia_contraproposta',
+          texto: 'Enviar espiões para descobrir até onde os vassalos de Argilac estão dispostos a marchar em uma guerra contra dragões.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a1_maos_cortadas',
+          onPartialFailureNodeId: 'j1_a1_maos_cortadas',
+          aprovacaoCompanheiros: { visenya: 15, orys: 5 },
+        }
       ],
     },
 
@@ -172,6 +201,23 @@ Aegon convocou imediatamente seus vassalos insulares: Daemon Velaryon, senhor de
           onSuccessNodeId: 'j1_a1_desembarque_agua_negra',
           onPartialFailureNodeId: 'j1_a1_desembarque_agua_negra',
         },
+
+        {
+          id: 'esc_maos_honra_orys',
+          texto: 'Prometer a Orys perante as chamas de Balerion que ele pessoalmente tomará as terras e as armas do Arrogante.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 25, visenya: 15, rhaenys: -5 },
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a1_desembarque_agua_negra',
+        },
+        {
+          id: 'esc_maos_diplomacia_resposta',
+          texto: 'Redigir a proclamação oficial do Rei Aegon a todos os lordes dos Sete Reinos, exigindo que dobrem o joelho ou pereçam.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 15, visenya: 15, orys: 10 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a1_desembarque_agua_negra',
+        }
       ],
     },
 
@@ -227,6 +273,23 @@ Os pequenos senhores da região costeira estavam desamparados. Seus suseranos di
           onSuccessNodeId: 'j1_a1_submissao_rosby_stokeworth',
           onPartialFailureNodeId: 'j1_a1_submissao_rosby_stokeworth',
         },
+
+        {
+          id: 'esc_desembarque_astucia_paliçada',
+          texto: 'Mandar erguer fortificações rápidas e fossos de estacas com madeira das colinas antes que os nobres vizinhos reajam.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 15 },
+          delta: { flagsAdicionadas: ['fossos_do_forte_aegon'] },
+          nextNodeId: 'j1_a1_submissao_rosby_stokeworth',
+        },
+        {
+          id: 'esc_desembarque_pressagio_fogueiras',
+          texto: 'Acender três grandes fogueiras no cume das Três Colinas para que a luz rubra seja vista do outro lado da baía.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_submissao_rosby_stokeworth',
+        }
       ],
     },
 
@@ -273,6 +336,36 @@ Ambos os senhores foram conduzidos ao Forte de Aegon na condição de prisioneir
           tipo: 'simples',
           nextNodeId: 'j1_a1_batalha_darklyn_mooton',
         },
+
+        {
+          id: 'esc_rosby_diplomacia',
+          texto: 'Enviar emissários com termos benevolentes a Valdocaso, garantindo seus feudos se depuserem o aço.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a1_batalha_darklyn_mooton',
+          onPartialFailureNodeId: 'j1_a1_batalha_darklyn_mooton',
+          aprovacaoCompanheiros: { rhaenys: 15, visenya: -10 },
+        },
+        {
+          id: 'esc_rosby_espionagem',
+          texto: 'Despachar batedores nas sombras para sabotar os piquetes de cavalaria de Valdocaso.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 9,
+          onSuccessNodeId: 'j1_a1_batalha_darklyn_mooton',
+          onPartialFailureNodeId: 'j1_a1_batalha_darklyn_mooton',
+          tagOrigem: '[ESPIONAGEM VALIRIANA]',
+          aprovacaoCompanheiros: { visenya: 15, orys: -5, rhaenys: -10 },
+        },
+        {
+          id: 'esc_rosby_pressagio',
+          texto: 'Consultar os mapas e os ventos costeiros com Rhaenys para fechar a fuga naval dos Darklyn.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: 10 },
+          delta: { compostura: 1, flagsAdicionadas: ['bloqueio_naval_darklyn'] },
+          nextNodeId: 'j1_a1_batalha_darklyn_mooton',
+        }
       ],
     },
 
@@ -332,6 +425,30 @@ O combate corpo a corpo eclodiu nas alas não tocadas pelo fogo. Lorde Darklyn l
           dc: 9,
           onSuccessNodeId: 'j1_a1_vitoria_darklyn',
           onPartialFailureNodeId: 'j1_a1_vitoria_darklyn',
+        },
+      
+        {
+          id: 'esc_j1_a1_investigar_rotas_baia',
+          texto: 'Mapear as enseadas da Baía dos Caranguejos e subornar informantes em Valdocaso.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a1_coroacao_forte_aegon',
+          onPartialFailureNodeId: 'j1_a1_coroacao_forte_aegon',
+          aprovacaoCompanheiros: { daemon_v: 10, visenya: 5 },
+          delta: { mundo: { rotas_baia_mapeadas: true }, ficha: { compostura: 1 } },
+        },
+        {
+          id: 'esc_j1_a1_invocar_fogo_exemplar',
+          texto: 'Incendiar as muralhas ribeirinhas com Balerion como demonstração avassaladora de poder!',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 12,
+          tagOrigem: '[TERROR VALIRIANO]',
+          onSuccessNodeId: 'j1_a1_coroacao_forte_aegon',
+          onPartialFailureNodeId: 'j1_a1_coroacao_forte_aegon',
+          aprovacaoCompanheiros: { visenya: 15, rhaenys: -10 },
+          delta: { mundo: { terror_das_torres: true }, ficha: { honra: -1 } },
         },
       ],
     },
@@ -412,6 +529,33 @@ O estuário da Água Negra e toda a costa leste agora pertenciam à Casa Targary
           tipo: 'simples',
           nextNodeId: 'j1_a1_coroacao_forte_aegon',
         },
+
+        {
+          id: 'esc_darklyn_furia_execucao',
+          texto: 'Exigir reféns nobres imediatos e confiscar as armas de Valdocaso para o arsenal real.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, rhaenys: -10, orys: 10 },
+          delta: { flagsAdicionadas: ['ouro_de_valdocaso'] },
+          nextNodeId: 'j1_a1_coroacao_forte_aegon',
+        },
+        {
+          id: 'esc_darklyn_cortesia_perdao',
+          texto: 'Estender a mão a Robin Darklyn e Jon Mooton com perdão régio, transformando inimigos em aliados fiéis.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 8,
+          onSuccessNodeId: 'j1_a1_coroacao_forte_aegon',
+          onPartialFailureNodeId: 'j1_a1_coroacao_forte_aegon',
+          aprovacaoCompanheiros: { rhaenys: 20, visenya: -15 },
+        },
+        {
+          id: 'esc_darklyn_estrada_rei',
+          texto: 'Ordenar que os agrimensores tracem a primeira Estrada Real unindo o Forte aos portos conquistados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 10, orys: 10 },
+          delta: { flagsAdicionadas: ['marco_estrada_real'] },
+          nextNodeId: 'j1_a1_coroacao_forte_aegon',
+        }
       ],
     },
 
@@ -528,6 +672,23 @@ Nos céus, Visenya preparava o mergulho incendiário de Vhagar, mas o vento fort
           onSuccessNodeId: 'j1_a1_daemon_velaryon_morto',
           onPartialFailureNodeId: 'j1_a1_daemon_velaryon_morto',
         },
+
+        {
+          id: 'esc_naval_astucia_fogo_grego',
+          texto: 'Posicionar barris de piche e enxofre nas trirremes Velaryon para armar um incêndio traiçoeiro na boca da baía.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, daemon_v: 15, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['armadilha_piche_naval'] },
+          nextNodeId: 'j1_a1_daemon_velaryon_salvo',
+        },
+        {
+          id: 'esc_naval_pressagio_mar',
+          texto: 'Consultar os mapas de correntes marítimas e marés com Daemon Velaryon para manobrar na vazante.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 25, rhaenys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_daemon_velaryon_salvo',
+        }
       ],
     },
 
@@ -568,6 +729,23 @@ A notícia da vitória naval e da sobrevivência do Mestre dos Navios ecoou por 
           tipo: 'simples',
           nextNodeId: 'j1_a1_checkpoint_naval',
         },
+
+        {
+          id: 'esc_daemon_v_reorganizar_frota',
+          texto: 'Ordenar que Daemon Velaryon mantenha patrulhas perpétuas no Mar Estreito para asfixiar os Arryn.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 20, visenya: 10 },
+          delta: { flagsAdicionadas: ['patrulha_velaryon_mar_estreito'] },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        },
+        {
+          id: 'esc_daemon_v_celebrar_salvamento',
+          texto: 'Brindar ao resgate de Daemon no convés com os marinheiros de Derivamarca e conceder-lhe honras de Mestre dos Navios.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 25, orys: 15, rhaenys: 15 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        }
       ],
     },
 
@@ -607,6 +785,23 @@ O controle do mar costeiro estava garantido, mas a morte de Daemon ensinou ao jo
           tipo: 'simples',
           nextNodeId: 'j1_a1_checkpoint_naval',
         },
+
+        {
+          id: 'esc_daemon_v_luto_furia',
+          texto: 'Jurar perante o mar que Vila Gaivota e os Arryn pagarão com cinzas pelo sangue derramado do Mestre dos Navios.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, orys: 10, rhaenys: -10 },
+          delta: { flagsAdicionadas: ['juramento_vinganca_velaryon'] },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        },
+        {
+          id: 'esc_daemon_v_funeral_solene',
+          texto: 'Conduzir os ritos fúnebres valirianos nas águas de Vila Gaivota com os cânticos de Rhaenys e chamas de Vhagar.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 15, visenya: 10 },
+          delta: { compostura: 1, flagsAdicionadas: ['funeral_solene_velaryon'] },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        }
       ],
     },
 
@@ -665,6 +860,23 @@ Uma negociação astuta com os Tully pode desencadear a revolta de todos os senh
           onSuccessNodeId: 'j1_a1_batalha_dos_juncos',
           onPartialFailureNodeId: 'j1_a1_batalha_dos_juncos',
         },
+
+        {
+          id: 'esc_fluvial_astucia_infiltrar',
+          texto: 'Mandar espiões fantasiados de barqueiros do lago para semear boatos de revolta entre a guarnição de Harren.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 5 },
+          delta: { flagsAdicionadas: ['boatos_semeados_harrenhal'] },
+          nextNodeId: 'j1_a1_tully_revolta',
+        },
+        {
+          id: 'esc_fluvial_bencao_rio',
+          texto: 'Oferecer pão e sal aos ribeirinhos e prometer que as leis de ferro dos Hoare nunca mais vigorarão no Tridente.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 15, visenya: -5 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j1_a1_tully_revolta',
+        }
       ],
     },
 
@@ -705,6 +917,23 @@ Harrenhal estava completamente isolada do resto do mundo, cercada por terra e co
           tipo: 'simples',
           nextNodeId: 'j1_a1_checkpoint_fluvial',
         },
+
+        {
+          id: 'esc_tully_pacto_honra',
+          texto: 'Prometer formalmente a Edmyn Tully a soberania de Correrrio sobre todos os lordes do Tridente quando Harren cair.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 15, rhaenys: 15, visenya: -5 },
+          delta: { flagsAdicionadas: ['promessa_tully_supremacia'] },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        },
+        {
+          id: 'esc_tully_astucia_bloqueio',
+          texto: 'Despachar cavaleiros ribeirinhos para queimar os moinhos e cortar as linhas de grão que abastecem Harrenhal.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 10 },
+          delta: { flagsAdicionadas: ['cerco_suprimentos_harrenhal'] },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        }
       ],
     },
 
@@ -744,6 +973,23 @@ Ambos os filhos de Harren pereceram sob o hálito do Terror Negro. As notícias 
           tipo: 'simples',
           nextNodeId: 'j1_a1_checkpoint_fluvial',
         },
+
+        {
+          id: 'esc_juncos_queimar_barcos',
+          texto: 'Sobrevoar os juncos com Balerion até incendiar a última barcaça de fundo chato dos homens de ferro.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 20, rhaenys: -5, orys: 10 },
+          delta: { flagsAdicionadas: ['flotilha_harren_aniquilada'] },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        },
+        {
+          id: 'esc_juncos_resgate_pescadores',
+          texto: 'Prestar socorro às vilas de pescadores do Olho de Deus massacradas por Harren, conquistando a veneração popular.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 15, visenya: -10 },
+          delta: { compostura: 2, flagsAdicionadas: ['gratidao_povo_tridente'] },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        }
       ],
     },
 
@@ -803,6 +1049,30 @@ Orys Baratheon desembainhou sua espada de aço escuro no meio da trilha estreita
           dc: 8,
           onSuccessNodeId: 'j1_a1_vitoria_bosque',
           onPartialFailureNodeId: 'j1_a1_vitoria_bosque',
+        },
+      
+        {
+          id: 'esc_j1_a1_enviar_batedores_degraus',
+          texto: 'Mapear as trilhas da Mata de Chuva para evitar emboscadas dos homens de Argilac.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j1_a1_checkpoint_tempestade',
+          onPartialFailureNodeId: 'j1_a1_checkpoint_tempestade',
+          aprovacaoCompanheiros: { orys: 10, visenya: 5 },
+          delta: { mundo: { mata_chuva_mapeada: true } },
+        },
+        {
+          id: 'esc_j1_a1_pressagio_tormenta_rhaenys',
+          texto: 'Consultar os sinais das nuvens e relâmpagos com Rhaenys antes da marcha.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 12,
+          tagOrigem: '[SONHO DO DRAGÃO]',
+          onSuccessNodeId: 'j1_a1_checkpoint_tempestade',
+          onPartialFailureNodeId: 'j1_a1_checkpoint_tempestade',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: 5 },
+          delta: { ficha: { compostura: 1 } },
         },
       ],
     },
@@ -878,109 +1148,213 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
           tipo: 'simples',
           nextNodeId: 'j1_a1_checkpoint_tempestade',
         },
+
+        {
+          id: 'esc_bosque_honra_cacada',
+          texto: 'Pressionar a vanguarda e interceptar as forças de Fell e Buckler antes que se agrupem com o grosso de Argilac.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 15, rhaenys: -5 },
+          delta: { flagsAdicionadas: ['vanguarda_argilac_desbaratada'] },
+          nextNodeId: 'j1_a1_checkpoint_tempestade',
+        },
+        {
+          id: 'esc_bosque_confortar_soldados',
+          texto: 'Cuidar pessoalmente dos arqueiros feridos na lama com Orys e acender fogueiras sob o abrigo protetor de Meraxes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 20, orys: 20, visenya: -5 },
+          delta: { sangue: 2, compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_tempestade',
+        }
       ],
     },
 
     // ==========================================
     // CENA 19: CHECKPOINT NAVAL (FIM DO ATO 1)
     // ==========================================
-    j1_a1_checkpoint_naval: {
+        j1_a1_checkpoint_naval: {
       id: 'j1_a1_checkpoint_naval',
-      titulo: 'Conclusão do Ato I &bull; O Domínio do Mar Estreito',
+      titulo: 'Acampamento & Conselho Noturno: Costa de Vila Gaivota',
       anoHistorico: '2 a.C.',
-      localizacao: 'Águas de Vila Gaivota',
-      regionId: 'vale',
-      isEnding: true,
-      fallbackText: `Com as frotas dos Arryn e das Três Irmãs em cinzas na Baía de Vila Gaivota, o controle marítimo do Mar Estreito pertence irrevogavelmente à Casa Targaryen. A rainha Sharra Arryn recuou para as alturas inexpugnáveis do Ninho da Águia, impotente diante das asas de Vhagar.
-
-O Forte de Aegon agora recebe navios e tributos de todas as cidades da costa leste. O Desembarque foi consolidado, os primeiros lordes curvaram os joelhos e a coroa foi consagrada em ferro e rubis.
-
-O Ato I da grande epopeia está concluído. Adiante aguarda o fogo de Harrenhal, o choque do Último Risco e o confronto colossal de cinco reis no Campo de Fogo.`,
+      localizacao: 'Acampamento & Pavilhão Real',
+      regionId: 'pedra_dragao',
+      deltaEstado: {
+        sangue: 2,
+        compostura: 2,
+      },
+      fallbackText: `As ondas do Mar Estreito quebram compassadas contra os rochedos salgados. No pavilhão de campanha com as insígnias do dragão de três cabeças, as brasas crepitam enquanto os sentinelas rendem guarda.`,
       internalVoices: [
         {
-          atributo: 'comando',
+          atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'A fundação da dinastia foi gravada em pedra e sal. Que venham os reis do oeste.',
+          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+        },
+        {
+          atributo: 'pressagio',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 9,
+          fala: 'As estrelas do poente formam o desenho de uma espada de fogo. O próximo capítulo selará o destino de Westeros.',
         },
       ],
-      loreContext: {
+            loreContext: {
         fonte: {
-          arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
+          arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'Marco de transição: Conclusão do Desembarque e preparação para as campanhas dos Atos 2 e 3.',
+        notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
-      escolhas: [],
+      escolhas: [
+        {
+          id: 'esc_camp_naval_daemon_v',
+          texto: 'Conferenciar com Lorde Daemon Velaryon sobre a vigilância marítima e as marés do Mar Estreito.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon_v: 15, visenya: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        },
+        {
+          id: 'esc_camp_naval_visenya',
+          texto: 'Afinar as táticas de ataque aéreo de Vhagar com a Rainha Visenya sob a luz das velas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { visenya: 15, orys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        },
+        {
+          id: 'esc_camp_naval_dormir',
+          texto: 'Descansar no pavilhão régio e ordenar que os batedores montem vigília cerrada ao redor do acampamento.',
+          tipo: 'simples',
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_naval',
+        }
+      ],
     },
 
     // ==========================================
     // CENA 20: CHECKPOINT FLUVIAL (FIM DO ATO 1)
     // ==========================================
-    j1_a1_checkpoint_fluvial: {
+        j1_a1_checkpoint_fluvial: {
       id: 'j1_a1_checkpoint_fluvial',
-      titulo: 'Conclusão do Ato I &bull; A Rebelião dos Rios',
+      titulo: 'Acampamento & Conselho Noturno: Margens do Olho de Deus',
       anoHistorico: '2 a.C.',
-      localizacao: 'O Olho de Deus & Harrenhal',
-      regionId: 'tridente',
-      isEnding: true,
-      fallbackText: `A aliança com a Casa Tully e a adesão maciça dos Senhores dos Rios transformaram a invasão em uma marcha triunfal de libertação contra os homens de ferro. Mais de quarenta mil guerreiros cercam Harrenhal, enquanto Balerion projeta sua sombra sobre o lago.
-
-O rei Harren, o Negro, recusa-se a render-se dentro de seus salões ciclópicos de granito e basalto, acreditando que a pedra não arde. A fúria do dragão responderá ao desafio nas primeiras noites do Ato II.
-
-O Desembarque foi um êxito incontestável: o Tridente ajoelhou-se e o continente reconheceu que um novo soberano dita as leis do mundo.`,
+      localizacao: 'Acampamento & Pavilhão Real',
+      regionId: 'pedra_dragao',
+      deltaEstado: {
+        sangue: 2,
+        compostura: 2,
+      },
+      fallbackText: `A névoa do lago se ergue sobre os juncais. Diante do pavilhão real, o vulto colossal de Balerion repousa como uma montanha de obsidiana viva, emitindo baforadas de fumaça sob a noite estrelada.`,
       internalVoices: [
         {
-          atributo: 'erudicao',
+          atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Os rios outrora manchados de sangue pelos Hoare agora correm com o estandarte do dragão. O destino de Harrenhal está selado.',
+          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+        },
+        {
+          atributo: 'pressagio',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 9,
+          fala: 'As estrelas do poente formam o desenho de uma espada de fogo. O próximo capítulo selará o destino de Westeros.',
         },
       ],
-      loreContext: {
+            loreContext: {
         fonte: {
-          arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
+          arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'Marco de transição: Cerco de Harrenhal e preparação para o Ato II.',
+        notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
-      escolhas: [],
+      escolhas: [
+        {
+          id: 'esc_camp_fluvial_rhaenys',
+          texto: 'Caminhar à margem do Olho de Deus com a Rainha Rhaenys ouvindo seus conselhos sobre a paz com os lordes dos rios.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 15, orys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        },
+        {
+          id: 'esc_camp_fluvial_edmyn',
+          texto: 'Receber Lorde Edmyn Tully e os nobres ribeirinhos ao redor da mesa de mapas para afinar o cerco a Harrenhal.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 10, visenya: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        },
+        {
+          id: 'esc_camp_fluvial_descansar',
+          texto: 'Beber o vinho das Terras Fluviais ao lado dos cavaleiros e repousar até o nascer do sol.',
+          tipo: 'simples',
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_fluvial',
+        }
+      ],
     },
 
     // ==========================================
     // CENA 21: CHECKPOINT TEMPESTADE (FIM DO ATO 1)
     // ==========================================
-    j1_a1_checkpoint_tempestade: {
+        j1_a1_checkpoint_tempestade: {
       id: 'j1_a1_checkpoint_tempestade',
-      titulo: 'Conclusão do Ato I &bull; O Rumo do Último Risco',
+      titulo: 'Acampamento & Conselho Noturno: Fronteira das Terras da Tempestade',
       anoHistorico: '2 a.C.',
-      localizacao: 'Planícies da Tempestade',
-      regionId: 'tempestade',
-      isEnding: true,
-      fallbackText: `Após superar as emboscadas de Wendwater e dispersar os senhores da mata, a vanguarda de Orys Baratheon e a rainha Rhaenys encontram o campo aberto diante das colinas de Ponta Tempestade.
-
-O vento uiva com fúria crescente nos rochedos, prenunciando a tempestade lendária que dará nome à batalha decisiva entre o Rei Argilac Durrandon e a força do dragão.
-
-O primeiro capítulo da Conquista está consumado: as três colinas da Água Negra sustentam o estandarte régio, as espadas valirianas foram provadas na luta e os Sete Reinos jamais voltarão a ser os mesmos.`,
+      localizacao: 'Acampamento & Pavilhão Real',
+      regionId: 'pedra_dragao',
+      deltaEstado: {
+        sangue: 2,
+        compostura: 2,
+      },
+      fallbackText: `Trovões distantes anunciam a fúria das hostes de Ponta Tempestade. Entre as árvores do Wendwater, os homens limpam suas cotas de malha e afiam as lanças em silêncio reverente.`,
       internalVoices: [
         {
-          atributo: 'furia',
+          atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O veado coroado sairá de sua toca para o choque derradeiro. Orys conquistará seu lema e seu brasão no sangue da tempestade.',
+          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+        },
+        {
+          atributo: 'pressagio',
+          resultadoPassivo: 'SUCESSO',
+          dcPassiva: 9,
+          fala: 'As estrelas do poente formam o desenho de uma espada de fogo. O próximo capítulo selará o destino de Westeros.',
         },
       ],
-      loreContext: {
+            loreContext: {
         fonte: {
-          arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
+          arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
         },
-        notaHistorica: 'Marco de transição: Véspera da Batalha do Último Risco.',
+        notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
-      escolhas: [],
+      escolhas: [
+        {
+          id: 'esc_camp_temp_orys',
+          texto: 'Ajustar a armadura de Orys Baratheon e brindar à irmandade de armas antes do choque decisivo com Argilac.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { orys: 20, rhaenys: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_tempestade',
+        },
+        {
+          id: 'esc_camp_temp_rhaenys',
+          texto: 'Observar os relâmpagos ao longe com Rhaenys e traçar o plano de vôo de Meraxes em meio à tempestade.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys: 15, visenya: 5 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_tempestade',
+        },
+        {
+          id: 'esc_camp_temp_descanso',
+          texto: 'Rezar aos deuses antigos e novos pela vitória e revigorar as forças na tenda real.',
+          tipo: 'simples',
+          delta: { sangue: 1, compostura: 1 },
+          nextNodeId: 'j1_a1_checkpoint_tempestade',
+        }
+      ],
     },
   },
 };

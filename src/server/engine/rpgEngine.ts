@@ -37,15 +37,45 @@ export const EstadoBarrasSchema = z.object({
 });
 export type EstadoBarras = z.infer<typeof EstadoBarrasSchema>;
 
-// Ficha do Personagem
+// Sistema de Companheiros estilo Baldur's Gate 3
+export const StatusAprovacaoEnum = z.enum([
+  'Hostil',   // <= -40
+  'Frio',     // -39 a -10
+  'Neutro',   // -9 a +29
+  'Leal',     // +30 a +69
+  'Devotado', // >= +70
+]);
+export type StatusAprovacao = z.infer<typeof StatusAprovacaoEnum>;
+
+export const CompanheiroSchema = z.object({
+  id: z.string(),
+  nome: z.string(),
+  titulo: z.string(),
+  aprovacao: z.number().int().min(-100).max(100),
+  status: StatusAprovacaoEnum,
+});
+export type Companheiro = z.infer<typeof CompanheiroSchema>;
+
+export function calcularStatusAprovacao(aprovacao: number): StatusAprovacao {
+  if (aprovacao <= -40) return 'Hostil';
+  if (aprovacao <= -10) return 'Frio';
+  if (aprovacao < 30) return 'Neutro';
+  if (aprovacao < 70) return 'Leal';
+  return 'Devotado';
+}
+
+// Ficha do Personagem com Inspiração e Companheiros
 export const FichaPersonagemSchema = z.object({
   id: z.string(),
   nome: z.string(),
+  titulo: z.string().optional(),
   origem: OrigemTraitSchema,
   atributos: AtributosSchema,
   estado: EstadoBarrasSchema,
   cicatrizes: z.array(z.string()).default([]),
   segredos: z.array(z.string()).default([]),
+  inspiracao: z.number().int().min(0).max(4).default(2),
+  companheiros: z.record(z.string(), CompanheiroSchema).default({}),
 });
 export type FichaPersonagem = z.infer<typeof FichaPersonagemSchema>;
 
@@ -66,7 +96,19 @@ export const DeltaEstadoSchema = z.object({
   novoSegredo: z.string().optional(),
   reputacaoCasas: z.record(z.string(), z.number()).optional(),
   flagsBorboleta: z.record(z.string(), z.union([z.boolean(), z.string(), z.number()])).optional(),
+  flagsAdicionadas: z.array(z.string()).optional(),
   marcoConcluido: z.string().optional(),
+  inspiracao: z.number().int().optional(),
+  aprovacaoCompanheiros: z.record(z.string(), z.number()).optional(),
+  ficha: z
+    .object({
+      sangue: z.number().int().optional(),
+      compostura: z.number().int().optional(),
+      honra: z.number().int().optional(),
+      inspiracao: z.number().int().optional(),
+    })
+    .optional(),
+  mundo: z.record(z.string(), z.union([z.boolean(), z.string(), z.number()])).optional(),
 });
 export type DeltaEstado = z.infer<typeof DeltaEstadoSchema>;
 
@@ -87,6 +129,14 @@ export interface ResultadoRolagem {
   margem: number;
   morteCanonica: boolean;
   complicacaoNarrativa: boolean;
+}
+
+export interface NotificacaoAprovacaoCompanheiro {
+  companionId: string;
+  nome: string;
+  delta: number;
+  status: StatusAprovacao;
+  textoNotificacao: string;
 }
 
 // ==========================================
@@ -172,9 +222,6 @@ export function rolar2d6(
   }
 
   // 4. Falha Parcial (Fail Forward)
-  // Ocorre se:
-  // - total === dc - 1 ou total === dc - 2
-  // - OU se a falha for grave (total <= dc - 3 ou duplo 1) mas riscoMortal for falso (complicação narrativa)
   return {
     resultado: 'FALHA_PARCIAL',
     dados,
@@ -189,23 +236,174 @@ export function rolar2d6(
 }
 
 // ==========================================
-// 3. APLICAÇÃO DETERMINÍSTICA DE DELTA DE ESTADO
+// 3. SISTEMA DE INSPIRAÇÃO BG3 (RERROLAGEM)
 // ==========================================
 
-/**
- * Atualiza barras respeitando os limites máximos/mínimos (0..10 e -10..10),
- * atualiza reputação de Casas, adiciona segredos/cicatrizes e grava flags de efeito borboleta.
- * Função pura e imutável.
- */
+export function rerrolarUltimoTesteComInspiracao(
+  fichaAtual: FichaPersonagem,
+  dc: number,
+  valorAtributo: number,
+  opcoes?: OpcoesRolagem
+): {
+  resultadoRolagem: ResultadoRolagem;
+  fichaAtualizada: FichaPersonagem;
+  sucessoGasto: boolean;
+  motivo?: string;
+} {
+  const pontosAtuais = fichaAtual.inspiracao ?? 0;
+  if (pontosAtuais <= 0) {
+    return {
+      resultadoRolagem: rolar2d6(valorAtributo, dc, opcoes),
+      fichaAtualizada: fichaAtual,
+      sucessoGasto: false,
+      motivo: 'Sem Pontos de Inspiração disponíveis.',
+    };
+  }
+
+  const novaInspiracao = Math.max(0, pontosAtuais - 1);
+  const novaRolagem = rolar2d6(valorAtributo, dc, opcoes);
+
+  const fichaAtualizada: FichaPersonagem = {
+    ...fichaAtual,
+    inspiracao: novaInspiracao,
+  };
+
+  return {
+    resultadoRolagem: novaRolagem,
+    fichaAtualizada,
+    sucessoGasto: true,
+  };
+}
+
+// ==========================================
+// 4. COMPANHEIROS INICIAIS POR JORNADA
+// ==========================================
+
+export function obterCompanheirosIniciais(journeyId?: string): Record<string, Companheiro> {
+  const lower = (journeyId || '').toLowerCase();
+
+  if (lower.includes('danca') || lower.includes('jornada_2')) {
+    return {
+      daemon: {
+        id: 'daemon',
+        nome: 'Daemon Targaryen',
+        titulo: 'Príncipe Rebelde & Cavaleiro de Caraxes',
+        aprovacao: 35,
+        status: 'Leal',
+      },
+      corlys: {
+        id: 'corlys',
+        nome: 'Corlys Velaryon',
+        titulo: 'A Serpente Marinha & Senhor das Marés',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      rhaenys_j2: {
+        id: 'rhaenys_j2',
+        nome: 'Princesa Rhaenys Targaryen',
+        titulo: 'A Rainha Que Nunca Foi & Montadora de Meleys',
+        aprovacao: 30,
+        status: 'Leal',
+      },
+      mysaria: {
+        id: 'mysaria',
+        nome: 'Mysaria (O Verme Branco)',
+        titulo: 'Mestra dos Sussurros de Pedra do Dragão',
+        aprovacao: 15,
+        status: 'Neutro',
+      },
+    };
+  }
+
+  if (lower.includes('tronos') || lower.includes('guerra') || lower.includes('jornada_3')) {
+    return {
+      catelyn: {
+        id: 'catelyn',
+        nome: 'Catelyn Stark',
+        titulo: 'Senhora de Winterfell & Filha de Correrrio',
+        aprovacao: 35,
+        status: 'Leal',
+      },
+      grande_jon: {
+        id: 'grande_jon',
+        nome: 'Grande Jon Umber',
+        titulo: 'Senhor de Última Lareira & Vanguarda do Norte',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      peixe_negro: {
+        id: 'peixe_negro',
+        nome: 'Sor Brynden Tully (Peixe Negro)',
+        titulo: 'Cavaleiro do Portão & Escudo do Tridente',
+        aprovacao: 30,
+        status: 'Leal',
+      },
+      jon_snow: {
+        id: 'jon_snow',
+        nome: 'Jon Snow',
+        titulo: 'Irmão Juramentado da Patrulha da Noite',
+        aprovacao: 40,
+        status: 'Leal',
+      },
+    };
+  }
+
+  // Padrão: Jornada 1 (Conquista de Aegon)
+  return {
+    visenya: {
+      id: 'visenya',
+      nome: 'Visenya Targaryen',
+      titulo: 'Rainha & Montadora de Vhagar',
+      aprovacao: 25,
+      status: 'Neutro',
+    },
+    rhaenys: {
+      id: 'rhaenys',
+      nome: 'Rhaenys Targaryen',
+      titulo: 'Rainha & Montadora de Meraxes',
+      aprovacao: 35,
+      status: 'Leal',
+    },
+    orys: {
+      id: 'orys',
+      nome: 'Orys Baratheon',
+      titulo: 'Mão do Rei & Escudo de Aegon',
+      aprovacao: 40,
+      status: 'Leal',
+    },
+    daemon_v: {
+      id: 'daemon_v',
+      nome: 'Daemon Velaryon',
+      titulo: 'Mestre dos Navios & Lorde das Marés',
+      aprovacao: 20,
+      status: 'Neutro',
+    },
+  };
+}
+
+// ==========================================
+// 5. APLICAÇÃO DETERMINÍSTICA DE DELTA DE ESTADO
+// ==========================================
+
 export function aplicarDeltaEstado(
   fichaAtual: FichaPersonagem,
   worldStateAtual: WorldState,
   delta: DeltaEstado
-): { fichaAtualizada: FichaPersonagem; worldStateAtualizado: WorldState } {
+): {
+  fichaAtualizada: FichaPersonagem;
+  worldStateAtualizado: WorldState;
+  notificacoesCompanheiros: NotificacaoAprovacaoCompanheiro[];
+} {
+  // Suporte a delta unificado (flat ou aninhado via delta.ficha)
+  const dSangue = (delta.sangue ?? 0) + (delta.ficha?.sangue ?? 0);
+  const dCompostura = (delta.compostura ?? 0) + (delta.ficha?.compostura ?? 0);
+  const dHonra = (delta.honra ?? 0) + (delta.ficha?.honra ?? 0);
+  const dInspiracao = (delta.inspiracao ?? 0) + (delta.ficha?.inspiracao ?? 0);
+
   // Clamping rigoroso das 3 barras
-  const novoSangue = Math.max(0, Math.min(10, fichaAtual.estado.sangue + (delta.sangue ?? 0)));
-  const novaCompostura = Math.max(0, Math.min(10, fichaAtual.estado.compostura + (delta.compostura ?? 0)));
-  const novaHonra = Math.max(-10, Math.min(10, fichaAtual.estado.honra + (delta.honra ?? 0)));
+  const novoSangue = Math.max(0, Math.min(10, fichaAtual.estado.sangue + dSangue));
+  const novaCompostura = Math.max(0, Math.min(10, fichaAtual.estado.compostura + dCompostura));
+  const novaHonra = Math.max(-10, Math.min(10, fichaAtual.estado.honra + dHonra));
 
   // Adição de cicatrizes (sem duplicados)
   const novasCicatrizes = [...fichaAtual.cicatrizes];
@@ -219,6 +417,42 @@ export function aplicarDeltaEstado(
     novosSegredos.push(delta.novoSegredo);
   }
 
+  // Pontos de Inspiração (0 a 4)
+  const novaInspiracao = Math.max(
+    0,
+    Math.min(4, (fichaAtual.inspiracao ?? 2) + dInspiracao)
+  );
+
+  // Atualização de Aprovação de Companheiros (Estilo BG3)
+  const novosCompanheiros = { ...(fichaAtual.companheiros ?? {}) };
+  const notificacoesCompanheiros: NotificacaoAprovacaoCompanheiro[] = [];
+
+  if (delta.aprovacaoCompanheiros) {
+    for (const [compId, deltaAprov] of Object.entries(delta.aprovacaoCompanheiros)) {
+      if (novosCompanheiros[compId]) {
+        const comp = novosCompanheiros[compId];
+        const novaAprov = Math.max(-100, Math.min(100, comp.aprovacao + deltaAprov));
+        const novoStatus = calcularStatusAprovacao(novaAprov);
+
+        novosCompanheiros[compId] = {
+          ...comp,
+          aprovacao: novaAprov,
+          status: novoStatus,
+        };
+
+        const sinal = deltaAprov > 0 ? `+${deltaAprov}` : `${deltaAprov}`;
+        const verbo = deltaAprov > 0 ? 'aprova' : 'desaprova';
+        notificacoesCompanheiros.push({
+          companionId: compId,
+          nome: comp.nome,
+          delta: deltaAprov,
+          status: novoStatus,
+          textoNotificacao: `[${comp.nome} ${verbo} (${sinal})]`,
+        });
+      }
+    }
+  }
+
   const fichaAtualizada: FichaPersonagem = {
     ...fichaAtual,
     estado: {
@@ -228,6 +462,8 @@ export function aplicarDeltaEstado(
     },
     cicatrizes: novasCicatrizes,
     segredos: novosSegredos,
+    inspiracao: novaInspiracao,
+    companheiros: novosCompanheiros,
   };
 
   // Atualizar Reputação de Casas
@@ -238,11 +474,17 @@ export function aplicarDeltaEstado(
     }
   }
 
-  // Mesclar flags de efeito borboleta
+  // Mesclar flags de efeito borboleta (flat, mundo ou flagsAdicionadas)
   const novasFlags = {
     ...worldStateAtual.flagsBorboleta,
     ...(delta.flagsBorboleta ?? {}),
+    ...(delta.mundo ?? {}),
   };
+  if (delta.flagsAdicionadas) {
+    for (const flag of delta.flagsAdicionadas) {
+      novasFlags[flag] = true;
+    }
+  }
 
   // Adicionar marcos concluídos
   const novosMarcos = [...worldStateAtual.marcosConcluidos];
@@ -256,5 +498,5 @@ export function aplicarDeltaEstado(
     marcosConcluidos: novosMarcos,
   };
 
-  return { fichaAtualizada, worldStateAtualizado };
+  return { fichaAtualizada, worldStateAtualizado, notificacoesCompanheiros };
 }

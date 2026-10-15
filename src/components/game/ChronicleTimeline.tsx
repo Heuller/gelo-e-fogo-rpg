@@ -12,20 +12,29 @@ import {
 } from 'lucide-react';
 
 interface PropsChronicleTimeline {
-  historico: TurnEvent[];
+  historico?: TurnEvent[];
+  events?: TurnEvent[];
   onDesfazerTurno?: () => void;
+  onDesfazerUltimoTurno?: () => void;
   onVoltarCheckpoint?: () => void;
+  onVoltarAoCheckpoint?: () => void;
   onExportarSave?: () => void;
   className?: string;
 }
 
 export function ChronicleTimeline({
   historico,
+  events,
   onDesfazerTurno,
+  onDesfazerUltimoTurno,
   onVoltarCheckpoint,
+  onVoltarAoCheckpoint,
   onExportarSave,
   className = '',
 }: PropsChronicleTimeline) {
+  const listaEventos = historico || events || [];
+  const fnDesfazer = onDesfazerTurno || onDesfazerUltimoTurno;
+  const fnVoltarCheckpoint = onVoltarCheckpoint || onVoltarAoCheckpoint;
   return (
     <div className={`bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-5 shadow-2xl text-[#E6DEC8] font-cinzel space-y-4 ${className}`}>
       
@@ -41,14 +50,14 @@ export function ChronicleTimeline({
         </div>
 
         <span className="text-[11px] text-[#A69E89] font-sans">
-          {historico.length} decisões
+          {listaEventos.length} decisões
         </span>
       </div>
 
       {/* Linha do Tempo Turno a Turno */}
       <div className="space-y-3 max-h-[360px] overflow-y-auto pr-1">
-        {historico.length > 0 ? (
-          historico.map((turno, idx) => (
+        {listaEventos.length > 0 ? (
+          listaEventos.map((turno, idx) => (
             <div
               key={idx}
               className="p-3 rounded-lg bg-[#12100E] border border-[#2D2620] space-y-1 relative pl-3.5 border-l-2 border-l-[#C5A059]"
@@ -94,7 +103,7 @@ export function ChronicleTimeline({
       {/* Botões de Ação Rápida */}
       <div className="pt-2 border-t border-[#2D2620] space-y-2">
         <button
-          onClick={onDesfazerTurno}
+          onClick={fnDesfazer}
           className="w-full py-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-xs rounded-lg transition flex items-center justify-center gap-1.5 cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5 text-[#C5A059]" />
@@ -103,7 +112,7 @@ export function ChronicleTimeline({
 
         <div className="grid grid-cols-2 gap-2">
           <button
-            onClick={onVoltarCheckpoint}
+            onClick={fnVoltarCheckpoint}
             className="py-1.5 bg-[#12100E] hover:bg-[#1a1714] border border-[#2D2620] text-[#A69E89] text-[11px] rounded transition flex items-center justify-center gap-1 cursor-pointer"
           >
             <Bookmark className="w-3 h-3 text-[#C5A059]" />

@@ -30,6 +30,8 @@ export const ChapterCheckpointSchema = z.object({
   atoId: z.string(),
   capituloTitulo: z.string(),
   timestamp: z.string(),
+  dataFiccao: z.string().optional(),
+  snapshotFicha: FichaPersonagemSchema.optional(),
 });
 export type ChapterCheckpoint = z.infer<typeof ChapterCheckpointSchema>;
 

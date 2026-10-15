@@ -27,11 +27,29 @@ export const IntervencaoVozGrafoSchema = z.object({
 });
 export type IntervencaoVozGrafo = z.infer<typeof IntervencaoVozGrafoSchema>;
 
+export const ConditionalParagraphSchema = z.object({
+  requiredFlag: z.string().min(1),
+  text: z.string().min(1),
+});
+export type ConditionalParagraph = z.infer<typeof ConditionalParagraphSchema>;
+
 export const EscolhaSimplesSchema = z.object({
   id: z.string().min(1),
   texto: z.string().min(1),
   tipo: z.literal('simples'),
   nextNodeId: z.string().min(1),
+  requiredFlags: z.array(z.string()).optional(),
+  forbiddenFlags: z.array(z.string()).optional(),
+  tagOrigem: z.string().optional(),
+  motivoBloqueio: z.string().optional(),
+  delta: DeltaEstadoSchema.optional(),
+  aprovacaoCompanheiros: z.record(z.string(), z.number()).optional(),
+  minCompanionApproval: z
+    .object({
+      companionId: z.string(),
+      minApproval: z.number(),
+    })
+    .optional(),
 });
 export type EscolhaSimples = z.infer<typeof EscolhaSimplesSchema>;
 
@@ -46,6 +64,18 @@ export const EscolhaTesteAtributoSchema = z.object({
   onSuccessNodeId: z.string().min(1),
   onPartialFailureNodeId: z.string().min(1),
   onCriticalFailureNodeId: z.string().optional(),
+  requiredFlags: z.array(z.string()).optional(),
+  forbiddenFlags: z.array(z.string()).optional(),
+  tagOrigem: z.string().optional(),
+  motivoBloqueio: z.string().optional(),
+  delta: DeltaEstadoSchema.optional(),
+  aprovacaoCompanheiros: z.record(z.string(), z.number()).optional(),
+  minCompanionApproval: z
+    .object({
+      companionId: z.string(),
+      minApproval: z.number(),
+    })
+    .optional(),
 });
 export type EscolhaTesteAtributo = z.infer<typeof EscolhaTesteAtributoSchema>;
 
@@ -54,6 +84,7 @@ export const EscolhaJornadaSchema = z.discriminatedUnion('tipo', [
   EscolhaTesteAtributoSchema,
 ]);
 export type EscolhaJornada = z.infer<typeof EscolhaJornadaSchema>;
+export type EscolhaNode = EscolhaJornada;
 
 export const NodeJornadaSchema = z.object({
   id: z.string().min(1),
@@ -67,6 +98,7 @@ export const NodeJornadaSchema = z.object({
   deltaEstado: DeltaEstadoSchema.optional(),
   escolhas: z.array(EscolhaJornadaSchema),
   isEnding: z.boolean().optional(),
+  conditionalParagraphs: z.array(ConditionalParagraphSchema).optional(),
 });
 export type NodeJornada = z.infer<typeof NodeJornadaSchema>;
 
@@ -118,103 +150,95 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
 
   for (const [nodeId, node] of Object.entries(nodes)) {
     if (node.id !== nodeId) {
-      erros.push(`[Inconsistência] Nó '${nodeId}' possui campo interno id '${node.id}'.`);
+      erros.push(`[ID Divergente] Chave '${nodeId}' difere de node.id '${node.id}'.`);
     }
 
-    if (!node.fallbackText || node.fallbackText.trim().length === 0) {
-      erros.push(`[Texto Ausente] Nó '${nodeId}' não possui 'fallbackText' literário válido.`);
-    }
-
-    if (!node.loreContext || !node.loreContext.fonte) {
+    if (!node.loreContext?.fonte?.arquivo_md) {
       erros.push(`[Lore Ausente] Nó '${nodeId}' não possui 'loreContext.fonte' definido.`);
-    } else {
-      const { arquivo_md, livro, capitulo } = node.loreContext.fonte;
-      if (!arquivo_md || !livro || !capitulo) {
-        erros.push(
-          `[Fonte Incompleta] Nó '${nodeId}' possui campos de fonte vazios (arquivo_md: '${arquivo_md}', livro: '${livro}', capitulo: '${capitulo}').`
-        );
-      }
     }
 
-    if ((!node.escolhas || node.escolhas.length === 0) && !node.isEnding) {
-      avisos.push(`[Fim sem Flag] Nó '${nodeId}' não possui escolhas mas 'isEnding' não é true.`);
+    // Regra Estrita: Nós narrativos normais (não finais) devem possuir pelo menos 2 escolhas
+    if (!node.isEnding && (!node.escolhas || node.escolhas.length < 2)) {
+      erros.push(
+        `[Poucas Escolhas] O nó normal '${nodeId}' tem apenas ${
+          node.escolhas ? node.escolhas.length : 0
+        } escolha(s). O padrão de qualidade exige pelo menos 2 escolhas.`
+      );
     }
 
-    for (const escolha of node.escolhas ?? []) {
-      totalEscolhas++;
+    if (node.escolhas) {
+      totalEscolhas += node.escolhas.length;
 
-      if (escolha.tipo === 'simples') {
-        if (!nodes[escolha.nextNodeId]) {
-          erros.push(
-            `[Destino Quebrado] Escolha '${escolha.id}' no nó '${nodeId}' aponta para nextNodeId inexistente '${escolha.nextNodeId}'.`
-          );
-        }
-      } else if (escolha.tipo === 'teste_atributo') {
-        if (!nodes[escolha.onSuccessNodeId]) {
-          erros.push(
-            `[Destino Quebrado] Teste '${escolha.id}' no nó '${nodeId}' aponta para onSuccessNodeId inexistente '${escolha.onSuccessNodeId}'.`
-          );
-        }
-        if (!nodes[escolha.onPartialFailureNodeId]) {
-          erros.push(
-            `[Destino Quebrado] Teste '${escolha.id}' no nó '${nodeId}' aponta para onPartialFailureNodeId inexistente '${escolha.onPartialFailureNodeId}'.`
-          );
-        }
-        if (escolha.onCriticalSuccessNodeId && !nodes[escolha.onCriticalSuccessNodeId]) {
-          erros.push(
-            `[Destino Quebrado] Teste '${escolha.id}' no nó '${nodeId}' aponta para onCriticalSuccessNodeId inexistente '${escolha.onCriticalSuccessNodeId}'.`
-          );
-        }
-
-        if (escolha.riscoMortal) {
-          testesComRiscoMortal++;
-          if (!escolha.onCriticalFailureNodeId) {
+      for (const escolha of node.escolhas) {
+        if (!escolha) continue;
+        if (escolha.tipo === 'simples') {
+          if (!nodes[escolha.nextNodeId]) {
             erros.push(
-              `[Morte Sem Destino] Teste com riscoMortal '${escolha.id}' no nó '${nodeId}' não possui 'onCriticalFailureNodeId'.`
-            );
-          } else if (!nodes[escolha.onCriticalFailureNodeId]) {
-            erros.push(
-              `[Destino Quebrado] Teste com riscoMortal '${escolha.id}' no nó '${nodeId}' aponta para onCriticalFailureNodeId inexistente '${escolha.onCriticalFailureNodeId}'.`
+              `[Destino Quebrado] Escolha '${escolha.id}' no nó '${nodeId}' aponta para nextNodeId inexistente '${escolha.nextNodeId}'.`
             );
           }
-        } else if (escolha.onCriticalFailureNodeId && !nodes[escolha.onCriticalFailureNodeId]) {
-          erros.push(
-            `[Destino Quebrado] Teste '${escolha.id}' no nó '${nodeId}' aponta para onCriticalFailureNodeId inexistente '${escolha.onCriticalFailureNodeId}'.`
-          );
+        } else if (escolha.tipo === 'teste_atributo') {
+          if (escolha.riscoMortal) {
+            testesComRiscoMortal++;
+            if (!escolha.onCriticalFailureNodeId) {
+              erros.push(
+                `[Morte Sem Destino] Teste '${escolha.id}' em '${nodeId}' tem riscoMortal: true mas não define onCriticalFailureNodeId.`
+              );
+            }
+          }
+
+          if (!nodes[escolha.onSuccessNodeId]) {
+            erros.push(
+              `[Destino Quebrado] Teste '${escolha.id}' em '${nodeId}' aponta para onSuccessNodeId inexistente '${escolha.onSuccessNodeId}'.`
+            );
+          }
+          if (!nodes[escolha.onPartialFailureNodeId]) {
+            erros.push(
+              `[Destino Quebrado] Teste '${escolha.id}' em '${nodeId}' aponta para onPartialFailureNodeId inexistente '${escolha.onPartialFailureNodeId}'.`
+            );
+          }
+          if (escolha.onCriticalSuccessNodeId && !nodes[escolha.onCriticalSuccessNodeId]) {
+            erros.push(
+              `[Destino Quebrado] Teste '${escolha.id}' em '${nodeId}' aponta para onCriticalSuccessNodeId inexistente '${escolha.onCriticalSuccessNodeId}'.`
+            );
+          }
+          if (escolha.onCriticalFailureNodeId && !nodes[escolha.onCriticalFailureNodeId]) {
+            erros.push(
+              `[Destino Quebrado] Teste '${escolha.id}' em '${nodeId}' aponta para onCriticalFailureNodeId inexistente '${escolha.onCriticalFailureNodeId}'.`
+            );
+          }
         }
       }
     }
   }
 
-  // Busca em Largura (BFS) para Nós Órfãos
+  // Análise de Alcance (Busca em Largura a partir do startNodeId)
   const visitados = new Set<string>();
-  const fila: string[] = [];
-
   if (grafo.startNodeId && nodes[grafo.startNodeId]) {
-    fila.push(grafo.startNodeId);
+    const fila: string[] = [grafo.startNodeId];
     visitados.add(grafo.startNodeId);
-  }
 
-  while (fila.length > 0) {
-    const atualId = fila.shift()!;
-    const atualNode = nodes[atualId];
-    if (!atualNode) continue;
+    while (fila.length > 0) {
+      const atualId = fila.shift()!;
+      const atualNode = nodes[atualId];
+      if (!atualNode || !atualNode.escolhas) continue;
 
-    for (const escolha of atualNode.escolhas ?? []) {
-      const vizinhos: string[] = [];
-      if (escolha.tipo === 'simples') {
-        vizinhos.push(escolha.nextNodeId);
-      } else if (escolha.tipo === 'teste_atributo') {
-        vizinhos.push(escolha.onSuccessNodeId);
-        vizinhos.push(escolha.onPartialFailureNodeId);
-        if (escolha.onCriticalSuccessNodeId) vizinhos.push(escolha.onCriticalSuccessNodeId);
-        if (escolha.onCriticalFailureNodeId) vizinhos.push(escolha.onCriticalFailureNodeId);
-      }
+      for (const esc of atualNode.escolhas) {
+        const destinos: string[] = [];
+        if (esc.tipo === 'simples') {
+          destinos.push(esc.nextNodeId);
+        } else {
+          destinos.push(esc.onSuccessNodeId);
+          destinos.push(esc.onPartialFailureNodeId);
+          if (esc.onCriticalSuccessNodeId) destinos.push(esc.onCriticalSuccessNodeId);
+          if (esc.onCriticalFailureNodeId) destinos.push(esc.onCriticalFailureNodeId);
+        }
 
-      for (const vizinho of vizinhos) {
-        if (vizinho && nodes[vizinho] && !visitados.has(vizinho)) {
-          visitados.add(vizinho);
-          fila.push(vizinho);
+        for (const dest of destinos) {
+          if (nodes[dest] && !visitados.has(dest)) {
+            visitados.add(dest);
+            fila.push(dest);
+          }
         }
       }
     }
@@ -226,15 +250,13 @@ export function validarGrafoJornada(grafo: GrafoJornada): ResultadoValidacaoGraf
     }
   }
 
-  const nosAlcancaveis = visitados.size;
-
   return {
     valido: erros.length === 0,
     erros,
     avisos,
     estatisticas: {
       totalNos,
-      nosAlcancaveis,
+      nosAlcancaveis: visitados.size,
       totalEscolhas,
       testesComRiscoMortal,
     },

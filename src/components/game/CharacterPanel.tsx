@@ -6,14 +6,15 @@ import {
   Heart,
   Shield,
   Scale,
-  Crown,
-  Flame,
-  Eye,
+  Swords,
   Scroll,
+  Eye,
+  Crown,
+  Sparkles,
   BookOpen,
-  Compass,
-  Key,
   Bandage,
+  Key,
+  Users,
 } from 'lucide-react';
 
 interface PropsCharacterPanel {
@@ -21,27 +22,33 @@ interface PropsCharacterPanel {
   className?: string;
 }
 
-const VOZ_ICON_MAP: Record<AtributoVoz, { label: string; subtitulo: string; icon: React.ComponentType<{ className?: string }>; color: string }> = {
-  comando: { label: 'Comando', subtitulo: 'O Marechal', icon: Crown, color: 'text-amber-400' },
-  furia: { label: 'Fúria', subtitulo: 'O Guerreiro', icon: Flame, color: 'text-red-400' },
-  astucia: { label: 'Astúcia', subtitulo: 'A Aranha', icon: Eye, color: 'text-purple-400' },
-  cortesia: { label: 'Cortesia', subtitulo: 'O Cortesão', icon: Scroll, color: 'text-blue-400' },
-  erudicao: { label: 'Erudição', subtitulo: 'O Meistre', icon: BookOpen, color: 'text-amber-300' },
-  pressagio: { label: 'Presságio', subtitulo: 'O Corvo', icon: Compass, color: 'text-slate-300' },
+// Configuração visual das 6 Vozes
+const VOZ_ICON_MAP: Record<
+  AtributoVoz,
+  { label: string; icon: React.ComponentType<{ className?: string }>; color: string; subtitulo: string }
+> = {
+  furia: { label: 'Fúria', icon: Swords, color: 'text-red-500', subtitulo: 'Instinto & Aço' },
+  cortesia: { label: 'Cortesia', icon: Scroll, color: 'text-amber-400', subtitulo: 'Honra & Diplomacia' },
+  astucia: { label: 'Astúcia', icon: Eye, color: 'text-purple-400', subtitulo: 'Sombras & Manobras' },
+  erudicao: { label: 'Erudição', icon: BookOpen, color: 'text-blue-400', subtitulo: 'História & Corvos' },
+  comando: { label: 'Comando', icon: Crown, color: 'text-yellow-500', subtitulo: 'Autoridade & Legado' },
+  pressagio: { label: 'Presságio', icon: Sparkles, color: 'text-emerald-400', subtitulo: 'Sonhos & Profecias' },
 };
 
 export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
-  // Cálculo da Honra (-10 a +10) para exibição em barra bipolar centrada
-  const honraNormalizada = ((ficha.estado.honra + 10) / 20) * 100; // 0% a 100%
+  const inspiracaoVal = ficha.inspiracao ?? 2;
+  const companheiros = ficha.companheiros || {};
+  const temCompanheiros = Object.keys(companheiros).length > 0;
 
   return (
-    <aside className={`bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-5 shadow-2xl text-[#E6DEC8] font-garamond space-y-6 ${className}`}>
-      
-      {/* Moldura do Retrato e Identidade */}
-      <div className="text-center border-b border-[#2D2620] pb-5">
-        {/* Brasão Heráldico Targaryen (Dragão Tricéfalo em SVG estilizado) */}
-        <div className="relative inline-block mx-auto mb-3">
-          <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#2a0d10] to-[#12080a] border-2 border-[#C5A059] p-2 flex items-center justify-center shadow-lg shadow-black/80">
+    <aside
+      className={`w-full bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-5 shadow-2xl space-y-6 text-[#E6DEC8] ${className}`}
+    >
+      {/* Moldura de Retrato e Brasão Heráldico */}
+      <div className="text-center relative pb-3 border-b border-[#2D2620]">
+        <div className="relative w-20 h-20 mx-auto mb-3 rounded-full border-2 border-[#C5A059] p-1 bg-gradient-to-b from-[#2D2620] to-[#12100E] shadow-lg shadow-black/80 flex items-center justify-center">
+          <div className="w-full h-full rounded-full bg-[#1A1412] flex items-center justify-center overflow-hidden border border-[#C5A059]/40">
+            {/* Brasão Heráldico do Dragão de Três Cabeças em SVG */}
             <svg viewBox="0 0 100 100" className="w-14 h-14 text-red-600 fill-current drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               <path d="M50 15 C45 25 35 30 25 35 C35 45 40 55 35 70 C45 65 55 65 65 70 C60 55 65 45 75 35 C65 30 55 25 50 15 Z" />
               <circle cx="50" cy="22" r="4" fill="#C5A059" />
@@ -58,7 +65,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
           {ficha.nome}
         </h2>
         <p className="text-xs text-[#A69E89] font-cinzel mt-0.5">
-          Senhor de Pedra do Dragão
+          {ficha.titulo || 'Senhor dos Sete Reinos'}
         </p>
 
         {/* Traço de Origem */}
@@ -66,6 +73,34 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
           <span className="inline-block text-[11px] font-cinzel uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-red-300">
             {ficha.origem.replace(/_/g, ' ')}
           </span>
+        </div>
+
+        {/* Pontos de Inspiração Estilo BG3 */}
+        <div className="mt-3 bg-[#100e0c] border border-amber-900/40 rounded-xl p-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-amber-400 fill-current animate-pulse" />
+            <span className="text-xs font-cinzel font-bold text-amber-200 uppercase tracking-wider">
+              Inspiração
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            {[1, 2, 3, 4].map((ponto) => (
+              <span
+                key={ponto}
+                title={`Ponto de Inspiração ${ponto}`}
+                className={`text-base transition-transform ${
+                  ponto <= inspiracaoVal
+                    ? 'text-amber-400 drop-shadow-[0_0_6px_rgba(245,158,11,0.8)] scale-110'
+                    : 'text-stone-800'
+                }`}
+              >
+                ★
+              </span>
+            ))}
+            <span className="text-[11px] font-sans font-bold text-slate-400 ml-1">
+              {inspiracaoVal}/4
+            </span>
+          </div>
         </div>
       </div>
 
@@ -125,7 +160,6 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
             </span>
           </div>
           <div className="w-full h-2.5 bg-[#12100E] border border-[#2D2620] rounded-full relative overflow-hidden">
-            {/* Marcador central zero */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-600 z-10" />
             <div
               className={`h-full rounded-full transition-all duration-500 ${
@@ -146,6 +180,75 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
           </div>
         </div>
       </div>
+
+      {/* Círculo Íntimo: Aprovação dos Companheiros (Estilo BG3) */}
+      {temCompanheiros && (
+        <div className="space-y-3 pt-1">
+          <h3 className="text-xs font-cinzel uppercase tracking-widest text-[#C5A059] font-semibold border-b border-[#2D2620] pb-1 flex items-center justify-between">
+            <span className="flex items-center gap-1.5">
+              <Users className="w-3.5 h-3.5 text-amber-400" />
+              Círculo Íntimo
+            </span>
+            <span className="text-[10px] text-slate-400 lowercase font-sans font-normal">
+              aprovação
+            </span>
+          </h3>
+
+          <div className="space-y-2.5">
+            {Object.entries(companheiros).map(([id, comp]) => {
+              const statusColor =
+                comp.status === 'Devotado'
+                  ? 'text-emerald-300 border-emerald-800 bg-emerald-950/70'
+                  : comp.status === 'Leal'
+                  ? 'text-blue-300 border-blue-800 bg-blue-950/70'
+                  : comp.status === 'Neutro'
+                  ? 'text-amber-300 border-amber-800 bg-amber-950/70'
+                  : comp.status === 'Frio'
+                  ? 'text-cyan-300 border-cyan-800 bg-cyan-950/70'
+                  : 'text-red-300 border-red-800 bg-red-950/70';
+
+              const percent = Math.min(100, Math.max(0, ((comp.aprovacao + 100) / 200) * 100));
+
+              return (
+                <div
+                  key={id}
+                  className="p-2.5 rounded-lg bg-[#12100E] border border-[#2D2620] hover:border-amber-900/50 transition-colors"
+                >
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="font-cinzel font-bold text-slate-200">
+                      {comp.nome}
+                    </span>
+                    <span className={`text-[9px] uppercase px-2 py-0.5 rounded border font-bold ${statusColor}`}>
+                      {comp.status} ({comp.aprovacao > 0 ? `+${comp.aprovacao}` : comp.aprovacao})
+                    </span>
+                  </div>
+
+                  <p className="text-[10px] text-slate-400 font-garamond italic mb-1.5 leading-tight">
+                    {comp.titulo}
+                  </p>
+
+                  <div className="w-full h-1.5 bg-stone-900 rounded-full overflow-hidden border border-stone-800">
+                    <div
+                      className={`h-full rounded-full transition-all duration-500 ${
+                        comp.aprovacao >= 50
+                          ? 'bg-gradient-to-r from-emerald-600 to-teal-400'
+                          : comp.aprovacao >= 15
+                          ? 'bg-gradient-to-r from-blue-600 to-cyan-400'
+                          : comp.aprovacao >= -15
+                          ? 'bg-gradient-to-r from-amber-700 to-yellow-500'
+                          : comp.aprovacao >= -50
+                          ? 'bg-gradient-to-r from-cyan-800 to-slate-500'
+                          : 'bg-gradient-to-r from-red-900 to-rose-600'
+                      }`}
+                      style={{ width: `${percent}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Grade dos 6 Atributos-Vozes */}
       <div className="space-y-3">
@@ -192,7 +295,6 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
 
       {/* Cicatrizes & Segredos */}
       <div className="space-y-3 pt-2">
-        {/* Cicatrizes */}
         {ficha.cicatrizes.length > 0 && (
           <div>
             <span className="text-[11px] font-cinzel uppercase text-red-400 font-bold flex items-center gap-1 mb-1.5">
@@ -209,7 +311,6 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
           </div>
         )}
 
-        {/* Segredos Descobertos */}
         <div>
           <span className="text-[11px] font-cinzel uppercase text-amber-400 font-bold flex items-center gap-1 mb-1.5">
             <Key className="w-3.5 h-3.5" />

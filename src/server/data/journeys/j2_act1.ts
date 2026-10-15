@@ -130,6 +130,29 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
           onSuccessNodeId: 'j2_a1_partida_daemon_harrenhal',
           onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
         },
+      
+        {
+          id: 'esc_j2_a1_sobrevoo_intimidador_capital',
+          texto: 'Voar com Caraxes e Syrax próximo à Baía da Água Negra como demonstração indomável de poder!',
+          tipo: 'teste_atributo',
+          atributo: 'furia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          aprovacaoCompanheiros: { daemon: 15, rhaenys_j2: -10 },
+          delta: { mundo: { sobrevoo_capital_realizado: true } },
+        },
+        {
+          id: 'esc_j2_a1_pesquisar_testamento_viserys',
+          texto: 'Ordenar a Meistre Gerardys que vasculhe os arquivos em busca do testamento selado do Rei Viserys I.',
+          tipo: 'teste_atributo',
+          atributo: 'erudicao',
+          dc: 11,
+          onSuccessNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          aprovacaoCompanheiros: { corlys: 10, rhaenys_j2: 10 },
+          delta: { mundo: { testamento_viserys_encontrado: true } },
+        },
       ],
     },
 
@@ -156,6 +179,26 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
           tipo: 'simples',
           nextNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
         },
+
+        {
+          id: 'esc_fuga_suborno_guardas',
+          texto: 'Subornar os sargentos da Patrulha da Cidade para garantir uma saída silenciosa pelo Portão da Lama.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 8,
+          onSuccessNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          tagOrigem: '[OURO DE DERIVAMARCA]',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 15, daemon: -5 },
+        },
+        {
+          id: 'esc_fuga_carid_furia',
+          texto: 'Cortar a garganta do capitão do portão com adaga valiriana antes que a grade desça.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 20, rhaenys_j2: -15, corlys: -5 },
+          delta: { flagsAdicionadas: ['golpe_sangrento_portao_lama'] },
+          nextNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+        }
       ],
     },
 
@@ -201,6 +244,29 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
           onSuccessNodeId: 'j2_a1_preparativos_guerra_porto_real',
           onPartialFailureNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+      
+        {
+          id: 'esc_j2_a1_subornar_guardas_dourados',
+          texto: 'Ativar os contatos de Mysaria nos Mantos Dourados para minar a lealdade da guarnição urbana.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 11,
+          onSuccessNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          aprovacaoCompanheiros: { mysaria: 15, corlys: 5 },
+          delta: { mundo: { mantos_dourados_subornados: true } },
+        },
+        {
+          id: 'esc_j2_a1_enviar_proposta_paz_alicent',
+          texto: 'Enviar corvo a Alicent Hightower apelando à memória de sua antiga afeição na infância.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          onPartialFailureNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+          aprovacaoCompanheiros: { rhaenys_j2: 15, daemon: -15 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -227,6 +293,23 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
           tipo: 'simples',
           nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+
+        {
+          id: 'esc_larys_contra_espionagem',
+          texto: 'Atrair os espiões de Larys para uma emboscada em uma taverna da Baixada das Pulgas.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { mysaria: 25, daemon: 15, rhaenys_j2: -5 },
+          delta: { flagsAdicionadas: ['rede_larys_cegada'], compostura: 1 },
+          nextNodeId: 'j2_a1_preparativos_guerra_porto_real',
+        },
+        {
+          id: 'esc_larys_comprar_silencio',
+          texto: 'Oferecer um salvo-conduto e terras em Derivamarca para os informantes de Larys mudarem de lado.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, mysaria: 15 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a1_preparativos_guerra_porto_real',
+        }
       ],
     },
 
@@ -253,6 +336,23 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
           tipo: 'simples',
           nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+
+        {
+          id: 'esc_prep_arrecadar_grãos',
+          texto: 'Confiscar os armazéns de grãos dos comerciantes da Campina fiéis aos Hightower.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 15, corlys: 10, rhaenys_j2: -10 },
+          delta: { flagsAdicionadas: ['celeiros_hightower_tomados'] },
+          nextNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+        },
+        {
+          id: 'esc_prep_discurso_muralha',
+          texto: 'Subir ao adarve e lembrar aos marinheiros que Rhaenyra é a herdeira jurada pelo falecido Rei Viserys.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 20, corlys: 15 },
+          delta: { compostura: 2 },
+          nextNodeId: 'j2_a1_conselho_preto_coroacao_rhaenyra',
+        }
       ],
     },
 
@@ -304,6 +404,29 @@ Os jovens príncipes Jacaerys e Lucerys deram um passo à frente. Jacaerys ofere
           onSuccessNodeId: 'j2_a1_missao_jacaerys_cregan_stark',
           onPartialFailureNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+      
+        {
+          id: 'esc_j2_a1_marchar_harrenhal_daemon',
+          texto: 'Comandar Daemon a partir com Caraxes e tomar Harrenhal sem demora nas Terras Fluviais.',
+          tipo: 'teste_atributo',
+          atributo: 'comando',
+          dc: 11,
+          onSuccessNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+          onPartialFailureNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+          aprovacaoCompanheiros: { daemon: 20, corlys: 5 },
+          delta: { mundo: { harrenhal_tomada_daemon: true } },
+        },
+        {
+          id: 'esc_j2_a1_apelo_juramento_senhores',
+          texto: 'Redigir cartas solenes lembrando a cada lorde o juramento prestado de joelhos a Viserys I em 105 d.C.',
+          tipo: 'teste_atributo',
+          atributo: 'cortesia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+          onPartialFailureNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+          aprovacaoCompanheiros: { rhaenys_j2: 15, daemon: -5 },
+          delta: { ficha: { honra: 1 } },
+        },
       ],
     },
 
@@ -332,6 +455,23 @@ Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, m
           tipo: 'simples',
           nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+
+        {
+          id: 'esc_daemon_harren_pacto_fluvial',
+          texto: 'Exigir que os lordes ribeirinhos enviem seus herdeiros a Harrenhal como prova de vassalagem imediata.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, rhaenys_j2: -10 },
+          delta: { flagsAdicionadas: ['refens_fluviais_harrenhal'] },
+          nextNodeId: 'j2_a1_missao_jacaerys_cregan_stark',
+        },
+        {
+          id: 'esc_daemon_harren_patrulha_caraxes',
+          texto: 'Montar vigília com Caraxes nos céus do Olho de Deus para caçar qualquer mensageiro dos Verdes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 20, corlys: 10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a1_missao_jacaerys_cregan_stark',
+        }
       ],
     },
 
@@ -358,6 +498,23 @@ Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, m
           tipo: 'simples',
           nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
         },
+
+        {
+          id: 'esc_jacaerys_cregan_honra_gelo',
+          texto: 'Prometer a mão da futura princesa herdeira ao filho de Cregan Stark no Pacto de Gelo e Fogo.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 25, corlys: 20, daemon: 10 },
+          delta: { flagsAdicionadas: ['pacto_gelo_e_fogo_selado'], compostura: 2 },
+          nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+        },
+        {
+          id: 'esc_jacaerys_arqueiros_donzela',
+          texto: 'Negociar com Lady Jeyne Arryn contingentes de arqueiros do Vale em troca de proteção aérea.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 20, rhaenys_j2: 15 },
+          delta: { flagsAdicionadas: ['arqueiros_vale_garantidos'] },
+          nextNodeId: 'j2_a1_ponta_tempestade_chegada_aemond',
+        }
       ],
     },
 
@@ -449,6 +606,23 @@ Pedaços de carne, escamas brancas e o corpo do jovem Príncipe Lucerys Velaryon
           tipo: 'simples',
           nextNodeId: 'j2_a1_luto_e_vinganca_sangue_e_queijo',
         },
+
+        {
+          id: 'esc_morte_luke_luto_furia',
+          texto: 'Jurar que cada osso de Aemond Caolho e de Vhagar pagará em chamas pelo sangue de Lucerys.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 30, corlys: 20, rhaenys_j2: 15 },
+          delta: { flagsAdicionadas: ['juramento_vinganca_lucerys'], sangue: -1, compostura: 2 },
+          nextNodeId: 'j2_a1_luto_e_vinganca_sangue_e_queijo',
+        },
+        {
+          id: 'esc_morte_luke_vigilia_solene',
+          texto: 'Conduzir os ritos funerários no mar de Derivamarca ao lado de Corlys e Rhaenys desolados.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 25, corlys: 25, daemon: -10 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a1_luto_e_vinganca_sangue_e_queijo',
+        }
       ],
     },
 
@@ -477,6 +651,23 @@ Lucerys Velaryon sobreviveu à fúria de Aemond, conseguindo ganhar altitude e e
           tipo: 'simples',
           nextNodeId: 'j2_a1_luto_e_vinganca_sangue_e_queijo',
         },
+
+        {
+          id: 'esc_salvo_luke_abrigar_derivamarca',
+          texto: 'Enviar Lucerys imediatamente para a segurança de Derivamarca sob a escolta das galés de Corlys.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, rhaenys_j2: 25, daemon: -5 },
+          delta: { compostura: 2, sangue: 1 },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_salvo_luke_contra_ataque_vhagar',
+          texto: 'Aproveitar que Aemond está isolado na tempestade para armar uma emboscada aérea com Caraxes e Meleys.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, rhaenys_j2: 15, corlys: -10 },
+          delta: { flagsAdicionadas: ['emboscada_aemond_tentada'] },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        }
       ],
     },
 
@@ -528,6 +719,29 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
           tipo: 'simples',
           nextNodeId: 'j2_a1_execucao_sangue_queijo_canonico',
         },
+      
+        {
+          id: 'esc_j2_a1_sequestrar_herdeiro_refem',
+          texto: 'Comandar que Jaehaerys seja capturado como refém vivo em vez de degolado na frente da mãe.',
+          tipo: 'teste_atributo',
+          atributo: 'astucia',
+          dc: 12,
+          onSuccessNodeId: 'j2_a1_bloqueio_honra_assassinato',
+          onPartialFailureNodeId: 'j2_a1_execucao_sangue_queijo_canonico',
+          aprovacaoCompanheiros: { corlys: 15, daemon: -10 },
+          delta: { mundo: { jaehaerys_refem_vivo: true }, ficha: { honra: 1 } },
+        },
+        {
+          id: 'esc_j2_a1_consultar_pressagio_fogo_luto',
+          texto: 'Queimar incenso valiriano para apaziguar a alma de Lucerys sem incorrer na maldição dos fratricidas.',
+          tipo: 'teste_atributo',
+          atributo: 'pressagio',
+          dc: 11,
+          onSuccessNodeId: 'j2_a1_bloqueio_honra_assassinato',
+          onPartialFailureNodeId: 'j2_a1_execucao_sangue_queijo_canonico',
+          aprovacaoCompanheiros: { rhaenys_j2: 15, mysaria: 5 },
+          delta: { ficha: { compostura: 1 } },
+        },
       ],
     },
 
@@ -554,6 +768,23 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
           tipo: 'simples',
           nextNodeId: 'j2_a1_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_sq_repudio_publico',
+          texto: 'Declarar que o assassinato de Jaehaerys foi obra de criminosos comuns sem o aval da Rainha.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { rhaenys_j2: 25, corlys: 15, daemon: -20 },
+          delta: { compostura: 1 },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_sq_justica_cruel',
+          texto: 'Aceitar em silêncio o peso do golpe: na guerra dos dragões, a clemência é fraqueza mortal.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { daemon: 25, mysaria: 20, rhaenys_j2: -25 },
+          delta: { flagsAdicionadas: ['olho_por_olho_aceito'] },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        }
       ],
     },
 
@@ -580,6 +811,23 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
           tipo: 'simples',
           nextNodeId: 'j2_a1_checkpoint_conclusao',
         },
+
+        {
+          id: 'esc_bloqueio_vigilia_costeira',
+          texto: 'Deslocar toda a esquadra de Velaryon para fechar a Baía da Água Negra e estrangular o abastecimento dos Verdes.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { corlys: 25, rhaenys_j2: 15, daemon: 10 },
+          delta: { flagsAdicionadas: ['bloqueio_baia_total'], compostura: 2 },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        },
+        {
+          id: 'esc_bloqueio_recrutar_batedores',
+          texto: 'Pagar batedores plebeus com a ajuda de Mysaria para mapear cada movimento de Criston Cole.',
+          tipo: 'simples',
+          aprovacaoCompanheiros: { mysaria: 25, corlys: 10 },
+          delta: { flagsAdicionadas: ['batedores_cole_rastreados'] },
+          nextNodeId: 'j2_a1_checkpoint_conclusao',
+        }
       ],
     },
 
