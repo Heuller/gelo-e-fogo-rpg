@@ -98,6 +98,8 @@ describe('2. Aplicação de Delta de Estado (aplicarDeltaEstado)', () => {
     },
     cicatrizes: [],
     segredos: [],
+    inspiracao: 2,
+    companheiros: {},
   };
 
   const worldStateInicial: WorldState = {

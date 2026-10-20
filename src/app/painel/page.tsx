@@ -649,7 +649,7 @@ export default function PainelPage() {
                 {/* Seleção de Traço de Origem */}
                 <div>
                   <label className="block text-xs font-cinzel uppercase tracking-wider text-amber-400 mb-1.5">
-                    Traço de Origem (Baldur's Gate 3)
+                    Traço de Origem (Baldur&apos;s Gate 3)
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {ORIGENS_DISPONIVEIS.map((origem) => (

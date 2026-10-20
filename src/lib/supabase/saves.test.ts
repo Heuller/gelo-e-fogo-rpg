@@ -44,6 +44,8 @@ describe('Banco de Saves (saves.ts)', () => {
       },
       cicatrizes: [],
       segredos: [],
+      inspiracao: 2,
+      companheiros: {},
     },
     estado_mundo: {
       reputacaoCasas: { Targaryen: 10, Stark: 0 },

@@ -21,6 +21,8 @@ describe('Integração de Componentes do Jogo (Etapa 4B)', () => {
     },
     cicatrizes: [],
     segredos: ['Segredo do Tridente'],
+    inspiracao: 2,
+    companheiros: {},
   };
 
   it('deve calcular corretamente a rolagem com atributos e limiares de DC', () => {

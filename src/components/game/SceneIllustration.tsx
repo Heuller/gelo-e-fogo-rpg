@@ -323,7 +323,7 @@ function CasteloTempestadeSVG() {
       {/* Ondas Quebrando nos Penhascos */}
       <path d="M 0 200 Q 150 180 300 200 T 600 195 L 600 220 L 0 220 Z" fill="#0C4A6E" opacity="0.6" />
       <text x="300" y="212" textAnchor="middle" fill="#BAE6FD" fontSize="10" fontFamily="serif" letterSpacing="4">
-        CASTELLUM TEMPESTATIS &bull; END'S BASTION
+        CASTELLUM TEMPESTATIS &bull; END&apos;S BASTION
       </text>
     </svg>
   );

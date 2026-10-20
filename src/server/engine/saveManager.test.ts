@@ -35,6 +35,8 @@ describe('Gerenciador de Saves (saveManager.ts)', () => {
       },
       cicatrizes: [],
       segredos: [],
+      inspiracao: 2,
+      companheiros: {},
     },
     worldState: {
       reputacaoCasas: { Targaryen: 5 },

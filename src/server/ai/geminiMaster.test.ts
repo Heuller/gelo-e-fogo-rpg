@@ -23,6 +23,8 @@ describe('Mestre IA e Classificador de Ação Livre (geminiMaster.ts)', () => {
     estado: { sangue: 10, compostura: 10, honra: 5 },
     cicatrizes: [],
     segredos: [],
+    inspiracao: 2,
+    companheiros: {},
   };
 
   const worldStateMock: WorldState = {
