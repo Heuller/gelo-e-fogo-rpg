@@ -52,7 +52,7 @@ export default function LoginPage() {
         email: testEmail,
         password: testPassword,
       })
-      .then(({ error }) => {
+      .then(({ error }: { error: any }) => {
         if (error) {
           setErrorMsg(error.message);
           setLoading(false);
@@ -60,7 +60,7 @@ export default function LoginPage() {
           router.push('/painel');
         }
       })
-      .catch((err) => {
+      .catch((err: any) => {
         setErrorMsg(err.message || 'Erro inesperado.');
         setLoading(false);
       });
