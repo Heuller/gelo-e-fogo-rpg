@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   listarSlotsJornada,
@@ -149,14 +149,14 @@ export default function PainelPage() {
   const jornadaInfoAtual =
     JORNADAS_DISPONIVEIS.find((j) => j.id === jornadaSelecionada) || JORNADAS_DISPONIVEIS[0];
 
-  useEffect(() => {
-    carregarSlots();
-  }, [jornadaSelecionada]);
-
-  async function carregarSlots() {
+  const carregarSlots = useCallback(async () => {
     const slotsCarregados = await listarSlotsJornada('player_default', jornadaSelecionada);
     setSlots(slotsCarregados);
-  }
+  }, [jornadaSelecionada]);
+
+  useEffect(() => {
+    carregarSlots();
+  }, [carregarSlots]);
 
   function abrirModalNovoJogo(slotNum: number) {
     setSlotNovoJogo(slotNum);
