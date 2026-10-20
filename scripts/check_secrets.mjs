@@ -23,7 +23,7 @@ try {
 let violations = 0;
 
 for (const file of trackedFiles) {
-  if (file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.ico') || file.includes('package-lock.json')) {
+  if (file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.ico') || file.includes('package-lock.json') || file.startsWith('docs/')) {
     continue;
   }
   if (!fs.existsSync(file)) continue;

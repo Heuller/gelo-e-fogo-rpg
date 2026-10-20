@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "preflight": "node --experimental-strip-types scripts/preflight.ts"
   },
   "dependencies": {
     "@google/genai": "^2.30.0",

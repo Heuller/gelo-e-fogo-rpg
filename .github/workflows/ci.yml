@@ -1,0 +1,51 @@
+name: CI - Integridade e Seguranca
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validacao Completa (Types, Lint, Tests, Build, Audit, Secrets)
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: "https://mock-project.supabase.co"
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "mock_publishable_key_ci_only"
+      ALLOWED_USER_EMAIL: "meistre@cidadela.westeros"
+      NODE_ENV: "test"
+
+    steps:
+      - name: Checkout do Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependencias (npm ci)
+        run: npm ci
+
+      - name: 1. Checagem de Tipos TypeScript (tsc)
+        run: npx tsc --noEmit
+
+      - name: 2. Linter de Codigo (ESLint)
+        run: npm run lint
+
+      - name: 3. Testes Unitarios e Invariantes (Vitest)
+        run: npx vitest run
+
+      - name: 4. Compilacao de Producao (next build)
+        run: npm run build
+
+      - name: 5. Auditoria de Dependencias (npm audit)
+        run: npm audit --omit=dev
+
+      - name: 6. Varredura de Segredos
+        run: node scripts/check_secrets.mjs

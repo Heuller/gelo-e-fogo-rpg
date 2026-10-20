@@ -9,7 +9,7 @@
 
 Uma auditoria exaustiva em todos os commits e árvores do repositório (`git rev-list --objects --all`) revelou:
 1. **Corpus e Binários Pesados:** 🟢 **100% Limpo.** Pastas `origem/`, `corpus_md/` e arquivos `*.epub`, `*.pdf` NUNCA foram commitados no Git.
-2. **Segredos no Histórico Pregresso:** Nos commits iniciais (`a0a8e3a` a `8d5b787`), a string de chave de desenvolvimento do Supabase (`sb_secret_6Bu7sgeu8mwUf94hfLxPrA_15CB1_tJ`) constava como valor de fallback em `src/lib/supabase/admin.ts` e scripts auxiliares.
+2. **Segredos no Histórico Pregresso:** Nos commits iniciais (`a0a8e3a` a `8d5b787`), a string de chave de desenvolvimento do Supabase (`sb_secret_EXEMPLO_TESTE`) constava como valor de fallback em `src/lib/supabase/admin.ts` e scripts auxiliares.
 3. **Estado Atual do Working Tree:** 🟢 **Removido.** Todas as chaves foram substituídas por leitura estrita via `process.env`. O script `scripts/check_secrets.mjs` agora passa com zero achados.
 
 ---
@@ -43,7 +43,7 @@ Utilize a ferramenta oficial recomendada pelo Git (`git-filter-repo` via Python)
 pip install git-filter-repo
 
 # Substituir a chave antiga por uma string segura em todos os commits do histórico
-git-filter-repo --replace-text <(echo "sb_secret_6Bu7sgeu8mwUf94hfLxPrA_15CB1_tJ==>CHAVE_ROTACIONADA")
+git-filter-repo --replace-text <(echo "CHAVE_ANTIGA_A_SUBSTITUIR==>CHAVE_ROTACIONADA")
 ```
 
 ### Passo 3: Forçar Push para o GitHub
