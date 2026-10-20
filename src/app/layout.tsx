@@ -24,6 +24,16 @@ export const metadata: Metadata = {
   title: 'Crônicas de Sangue e Gelo',
   description: 'RPG Narrativo e Determinístico de Westeros',
   manifest: '/manifest.webmanifest',
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      'noimageindex': true,
+    },
+  },
 };
 
 export default function RootLayout({
