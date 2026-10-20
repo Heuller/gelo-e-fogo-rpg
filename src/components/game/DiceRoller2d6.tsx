@@ -29,7 +29,7 @@ function DadoVisual({ valor, animando }: { valor: number; animando?: boolean }) 
   return (
     <div
       className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-[#2b2520] via-[#1c1815] to-[#110e0c] border-2 border-[#C5A059] p-2 flex items-center justify-center shadow-xl shadow-black/80 transition-transform ${
-        animando ? 'animate-spin' : ''
+        animando ? 'animate-spin motion-reduce:animate-none' : ''
       }`}
     >
       <svg viewBox="0 0 100 100" className="w-full h-full text-[#E6DEC8] fill-current">

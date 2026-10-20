@@ -136,7 +136,11 @@ export function NarrativeScroll({
       <SceneIllustration nodeId={nodeId} titulo={atoTitulo} localizacao={localizacao} />
 
       {/* Rolo de Parágrafos Narrativos com Letra Capitular no 1º parágrafo */}
-      <div className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[#E6DEC8] mt-6">
+      <div 
+        aria-live="polite"
+        aria-atomic="true"
+        className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[#E6DEC8] mt-6"
+      >
         {paragrafos.map((paragrafo, idx) => {
           const ehPrimeiro = idx === 0;
 
