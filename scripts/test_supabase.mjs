@@ -1,56 +1,32 @@
 import { createClient } from '@supabase/supabase-js';
 
-const url = 'https://iqjntkrjwgnqvalgiatl.supabase.co';
-const secretKey = 'sb_secret_6Bu7sgeu8mwUf94hfLxPrA_15CB1_tJ';
-const publishableKey = 'sb_publishable_4oQFUOoiNICF2Uc7BPUNcg__dzodvXJ';
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+const secretKey = process.env.SUPABASE_SECRET_KEY;
 
-const email = 'meistre@cidadela.westeros';
-const password = 'ValarMorghulis2026!';
+if (!url || !publishableKey || !secretKey) {
+  console.error('Erro: Configure NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY e SUPABASE_SECRET_KEY.');
+  process.exit(1);
+}
 
-async function testSupabase() {
-  console.log('Testando conexão com Supabase...');
-  const supabaseAdmin = createClient(url, secretKey);
+const supabaseAnon = createClient(url, publishableKey);
+const supabaseAdmin = createClient(url, secretKey);
 
-  // 1. Testar conexão listando usuários do Auth
+async function testConnection() {
+  console.log('--- Testando Conexão Supabase ---');
   try {
-    const { data: usersData, error: usersError } = await supabaseAdmin.auth.admin.listUsers();
-    if (usersError) {
-      console.log('Erro ao listar usuários (Auth Admin):', usersError.message);
-    } else {
-      console.log('Conexão Auth Admin OK! Usuários cadastrados:', usersData.users.length);
-      const existe = usersData.users.find(u => u.email === email);
-      if (existe) {
-        console.log(`Usuário de teste ${email} já existe no Supabase (ID: ${existe.id}).`);
-      } else {
-        console.log(`Criando usuário de teste ${email}...`);
-        const { data: newUser, error: createError } = await supabaseAdmin.auth.admin.createUser({
-          email,
-          password,
-          email_confirm: true,
-          user_metadata: { role: 'meistre', nome: 'Grande Meistre' }
-        });
-        if (createError) {
-          console.log('Erro ao criar usuário:', createError.message);
-        } else {
-          console.log(`Usuário ${email} criado com sucesso! ID:`, newUser.user.id);
-        }
-      }
-    }
-  } catch (err) {
-    console.log('Exceção no admin:', err);
+    const { data: { session }, error: sessionError } = await supabaseAnon.auth.getSession();
+    console.log('Cliente Anônimo:', sessionError ? `Erro: ${sessionError.message}` : 'Conexão OK (sem sessão)');
+  } catch (e) {
+    console.log('Erro ao testar anônimo:', e.message);
   }
 
-  // 2. Testar login com Publishable Key
-  const supabaseClient = createClient(url, publishableKey);
-  const { data: loginData, error: loginError } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-  });
-  if (loginError) {
-    console.log('Erro ao fazer login com publishable key:', loginError.message);
-  } else {
-    console.log('Login de teste automático realizado com sucesso! Token obtido:', loginData.session ? 'SIM' : 'NÃO');
+  try {
+    const { data: users, error: adminError } = await supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1 });
+    console.log('Cliente Admin:', adminError ? `Erro: ${adminError.message}` : `Conexão OK! Usuários encontrados: ${users?.users?.length || 0}`);
+  } catch (e) {
+    console.log('Erro ao testar admin:', e.message);
   }
 }
 
-testSupabase();
+testConnection();

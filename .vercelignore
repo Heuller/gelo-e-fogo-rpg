@@ -1,0 +1,10 @@
+origem/
+corpus_md/
+piloto/
+*.pdf
+*.epub
+*.mobi
+supabase/.temp/
+.git/
+scripts/
+docs/

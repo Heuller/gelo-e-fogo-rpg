@@ -12,8 +12,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const testEmail = process.env.NEXT_PUBLIC_TEST_USER_EMAIL || 'meistre@cidadela.westeros';
-  const testPassword = process.env.NEXT_PUBLIC_TEST_USER_PASSWORD || 'ValarMorghulis2026!';
+  const testEmail = process.env.NEXT_PUBLIC_TEST_USER_EMAIL || '';
+  const testPassword = process.env.NEXT_PUBLIC_TEST_USER_PASSWORD || '';
 
   async function handleLogin(e?: React.FormEvent) {
     if (e) e.preventDefault();

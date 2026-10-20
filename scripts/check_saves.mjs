@@ -1,15 +1,20 @@
 import { createClient } from '@supabase/supabase-js';
 
-const url = 'https://iqjntkrjwgnqvalgiatl.supabase.co';
-const secretKey = 'sb_secret_6Bu7sgeu8mwUf94hfLxPrA_15CB1_tJ';
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const secretKey = process.env.SUPABASE_SECRET_KEY;
+
+if (!url || !secretKey) {
+  console.error('Erro: NEXT_PUBLIC_SUPABASE_URL e SUPABASE_SECRET_KEY devem ser configurados no ambiente.');
+  process.exit(1);
+}
 
 async function checkSavesTable() {
   const supabase = createClient(url, secretKey);
-  const { data, error } = await supabase.from('saves').select('*').limit(1);
+  const { data, error } = await supabase.from('save_slots').select('*').limit(1);
   if (error) {
-    console.log('Status da tabela saves:', error.message);
+    console.log('Status da tabela save_slots:', error.message);
   } else {
-    console.log('Tabela saves encontrada! Registros:', data.length);
+    console.log('Tabela save_slots encontrada! Registros:', data.length);
   }
 }
 

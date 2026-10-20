@@ -1,15 +1,15 @@
 import { createClient } from './client';
 
-export const ALLOWED_USER_EMAIL = process.env.ALLOWED_USER_EMAIL || 'meistre@cidadela.westeros';
-export const TEST_USER_EMAIL = process.env.NEXT_PUBLIC_TEST_USER_EMAIL || 'meistre@cidadela.westeros';
-export const TEST_USER_PASSWORD = process.env.NEXT_PUBLIC_TEST_USER_PASSWORD || 'ValarMorghulis2026!';
+export const ALLOWED_USER_EMAIL = (process.env.ALLOWED_USER_EMAIL || process.env.NEXT_PUBLIC_ALLOWED_USER_EMAIL || 'meistre@cidadela.westeros').toLowerCase().trim();
+export const TEST_USER_EMAIL = (process.env.NEXT_PUBLIC_TEST_USER_EMAIL || ALLOWED_USER_EMAIL).toLowerCase().trim();
+export const TEST_USER_PASSWORD = process.env.NEXT_PUBLIC_TEST_USER_PASSWORD || '';
 
 /**
  * Valida se o e-mail possui permissão de acesso ao jogo.
  */
 export function verificarPermissaoAcesso(email: string | null | undefined): boolean {
   if (!email) return false;
-  return email.toLowerCase().trim() === ALLOWED_USER_EMAIL.toLowerCase().trim();
+  return email.toLowerCase().trim() === ALLOWED_USER_EMAIL;
 }
 
 /**
@@ -17,13 +17,16 @@ export function verificarPermissaoAcesso(email: string | null | undefined): bool
  */
 export async function fazerLoginTeste() {
   const supabase = createClient();
+  if (!supabase) {
+    throw new Error('Cliente Supabase não inicializado.');
+  }
   const { data, error } = await supabase.auth.signInWithPassword({
     email: TEST_USER_EMAIL,
     password: TEST_USER_PASSWORD,
   });
 
   if (error) {
-    throw new Error(`Falha no login de teste automático: ${error.message}`);
+    throw new Error(`Falha no login de teste: ${error.message}`);
   }
 
   if (!verificarPermissaoAcesso(data.user?.email)) {
@@ -38,6 +41,7 @@ export async function fazerLoginTeste() {
  */
 export async function obterSessaoAtual() {
   const supabase = createClient();
+  if (!supabase) return null;
   const { data: { session }, error } = await supabase.auth.getSession();
   if (error || !session) return null;
   return session;
@@ -48,5 +52,6 @@ export async function obterSessaoAtual() {
  */
 export async function fazerLogout() {
   const supabase = createClient();
+  if (!supabase) return;
   await supabase.auth.signOut();
 }
