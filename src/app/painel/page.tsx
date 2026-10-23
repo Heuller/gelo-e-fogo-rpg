@@ -282,7 +282,7 @@ export default function PainelPage() {
   const somaAtributos = Object.values(atributosCustom).reduce((a, b) => a + b, 0);
 
   return (
-    <main className="min-h-screen bg-[[var(--pagina)]] text-slate-100 p-6 md:p-12 font-sans">
+    <main className="min-h-screen bg-[var(--pagina)] text-slate-100 p-6 md:p-12 font-sans">
       <div className="max-w-6xl mx-auto space-y-10">
         
         {/* Cabeçalho do Painel */}
@@ -503,7 +503,7 @@ export default function PainelPage() {
       {/* MODAL BALDUR'S GATE 3: NOVO JOGO & CRIAÇÃO DE PERSONAGEM */}
       {modalNovoJogoAberto && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[[var(--pergaminho-2)]] border-2 border-[[var(--ouro)]] rounded-2xl max-w-2xl w-full p-6 sm:p-8 text-[[var(--tinta)]] shadow-2xl relative max-h-[90vh] overflow-y-auto font-garamond">
+          <div className="bg-[var(--pergaminho-2)] border-2 border-[var(--ouro)] rounded-2xl max-w-2xl w-full p-6 sm:p-8 text-[var(--tinta)] shadow-2xl relative max-h-[90vh] overflow-y-auto font-garamond">
             {/* Fechar */}
             <button
               onClick={() => setModalNovoJogoAberto(false)}
@@ -512,8 +512,8 @@ export default function PainelPage() {
               <X className="w-5 h-5" />
             </button>
 
-            <header className="text-center pb-4 border-b border-[[var(--ouro)]]/30">
-              <span className="text-xs font-cinzel uppercase tracking-[0.25em] text-[[var(--ouro)]] font-bold">
+            <header className="text-center pb-4 border-b border-[var(--ouro)]/30">
+              <span className="text-xs font-cinzel uppercase tracking-[0.25em] text-[var(--ouro)] font-bold">
                 {jornadaInfoAtual.titulo}
               </span>
               <h2 className="text-2xl font-cinzel font-bold text-amber-200 mt-1 uppercase">
@@ -528,7 +528,7 @@ export default function PainelPage() {
                 onClick={() => setTipoCriacao('canonico')}
                 className={`py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-2 ${
                   tipoCriacao === 'canonico'
-                    ? 'bg-[[var(--ouro)]] text-stone-950 shadow'
+                    ? 'bg-[var(--ouro)] text-stone-950 shadow'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -540,7 +540,7 @@ export default function PainelPage() {
                 onClick={() => setTipoCriacao('customizado')}
                 className={`py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-2 ${
                   tipoCriacao === 'customizado'
-                    ? 'bg-[[var(--ouro)]] text-stone-950 shadow'
+                    ? 'bg-[var(--ouro)] text-stone-950 shadow'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -550,9 +550,9 @@ export default function PainelPage() {
             </div>
 
             {tipoCriacao === 'canonico' ? (
-              <div className="space-y-4 bg-[[var(--pergaminho-1)]] border border-stone-800 p-5 rounded-xl">
+              <div className="space-y-4 bg-[var(--pergaminho-1)] border border-stone-800 p-5 rounded-xl">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-red-950 border-2 border-[[var(--ouro)]] flex items-center justify-center text-[[var(--ouro)]]">
+                  <div className="w-16 h-16 rounded-full bg-red-950 border-2 border-[var(--ouro)] flex items-center justify-center text-[var(--ouro)]">
                     <Crown className="w-8 h-8" />
                   </div>
                   <div>
@@ -589,7 +589,7 @@ export default function PainelPage() {
                       value={nomeCustom}
                       onChange={(e) => setNomeCustom(e.target.value)}
                       placeholder="Ex.: Valerius Targaryen"
-                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[[var(--ouro)]]"
+                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[var(--ouro)]"
                     />
                   </div>
                   <div>
@@ -601,7 +601,7 @@ export default function PainelPage() {
                       value={tituloCustom}
                       onChange={(e) => setTituloCustom(e.target.value)}
                       placeholder="Ex.: Herdeiro de Pedra do Dragão"
-                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[[var(--ouro)]]"
+                      className="w-full p-2.5 rounded-lg bg-[#100e0c] border border-stone-700 text-sm text-slate-100 focus:outline-none focus:border-[var(--ouro)]"
                     />
                   </div>
                 </div>
@@ -686,7 +686,7 @@ export default function PainelPage() {
             )}
 
             {/* Rodapé de Confirmação */}
-            <div className="mt-6 pt-4 border-t border-[[var(--ouro)]]/30 flex items-center justify-end gap-3">
+            <div className="mt-6 pt-4 border-t border-[var(--ouro)]/30 flex items-center justify-end gap-3">
               <button
                 type="button"
                 onClick={() => setModalNovoJogoAberto(false)}

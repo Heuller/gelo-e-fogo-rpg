@@ -3,7 +3,7 @@ import { Shield, Sparkles, BookOpen } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[[var(--pagina)]] fundo-radial text-slate-100 flex flex-col items-center justify-center p-6 text-center">
+    <main className="min-h-screen bg-[var(--pagina)] fundo-radial text-slate-100 flex flex-col items-center justify-center p-6 text-center">
       <div className="max-w-2xl mx-auto space-y-6">
         
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-950/70 border border-amber-600/60 shadow-2xl shadow-red-950/70 mb-2">

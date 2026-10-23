@@ -119,12 +119,12 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
   );
 
   return (
-    <div className={`bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl p-5 shadow-2xl text-[[var(--tinta)]] font-cinzel space-y-4 ${className}`}>
+    <div className={`bg-[var(--pergaminho-2)] border-2 border-[var(--borda)] rounded-2xl p-5 shadow-2xl text-[var(--tinta)] font-cinzel space-y-4 ${className}`}>
       
       {/* Cabeçalho */}
-      <div className="flex items-center justify-between border-b border-[[var(--borda)]] pb-3">
+      <div className="flex items-center justify-between border-b border-[var(--borda)] pb-3">
         <div className="flex items-center gap-2">
-          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[[var(--ouro)]]">
+          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[var(--ouro)]">
             <Crown className="w-4 h-4" />
           </span>
           <h3 className="text-sm font-bold uppercase tracking-wider text-amber-200">
@@ -138,10 +138,10 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
       </div>
 
       {/* Carta Cartográfica Vetorial */}
-      <div className="relative w-full aspect-[4/5] bg-gradient-to-b from-[#14181f] via-[#101217] to-[#120f12] rounded-xl border border-[[var(--borda)]] overflow-hidden p-2 flex items-center justify-center">
+      <div className="relative w-full aspect-[4/5] bg-gradient-to-b from-[#14181f] via-[#101217] to-[#120f12] rounded-xl border border-[var(--borda)] overflow-hidden p-2 flex items-center justify-center">
         
         {/* Silhueta Artística de Westeros em SVG */}
-        <svg viewBox="0 0 100 120" className="w-full h-full opacity-30 text-[[var(--ouro)]] fill-current">
+        <svg viewBox="0 0 100 120" className="w-full h-full opacity-30 text-[var(--ouro)] fill-current">
           {/* Costa e contorno do continente */}
           <path d="M 45 5 C 55 5, 60 15, 62 25 C 65 35, 75 40, 72 50 C 78 55, 75 65, 70 70 C 65 75, 70 85, 65 95 C 60 105, 50 110, 45 105 C 40 100, 30 95, 25 85 C 20 75, 25 65, 30 55 C 25 45, 35 30, 40 20 Z" />
           {/* Muralha */}
@@ -162,19 +162,19 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
                 ehAtual
                   ? 'bg-red-900 border-2 border-red-500 shadow-lg shadow-red-900/80 animate-pulse'
                   : ehSelecionada
-                  ? 'bg-amber-900 border-2 border-[[var(--ouro)]]'
-                  : 'bg-[[var(--pergaminho-3)]] border border-slate-600 text-slate-400'
+                  ? 'bg-amber-900 border-2 border-[var(--ouro)]'
+                  : 'bg-[var(--pergaminho-3)] border border-slate-600 text-slate-400'
               }`}
               title={`${regiao.nome} (${regiao.casaPrincipal})`}
             >
-              <MapPin className={`w-3.5 h-3.5 ${ehAtual ? 'text-amber-300' : 'text-[[var(--ouro)]]'}`} />
+              <MapPin className={`w-3.5 h-3.5 ${ehAtual ? 'text-amber-300' : 'text-[var(--ouro)]'}`} />
             </button>
           );
         })}
       </div>
 
       {/* Cartão de Detalhes da Região Selecionada */}
-      <div className="bg-[[var(--pergaminho-1)]] p-3.5 rounded-xl border border-[[var(--borda)]] space-y-2">
+      <div className="bg-[var(--pergaminho-1)] p-3.5 rounded-xl border border-[var(--borda)] space-y-2">
         <div className="flex items-center justify-between">
           <span className="text-xs font-bold text-amber-200">
             {regiaoSelecionada.nome}
@@ -190,7 +190,7 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
           </span>
         </div>
 
-        <p className="text-xs text-[[var(--tinta-suave)]] font-garamond italic">
+        <p className="text-xs text-[var(--tinta-suave)] font-garamond italic">
           {regiaoSelecionada.senhorAtual}
         </p>
 
@@ -202,7 +202,7 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
           </div>
           <div className="w-full h-1.5 bg-stone-900 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-amber-700 to-[[var(--ouro)]] rounded-full"
+              className="h-full bg-gradient-to-r from-amber-700 to-[var(--ouro)] rounded-full"
               style={{ width: `${regiaoSelecionada.lealdade}%` }}
             />
           </div>

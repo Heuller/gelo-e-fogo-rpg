@@ -42,12 +42,12 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
 
   return (
     <aside
-      className={`w-full bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl p-5 shadow-2xl space-y-6 text-[[var(--tinta)]] ${className}`}
+      className={`w-full bg-[var(--pergaminho-2)] border-2 border-[var(--borda)] rounded-2xl p-5 shadow-2xl space-y-6 text-[var(--tinta)] ${className}`}
     >
       {/* Moldura de Retrato e Brasão Heráldico */}
-      <div className="text-center relative pb-3 border-b border-[[var(--borda)]]">
-        <div className="relative w-20 h-20 mx-auto mb-3 rounded-full border-2 border-[[var(--ouro)]] p-1 bg-gradient-to-b from-[[var(--borda)]] to-[[var(--pergaminho-1)]] shadow-lg shadow-black/80 flex items-center justify-center">
-          <div className="w-full h-full rounded-full bg-[#1A1412] flex items-center justify-center overflow-hidden border border-[[var(--ouro)]]/40">
+      <div className="text-center relative pb-3 border-b border-[var(--borda)]">
+        <div className="relative w-20 h-20 mx-auto mb-3 rounded-full border-2 border-[var(--ouro)] p-1 bg-gradient-to-b from-[var(--borda)] to-[var(--pergaminho-1)] shadow-lg shadow-black/80 flex items-center justify-center">
+          <div className="w-full h-full rounded-full bg-[#1A1412] flex items-center justify-center overflow-hidden border border-[var(--ouro)]/40">
             {/* Brasão Heráldico do Dragão de Três Cabeças em SVG */}
             <svg viewBox="0 0 100 100" className="w-14 h-14 text-red-600 fill-current drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               <path d="M50 15 C45 25 35 30 25 35 C35 45 40 55 35 70 C45 65 55 65 65 70 C60 55 65 45 75 35 C65 30 55 25 50 15 Z" />
@@ -56,7 +56,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
               <circle cx="62" cy="30" r="3" fill="[var(--ouro)]" />
             </svg>
           </div>
-          <span className="absolute -bottom-1 -right-1 p-1 rounded-full bg-amber-950 border border-[[var(--ouro)]] text-[[var(--ouro)]]">
+          <span className="absolute -bottom-1 -right-1 p-1 rounded-full bg-amber-950 border border-[var(--ouro)] text-[var(--ouro)]">
             <Crown className="w-3.5 h-3.5" />
           </span>
         </div>
@@ -64,7 +64,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
         <h2 className="text-xl font-bold font-cinzel text-amber-200 tracking-wide">
           {ficha.nome}
         </h2>
-        <p className="text-xs text-[[var(--tinta-suave)]] font-cinzel mt-0.5">
+        <p className="text-xs text-[var(--tinta-suave)] font-cinzel mt-0.5">
           {ficha.titulo || 'Senhor dos Sete Reinos'}
         </p>
 
@@ -106,7 +106,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
 
       {/* As 3 Barras Vitais */}
       <div className="space-y-4">
-        <h3 className="text-xs font-cinzel uppercase tracking-widest text-[[var(--ouro)]] font-semibold border-b border-[[var(--borda)]] pb-1">
+        <h3 className="text-xs font-cinzel uppercase tracking-widest text-[var(--ouro)] font-semibold border-b border-[var(--borda)] pb-1">
           Estado Vital & Moral
         </h3>
 
@@ -151,7 +151,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
         {/* 3. Honra (-10 a +10 Bipolar) */}
         <div>
           <div className="flex items-center justify-between text-xs font-cinzel mb-1">
-            <span className="flex items-center gap-1.5 text-[[var(--ouro)]] font-bold">
+            <span className="flex items-center gap-1.5 text-[var(--ouro)] font-bold">
               <Scale className="w-3.5 h-3.5" />
               Honra
             </span>
@@ -159,12 +159,12 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
               {ficha.estado.honra > 0 ? `+${ficha.estado.honra}` : ficha.estado.honra}
             </span>
           </div>
-          <div className="w-full h-2.5 bg-[[var(--pergaminho-1)]] border border-[[var(--borda)]] rounded-full relative overflow-hidden">
+          <div className="w-full h-2.5 bg-[var(--pergaminho-1)] border border-[var(--borda)] rounded-full relative overflow-hidden">
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-600 z-10" />
             <div
               className={`h-full rounded-full transition-all duration-500 ${
                 ficha.estado.honra >= 0
-                  ? 'bg-gradient-to-r from-amber-700 to-[[var(--ouro)]]'
+                  ? 'bg-gradient-to-r from-amber-700 to-[var(--ouro)]'
                   : 'bg-gradient-to-l from-red-950 to-stone-900'
               }`}
               style={{
@@ -184,7 +184,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
       {/* Círculo Íntimo: Aprovação dos Companheiros (Estilo BG3) */}
       {temCompanheiros && (
         <div className="space-y-3 pt-1">
-          <h3 className="text-xs font-cinzel uppercase tracking-widest text-[[var(--ouro)]] font-semibold border-b border-[[var(--borda)]] pb-1 flex items-center justify-between">
+          <h3 className="text-xs font-cinzel uppercase tracking-widest text-[var(--ouro)] font-semibold border-b border-[var(--borda)] pb-1 flex items-center justify-between">
             <span className="flex items-center gap-1.5">
               <Users className="w-3.5 h-3.5 text-amber-400" />
               Círculo Íntimo
@@ -212,7 +212,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
               return (
                 <div
                   key={id}
-                  className="p-2.5 rounded-lg bg-[[var(--pergaminho-1)]] border border-[[var(--borda)]] hover:border-amber-900/50 transition-colors"
+                  className="p-2.5 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] hover:border-amber-900/50 transition-colors"
                 >
                   <div className="flex items-center justify-between text-xs mb-1">
                     <span className="font-cinzel font-bold text-slate-200">
@@ -252,7 +252,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
 
       {/* Grade dos 6 Atributos-Vozes */}
       <div className="space-y-3">
-        <h3 className="text-xs font-cinzel uppercase tracking-widest text-[[var(--ouro)]] font-semibold border-b border-[[var(--borda)]] pb-1">
+        <h3 className="text-xs font-cinzel uppercase tracking-widest text-[var(--ouro)] font-semibold border-b border-[var(--borda)] pb-1">
           Atributos & Vozes
         </h3>
 
@@ -265,7 +265,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
             return (
               <div
                 key={attr}
-                className="p-2.5 rounded-lg bg-[[var(--pergaminho-1)]] border border-[[var(--borda)]] flex items-center justify-between"
+                className="p-2.5 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between"
               >
                 <div className="flex items-center gap-1.5">
                   <Icone className={`w-3.5 h-3.5 ${conf.color}`} />
@@ -280,9 +280,9 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
                 </div>
 
                 {/* Pontos de rank (1 a 5) */}
-                <div className="flex gap-0.5 text-[[var(--ouro)]] text-xs">
+                <div className="flex gap-0.5 text-[var(--ouro)] text-xs">
                   {[1, 2, 3, 4, 5].map((pip) => (
-                    <span key={pip} className={pip <= valor ? 'text-[[var(--ouro)]]' : 'text-stone-800'}>
+                    <span key={pip} className={pip <= valor ? 'text-[var(--ouro)]' : 'text-stone-800'}>
                       ◆
                     </span>
                   ))}
@@ -319,7 +319,7 @@ export function CharacterPanel({ ficha, className = '' }: PropsCharacterPanel) {
           {ficha.segredos.length > 0 ? (
             <div className="space-y-1.5">
               {ficha.segredos.map((s, i) => (
-                <div key={i} className="text-xs p-2 rounded bg-[[var(--pergaminho-1)]] border border-amber-900/40 text-amber-200/90 font-garamond">
+                <div key={i} className="text-xs p-2 rounded bg-[var(--pergaminho-1)] border border-amber-900/40 text-amber-200/90 font-garamond">
                   {s}
                 </div>
               ))}

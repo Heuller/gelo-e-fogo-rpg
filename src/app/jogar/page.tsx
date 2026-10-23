@@ -1,20 +1,29 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { TopBar } from '@/components/game/TopBar';
+import { TopBar } from '@/components/game/shell/TopBar';
+import { ColunaFicha } from '@/components/game/shell/ColunaFicha';
+import { ColunaMundo } from '@/components/game/shell/ColunaMundo';
+import { BarraInferiorMobile } from '@/components/game/shell/BarraInferiorMobile';
+import { NarrativeScroll } from '@/components/game/NarrativeScroll';
 import { TelaDeFinal } from '@/components/game/TelaDeFinal';
-import { CharacterPanel } from '@/components/game/CharacterPanel';
-import { NarrativeScroll, EscolhaNarrativa } from '@/components/game/NarrativeScroll';
-import { IntervencaoVoz } from '@/components/game/InternalVoices';
-import { DiceRoller2d6 } from '@/components/game/DiceRoller2d6';
-import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
-import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
-import { MobileDrawerNav } from '@/components/game/MobileDrawerNav';
+import {
+  PainelDeConfiguracoes,
+  PreferenciasLeitura,
+  PREFERENCIAS_PADRAO,
+  obterPreferenciasSalvas,
+} from '@/components/game/PainelDeConfiguracoes';
+import { Dialogo } from '@/components/ui/Dialogo';
+import { Botao } from '@/components/ui/Botao';
+import { AvisoProvider, useAvisos } from '@/components/ui/Aviso';
+import { useAtalhos } from '@/lib/hooks/useAtalhos';
+import { useScrollNaCena } from '@/lib/hooks/useScrollNaCena';
+import { useJogoStore } from '@/lib/store/jogoStore';
 import { FichaPersonagem, ResultadoRolagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 import type { TurnEvent, SaveSlot } from '@/server/saves';
 import { exportarSaveAction } from '@/app/actions/slotActions';
-import { NodeJornada } from '@/server/engine/storyLinter';
+import { NodeJornada, EscolhaNode } from '@/server/engine/storyLinter';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { getGlossaryEntriesAction } from '@/app/actions/loreActions';
 import {
@@ -25,7 +34,7 @@ import {
   processarAcaoLivreAction,
   rerrolarTesteInspiracaoAction,
 } from '@/app/actions/gameActions';
-import { Map, Dices, Scroll } from 'lucide-react';
+import { Keyboard } from 'lucide-react';
 
 function getTituloJornadaFormatado(id: string): string {
   const lower = id.toLowerCase();
@@ -35,26 +44,40 @@ function getTituloJornadaFormatado(id: string): string {
   if (lower.includes('tronos') || lower.includes('guerra') || lower.includes('jornada_3')) {
     return 'Jornada 3: A Guerra dos Cinco Reis';
   }
+  if (lower.includes('patrulha') || lower.includes('muralha') || lower.includes('jornada_4')) {
+    return 'Jornada 4: Irmão Sem Nome';
+  }
   return 'Jornada 1: A Conquista de Aegon';
 }
 
 function JogarJogoInterno() {
   const searchParams = useSearchParams();
   const journeyParam = searchParams.get('journey') || 'conquista_aegon';
-  const slotParam = searchParams.get('slot') ? parseInt(searchParams.get('slot')!) : 1;
+  const slotParam = searchParams.get('slot') ? parseInt(searchParams.get('slot')!, 10) : 1;
 
+  const { adicionarAviso } = useAvisos();
+
+  // Estados principais da sessão
+  const [carregando, setCarregando] = useState(true);
   const [modoIA, setModoIA] = useState(true);
   const [nodeAtual, setNodeAtual] = useState<NodeJornada | null>(null);
   const [textoCenaExibido, setTextoCenaExibido] = useState<string>('');
-  const [vozesExibidas, setVozesExibidas] = useState<IntervencaoVoz[]>([]);
+  const [textoMestre, setTextoMestre] = useState<string | null>(null);
+  const [statusMestre, setStatusMestre] = useState<'idle' | 'escrevendo' | 'pronto' | 'falhou'>('idle');
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
   const [abaLateral, setAbaLateral] = useState<'mapa' | 'dados' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [carregando, setCarregando] = useState(true);
-  const [notificacoesCompanheiros, setNotificacoesCompanheiros] = useState<string[]>([]);
   const [ultimaEscolhaId, setUltimaEscolhaId] = useState<string | null>(null);
   const [ultimoNodeId, setUltimoNodeId] = useState<string | null>(null);
+
+  // Colunas colapsáveis desktop
+  const [colunaFichaAberta, setColunaFichaAberta] = useState(true);
+  const [colunaMundoAberta, setColunaMundoAberta] = useState(true);
+
+  // Configurações e Modais
+  const [modalConfigAberto, setModalConfigAberto] = useState(false);
+  const [modalAjudaAberto, setModalAjudaAberto] = useState(false);
+  const [preferencias, setPreferencias] = useState<PreferenciasLeitura>(PREFERENCIAS_PADRAO);
 
   const [ficha, setFicha] = useState<FichaPersonagem>({
     id: 'aegon-conquistador',
@@ -69,11 +92,7 @@ function JogarJogoInterno() {
       erudicao: 3,
       pressagio: 4,
     },
-    estado: {
-      sangue: 10,
-      compostura: 10,
-      honra: 5,
-    },
+    estado: { sangue: 10, compostura: 10, honra: 5 },
     cicatrizes: [],
     segredos: ['A profecia de Daenys a Sonhadora'],
     companheiros: obterCompanheirosIniciais('j1_conquista'),
@@ -89,21 +108,31 @@ function JogarJogoInterno() {
   const [slotAtual, setSlotAtual] = useState<SaveSlot | null>(null);
   const [statusSalvamento, setStatusSalvamento] = useState<'salvo' | 'salvando' | 'erro'>('salvo');
 
+  // Ganchos de Acessibilidade, Rolagem e Foco
+  const { headingRef, anunciadorRef } = useScrollNaCena(
+    nodeAtual ? nodeAtual.id : null,
+    nodeAtual ? nodeAtual.titulo : null
+  );
+
+  // Carregar preferências salvas do usuário no mount
+  useEffect(() => {
+    setPreferencias(obterPreferenciasSalvas());
+  }, []);
+
+  // Carga inicial dos dados da crônica e slot
   useEffect(() => {
     setCarregando(true);
     setStatusSalvamento('salvando');
-    const slotNum = slotParam;
 
     Promise.all([
       getGlossaryEntriesAction(),
-      carregarSessaoJogoAction(journeyParam, slotNum),
+      carregarSessaoJogoAction(journeyParam, slotParam),
     ])
       .then(([verbetesData, sessaoData]) => {
         setVerbetes(verbetesData);
         setSlotAtual(sessaoData.slot);
         setNodeAtual(sessaoData.node);
         setTextoCenaExibido(sessaoData.node.fallbackText);
-        setVozesExibidas(sessaoData.node.internalVoices || []);
         setFicha(sessaoData.slot.characterSheet);
         setWorldState(sessaoData.slot.worldState);
         setHistorico(sessaoData.slot.turnHistory || []);
@@ -111,21 +140,22 @@ function JogarJogoInterno() {
         setCarregando(false);
       })
       .catch((err) => {
-        setFeedback('Erro ao carregar crônica: ' + err.message);
+        adicionarAviso('Erro ao carregar crônica: ' + err.message, 'erro');
         setStatusSalvamento('erro');
         setCarregando(false);
       });
-  }, [journeyParam, slotParam]);
+  }, [journeyParam, slotParam, adicionarAviso]);
 
+  // Execução de escolha pelo jogador
   async function handleEscolha(escolhaId: string) {
     if (!nodeAtual) return;
 
     try {
-      setFeedback('Consultando os desígnios da crônica...');
       setUltimoNodeId(nodeAtual.id);
       setUltimaEscolhaId(escolhaId);
-
       setStatusSalvamento('salvando');
+      if (modoIA) setStatusMestre('escrevendo');
+
       const res = await processarEscolhaAction({
         nodeId: nodeAtual.id,
         escolhaId,
@@ -144,49 +174,72 @@ function JogarJogoInterno() {
       setStatusSalvamento('salvo');
 
       setNodeAtual(res.proximoNode);
-      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
+      setTextoCenaExibido(res.proximoNode.fallbackText);
 
-      const vozesBase = res.proximoNode.internalVoices || [];
-      const vozesAdicionadas: IntervencaoVoz[] = (res.vozesExtras || []).map((v) => ({
-        atributo: v.voz,
-        fala: v.fala,
-      }));
-      setVozesExibidas([...vozesBase, ...vozesAdicionadas]);
+      if (res.textoEnriquecido) {
+        setTextoMestre(res.textoEnriquecido);
+        setStatusMestre('pronto');
+      } else {
+        setTextoMestre(null);
+        setStatusMestre('idle');
+      }
 
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
       setHistorico([res.turnEvent, ...historico]);
 
+      // Avisos de aprovação de companheiros (toasts elegantes)
       if (res.notificacoesCompanheiros && res.notificacoesCompanheiros.length > 0) {
-        setNotificacoesCompanheiros(res.notificacoesCompanheiros);
-      } else {
-        setNotificacoesCompanheiros([]);
+        res.notificacoesCompanheiros.forEach((notif) => {
+          const ehAprovacao = notif.includes('aprova');
+          adicionarAviso(notif, ehAprovacao ? 'sucesso' : 'erro');
+        });
       }
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
         setAbaLateral('dados');
-        setFeedback(`Rolagem 2d6: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
-      } else {
-        setFeedback(`Decisão tomada: "${res.turnEvent.choiceMade}"`);
+        const veredito = res.resultadoRolagem.resultado.toUpperCase();
+        adicionarAviso(
+          `Rolagem 2d6: [${res.resultadoRolagem.dados[0]}+${res.resultadoRolagem.dados[1]} + ${res.resultadoRolagem.valorAtributo} = ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}] — ${veredito}`,
+          veredito.includes('SUCESSO') ? 'sucesso' : 'erro'
+        );
       }
     } catch (err: any) {
-      setFeedback('Erro ao processar escolha: ' + err.message);
+      adicionarAviso('Erro ao processar escolha: ' + err.message, 'erro');
+      setStatusSalvamento('erro');
+      setStatusMestre('falhou');
     }
   }
 
+  // Atalhos de teclado [1..4, J, M, [, ], ?]
+  useAtalhos({
+    onEscolher: (indice) => {
+      if (!nodeAtual || !nodeAtual.escolhas[indice]) return;
+      handleEscolha(nodeAtual.escolhas[indice].id);
+    },
+    onAlternarAba: (aba) => {
+      setAbaLateral(aba);
+      setColunaMundoAberta(true);
+    },
+    onAlternarColunaFicha: () => setColunaFichaAberta((v) => !v),
+    onAlternarColunaMundo: () => setColunaMundoAberta((v) => !v),
+    onAbrirAjuda: () => setModalAjudaAberto(true),
+    desabilitado: modalConfigAberto || modalAjudaAberto,
+  });
+
   async function handleRerrolarComInspiracao() {
     if (!ultimoNodeId || !ultimaEscolhaId) {
-      setFeedback('Nenhum teste recente para rerrolar com Inspiração.');
+      adicionarAviso('Nenhum teste recente para rerrolar com Inspiração.', 'info');
       return;
     }
     if ((ficha.inspiracao ?? 0) <= 0) {
-      setFeedback('Não possuís Pontos de Inspiração suficientes.');
+      adicionarAviso('Não possuís Pontos de Inspiração suficientes.', 'erro');
       return;
     }
 
     try {
-      setFeedback('✨ Gastando 1 Ponto de Inspiração para rerrolar o teste...');
+      adicionarAviso('Gastando 1 Ponto de Inspiração para rerrolar o teste…', 'info');
       const res = await rerrolarTesteInspiracaoAction({
         nodeId: ultimoNodeId,
         escolhaId: ultimaEscolhaId,
@@ -197,16 +250,23 @@ function JogarJogoInterno() {
       });
 
       setNodeAtual(res.proximoNode);
-      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
+      setTextoCenaExibido(res.proximoNode.fallbackText);
+      if (res.textoEnriquecido) {
+        setTextoMestre(res.textoEnriquecido);
+      }
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
-        setFeedback(`✨ Rerrolagem com Inspiração: [${res.resultadoRolagem.resultado}] Total ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}`);
+        const veredito = res.resultadoRolagem.resultado.toUpperCase();
+        adicionarAviso(
+          `Nova Rolagem com Inspiração: [${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}] — ${veredito}`,
+          veredito.includes('SUCESSO') ? 'sucesso' : 'erro'
+        );
       }
     } catch (err: any) {
-      setFeedback('Erro ao rerrolar com Inspiração: ' + err.message);
+      adicionarAviso('Erro ao rerrolar com Inspiração: ' + err.message, 'erro');
     }
   }
 
@@ -214,7 +274,7 @@ function JogarJogoInterno() {
     if (!nodeAtual) return;
 
     try {
-      setFeedback('O Mestre IA está interpretando vossa ação livre...');
+      adicionarAviso('O Mestre IA está interpretando vossa ação livre…', 'info');
       const res = await processarAcaoLivreAction({
         nodeId: nodeAtual.id,
         textoAcaoLivre: textoAcao,
@@ -226,42 +286,32 @@ function JogarJogoInterno() {
       });
 
       setNodeAtual(res.proximoNode);
-      setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
-
-      const vozesBase = res.proximoNode.internalVoices || [];
-      const vozesAdicionadas: IntervencaoVoz[] = (res.vozesExtras || []).map((v) => ({
-        atributo: v.voz,
-        fala: v.fala,
-      }));
-      setVozesExibidas([...vozesBase, ...vozesAdicionadas]);
-
+      setTextoCenaExibido(res.proximoNode.fallbackText);
+      if (res.textoEnriquecido) {
+        setTextoMestre(res.textoEnriquecido);
+        setStatusMestre('pronto');
+      }
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
       setHistorico([res.turnEvent, ...historico]);
-
-      if (res.notificacoesCompanheiros && res.notificacoesCompanheiros.length > 0) {
-        setNotificacoesCompanheiros(res.notificacoesCompanheiros);
-      } else {
-        setNotificacoesCompanheiros([]);
-      }
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
         setAbaLateral('dados');
       }
 
-      const msgClassificacao = res.classificacao
+      const msg = res.classificacao
         ? `[Mestre]: ${res.classificacao.justificativa}`
-        : `Ação livre executada: "${textoAcao}"`;
-      setFeedback(msgClassificacao);
+        : `Ação proclamada: "${textoAcao}"`;
+      adicionarAviso(msg, 'sucesso');
     } catch (err: any) {
-      setFeedback('Erro ao processar ação livre: ' + err.message);
+      adicionarAviso('Erro ao processar ação livre: ' + err.message, 'erro');
     }
   }
 
   async function handleDesfazerTurno() {
     if (historico.length <= 1) {
-      setFeedback('Nenhum turno anterior para desfazer.');
+      adicionarAviso('Nenhum turno anterior para desfazer.', 'info');
       return;
     }
 
@@ -271,12 +321,11 @@ function JogarJogoInterno() {
       if (nodeRestaurado) {
         setNodeAtual(nodeRestaurado);
         setTextoCenaExibido(nodeRestaurado.fallbackText);
-        setVozesExibidas(nodeRestaurado.internalVoices || []);
         setHistorico([turnoAnterior, ...resto]);
-        setFeedback(`Turno desfeito. Retornado à cena '${nodeRestaurado.titulo}'.`);
+        adicionarAviso(`Retornado à cena '${nodeRestaurado.titulo}'.`, 'info');
       }
     } catch (err: any) {
-      setFeedback('Erro ao desfazer turno: ' + err.message);
+      adicionarAviso('Erro ao desfazer turno: ' + err.message, 'erro');
     }
   }
 
@@ -285,7 +334,6 @@ function JogarJogoInterno() {
       const inicio = await obterCenaInicialAction(journeyParam);
       setNodeAtual(inicio.node);
       setTextoCenaExibido(inicio.node.fallbackText);
-      setVozesExibidas(inicio.node.internalVoices || []);
       setFicha(inicio.fichaInicial);
       setWorldState(inicio.worldStateInicial);
       setHistorico([
@@ -305,9 +353,9 @@ function JogarJogoInterno() {
           timestamp: new Date().toISOString(),
         },
       ]);
-      setFeedback('Retornado com sucesso ao início do Ato I.');
+      adicionarAviso('Retornado com sucesso ao início do Ato I.', 'sucesso');
     } catch (err: any) {
-      setFeedback('Erro ao voltar ao checkpoint: ' + err.message);
+      adicionarAviso('Erro ao voltar ao checkpoint: ' + err.message, 'erro');
     }
   }
 
@@ -321,16 +369,16 @@ function JogarJogoInterno() {
       a.download = `save_${journeyParam}_slot_${slotParam}_${Date.now()}.json`;
       a.click();
       URL.revokeObjectURL(url);
-      setFeedback('Save exportado com sucesso em .json!');
+      adicionarAviso('Save exportado com sucesso em .json!', 'sucesso');
     } catch (err: any) {
-      setFeedback('Erro ao exportar: ' + err.message);
+      adicionarAviso('Erro ao exportar save: ' + err.message, 'erro');
     }
   }
 
   if (carregando || !nodeAtual) {
     return (
-      <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--ouro)]] flex items-center justify-center font-cinzel text-lg">
-        Consultando os pergaminhos da Cidadela...
+      <div className="min-h-screen bg-[var(--pagina)] text-[var(--ouro)] flex items-center justify-center font-cinzel text-lg">
+        Consultando os pergaminhos da Cidadela…
       </div>
     );
   }
@@ -340,54 +388,35 @@ function JogarJogoInterno() {
     .map((p) => p.trim())
     .filter((p) => p.length > 0);
 
-  const escolhasNarrativas: EscolhaNarrativa[] = nodeAtual.escolhas.map((e) => ({
-    id: e.id,
-    texto: e.texto,
-    tipo: e.tipo,
-    atributo: e.tipo === 'teste_atributo' ? e.atributo : undefined,
-    dc: e.tipo === 'teste_atributo' ? e.dc : undefined,
-    riscoMortal: e.tipo === 'teste_atributo' ? e.riscoMortal : undefined,
-    requiredFlags: e.requiredFlags,
-    forbiddenFlags: e.forbiddenFlags,
-    tagOrigem: e.tagOrigem,
-    motivoBloqueio: e.motivoBloqueio,
-    aprovacaoCompanheiros: e.aprovacaoCompanheiros,
-  }));
-
-  const regiaoAtiva = nodeAtual.regionId || 'pedra_dragao';
   const worldFlags = Object.keys(worldState.flagsBorboleta || {});
 
   return (
-    <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--tinta)]] flex flex-col font-garamond pb-20 lg:pb-8">
-      {/* Barra de Topo */}
+    <div className="min-h-screen bg-[var(--pagina)] text-[var(--tinta)] flex flex-col font-garamond pb-20 lg:pb-8">
+      {/* Região Viva para Leitores de Tela */}
+      <div ref={anunciadorRef} aria-live="polite" className="sr-only" />
+
+      {/* Barra de Topo do Códice Vivo */}
       <TopBar
         jornadaTitulo={getTituloJornadaFormatado(journeyParam)}
         atoTitulo={nodeAtual.titulo}
         anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
         localizacao={nodeAtual.localizacao || 'Westeros'}
         slotAtivo={slotParam}
-        statusSalvamento={statusSalvamento === 'salvando' ? 'Sincronizando...' : statusSalvamento === 'erro' ? 'Erro ao Gravar' : 'Sincronizado'}
+        statusSalvamento={statusSalvamento}
+        statusMestre={statusMestre}
         modoIA={modoIA}
         onToggleModoIA={() => setModoIA(!modoIA)}
+        onAbrirConfiguracoes={() => setModalConfigAberto(true)}
+        onAbrirAjuda={() => setModalAjudaAberto(true)}
+        onToggleColunaFicha={() => setColunaFichaAberta((v) => !v)}
+        onToggleColunaMundo={() => setColunaMundoAberta((v) => !v)}
+        colunaFichaAberta={colunaFichaAberta}
+        colunaMundoAberta={colunaMundoAberta}
       />
 
-      {feedback && (
-        <div className="max-w-7xl mx-auto w-full px-4 pt-3">
-          <div className="p-3 bg-[#1e1713] border border-[[var(--ouro)]]/60 rounded-xl text-amber-200 text-xs flex items-center justify-between">
-            <span>{feedback}</span>
-            <button
-              onClick={() => setFeedback(null)}
-              className="text-amber-400 underline text-xs"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Conteúdo Principal Responsivo (12 Colunas) */}
+      {/* Conteúdo Principal do Jogo */}
       {nodeAtual.isEnding ? (
-        <main className="max-w-4xl mx-auto w-full p-4 flex-1">
+        <main className="max-w-4xl mx-auto w-full p-4 sm:p-6 flex-1 entrada-fade">
           <TelaDeFinal
             node={nodeAtual}
             ficha={ficha}
@@ -398,113 +427,135 @@ function JogarJogoInterno() {
           />
         </main>
       ) : (
-        <main className="max-w-7xl mx-auto w-full p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 items-start">
-        {/* Coluna Esquerda (3 cols): Ficha do Personagem */}
-        <div className="hidden lg:block lg:col-span-3 sticky top-16">
-          <CharacterPanel ficha={ficha} />
-        </div>
+        <main className="max-w-7xl mx-auto w-full p-3 sm:p-6 flex justify-center gap-6 flex-1 items-start">
+          {/* Coluna Esquerda: Ficha do Personagem (280px) */}
+          <ColunaFicha ficha={ficha} aberta={colunaFichaAberta} />
 
-        {/* Coluna Central (6 cols): Rolo Narrativo */}
-        <div className="col-span-1 lg:col-span-6">
-          <NarrativeScroll
-            nodeId={nodeAtual.id}
-            atoTitulo={nodeAtual.titulo}
-            anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
+          {/* Coluna Central: Rolo Narrativo (max-w-[66ch]) */}
+          <div className="w-full max-w-[66ch] flex-1">
+            <NarrativeScroll
+              nodeId={nodeAtual.id}
+              atoTitulo={nodeAtual.titulo}
+              anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
+              localizacao={nodeAtual.localizacao || 'Westeros'}
+              paragrafos={paragrafos}
+              conditionalParagraphs={nodeAtual.conditionalParagraphs || []}
+              worldFlags={worldFlags}
+              worldState={worldState}
+              ficha={ficha}
+              vozesInternas={nodeAtual.internalVoices || []}
+              escolhas={nodeAtual.escolhas}
+              verbetes={verbetes}
+              textoMestre={textoMestre}
+              statusMestre={statusMestre}
+              modoIA={modoIA}
+              temaId={journeyParam}
+              preferencias={preferencias}
+              headingRef={headingRef}
+              onEscolha={handleEscolha}
+              onAcaoLivre={handleAcaoLivre}
+            />
+          </div>
+
+          {/* Coluna Direita: Mapa, Dados e Diário (320px) */}
+          <ColunaMundo
+            aberta={colunaMundoAberta}
+            abaAtiva={abaLateral}
+            onAlternarAba={setAbaLateral}
             localizacao={nodeAtual.localizacao || 'Westeros'}
-            paragrafos={paragrafos}
-            conditionalParagraphs={nodeAtual.conditionalParagraphs || []}
-            worldFlags={worldFlags}
-            notificacoesCompanheiros={notificacoesCompanheiros}
-            vozesInternas={vozesExibidas}
-            escolhas={escolhasNarrativas}
-            verbetes={verbetes}
-            onEscolha={handleEscolha}
-            onAcaoLivre={handleAcaoLivre}
-          />
-        </div>
-
-        {/* Coluna Direita (3 cols): Mapa, Dados e Diário */}
-        <div className="hidden lg:block lg:col-span-3 sticky top-16 space-y-4">
-          <div className="grid grid-cols-3 gap-1 bg-[[var(--pergaminho-1)]] p-1 rounded-xl border border-[[var(--borda)]] text-center font-cinzel">
-            <button
-              onClick={() => setAbaLateral('mapa')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
-                abaLateral === 'mapa'
-                  ? 'bg-[[var(--ouro)]] text-black shadow'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Map className="w-3.5 h-3.5" />
-              <span>Mapa</span>
-            </button>
-
-            <button
-              onClick={() => setAbaLateral('dados')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
-                abaLateral === 'dados'
-                  ? 'bg-[[var(--ouro)]] text-black shadow'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Dices className="w-3.5 h-3.5" />
-              <span>Dados</span>
-            </button>
-
-            <button
-              onClick={() => setAbaLateral('diario')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
-                abaLateral === 'diario'
-                  ? 'bg-[[var(--ouro)]] text-black shadow'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Scroll className="w-3.5 h-3.5" />
-              <span>Diário</span>
-            </button>
-          </div>
-
-          <div className="transition-all">
-            {abaLateral === 'mapa' && <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
-            {abaLateral === 'dados' && (
-              <DiceRoller2d6
-                resultado={resultadoRolagem}
-                inspiracao={ficha.inspiracao ?? 2}
-                onRerrolarComInspiracao={handleRerrolarComInspiracao}
-              />
-            )}
-            {abaLateral === 'diario' && (
-              <ChronicleTimeline
-                historico={historico}
-                onDesfazerTurno={handleDesfazerTurno}
-                onVoltarCheckpoint={handleVoltarCheckpoint}
-                onExportarSave={handleExportarSave}
-              />
-            )}
-          </div>
-        </div>
-      </main>
-      )}
-
-      {/* Gavetas deslizantes Mobile para celular (Ficha, Mapa e Diário) */}
-      <MobileDrawerNav
-        renderFicha={() => <CharacterPanel ficha={ficha} />}
-        renderMapa={() => <WesterosMapSVG regiaoAtualId={regiaoAtiva} />}
-        renderDados={() => (
-          <DiceRoller2d6
-            resultado={resultadoRolagem}
-            inspiracao={ficha.inspiracao ?? 2}
-            onRerrolarComInspiracao={handleRerrolarComInspiracao}
-          />
-        )}
-        renderDiario={() => (
-          <ChronicleTimeline
+            resultadoRolagem={resultadoRolagem}
             historico={historico}
-            onDesfazerTurno={handleDesfazerTurno}
-            onVoltarCheckpoint={handleVoltarCheckpoint}
+            inspiracao={ficha.inspiracao ?? 2}
+            onDesfazer={handleDesfazerTurno}
+            onRerrolar={handleRerrolarComInspiracao}
             onExportarSave={handleExportarSave}
           />
-        )}
+        </main>
+      )}
+
+      {/* Barra Inferior Fixa e Gavetas para Mobile (< 1024px) */}
+      <BarraInferiorMobile
+        ficha={ficha}
+        localizacao={nodeAtual.localizacao || 'Westeros'}
+        resultadoRolagem={resultadoRolagem}
+        historico={historico}
+        inspiracao={ficha.inspiracao ?? 2}
+        onDesfazer={handleDesfazerTurno}
+        onRerrolar={handleRerrolarComInspiracao}
+        onExportarSave={handleExportarSave}
+        onAbrirConfiguracoes={() => setModalConfigAberto(true)}
       />
+
+      {/* Modal de Configurações de Leitura */}
+      <PainelDeConfiguracoes
+        aberto={modalConfigAberto}
+        onFechar={() => setModalConfigAberto(false)}
+        preferencias={preferencias}
+        onSalvar={(novas) => setPreferencias(novas)}
+      />
+
+      {/* Modal de Atalhos do Teclado */}
+      <Dialogo
+        aberto={modalAjudaAberto}
+        onFechar={() => setModalAjudaAberto(false)}
+        titulo="Atalhos do Teclado"
+      >
+        <div className="space-y-4 text-xs font-sans text-[var(--tinta)]">
+          <p className="text-[var(--tinta-suave)] font-garamond text-sm">
+            Navegai pelas Crônicas de Sangue e Gelo com agilidade usando o teclado:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Escolhas Narrativas</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                1 · 2 · 3 · 4
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Diário da Crônica</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                J
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Mapa de Westeros</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                M
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Alternar Ficha</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                [
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Alternar Mundo</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                ]
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Esta Ajuda</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                ?
+              </kbd>
+            </div>
+          </div>
+
+          <div className="flex justify-end pt-2">
+            <Botao variante="primario" onClick={() => setModalAjudaAberto(false)}>
+              Entendido
+            </Botao>
+          </div>
+        </div>
+      </Dialogo>
     </div>
   );
 }
@@ -513,12 +564,14 @@ export default function JogarPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--ouro)]] flex items-center justify-center font-cinzel text-lg">
-          Abrindo os pergaminhos de Westeros...
+        <div className="min-h-screen bg-[var(--pagina)] text-[var(--ouro)] flex items-center justify-center font-cinzel text-lg">
+          Abrindo os pergaminhos de Westeros…
         </div>
       }
     >
-      <JogarJogoInterno />
+      <AvisoProvider>
+        <JogarJogoInterno />
+      </AvisoProvider>
     </Suspense>
   );
 }
