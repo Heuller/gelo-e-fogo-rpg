@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { Brasao } from '@/components/ui/Brasao';
 import { Botao } from '@/components/ui/Botao';
-import { KeyRound, AlertCircle, ArrowLeft } from 'lucide-react';
+import { KeyRound, AlertCircle, ArrowLeft, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -14,6 +14,38 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  function handlePreencherTeste() {
+    setEmail('meistre@cidadela.westeros');
+    setPassword('ValarMorghulis2026!');
+    setErrorMsg(null);
+  }
+
+  async function handleAutoLoginTeste() {
+    setEmail('meistre@cidadela.westeros');
+    setPassword('ValarMorghulis2026!');
+    setLoading(true);
+    setErrorMsg(null);
+
+    const supabase = createClient();
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: 'meistre@cidadela.westeros',
+        password: 'ValarMorghulis2026!',
+      });
+
+      if (error) {
+        setErrorMsg('Credenciais incorretas ou acesso não autorizado pela Cidadela.');
+        setLoading(false);
+        return;
+      }
+
+      window.location.href = '/painel';
+    } catch {
+      setErrorMsg('Não foi possível conectar ao serviço de autenticação. Verifique sua conexão.');
+      setLoading(false);
+    }
+  }
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -33,7 +65,7 @@ export default function LoginPage() {
         return;
       }
 
-      router.push('/painel');
+      window.location.href = '/painel';
     } catch {
       setErrorMsg('Não foi possível conectar ao serviço de autenticação. Verifique sua conexão.');
       setLoading(false);
@@ -79,6 +111,50 @@ export default function LoginPage() {
             <span>{errorMsg}</span>
           </div>
         )}
+
+        {/* Caixa de Acesso Rápido para Testes */}
+        <div className="p-4 bg-[var(--pergaminho-1)] border border-[var(--ouro)]/40 rounded-xl space-y-2.5 shadow-inner">
+          <div className="flex items-center justify-between">
+            <span className="font-cinzel font-bold text-xs uppercase tracking-wider text-[var(--ouro-claro)] flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[var(--ouro)]" />
+              Acesso de Teste (Piloto)
+            </span>
+            <span className="text-[10px] text-[var(--ouro-escuro)] font-cinzel font-bold">
+              Grande Meistre
+            </span>
+          </div>
+          <p className="text-xs text-[var(--tinta-suave)] leading-relaxed font-sans">
+            Use as credenciais homologadas da Cidadela para testar o sistema imediatamente:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            <button
+              type="button"
+              onClick={handlePreencherTeste}
+              disabled={loading}
+              className="w-full py-2 px-3 rounded-lg font-cinzel font-bold text-[11px] uppercase tracking-wider bg-[var(--pergaminho-2)] hover:bg-[var(--pergaminho-3)] text-[var(--ouro-claro)] border border-[var(--borda)] transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              <span>Preencher Dados</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleAutoLoginTeste}
+              disabled={loading}
+              className="w-full py-2 px-3 rounded-lg font-cinzel font-bold text-[11px] uppercase tracking-wider bg-gradient-to-r from-[var(--ouro-escuro)] to-[var(--ouro)] text-black hover:brightness-110 shadow transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              <KeyRound className="w-3.5 h-3.5 text-black" />
+              <span>Entrar Direto</span>
+            </button>
+          </div>
+        </div>
+
+        <div className="relative my-1 text-center">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-[var(--borda)]"></div>
+          </div>
+          <span className="relative bg-[var(--pergaminho-2)] px-3 text-[10px] uppercase font-cinzel tracking-widest text-[var(--tinta-fraca)]">
+            Ou acesse manualmente
+          </span>
+        </div>
 
         {/* Formulário de Acesso */}
         <form onSubmit={handleLogin} className="space-y-4 text-xs font-sans">

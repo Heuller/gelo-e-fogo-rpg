@@ -10,9 +10,10 @@ export async function middleware(request: NextRequest) {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
   // 2. Construção da Política de Segurança de Conteúdo (CSP)
+  // Next.js App Router requer 'unsafe-inline' e 'unsafe-eval' para hidratação de chunks estáticos
   const scriptSrc = isDev
-    ? `'self' 'unsafe-eval' 'nonce-${nonce}'`
-    : `'self' 'nonce-${nonce}' 'strict-dynamic'`;
+    ? `'self' 'unsafe-eval' 'unsafe-inline'`
+    : `'self' 'unsafe-eval' 'unsafe-inline' https:`;
 
   const cspHeader = [
     `default-src 'self'`,
@@ -20,7 +21,7 @@ export async function middleware(request: NextRequest) {
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' blob: data: https:`,
     `font-src 'self' data: https://fonts.gstatic.com`,
-    `connect-src 'self' ${supabaseUrl || ''} https://*.supabase.co`,
+    `connect-src 'self' ${supabaseUrl || ''} https://*.supabase.co wss://*.supabase.co https://generativelanguage.googleapis.com`,
     `frame-ancestors 'none'`,
     `base-uri 'self'`,
     `form-action 'self'`,
