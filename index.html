@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>As Crônicas de Gelo e Fogo — Códice Vivo | RPG Textual</title>
+  <meta name="description" content="RPG textual grimdark de alta fidelidade literária ambientado em Westeros. 4 campanhas épicas, sistema de 22 pontos, rolagem 2d6 e IA Mestre literária.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fundo: #14120e;
+      --superficie: #1c1914;
+      --superficie-elevada: #24201a;
+      --borda: #3d3222;
+      --borda-dourada: #c5a059;
+      --ouro: #c5a059;
+      --ouro-brilho: #e8c67c;
+      --sangue: #8a1c14;
+      --sangue-vivo: #b91c1c;
+      --tinta: #ede4ce;
+      --tinta-fraca: #a89f8a;
+      --pergaminho: #f4eedb;
+      --sucesso: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--fundo);
+      color: var(--tinta);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      background-image: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, .font-cinzel {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .font-decorative {
+      font-family: 'Cinzel Decorative', serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--borda);
+      background: rgba(20, 18, 14, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ouro);
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--ouro);
+    }
+
+    .logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--tinta-fraca);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--ouro);
+    }
+
+    .btn-play-header {
+      background: linear-gradient(135deg, #8a1c14, #5c100c);
+      border: 1px solid #b91c1c;
+      color: #fff !important;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .btn-play-header:hover {
+      background: linear-gradient(135deg, #a82319, #70140f);
+      box-shadow: 0 0 10px rgba(185, 28, 28, 0.4);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 0 3.5rem;
+      position: relative;
+    }
+
+    .badge-v2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid var(--ouro);
+      color: var(--ouro-brilho);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--ouro-brilho);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-quote {
+      font-style: italic;
+      color: var(--tinta-fraca);
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.35rem;
+      border-left: 2px solid var(--ouro);
+      padding-left: 1.25rem;
+      text-align: left;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 4px;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-gold {
+      background: linear-gradient(180deg, #c5a059 0%, #9a7631 100%);
+      color: #14120e;
+      border: 1px solid #dfbe76;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(180deg, #dfbe76 0%, #aa843b 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+    }
+
+    .btn-outline {
+      background: var(--superficie);
+      color: var(--tinta);
+      border: 1px solid var(--borda);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ouro);
+      color: var(--ouro);
+      transform: translateY(-2px);
+    }
+
+    .badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--tinta-fraca);
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sucesso);
+    }
+
+    /* SEÇÃO CAMPANHAS */
+    .section-title {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--ouro);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--tinta-fraca);
+      font-size: 1.15rem;
+    }
+
+    .grid-campanhas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .card-campanha {
+      background: var(--superficie);
+      border: 1px solid var(--borda);
+      border-radius: 6px;
+      padding: 1.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-campanha:hover {
+      border-color: var(--ouro);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-campanha.destaque {
+      border-color: var(--ouro);
+      background: linear-gradient(180deg, rgba(197, 160, 89, 0.05) 0%, var(--superficie) 100%);
+    }
+
+    .era-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      color: var(--ouro);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-campanha h3 {
+      font-size: 1.35rem;
+      color: var(--tinta);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-campanha p {
+      font-size: 1rem;
+      color: var(--tinta-fraca);
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-stats {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--ouro);
+      border-top: 1px solid var(--borda);
+      padding-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* SIMULADOR DE FICHA */
+    .interativo-box {
+      background: var(--superficie);
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid-ficha {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .grid-ficha {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .pontos-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid var(--ouro);
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pontos-valor {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ouro-brilho);
+    }
+
+    .attr-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(61, 50, 34, 0.5);
+    }
+
+    .attr-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: var(--tinta);
+    }
+
+    .attr-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--superficie-elevada);
+      border: 1px solid var(--borda);
+      color: var(--ouro);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-circle:hover:not(:disabled) {
+      background: var(--ouro);
+      color: var(--fundo);
+    }
+
+    .btn-circle:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .attr-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      width: 24px;
+      text-align: center;
+    }
+
+    .ficha-resumo {
+      background: var(--superficie-elevada);
+      border: 1px solid var(--borda);
+      border-radius: 6px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .arquetipo-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: var(--ouro-brilho);
+      margin-bottom: 0.5rem;
+    }
+
+    .arquetipo-desc {
+      font-size: 0.95rem;
+      color: var(--tinta-fraca);
+      margin-bottom: 1.5rem;
+    }
+
+    .stats-circulos {
+      display: flex;
+      justify-content: space-around;
+      gap: 1rem;
+    }
+
+    .circulo-stat {
+      border: 1px solid var(--ouro);
+      background: rgba(197, 160, 89, 0.05);
+      border-radius: 8px;
+      padding: 1rem 0.5rem;
+      flex: 1;
+    }
+
+    .circulo-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ouro);
+    }
+
+    .circulo-rotulo {
+      font-size: 0.8rem;
+      color: var(--tinta-fraca);
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* MESA DE ROLAGEM */
+    .mesa-dados {
+      text-align: center;
+      padding: 2rem;
+      background: var(--superficie);
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      margin-bottom: 4rem;
+    }
+
+    .dados-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .dado {
+      width: 70px;
+      height: 70px;
+      background: #ede4ce;
+      color: #14120e;
+      border: 2px solid #c5a059;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .dado.animando {
+      animation: rolar 0.4s ease-in-out;
+    }
+
+    @keyframes rolar {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.15); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .resultado-painel {
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      padding: 1.25rem;
+      background: var(--superficie-elevada);
+      border-radius: 6px;
+      border: 1px solid var(--borda);
+    }
+
+    .resultado-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* CASAS */
+    .casas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .casa-card {
+      background: var(--superficie);
+      border: 1px solid var(--borda);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .casa-card:hover {
+      border-color: var(--ouro);
+      transform: translateY(-2px);
+    }
+
+    .casa-nome {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: var(--ouro);
+      margin-bottom: 0.25rem;
+    }
+
+    .casa-lema {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--tinta-fraca);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--borda);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--tinta-fraca);
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--ouro);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span class="logo-text">Códice Vivo</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#campanhas">Campanhas</a>
+        <a href="#simulador">Ficha (22pts)</a>
+        <a href="#mesa">Mesa de Dados</a>
+        <a href="#casas">Casas</a>
+        <a href="https://gelo-e-fogo-rpg.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-play-header">⚔️ Jogar na Vercel</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="badge-v2">
+      <span>🛡️ Release v2.0.0 Canônica</span>
+      <span>•</span>
+      <span>Plano Mestre Concluído</span>
+    </div>
+
+    <h1>As Crônicas de Gelo e Fogo</h1>
+    <h2 class="font-decorative" style="font-size: 1.6rem; color: var(--ouro); margin-bottom: 1.5rem;">Códice Vivo — RPG Grimdark de Westeros</h2>
+
+    <div class="hero-quote">
+      «Ninguém conta o nome de um corvo qualquer — até a noite em que a contagem dos mortos precisa de alguém que o saiba.»
+      <div style="font-size: 0.95rem; margin-top: 0.5rem; text-align: right; color: var(--ouro);">— George R. R. Martin (Trad. Jorge Candeias)</div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://gelo-e-fogo-rpg.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+        ⚔️ JOGAR AGORA NA VERCEL (Online)
+      </a>
+      <a href="https://github.com/Heuller/gelo-e-fogo-rpg" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        🛡️ Código Fonte no GitHub
+      </a>
+      <a href="https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        📜 Notas da Release v2.0.0
+      </a>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge-item"><div class="badge-dot"></div> Servidor 100% Autoritativo</div>
+      <div class="badge-item"><div class="badge-dot"></div> 169 Testes Unitários Passando</div>
+      <div class="badge-item"><div class="badge-dot"></div> Contraste 10/10 WCAG 2.2 AA</div>
+      <div class="badge-item"><div class="badge-dot"></div> Mestre IA Gemini Temporal</div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO CAMPANHAS -->
+  <section id="campanhas" class="container">
+    <div class="section-title">
+      <h2>As Quatro Campanhas de Westeros</h2>
+      <p>Viva momentos cruciais da história dos Sete Reinos onde cada escolha carrega peso e sangue.</p>
+    </div>
+
+    <div class="grid-campanhas">
+      <!-- JORNADA 1 -->
+      <div class="card-campanha">
+        <div class="era-tag">2 a.C. — 1 d.C.</div>
+        <h3>A Conquista de Aegon</h3>
+        <p>A forja do Trono de Ferro com fogo e sangue. Una-se a Aegon, Visenya, Rhaenys e Orys Baratheon no Campo de Fogo e na submissão de Harrenhal.</p>
+        <div class="card-stats">
+          <span>3 Atos • 12 Cenas</span>
+          <span>Fogo e Sangue</span>
+        </div>
+      </div>
+
+      <!-- JORNADA 2 -->
+      <div class="card-campanha">
+        <div class="era-tag">129 — 131 d.C.</div>
+        <h3>A Dança dos Dragões</h3>
+        <p>A guerra civil mais sangrenta da Casa Targaryen. Escolha seu estandarte entre Verdes e Negros e testemunhe o duelo lendário no Olho de Deus.</p>
+        <div class="card-stats">
+          <span>4 Atos • 14 Cenas</span>
+          <span>Negros vs Verdes</span>
+        </div>
+      </div>
+
+      <!-- JORNADA 3 -->
+      <div class="card-campanha">
+        <div class="era-tag">298 — 300 d.C.</div>
+        <h3>A Guerra dos Tronos</h3>
+        <p>Das intrigas e assassinatos na corte de Porto Real ao estrondo da Batalha da Água Negra e a tragédia iminente do Casamento Vermelho.</p>
+        <div class="card-stats">
+          <span>4 Atos • 24 Cenas</span>
+          <span>Cinco Reis</span>
+        </div>
+      </div>
+
+      <!-- JORNADA 4 -->
+      <div class="card-campanha destaque">
+        <div class="era-tag" style="color: var(--sangue-vivo);">★ NOVO NA RELEASE v2.0.0 ★</div>
+        <h3 style="color: var(--ouro-brilho);">Irmão Sem Nome</h3>
+        <p>A Patrulha da Noite sob o cerco de Mance Rayder e os Outros. Lute ao lado de Jon Snow, Samwell Tarly e Donal Noye no topo de 200 metros de gelo.</p>
+        <div class="card-stats">
+          <span style="font-weight: 700; color: #fff;">68 Nós • 6 Finais Canônicos</span>
+          <span>Patrulha da Noite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR DE FICHA (22 PONTOS) -->
+  <section id="simulador" class="container">
+    <div class="section-title">
+      <h2>Simulador de Personagem (22 Pontos)</h2>
+      <p>Crie sua ficha canônica respeitando os limites estritos da Cidadela de Vilavelha.</p>
+    </div>
+
+    <div class="interativo-box">
+      <div class="grid-ficha">
+        <div>
+          <div class="pontos-banner">
+            <span>Pontos Disponíveis:</span>
+            <span class="pontos-valor" id="pts-restantes">0</span>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Combate</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('combate', -1)">-</button>
+              <span class="attr-val" id="val-combate">4</span>
+              <button class="btn-circle" onclick="alterarAttr('combate', 1)">+</button>
+            </div>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Astúcia</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('astucia', -1)">-</button>
+              <span class="attr-val" id="val-astucia">3</span>
+              <button class="btn-circle" onclick="alterarAttr('astucia', 1)">+</button>
+            </div>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Sobrevivência</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('sobrevivencia', -1)">-</button>
+              <span class="attr-val" id="val-sobrevivencia">4</span>
+              <button class="btn-circle" onclick="alterarAttr('sobrevivencia', 1)">+</button>
+            </div>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Liderança</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('lideranca', -1)">-</button>
+              <span class="attr-val" id="val-lideranca">4</span>
+              <button class="btn-circle" onclick="alterarAttr('lideranca', 1)">+</button>
+            </div>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Conhecimento</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('conhecimento', -1)">-</button>
+              <span class="attr-val" id="val-conhecimento">4</span>
+              <button class="btn-circle" onclick="alterarAttr('conhecimento', 1)">+</button>
+            </div>
+          </div>
+
+          <div class="attr-row">
+            <span class="attr-label">Furtividade</span>
+            <div class="attr-controls">
+              <button class="btn-circle" onclick="alterarAttr('furtividade', -1)">-</button>
+              <span class="attr-val" id="val-furtividade">3</span>
+              <button class="btn-circle" onclick="alterarAttr('furtividade', 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ficha-resumo">
+          <div class="arquetipo-badge" id="arquetipo-nome">Patrulheiro Veterano</div>
+          <p class="arquetipo-desc" id="arquetipo-desc">Equilibrado em armas, liderança e sobrevivência além da Muralha.</p>
+
+          <div class="stats-circulos">
+            <div class="circulo-stat">
+              <div class="circulo-val" id="res-pv">18</div>
+              <div class="circulo-rotulo">Pontos de Vida</div>
+            </div>
+            <div class="circulo-stat">
+              <div class="circulo-val" id="res-limiar">9</div>
+              <div class="circulo-rotulo">Limiar de Ferimento</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="https://gelo-e-fogo-rpg.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; justify-content: center;">
+              ⚔️ Jogar com Esta Ficha
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESA DE ROLAGEM 2D6 -->
+  <section id="mesa" class="container">
+    <div class="section-title">
+      <h2>Mesa de Rolagem 2d6 Virtual</h2>
+      <p>O sistema de dados canônico: 2d6 + Atributo contra a Dificuldade imposta pelo Mestre.</p>
+    </div>
+
+    <div class="mesa-dados">
+      <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+        <div>
+          <label style="font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--ouro); display: block; margin-bottom: 0.35rem;">Atributo do Teste</label>
+          <select id="sel-attr" style="background: var(--superficie-elevada); color: var(--tinta); border: 1px solid var(--borda); padding: 0.5rem 1rem; border-radius: 4px; font-family: 'Cinzel', serif;">
+            <option value="4">Combate (+4)</option>
+            <option value="3">Astúcia (+3)</option>
+            <option value="4">Sobrevivência (+4)</option>
+            <option value="4">Liderança (+4)</option>
+            <option value="4">Conhecimento (+4)</option>
+            <option value="3">Furtividade (+3)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--ouro); display: block; margin-bottom: 0.35rem;">Dificuldade (DC)</label>
+          <select id="sel-dc" style="background: var(--superficie-elevada); color: var(--tinta); border: 1px solid var(--borda); padding: 0.5rem 1rem; border-radius: 4px; font-family: 'Cinzel', serif;">
+            <option value="7">Fácil (DC 7)</option>
+            <option value="9" selected>Normal (DC 9)</option>
+            <option value="11">Difícil (DC 11)</option>
+            <option value="13">Heroico (DC 13)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dados-container">
+        <div class="dado" id="dado1">4</div>
+        <div class="dado" id="dado2">5</div>
+      </div>
+
+      <button class="btn btn-gold" onclick="rolarDados()">
+        🎲 Lançar os Dados de Westeros
+      </button>
+
+      <div class="resultado-painel" id="painel-res">
+        <div class="resultado-titulo" id="res-titulo" style="color: var(--sucesso);">Sucesso Pleno (13 vs DC 9)</div>
+        <p id="res-texto" style="color: var(--tinta-fraca); font-size: 1rem;">O golpe acerta o ponto fraco da armadura. O inimigo recua sob a sua iniciativa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASAS DE WESTEROS -->
+  <section id="casas" class="container">
+    <div class="section-title">
+      <h2>As Grandes Casas de Westeros</h2>
+      <p>Alie-se a uma linhagem ou jure a sua espada à Patrulha da Noite.</p>
+    </div>
+
+    <div class="casas-grid">
+      <div class="casa-card">
+        <div class="casa-nome">Casa Stark</div>
+        <div class="casa-lema">«O Inverno Está Chegando»</div>
+        <p style="font-size: 0.85rem; color: var(--tinta-fraca); margin-top: 0.5rem;">Assento: Winterfell • Norte</p>
+      </div>
+
+      <div class="casa-card">
+        <div class="casa-nome">Casa Targaryen</div>
+        <div class="casa-lema">«Fogo e Sangue»</div>
+        <p style="font-size: 0.85rem; color: var(--tinta-fraca); margin-top: 0.5rem;">Assento: Pedra do Dragão • Coroa</p>
+      </div>
+
+      <div class="casa-card">
+        <div class="casa-nome">Casa Lannister</div>
+        <div class="casa-lema">«Ouça-me Rugir!»</div>
+        <p style="font-size: 0.85rem; color: var(--tinta-fraca); margin-top: 0.5rem;">Assento: Rochedo Casterly • Oeste</p>
+      </div>
+
+      <div class="casa-card">
+        <div class="casa-nome">Casa Baratheon</div>
+        <div class="casa-lema">«Nossa é a Fúria»</div>
+        <p style="font-size: 0.85rem; color: var(--tinta-fraca); margin-top: 0.5rem;">Assento: Ponta da Tempestade</p>
+      </div>
+
+      <div class="casa-card" style="border-color: var(--ouro);">
+        <div class="casa-nome" style="color: var(--ouro-brilho);">Patrulha da Noite</div>
+        <div class="casa-lema">«A Noite Chega, e Agora Começa Minha Vigília»</div>
+        <p style="font-size: 0.85rem; color: var(--tinta-fraca); margin-top: 0.5rem;">Assento: Castelo Negro • A Muralha</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 0.5rem;">
+        <strong>As Crônicas de Sangue e Gelo — Códice Vivo</strong> | Desenvolvido por <a href="https://github.com/Heuller" target="_blank" rel="noopener noreferrer">Heuller</a>
+      </p>
+      <p style="font-size: 0.85rem; color: var(--tinta-fraca);">
+        Hospedado na <a href="https://gelo-e-fogo-rpg.vercel.app" target="_blank" rel="noopener noreferrer">Vercel</a> e no <a href="https://heuller.github.io/gelo-e-fogo-rpg/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> • Baseado na obra de George R. R. Martin • Tradução de Jorge Candeias (LeYa).
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // SIMULADOR DE FICHA
+    const TOTAL_PONTOS = 22;
+    const attrs = {
+      combate: 4,
+      astucia: 3,
+      sobrevivencia: 4,
+      lideranca: 4,
+      conhecimento: 4,
+      furtividade: 3
+    };
+
+    function calcularPontosGastos() {
+      return Object.values(attrs).reduce((a, b) => a + b, 0);
+    }
+
+    function atualizarFicha() {
+      const gastos = calcularPontosGastos();
+      const restantes = TOTAL_PONTOS - gastos;
+      document.getElementById('pts-restantes').textContent = restantes;
+
+      for (const [k, v] of Object.entries(attrs)) {
+        document.getElementById('val-' + k).textContent = v;
+      }
+
+      const pv = 10 + (attrs.sobrevivencia * 2);
+      const limiar = 5 + attrs.sobrevivencia;
+      document.getElementById('res-pv').textContent = pv;
+      document.getElementById('res-limiar').textContent = limiar;
+
+      // Arquétipo
+      let arqNome = "Patrulheiro Veterano";
+      let arqDesc = "Equilibrado em armas, liderança e sobrevivência além da Muralha.";
+
+      if (attrs.combate >= 5) {
+        arqNome = "Espada Juramentada";
+        arqDesc = "Uma lâmina formidável capaz de desafiar qualquer cavaleiro nos Sete Reinos.";
+      } else if (attrs.astucia >= 5) {
+        arqNome = "Mestre dos Sussurros";
+        arqDesc = "Seus olhos e ouvidos alcançam cada canto escuro de Porto Real.";
+      } else if (attrs.conhecimento >= 5) {
+        arqNome = "Meistre da Cidadela";
+        arqDesc = "Portador de elos de ferro e prata, sábio nos corvos e na história antiga.";
+      } else if (attrs.lideranca >= 5) {
+        arqNome = "Senhor Comandante";
+        arqDesc = "Uma presença imponente capaz de manter homens firmes diante do terror.";
+      }
+
+      document.getElementById('arquetipo-nome').textContent = arqNome;
+      document.getElementById('arquetipo-desc').textContent = arqDesc;
+    }
+
+    function alterarAttr(nome, delta) {
+      const atual = attrs[nome];
+      const novo = atual + delta;
+      if (novo < 1 || novo > 5) return;
+
+      const gastos = calcularPontosGastos();
+      if (delta > 0 && gastos >= TOTAL_PONTOS) return;
+
+      attrs[nome] = novo;
+      atualizarFicha();
+    }
+
+    // MESA DE ROLAGEM
+    function rolarDados() {
+      const d1El = document.getElementById('dado1');
+      const d2El = document.getElementById('dado2');
+
+      d1El.classList.add('animando');
+      d2El.classList.add('animando');
+
+      setTimeout(() => {
+        const d1 = Math.floor(Math.random() * 6) + 1;
+        const d2 = Math.floor(Math.random() * 6) + 1;
+        d1El.textContent = d1;
+        d2El.textContent = d2;
+        d1El.classList.remove('animando');
+        d2El.classList.remove('animando');
+
+        const mod = parseInt(document.getElementById('sel-attr').value, 10);
+        const dc = parseInt(document.getElementById('sel-dc').value, 10);
+        const soma = d1 + d2 + mod;
+
+        const tituloEl = document.getElementById('res-titulo');
+        const textoEl = document.getElementById('res-texto');
+
+        if (d1 === 1 && d2 === 1) {
+          tituloEl.textContent = `Falha Crítica Trágica (${soma} vs DC ${dc})`;
+          tituloEl.style.color = 'var(--sangue-vivo)';
+          textoEl.textContent = "Os deuses antigos desviaram os olhos. A lâmina quebra ou você sofre um dano grave no calor da ação.";
+        } else if (d1 === 6 && d2 === 6) {
+          tituloEl.textContent = `Sucesso Heroico Triunfal (${soma} vs DC ${dc})`;
+          tituloEl.style.color = 'var(--ouro-brilho)';
+          textoEl.textContent = "Um golpe digno de canções de menestréis! Vitória decisiva com ganho de inspiração moral.";
+        } else if (soma >= dc) {
+          tituloEl.textContent = `Sucesso Pleno (${soma} vs DC ${dc})`;
+          tituloEl.style.color = 'var(--sucesso)';
+          textoEl.textContent = "A ação é executada com precisão. O objetivo foi alcançado com maestria sem custos adicionais.";
+        } else {
+          tituloEl.textContent = `Falha com Consequência (${soma} vs DC ${dc})`;
+          tituloEl.style.color = '#f59e0b';
+          textoEl.textContent = "O resultado foi insuficiente para superar o obstáculo. O Mestre impõe uma complicação ou perda de compostura.";
+        }
+      }, 300);
+    }
+
+    // Inicialização
+    atualizarFicha();
+  </script>
+</body>
+</html>
