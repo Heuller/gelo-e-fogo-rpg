@@ -1,7 +1,7 @@
 # Crônicas de Sangue e Gelo — RPG Textual de Westeros
 
 [![Release v2.0.0](https://img.shields.io/badge/Release-v2.0.0-c5a059.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0)
-[![Deploy on Vercel](https://img.shields.io/badge/Vercel-Produção%20Online-000000.svg?logo=vercel)](https://gelo-e-fogo-rpg.vercel.app)
+[![Deploy on Vercel](https://img.shields.io/badge/Vercel-Produção%20Online-000000.svg?logo=vercel)](https://gelo-e-fogo-rpg-fkoi.vercel.app)
 [![Portal GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Portal%20Códice%20Vivo-181717.svg?logo=github)](https://heuller.github.io/gelo-e-fogo-rpg/)
 [![Tests Passing](https://img.shields.io/badge/Vitest-169%20Passing-22c55e.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/actions)
 [![Acessibilidade WCAG 2.2 AA](https://img.shields.io/badge/Acessibilidade-WCAG%202.2%20AA-3b82f6.svg)](#)
@@ -14,7 +14,7 @@ Um RPG textual grimdark de alta fidelidade literária ambientado no universo de 
 
 ## 🚀 Publicação & Acesso Online
 
-- **Jogo em Produção (Vercel):** [https://gelo-e-fogo-rpg.vercel.app](https://gelo-e-fogo-rpg.vercel.app)
+- **Jogo em Produção (Vercel):** [https://gelo-e-fogo-rpg-fkoi.vercel.app](https://gelo-e-fogo-rpg-fkoi.vercel.app)
 - **Portal & Códice Interativo (GitHub Pages):** [https://heuller.github.io/gelo-e-fogo-rpg/](https://heuller.github.io/gelo-e-fogo-rpg/)
 - **Repositório Oficial (GitHub):** [https://github.com/Heuller/gelo-e-fogo-rpg](https://github.com/Heuller/gelo-e-fogo-rpg)
 - **Release Canônica:** [v2.0.0 — Códice Vivo e Jornada 4](https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0)
