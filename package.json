@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "preflight": "node --experimental-strip-types scripts/preflight.ts"
   },
   "dependencies": {
