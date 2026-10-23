@@ -2,32 +2,24 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { requireOwner } from '@/server/auth/requireOwner';
 import { checkRateLimit } from '@/server/auth/rateLimiter';
-import { obterNodeQualquerJornada } from '@/server/data/journeys/index';
-import {
-  rolar2d6,
-  aplicarDeltaEstado,
-  DeltaEstado,
-  ResultadoRolagem,
-  FichaPersonagemSchema,
-  WorldStateSchema,
-} from '@/server/engine/rpgEngine';
-import { TurnEvent } from '@/server/engine/saveManager';
-import {
-  classificarAcaoLivre,
-  enriquecerCenaComIA,
-} from '@/server/ai/geminiMaster';
+import { processarEscolhaAction } from '@/app/actions/gameActions';
+import { FichaPersonagemSchema, WorldStateSchema } from '@/server/engine/rpgEngine';
 
-const TurnBodySchema = z.object({
-  nodeId: z.string(),
-  escolhaId: z.string().optional(),
-  textoAcaoLivre: z.string().max(500).optional(),
-  ficha: FichaPersonagemSchema,
-  worldState: WorldStateSchema,
-  turnNumber: z.number().int().min(1).default(1),
-  usarIA: z.boolean().default(true),
-  dadosFixos: z.tuple([z.number(), z.number()]).optional(),
-  journeyId: z.string().optional(),
-});
+const TurnBodySchema = z
+  .object({
+    nodeId: z.string(),
+    escolhaId: z.string().optional(),
+    slotId: z.string().optional(),
+    versaoEsperada: z.number().int().min(0).optional(),
+    textoAcaoLivre: z.string().max(500).optional(),
+    ficha: FichaPersonagemSchema,
+    worldState: WorldStateSchema,
+    turnNumber: z.number().int().min(1).default(1),
+    usarIA: z.boolean().default(true),
+    dadosFixos: z.tuple([z.number(), z.number()]).optional(),
+    journeyId: z.string().optional(),
+  })
+  .strict();
 
 export async function POST(req: Request) {
   try {
@@ -64,145 +56,32 @@ export async function POST(req: Request) {
       );
     }
 
-    const {
-      nodeId,
-      ficha,
-      worldState,
-      turnNumber,
-      usarIA,
-      dadosFixos,
-      journeyId,
-    } = parsed.data;
-
-    let escolhaId = parsed.data.escolhaId;
-    let classificacao = null;
-
-    const nodeAtual = obterNodeQualquerJornada(nodeId, journeyId);
-    if (!nodeAtual) {
+    if (!parsed.data.escolhaId && !parsed.data.textoAcaoLivre) {
       return NextResponse.json(
-        { error: `Cena '${nodeId}' não encontrada no grafo.` },
-        { status: 404 }
-      );
-    }
-
-    // 4. Classificação de ação livre se texto foi submetido
-    if (!escolhaId && parsed.data.textoAcaoLivre) {
-      classificacao = await classificarAcaoLivre(
-        parsed.data.textoAcaoLivre,
-        nodeAtual,
-        ficha
-      );
-      escolhaId = classificacao.escolhaId;
-    }
-
-    const escolha = nodeAtual.escolhas.find((e) => e.id === escolhaId);
-    if (!escolha) {
-      return NextResponse.json(
-        { error: `Escolha '${escolhaId}' não encontrada para o nó '${nodeId}'.` },
+        { error: 'É necessário informar uma escolhaId ou textoAcaoLivre.' },
         { status: 400 }
       );
     }
 
-    // 5. Resolução mecânica 100% determinística do turno
-    let proximoNodeId: string;
-    let resultadoRolagem: ResultadoRolagem | null = null;
-    let deltaConsequencia: DeltaEstado = {};
+    const escolhaId = parsed.data.escolhaId || 'esc_padrao';
 
-    if (escolha.aprovacaoCompanheiros) {
-      deltaConsequencia.aprovacaoCompanheiros = escolha.aprovacaoCompanheiros;
-    }
-
-    if (escolha.tipo === 'simples') {
-      proximoNodeId = escolha.nextNodeId;
-      if (escolha.delta) {
-        deltaConsequencia = { ...deltaConsequencia, ...escolha.delta };
-      }
-    } else {
-      const valorAtributo = ficha.atributos[escolha.atributo];
-      resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
-        riscoMortal: escolha.riscoMortal,
-        dadosFixos,
-      });
-
-      if (resultadoRolagem.resultado === 'CRITICO') {
-        proximoNodeId = escolha.onCriticalSuccessNodeId || escolha.onSuccessNodeId;
-        deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 2;
-        deltaConsequencia.inspiracao = 1;
-      } else if (resultadoRolagem.resultado === 'SUCESSO') {
-        proximoNodeId = escolha.onSuccessNodeId;
-        deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 1;
-      } else if (resultadoRolagem.resultado === 'FALHA_PARCIAL') {
-        proximoNodeId = escolha.onPartialFailureNodeId;
-        deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 1;
-        deltaConsequencia.compostura = (deltaConsequencia.compostura || 0) - 1;
-      } else {
-        proximoNodeId = escolha.onCriticalFailureNodeId || escolha.onPartialFailureNodeId;
-        deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 2;
-        deltaConsequencia.sangue = (deltaConsequencia.sangue || 0) - 3;
-        if (escolha.riscoMortal) {
-          deltaConsequencia.sangue = -10;
-        }
-      }
-    }
-
-    const {
-      fichaAtualizada,
-      worldStateAtualizado,
-      notificacoesCompanheiros,
-    } = aplicarDeltaEstado(ficha, worldState, deltaConsequencia);
-
-    const proximoNode = obterNodeQualquerJornada(proximoNodeId, journeyId);
-    if (!proximoNode) {
-      return NextResponse.json(
-        { error: `Nó destino '${proximoNodeId}' não encontrado.` },
-        { status: 500 }
-      );
-    }
-
-    const turnEvent: TurnEvent = {
-      slotId: `temp_turn_${turnNumber}`,
-      userId: owner.user?.id || 'd5f86911-0f14-497d-9a9c-7258a2eb18cd',
-      turnNumber,
-      nodeId: proximoNodeId,
-      choiceMade: escolha.texto,
-      stateDelta: deltaConsequencia,
-      timestamp: new Date().toISOString(),
-    };
-
-    // 6. Enriquecimento literário com IA (apenas narração)
-    let textoEnriquecido: string | undefined;
-    let vozesExtras: any[] | undefined;
-    let usouFallbackIA = false;
-
-    if (usarIA) {
-      const enriquecimento = await enriquecerCenaComIA({
-        noDestino: proximoNode,
-        resultadoDado: resultadoRolagem,
-        escolhaTexto: parsed.data.textoAcaoLivre || escolha.texto,
-        ficha: fichaAtualizada,
-        worldState: worldStateAtualizado,
-      });
-      textoEnriquecido = enriquecimento.textoEnriquecido;
-      vozesExtras = enriquecimento.vozesExtras;
-      usouFallbackIA = enriquecimento.usouFallback;
-    }
-
-    return NextResponse.json({
-      proximoNode,
-      resultadoRolagem,
-      fichaAtualizada,
-      worldStateAtualizado,
-      turnEvent,
-      classificacao,
-      textoEnriquecido,
-      vozesExtras,
-      usouFallbackIA,
-      notificacoesCompanheiros,
+    // 4. Delegação para a action autoritativa
+    const resultado = await processarEscolhaAction({
+      nodeId: parsed.data.nodeId,
+      escolhaId,
+      slotId: parsed.data.slotId,
+      versaoEsperada: parsed.data.versaoEsperada,
+      ficha: parsed.data.ficha,
+      worldState: parsed.data.worldState,
+      turnNumber: parsed.data.turnNumber,
+      dadosFixos: parsed.data.dadosFixos,
+      usarIA: parsed.data.usarIA,
+      journeyId: parsed.data.journeyId,
     });
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: 'Falha interna ao processar turno.', mensagem: error.message },
-      { status: 500 }
-    );
+
+    return NextResponse.json(resultado);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'Erro interno ao processar turno.';
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

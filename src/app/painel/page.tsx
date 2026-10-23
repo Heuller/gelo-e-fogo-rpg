@@ -3,13 +3,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  listarSlotsJornada,
-  salvarSlot,
-  SaveSlot,
-  obterSlot,
-  exportarSave,
-  importarSave,
-} from '@/server/engine/saveManager';
+  listarSlotsAction,
+  criarNovoJogoAction,
+  desfazerTurnoSlotAction,
+  exportarSaveAction,
+  importarSaveAction,
+} from '@/app/actions/slotActions';
+import type { SaveSlot } from '@/server/saves';
+import { createClient } from '@/lib/supabase/client';
 import { FichaPersonagem, WorldState, AtributoVoz, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 import {
   Play,
@@ -150,7 +151,7 @@ export default function PainelPage() {
     JORNADAS_DISPONIVEIS.find((j) => j.id === jornadaSelecionada) || JORNADAS_DISPONIVEIS[0];
 
   const carregarSlots = useCallback(async () => {
-    const slotsCarregados = await listarSlotsJornada('player_default', jornadaSelecionada);
+    const slotsCarregados = await listarSlotsAction(jornadaSelecionada);
     setSlots(slotsCarregados);
   }, [jornadaSelecionada]);
 
@@ -228,40 +229,14 @@ export default function PainelPage() {
       };
     }
 
-    const novoSave: SaveSlot = {
-      slotNumber: slotNovoJogo,
-      userId: 'player_default',
+    await criarNovoJogoAction({
       jornadaId: jornadaSelecionada,
-      contentVersion: '1.0.0',
-      currentNodeId,
+      slotNumber: slotNovoJogo,
       characterSheet,
-      worldState: {
-        reputacaoCasas: { [jornadaSelecionada]: 10 },
-        flagsBorboleta: { jogo_iniciado: true },
-        marcosConcluidos: ['inicio_campanha'],
-      },
-      chapterCheckpoint: {
-        atoId: 'ato_1',
-        capituloTitulo,
-        timestamp: new Date().toISOString(),
-        dataFiccao: jornadaInfoAtual.periodo,
-        snapshotFicha: characterSheet,
-      },
-      turnHistory: [
-        {
-          slotId: `slot_${slotNovoJogo}`,
-          userId: 'player_default',
-          turnNumber: 1,
-          nodeId: currentNodeId,
-          choiceMade,
-          stateDelta: {},
-          timestamp: new Date().toISOString(),
-        },
-      ],
-      updatedAt: new Date().toISOString(),
-    };
-
-    await salvarSlot(novoSave);
+      currentNodeId,
+      capituloTitulo,
+      dataFiccao: jornadaInfoAtual.periodo,
+    });
     await carregarSlots();
     setModalNovoJogoAberto(false);
     setFeedback(`Novo jogo iniciado com ${characterSheet.nome} no Slot ${slotNovoJogo}!`);
@@ -269,29 +244,18 @@ export default function PainelPage() {
   }
 
   async function handleDesfazerTurno(slotNumber: number) {
-    const slot = await obterSlot('player_default', jornadaSelecionada, slotNumber);
-    if (!slot || slot.turnHistory.length <= 1) {
-      setFeedback('Não é possível desfazer o primeiro turno da campanha.');
-      return;
+    try {
+      await desfazerTurnoSlotAction(jornadaSelecionada, slotNumber);
+      await carregarSlots();
+      setFeedback(`Último turno desfeito com sucesso no Slot ${slotNumber}.`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Não foi possível desfazer o turno.';
+      setFeedback(msg);
     }
-
-    const historicoAtualizado = slot.turnHistory.slice(0, -1);
-    const ultimoTurno = historicoAtualizado[historicoAtualizado.length - 1];
-
-    const slotAtualizado: SaveSlot = {
-      ...slot,
-      currentNodeId: ultimoTurno.nodeId,
-      turnHistory: historicoAtualizado,
-      updatedAt: new Date().toISOString(),
-    };
-
-    await salvarSlot(slotAtualizado);
-    await carregarSlots();
-    setFeedback(`Último turno desfeito com sucesso no Slot ${slotNumber}.`);
   }
 
   async function handleExportarSave(slotNumber: number) {
-    const json = await exportarSave('player_default', jornadaSelecionada, slotNumber);
+    const json = await exportarSaveAction(jornadaSelecionada, slotNumber);
     if (!json) {
       setFeedback('Nenhum dado encontrado para exportação neste slot.');
       return;
@@ -315,7 +279,7 @@ export default function PainelPage() {
     reader.onload = async (event) => {
       try {
         const conteudo = event.target?.result as string;
-        await importarSave(conteudo, 'player_default', slotNumber);
+        await importarSaveAction(conteudo, slotNumber);
         await carregarSlots();
         setFeedback(`Pergaminho importado com sucesso para o Slot ${slotNumber}.`);
       } catch (err) {
@@ -346,7 +310,13 @@ export default function PainelPage() {
           </div>
 
           <button
-            onClick={() => router.push('/login')}
+            onClick={async () => {
+              try {
+                const supabase = createClient();
+                await supabase.auth.signOut();
+              } catch {}
+              router.push('/login');
+            }}
             className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-700/80 hover:bg-slate-800 rounded-lg text-xs font-semibold text-slate-300 transition cursor-pointer self-start md:self-auto"
           >
             <LogOut className="w-4 h-4 text-slate-400" />

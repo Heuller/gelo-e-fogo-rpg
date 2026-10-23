@@ -11,11 +11,13 @@ import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
 import { MobileDrawerNav } from '@/components/game/MobileDrawerNav';
 import { FichaPersonagem, ResultadoRolagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
-import { TurnEvent, exportarSave } from '@/server/engine/saveManager';
+import type { TurnEvent, SaveSlot } from '@/server/saves';
+import { exportarSaveAction } from '@/app/actions/slotActions';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { getGlossaryEntriesAction } from '@/app/actions/loreActions';
 import {
+  carregarSessaoJogoAction,
   obterCenaInicialAction,
   obterCenaPorIdAction,
   processarEscolhaAction,
@@ -83,32 +85,33 @@ function JogarJogoInterno() {
   });
 
   const [historico, setHistorico] = useState<TurnEvent[]>([]);
+  const [slotAtual, setSlotAtual] = useState<SaveSlot | null>(null);
+  const [statusSalvamento, setStatusSalvamento] = useState<'salvo' | 'salvando' | 'erro'>('salvo');
 
   useEffect(() => {
     setCarregando(true);
-    Promise.all([getGlossaryEntriesAction(), obterCenaInicialAction(journeyParam)])
-      .then(([verbetesData, cenaData]) => {
+    setStatusSalvamento('salvando');
+    const slotNum = slotParam;
+
+    Promise.all([
+      getGlossaryEntriesAction(),
+      carregarSessaoJogoAction(journeyParam, slotNum),
+    ])
+      .then(([verbetesData, sessaoData]) => {
         setVerbetes(verbetesData);
-        setNodeAtual(cenaData.node);
-        setTextoCenaExibido(cenaData.node.fallbackText);
-        setVozesExibidas(cenaData.node.internalVoices || []);
-        setFicha(cenaData.fichaInicial);
-        setWorldState(cenaData.worldStateInicial);
-        setHistorico([
-          {
-            slotId: `slot_${slotParam}`,
-            userId: cenaData.fichaInicial.id,
-            turnNumber: 1,
-            nodeId: cenaData.node.id,
-            choiceMade: `Início canônico: ${cenaData.node.titulo}`,
-            stateDelta: {},
-            timestamp: new Date().toISOString(),
-          },
-        ]);
+        setSlotAtual(sessaoData.slot);
+        setNodeAtual(sessaoData.node);
+        setTextoCenaExibido(sessaoData.node.fallbackText);
+        setVozesExibidas(sessaoData.node.internalVoices || []);
+        setFicha(sessaoData.slot.characterSheet);
+        setWorldState(sessaoData.slot.worldState);
+        setHistorico(sessaoData.slot.turnHistory || []);
+        setStatusSalvamento('salvo');
         setCarregando(false);
       })
       .catch((err) => {
-        setFeedback('Erro ao carregar crônica inicial: ' + err.message);
+        setFeedback('Erro ao carregar crônica: ' + err.message);
+        setStatusSalvamento('erro');
         setCarregando(false);
       });
   }, [journeyParam, slotParam]);
@@ -121,15 +124,23 @@ function JogarJogoInterno() {
       setUltimoNodeId(nodeAtual.id);
       setUltimaEscolhaId(escolhaId);
 
+      setStatusSalvamento('salvando');
       const res = await processarEscolhaAction({
         nodeId: nodeAtual.id,
         escolhaId,
+        slotId: slotAtual?.id,
+        versaoEsperada: slotAtual?.versao,
         ficha,
         worldState,
         turnNumber: historico.length + 1,
         usarIA: modoIA,
         journeyId: journeyParam,
       });
+
+      if (res.slotAtualizado) {
+        setSlotAtual(res.slotAtualizado);
+      }
+      setStatusSalvamento('salvo');
 
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.textoEnriquecido || res.proximoNode.fallbackText);
@@ -284,6 +295,12 @@ function JogarJogoInterno() {
           nodeId: inicio.node.id,
           choiceMade: 'Reinício no Checkpoint Inicial da Era',
           stateDelta: {},
+          snapshotAntes: {
+            ficha: inicio.fichaInicial,
+            worldState: inicio.worldStateInicial,
+            nodeId: inicio.node.id,
+          },
+          resultado: {},
           timestamp: new Date().toISOString(),
         },
       ]);
@@ -295,7 +312,7 @@ function JogarJogoInterno() {
 
   async function handleExportarSave() {
     try {
-      const json = await exportarSave(ficha.id, journeyParam, slotParam);
+      const json = await exportarSaveAction(journeyParam, slotParam);
       const blob = new Blob([json], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -348,7 +365,7 @@ function JogarJogoInterno() {
         anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
         localizacao={nodeAtual.localizacao || 'Westeros'}
         slotAtivo={slotParam}
-        statusSalvamento="Sincronizado"
+        statusSalvamento={statusSalvamento === 'salvando' ? 'Sincronizando...' : statusSalvamento === 'erro' ? 'Erro ao Gravar' : 'Sincronizado'}
         modoIA={modoIA}
         onToggleModoIA={() => setModoIA(!modoIA)}
       />

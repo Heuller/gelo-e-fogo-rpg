@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/client';
 import { createServerSideClient } from '@/lib/supabase/server';
 
-export const ALLOWED_EMAIL = (process.env.ALLOWED_USER_EMAIL || 'meistre@cidadela.westeros').toLowerCase().trim();
+export const ALLOWED_EMAIL = (process.env.ALLOWED_USER_EMAIL || (process.env.NODE_ENV === 'test' ? 'meistre@cidadela.westeros' : '')).toLowerCase().trim();
 
 export interface OwnerCheckResult {
   authorized: boolean;
@@ -20,6 +20,15 @@ export interface OwnerCheckResult {
  * Sem fallback permissivo: qualquer acesso anônimo ou de e-mail não autorizado é negado imediatamente.
  */
 export async function requireOwner(isServer = false): Promise<OwnerCheckResult> {
+  // Em produção, se a variável não estiver definida, falha fechada imediatamente
+  if (!ALLOWED_EMAIL && process.env.NODE_ENV !== 'test' && !process.env.VITEST) {
+    return {
+      authorized: false,
+      user: null,
+      motivo: 'Variável ALLOWED_USER_EMAIL não configurada no servidor. Acesso bloqueado por segurança.',
+      modo: 'unauthorized',
+    };
+  }
   // Em ambiente de teste unitário Vitest explícito, permite cenários de mock controlados
   if (process.env.NODE_ENV === 'test' || process.env.VITEST) {
     if (process.env.TEST_AUTH_SCENARIO === 'anonymous') {
