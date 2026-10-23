@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import { FichaPersonagem, WorldState } from '@/server/engine/rpgEngine';
-import { Crown, RotateCcw, Home, Download, Award, Shield, HeartHandshake } from 'lucide-react';
+import { Crown, RotateCcw, Home, Download, Award, Shield, HeartHandshake, BookOpen } from 'lucide-react';
 import { exportarSaveAction } from '@/app/actions/slotActions';
 
 export interface TelaDeFinalProps {
@@ -128,6 +128,22 @@ export function TelaDeFinal({
           )}
         </div>
       </div>
+
+      {/* Caderno de Achados & Marginálias Descobertas */}
+      {Object.keys(worldState.flagsBorboleta || {}).some((k) => k.startsWith('ea_')) && (
+        <div className="bg-[var(--pergaminho-2)] border border-[var(--ouro-escuro)] rounded-xl p-4 flex items-center justify-between font-sans shadow-md">
+          <div className="flex items-center gap-3">
+            <BookOpen className="w-5 h-5 text-[var(--ouro)]" />
+            <div>
+              <h3 className="font-cinzel text-xs font-bold text-[var(--ouro)]">Caderno de Achados da Cidadela</h3>
+              <p className="text-[11px] text-[var(--tinta-suave)] font-garamond italic">Marginálias e ovos de Páscoa canônicos registrados no códice</p>
+            </div>
+          </div>
+          <span className="font-mono text-xs font-bold text-[var(--ouro-claro)] px-2.5 py-1 rounded bg-[var(--pergaminho-1)] border border-[var(--borda)]">
+            {Object.keys(worldState.flagsBorboleta || {}).filter((k) => k.startsWith('ea_') && Boolean(worldState.flagsBorboleta?.[k])).length} / 22 Descobertos
+          </span>
+        </div>
+      )}
 
       {/* Marcos Concluídos */}
       {marcos.length > 0 && (

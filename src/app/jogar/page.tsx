@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TopBar } from '@/components/game/shell/TopBar';
 import { ColunaFicha } from '@/components/game/shell/ColunaFicha';
-import { ColunaMundo } from '@/components/game/shell/ColunaMundo';
+import { ColunaMundo, AbaColunaMundo } from '@/components/game/shell/ColunaMundo';
 import { BarraInferiorMobile } from '@/components/game/shell/BarraInferiorMobile';
 import { NarrativeScroll } from '@/components/game/NarrativeScroll';
 import { CartaoDeRolagem } from '@/components/game/CartaoDeRolagem';
@@ -68,7 +68,7 @@ function JogarJogoInterno() {
   const [textoMestre, setTextoMestre] = useState<string | null>(null);
   const [statusMestre, setStatusMestre] = useState<'idle' | 'escrevendo' | 'pronto' | 'falhou'>('idle');
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
-  const [abaLateral, setAbaLateral] = useState<'mapa' | 'casas' | 'diario'>('mapa');
+  const [abaLateral, setAbaLateral] = useState<AbaColunaMundo>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [ultimaEscolhaId, setUltimaEscolhaId] = useState<string | null>(null);
   const [ultimoNodeId, setUltimoNodeId] = useState<string | null>(null);
@@ -497,6 +497,8 @@ function JogarJogoInterno() {
             casasPrincipais={temaAtual.casas}
             reputacaoCasas={worldState.reputacaoCasas}
             historico={historico}
+            flags={worldState.flagsBorboleta}
+            nomeJogador={ficha.nome}
             onDesfazer={handleDesfazerTurno}
             onExportarSave={handleExportarSave}
           />
