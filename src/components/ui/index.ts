@@ -9,3 +9,4 @@ export * from './Gaveta';
 export * from './Aviso';
 export * from './Esqueleto';
 export * from './Dica';
+export * from './Brasao';
