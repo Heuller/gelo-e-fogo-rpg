@@ -3,6 +3,7 @@ import 'server-only';
 import { grafoJornada1Completo, obterNodeJornada1 } from './j1_conquista_full';
 import { grafoJornada2Completo, obterNodeJornada2 } from './j2_danca_full';
 import { grafoJornada3Completo, obterNodeJornada3 } from './j3_tronos_full';
+import { grafoJornada4Completo, obterNodeJornada4 } from './j4_muralha_full';
 import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
 import { FichaPersonagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 
@@ -14,11 +15,15 @@ export {
   obterNodeJornada2,
   grafoJornada3Completo,
   obterNodeJornada3,
+  grafoJornada4Completo,
+  obterNodeJornada4,
 };
 export const grafoJ2DancaCompleto = grafoJornada2Completo;
 export const obterNodeJ2Danca = obterNodeJornada2;
 export const grafoJ3TronosCompleto = grafoJornada3Completo;
 export const obterNodeJ3Tronos = obterNodeJornada3;
+export const grafoJ4MuralhaCompleto = grafoJornada4Completo;
+export const obterNodeJ4Muralha = obterNodeJornada4;
 
 export type JourneyIdentifier =
   | 'conquista_aegon'
@@ -26,14 +31,17 @@ export type JourneyIdentifier =
   | 'danca_dragoes'
   | 'jornada_2_danca'
   | 'guerra_tronos'
-  | 'jornada_3_guerra_tronos';
+  | 'jornada_3_guerra_tronos'
+  | 'patrulha_muralha'
+  | 'jornada_4_patrulha'
+  | 'irmao_sem_nome';
 
 /**
  * Normaliza o identificador da jornada para o formato canônico
  */
 export function normalizarIdJornada(
   id?: string
-): 'conquista_aegon' | 'danca_dragoes' | 'guerra_tronos' {
+): 'conquista_aegon' | 'danca_dragoes' | 'guerra_tronos' | 'patrulha_muralha' {
   if (!id) return 'conquista_aegon';
   const lower = id.toLowerCase();
   if (lower.includes('danca') || lower.includes('jornada_2')) {
@@ -41,6 +49,9 @@ export function normalizarIdJornada(
   }
   if (lower.includes('tronos') || lower.includes('guerra') || lower.includes('jornada_3')) {
     return 'guerra_tronos';
+  }
+  if (lower.includes('patrulha') || lower.includes('muralha') || lower.includes('irmao') || lower.includes('jornada_4')) {
+    return 'patrulha_muralha';
   }
   return 'conquista_aegon';
 }
@@ -55,6 +66,8 @@ export function obterGrafoJornada(journeyId?: string): GrafoJornada {
       return grafoJornada2Completo;
     case 'guerra_tronos':
       return grafoJornada3Completo;
+    case 'patrulha_muralha':
+      return grafoJornada4Completo;
     case 'conquista_aegon':
     default:
       return grafoJornada1Completo;
@@ -86,12 +99,16 @@ export function obterNodeQualquerJornada(
   if (nodeId.startsWith('j3_')) {
     return obterNodeJornada3(nodeId);
   }
+  if (nodeId.startsWith('j4_')) {
+    return obterNodeJornada4(nodeId);
+  }
 
   // 3. Busca exaustiva em todos os grafos
   return (
     obterNodeJornada1(nodeId) ||
     obterNodeJornada2(nodeId) ||
-    obterNodeJornada3(nodeId)
+    obterNodeJornada3(nodeId) ||
+    obterNodeJornada4(nodeId)
   );
 }
 
@@ -176,6 +193,32 @@ export const FICHA_INICIAL_EDDARD_STARK: FichaPersonagem = {
   companheiros: obterCompanheirosIniciais('guerra_tronos'),
 };
 
+export const FICHA_INICIAL_PATRULHA_DUNSTAN: FichaPersonagem = {
+  id: 'dunstan-holt',
+  nome: 'Dunstan «Dunny» Holt',
+  origem: 'intendente',
+  atributos: {
+    comando: 3,
+    furia: 2,
+    astucia: 4,
+    cortesia: 4,
+    erudicao: 4,
+    pressagio: 5,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Dedos do pé direito amputados por queimadura de gelo'],
+  segredos: [
+    'Sabe a localização exata do estoque secreto de óleo de baleia e piche na intendência',
+    'Presenciou a última carta desesperada que o Velho Urso ditou antes de marchar ao Punho',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('patrulha_muralha'),
+};
+
 /**
  * Retorna a ficha inicial adequada para a Jornada selecionada
  */
@@ -186,6 +229,8 @@ export function obterFichaInicialJornada(journeyId?: string): FichaPersonagem {
       return { ...FICHA_INICIAL_RHAENYRA };
     case 'guerra_tronos':
       return { ...FICHA_INICIAL_EDDARD_STARK };
+    case 'patrulha_muralha':
+      return { ...FICHA_INICIAL_PATRULHA_DUNSTAN };
     case 'conquista_aegon':
     default:
       return { ...FICHA_INICIAL_AEGON };
@@ -227,6 +272,21 @@ export function obterWorldStateInicialJornada(journeyId?: string): WorldState {
           inverno_se_aproxima: true,
         },
         marcosConcluidos: ['298_dc_execucao_desertor'],
+      };
+    case 'patrulha_muralha':
+      return {
+        reputacaoCasas: {
+          guarda_velha: 5,
+          amigos_de_jon: 10,
+          povo_livre: -5,
+          hoste_de_stannis: 0,
+          gente_da_vila: 5,
+        },
+        flagsBorboleta: {
+          fase_muralha_iniciada: true,
+          cerco_em_andamento: true,
+        },
+        marcosConcluidos: ['299_dc_cinzas_do_punho'],
       };
     case 'conquista_aegon':
     default:

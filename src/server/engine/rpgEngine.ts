@@ -348,6 +348,60 @@ export function obterCompanheirosIniciais(journeyId?: string): Record<string, Co
     };
   }
 
+  if (lower.includes('patrulha') || lower.includes('irmao') || lower.includes('jornada_4')) {
+    return {
+      jon_snow: {
+        id: 'jon_snow',
+        nome: 'Jon Snow',
+        titulo: 'Irmão Juramentado & Administrador do Senhor Comandante',
+        aprovacao: 35,
+        status: 'Leal',
+      },
+      samwell: {
+        id: 'samwell',
+        nome: 'Samwell Tarly',
+        titulo: 'Intendente de Meistre Aemon & O Matador de Outros',
+        aprovacao: 30,
+        status: 'Leal',
+      },
+      donal_noye: {
+        id: 'donal_noye',
+        nome: 'Donal Noye',
+        titulo: 'Armeiro Maneta & Defensor do Portão',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      alliser_thorne: {
+        id: 'alliser_thorne',
+        nome: 'Sor Alliser Thorne',
+        titulo: 'Mestre de Armas da Guarda Velha',
+        aprovacao: 5,
+        status: 'Frio',
+      },
+      grenn: {
+        id: 'grenn',
+        nome: 'Grenn (O Bisão)',
+        titulo: 'Patrulheiro Jurado da Muralha',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      pyp: {
+        id: 'pyp',
+        nome: 'Pyp (Pypar)',
+        titulo: 'Patrulheiro & Menestrel de Castelo Negro',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      aemon: {
+        id: 'aemon',
+        nome: 'Meistre Aemon Targaryen',
+        titulo: 'Meistre Centenário de Castelo Negro',
+        aprovacao: 20,
+        status: 'Neutro',
+      },
+    };
+  }
+
   // Padrão: Jornada 1 (Conquista de Aegon)
   return {
     visenya: {
@@ -428,7 +482,8 @@ export function aplicarDeltaEstado(
   const notificacoesCompanheiros: NotificacaoAprovacaoCompanheiro[] = [];
 
   if (delta.aprovacaoCompanheiros) {
-    for (const [compId, deltaAprov] of Object.entries(delta.aprovacaoCompanheiros)) {
+    for (const [rawCompId, deltaAprov] of Object.entries(delta.aprovacaoCompanheiros)) {
+      const compId = rawCompId === 'noye' ? 'donal_noye' : rawCompId;
       if (novosCompanheiros[compId]) {
         const comp = novosCompanheiros[compId];
         const novaAprov = Math.max(-100, Math.min(100, comp.aprovacao + deltaAprov));

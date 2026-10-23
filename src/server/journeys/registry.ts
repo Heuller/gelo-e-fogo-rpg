@@ -4,10 +4,12 @@ import { FichaPersonagem, Companheiro, obterCompanheirosIniciais } from '@/serve
 import { grafoJornada1Completo } from '@/server/data/journeys/j1_conquista_full';
 import { grafoJornada2Completo } from '@/server/data/journeys/j2_danca_full';
 import { grafoJornada3Completo } from '@/server/data/journeys/j3_tronos_full';
+import { grafoJornada4Completo } from '@/server/data/journeys/j4_muralha_full';
 import {
   FICHA_INICIAL_AEGON,
   FICHA_INICIAL_RHAENYRA,
   FICHA_INICIAL_EDDARD_STARK,
+  FICHA_INICIAL_PATRULHA_DUNSTAN,
 } from '@/server/data/journeys/index';
 
 export interface FichaPronta {
@@ -53,6 +55,59 @@ export interface CatalogoJornadaPublico {
     atributos: FichaPersonagem['atributos'];
   };
 }
+
+// Fichas adicionais de 22 pontos da Jornada 4
+export const FICHA_PATRULHA_JOSS: FichaPersonagem = {
+  id: 'joss-dunmere',
+  nome: 'Joss Dunmere',
+  origem: 'construtor',
+  atributos: {
+    comando: 4,
+    furia: 4,
+    astucia: 3,
+    cortesia: 2,
+    erudicao: 4,
+    pressagio: 5,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Cicatriz profunda no antebraço esquerdo por rompimento de cabo do guincho'],
+  segredos: [
+    'Conhece a fenda oculta no gelo do parapeito oriental onde o Muro ameaça vergar',
+    'Condenado por dívidas não pagas aos mercadores de Vilavelha antes de tomar o negro',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('patrulha_muralha'),
+};
+
+export const FICHA_PATRULHA_ARIC: FichaPersonagem = {
+  id: 'aric-wren',
+  nome: 'Aric Wren',
+  origem: 'patrulheiro',
+  atributos: {
+    comando: 3,
+    furia: 5,
+    astucia: 4,
+    cortesia: 2,
+    erudicao: 3,
+    pressagio: 5,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Ombro direito repuxado por queda no gelo do Passo dos Guinchos'],
+  segredos: [
+    'Ex-caçador furtivo nas matas dos Dustin; sabe rastrear sombras na neve alta sem produzir ruído',
+    'Ouviu os murmúrios dos represeiros além do Muro avisando que o gelo não deterá os mortos',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('patrulha_muralha'),
+};
 
 export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
   conquista_aegon: {
@@ -132,6 +187,48 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
     temaId: 'guerra_tronos',
     ativa: true,
   },
+
+  patrulha_muralha: {
+    id: 'patrulha_muralha',
+    numero: 4,
+    titulo: 'Irmão Sem Nome',
+    subtitulo: 'A Sentinela sob o Frio & O Cerco de Castelo Negro',
+    sinopse:
+      'A vida dura de um irmão juramentado anônimo da Patrulha da Noite no maior cerco militar que a Muralha já presenciou.',
+    origem: 'canonica',
+    epoca: '299 a 300 d.C.',
+    startNodeId: 'j4_a1_cinzas_do_punho',
+    grafo: grafoJornada4Completo,
+    fichasProntas: [
+      {
+        id: 'dunstan-holt',
+        nome: 'Dunstan «Dunny» Holt',
+        titulo: 'Intendente de Meistre Aemon & Ex-Padeiro de Porto Branco',
+        origem: 'intendente',
+        descricao: 'Pés queimados pelo gelo e dedos perdidos na última patrulha; guarda as despensas e os segredos do corvário.',
+        ficha: FICHA_INICIAL_PATRULHA_DUNSTAN,
+      },
+      {
+        id: 'joss-dunmere',
+        nome: 'Joss Dunmere',
+        titulo: 'Construtor da Muralha & Mestre das Polias',
+        origem: 'construtor',
+        descricao: 'Condenado por dívidas no sul; conhece cada viga, cada guincho e cada fenda perigosa na colossal parede de gelo.',
+        ficha: FICHA_PATRULHA_JOSS,
+      },
+      {
+        id: 'aric-wren',
+        nome: 'Aric Wren',
+        titulo: 'Patrulheiro Veterano & Ex-Caçador Furtivo',
+        origem: 'patrulheiro',
+        descricao: 'Preso por caça furtiva; escuta os passos dos selvagens no vento e maneja o arco recurvo com frieza letal.',
+        ficha: FICHA_PATRULHA_ARIC,
+      },
+    ],
+    companheirosIniciais: obterCompanheirosIniciais('patrulha_muralha'),
+    temaId: 'patrulha_muralha',
+    ativa: true,
+  },
 };
 
 export const JOURNEY_REGISTRY = REGISTRO_JORNADAS;
@@ -141,7 +238,7 @@ export function obterJornada(id: string): DefinicaoJornada | undefined {
   if (norm.includes('conquista') || norm.includes('jornada_1')) return REGISTRO_JORNADAS.conquista_aegon;
   if (norm.includes('danca') || norm.includes('jornada_2')) return REGISTRO_JORNADAS.danca_dragoes;
   if (norm.includes('tronos') || norm.includes('guerra') || norm.includes('jornada_3')) return REGISTRO_JORNADAS.guerra_tronos;
-  if (norm.includes('patrulha') || norm.includes('irmao') || norm.includes('jornada_4')) return REGISTRO_JORNADAS.patrulha_muralha;
+  if (norm.includes('patrulha') || norm.includes('muralha') || norm.includes('irmao') || norm.includes('jornada_4')) return REGISTRO_JORNADAS.patrulha_muralha;
   return REGISTRO_JORNADAS[id];
 }
 

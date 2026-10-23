@@ -70,8 +70,8 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 - **Total de Cenas (Nós)**: 66
 - **Total de Escolhas**: 184
 - **Nós sem regionId**: 0
-- **Flags lidas nunca escritas**: 6
-- **Flags escritas nunca lidas**: 33
+- **Flags lidas nunca escritas**: 0
+- **Flags escritas nunca lidas**: 31
 
 | Tipo de Aviso | Cena (NodeId) | Escolha | Mensagem |
 | :--- | :--- | :--- | :--- |
@@ -95,17 +95,10 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 | `TESTE_SEM_CONSEQUENCIA` | `j2_a4_emboscada_pedra_dragao_aegon_ii` | `esc_j2_a4_desmascarar_e_salvar_rhaenyra` | Escolha de teste 'esc_j2_a4_desmascarar_e_salvar_rhaenyra' não possui delta nem aprovacaoCompanheiros próprios. |
 | `TESTE_SEM_CONSEQUENCIA` | `j2_a4_hora_do_lobo_cregan_stark` | `esc_j2_a4_reclamar_coroa_cregan_permanente` | Escolha de teste 'esc_j2_a4_reclamar_coroa_cregan_permanente' não possui delta nem aprovacaoCompanheiros próprios. |
 | `TESTE_SEM_CONSEQUENCIA` | `j2_a4_hora_do_lobo_cregan_stark` | `esc_j2_a4_pacto_grande_conselho_paz` | Escolha de teste 'esc_j2_a4_pacto_grande_conselho_paz' não possui delta nem aprovacaoCompanheiros próprios. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'lucerys_salvo' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'rhaenys_salva' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'rhaenyra_salva' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'aegon2_mantido_trono' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'domou_vermithor' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
-| `FLAG_LIDA_NUNCA_ESCRITA` | `-` | `-` | Flag 'acordo_partilha_reinos' é verificada como requisito mas nunca é escrita por nenhum nó ou escolha. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'golpe_sangrento_portao_lama' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'rede_larys_cegada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'celeiros_hightower_tomados' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'refens_fluviais_harrenhal' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'pacto_gelo_e_fogo_selado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'arqueiros_vale_garantidos' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'juramento_vinganca_lucerys' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'emboscada_aemond_tentada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
@@ -116,7 +109,6 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'vanguarda_cole_atrasada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'juramento_vinganca_meleys' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'juramento_sagrado_hugh' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'urtigas_patrocinada_velaryon' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'juramento_sementes_selado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'triarquia_estracalhada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'jacaerys_almirante_estreitos' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
@@ -125,8 +117,16 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'dois_traidores_condenados' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'traidores_apaziguados_senhorios' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'traidores_envenenados_secretamente' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'busca_irma_sombria_lago' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'reuniao_sementes_harrenhal' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'corlys_apaziguado_paranoia' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cupula_fosso_reforçada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'gloria_lobos_inverno' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'lealdade_addam_imortalizada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'aegon_iii_trauma_dragoes' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'aegon_ii_capturado_pedra_dragao' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 
-*(Exibindo os primeiros 50 avisos de um total de 59)*
+*(Exibindo os primeiros 50 avisos de um total de 51)*
 
 ## Jornada: A Guerra dos Cinco Reis (`guerra_tronos`)
 
@@ -134,7 +134,7 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 - **Total de Escolhas**: 160
 - **Nós sem regionId**: 0
 - **Flags lidas nunca escritas**: 0
-- **Flags escritas nunca lidas**: 29
+- **Flags escritas nunca lidas**: 15
 
 | Tipo de Aviso | Cena (NodeId) | Escolha | Mensagem |
 | :--- | :--- | :--- | :--- |
@@ -156,9 +156,6 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 | `TESTE_SEM_CONSEQUENCIA` | `j3_a4_whatif_casamento_vermelho_revertido` | `esc_j3_a4_articular_regencia_eddard_sul` | Escolha de teste 'esc_j3_a4_articular_regencia_eddard_sul' não possui delta nem aprovacaoCompanheiros próprios. |
 | `TESTE_SEM_CONSEQUENCIA` | `j3_a4_eleicao_jon_snow_senhor_comandante` | `esc_j3_a4_pacto_cancao_gelo_fogo` | Escolha de teste 'esc_j3_a4_pacto_cancao_gelo_fogo' não possui delta nem aprovacaoCompanheiros próprios. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'lannister_observados_banquete' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'adaga_sob_guarda_norte' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'nymeria_liberta_florestas' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'lady_salva_em_winterfell' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'guardas_norte_torre_mao' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'divida_coroa_descoberta' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'aviso_varys_recebido' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
@@ -167,21 +164,73 @@ Este relatório consolida os avisos mapeados por `storyLinterPlus.ts` para cada 
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'escolta_torneio_reforcada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cersei_vigiada_aposentos' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'mensageiro_stannis_enviado_noite' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'verdade_incesto_gritada_praca' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'arya_resgatada_yoren' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'lealdade_umber_conquistada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cavalaria_frey_alistada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'regicida_acorrentado_correrrio' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'coroa_bronze_robb_aceita' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'criatura_incinerada_muralha' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'adagas_obsidiana_distribuidas' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'sombra_magica_testemunhada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'corrente_ferro_agua_negra' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'emissarios_stannis_enviados' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'karstark_mantido_refem' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'nortenhos_com_armadura_banquete' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'vento_cinzento_ao_lado_robb' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cota_malha_bolton_descoberta' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
 | `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'furia_final_umber' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
-| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'selvagens_paz_iniciada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+
+## Jornada: Irmão Sem Nome (`patrulha_muralha`)
+
+- **Total de Cenas (Nós)**: 68
+- **Total de Escolhas**: 123
+- **Nós sem regionId**: 0
+- **Flags lidas nunca escritas**: 0
+- **Flags escritas nunca lidas**: 99
+
+| Tipo de Aviso | Cena (NodeId) | Escolha | Mensagem |
+| :--- | :--- | :--- | :--- |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cavalos_punho_salvos' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'samwell_apoiado_marcha' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'retaguarda_atenta_punho' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'mormont_alertado_motim' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'juramento_ao_velho_urso' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'amparou_goiva_fuga' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'segredo_obsidiana_descoberto' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'conhecimento_anatomic_outros' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'vigilancia_sob_represeiro' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'encontro_maos_frias' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'conhecimento_feiticos_muralha' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'bencao_dos_antigos_deuses' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'trilha_sul_assegurada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'goiva_abrigada_enfermaria' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'obsidiana_entregue_noye' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'armaria_reforcada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'sabedoria_antiga_aemon' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'jon_socorrido_prontamente' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'alarme_sul_soado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'inspecionou_intendencia' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ea_numeros_de_marsh' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'deposito_breu_localizado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'materiais_cordas_recolhidos' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'clydas_auxiliado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ea_corvos_nos_caibros' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'compreensao_politica_trono' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'noye_aclamado_lider' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'lealdade_a_noye' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'compreensao_tatica_defesa' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'cuidou_de_jon' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'batedor_da_vila_toupeira' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ea_sentinela_edd' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'moral_elevada_palha' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'bonecos_bem_armados' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'refugiados_organizados_trabalho' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'civis_protegidos_adega' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'guincho_reforcado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'escadaria_preparada_queima' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'pavios_incendio_preparados' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'posto_topo' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'posto_escada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'posto_portao' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'arqueiro_no_telhado' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'thenn_derrotado_combate' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'atraiu_thenns_armadilha' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ajudou_incendio_escada' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'estabulos_salvos_incendio' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ea_muralha_se_defende' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'ea_muralha_chora' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+| `FLAG_ESCRITA_NUNCA_LIDA` | `-` | `-` | Flag 'salvou_irmao_no_gelo' é adicionada ao estado mas nunca é lida como requisito ou eco narrativo. |
+
+*(Exibindo os primeiros 50 avisos de um total de 99)*
 
