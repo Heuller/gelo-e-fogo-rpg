@@ -9,9 +9,11 @@ import { LivroDosNomes } from '@/components/game/LivroDosNomes';
 import { RelogioSegmentos } from '@/components/game/RelogioSegmentos';
 import { RegiaoMapa } from '@/lib/temas';
 import type { TurnEvent } from '@/server/saves';
-import { BookOpen, Feather, Map, Scroll, Shield } from 'lucide-react';
+import { BookOpen, Feather, Flame, Map, Scroll, Shield } from 'lucide-react';
+import { PainelDeAcampamento } from '@/components/game/PainelDeAcampamento';
+import { useJogoStore } from '@/lib/store/jogoStore';
 
-export type AbaColunaMundo = 'mapa' | 'casas' | 'diario' | 'achados' | 'nomes';
+export type AbaColunaMundo = 'mapa' | 'casas' | 'diario' | 'achados' | 'nomes' | 'fogueira';
 
 export interface ColunaMundoProps {
   aberta: boolean;
@@ -44,6 +46,8 @@ export function ColunaMundo({
   onExportarSave,
   className = '',
 }: ColunaMundoProps) {
+  const { ficha } = useJogoStore();
+
   if (!aberta) {
     return null;
   }
@@ -88,12 +92,12 @@ export function ColunaMundo({
           </div>
         )}
 
-        {/* Seletor de Abas Expandido */}
-        <div className="grid grid-cols-5 gap-1 bg-[var(--pergaminho-2)] p-1 rounded-xl border border-[var(--borda)]">
+        {/* Seletor de Abas Expandido (6 Abas) */}
+        <div className="grid grid-cols-6 gap-1 bg-[var(--pergaminho-2)] p-1 rounded-xl border border-[var(--borda)]">
           <button
             type="button"
             onClick={() => onAlternarAba('mapa')}
-            className={`py-2 text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
               abaAtiva === 'mapa'
                 ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
                 : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
@@ -107,7 +111,7 @@ export function ColunaMundo({
           <button
             type="button"
             onClick={() => onAlternarAba('casas')}
-            className={`py-2 text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
               abaAtiva === 'casas'
                 ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
                 : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
@@ -120,8 +124,22 @@ export function ColunaMundo({
 
           <button
             type="button"
+            onClick={() => onAlternarAba('fogueira')}
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+              abaAtiva === 'fogueira'
+                ? 'bg-[var(--pergaminho-3)] text-amber-500 shadow-sm border border-amber-600'
+                : 'text-[var(--tinta-suave)] hover:text-amber-400'
+            }`}
+            title="Fogueira e Diálogos de Companheiros"
+          >
+            <Flame className="w-3.5 h-3.5 text-amber-500" />
+            <span>Fogo</span>
+          </button>
+
+          <button
+            type="button"
             onClick={() => onAlternarAba('diario')}
-            className={`py-2 text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
               abaAtiva === 'diario'
                 ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
                 : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
@@ -135,7 +153,7 @@ export function ColunaMundo({
           <button
             type="button"
             onClick={() => onAlternarAba('achados')}
-            className={`py-2 text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
               abaAtiva === 'achados'
                 ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
                 : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
@@ -149,7 +167,7 @@ export function ColunaMundo({
           <button
             type="button"
             onClick={() => onAlternarAba('nomes')}
-            className={`py-2 text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+            className={`py-2 text-[10px] sm:text-[11px] font-cinzel font-bold rounded-lg transition-colors flex flex-col items-center justify-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
               abaAtiva === 'nomes'
                 ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
                 : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
@@ -177,6 +195,15 @@ export function ColunaMundo({
             <PainelDeCasas
               reputacaoCasas={reputacaoCasas}
               nomesCasas={casasPrincipais}
+            />
+          </div>
+        )}
+
+        {abaAtiva === 'fogueira' && (
+          <div className="entrada-fade">
+            <PainelDeAcampamento
+              companheiros={ficha?.companheiros || {}}
+              flags={flags}
             />
           </div>
         )}
