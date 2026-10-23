@@ -1,16 +1,23 @@
 'use client';
 
 import React from 'react';
-import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
+import { MapaDoMundo } from '@/components/game/MapaDoMundo';
+import { PainelDeCasas } from '@/components/game/PainelDeCasas';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
+import { RegiaoMapa } from '@/lib/temas';
 import type { TurnEvent } from '@/server/saves';
-import { Map, Scroll } from 'lucide-react';
+import { Map, Scroll, Shield } from 'lucide-react';
+
+export type AbaColunaMundo = 'mapa' | 'casas' | 'diario';
 
 export interface ColunaMundoProps {
   aberta: boolean;
-  abaAtiva: 'mapa' | 'diario';
-  onAlternarAba: (aba: 'mapa' | 'diario') => void;
-  localizacao: string;
+  abaAtiva: AbaColunaMundo;
+  onAlternarAba: (aba: AbaColunaMundo) => void;
+  regioes: RegiaoMapa[];
+  regiaoAtualId?: string;
+  casasPrincipais?: Record<string, string>;
+  reputacaoCasas?: Record<string, number>;
   historico: TurnEvent[];
   onDesfazer?: () => void;
   onExportarSave?: () => void;
@@ -21,7 +28,10 @@ export function ColunaMundo({
   aberta,
   abaAtiva,
   onAlternarAba,
-  localizacao,
+  regioes,
+  regiaoAtualId,
+  casasPrincipais = {},
+  reputacaoCasas = {},
   historico,
   onDesfazer,
   onExportarSave,
@@ -37,8 +47,8 @@ export function ColunaMundo({
       aria-label="Painel do Mundo e Crônica"
     >
       <div className="sticky top-16 max-h-[calc(100vh-5rem)] overflow-y-auto space-y-4 pl-1">
-        {/* Seletor de Abas [M, J] */}
-        <div className="grid grid-cols-2 gap-1 bg-[var(--pergaminho-2)] p-1 rounded-xl border border-[var(--borda)]">
+        {/* Seletor de Abas [M, C, J] */}
+        <div className="grid grid-cols-3 gap-1 bg-[var(--pergaminho-2)] p-1 rounded-xl border border-[var(--borda)]">
           <button
             type="button"
             onClick={() => onAlternarAba('mapa')}
@@ -51,6 +61,20 @@ export function ColunaMundo({
           >
             <Map className="w-3.5 h-3.5" />
             <span>Mapa</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onAlternarAba('casas')}
+            className={`py-2 text-xs font-cinzel font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] ${
+              abaAtiva === 'casas'
+                ? 'bg-[var(--pergaminho-3)] text-[var(--ouro)] shadow-sm border border-[var(--ouro-escuro)]'
+                : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
+            }`}
+            title="Reputação das Grandes Casas (tecla C)"
+          >
+            <Shield className="w-3.5 h-3.5" />
+            <span>Casas</span>
           </button>
 
           <button
@@ -71,7 +95,20 @@ export function ColunaMundo({
         {/* Conteúdo da Aba Ativa */}
         {abaAtiva === 'mapa' && (
           <div className="entrada-fade">
-            <WesterosMapSVG regiaoAtualId={localizacao} />
+            <MapaDoMundo
+              regioes={regioes}
+              regiaoAtualId={regiaoAtualId}
+              casasPrincipais={casasPrincipais}
+            />
+          </div>
+        )}
+
+        {abaAtiva === 'casas' && (
+          <div className="entrada-fade">
+            <PainelDeCasas
+              reputacaoCasas={reputacaoCasas}
+              nomesCasas={casasPrincipais}
+            />
           </div>
         )}
 

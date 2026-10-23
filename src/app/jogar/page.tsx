@@ -27,6 +27,7 @@ import { exportarSaveAction } from '@/app/actions/slotActions';
 import { NodeJornada, EscolhaNode } from '@/server/engine/storyLinter';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { getGlossaryEntriesAction } from '@/app/actions/loreActions';
+import { obterTemaJornada } from '@/lib/temas';
 import {
   carregarSessaoJogoAction,
   obterCenaInicialAction,
@@ -57,6 +58,7 @@ function JogarJogoInterno() {
   const slotParam = searchParams.get('slot') ? parseInt(searchParams.get('slot')!, 10) : 1;
 
   const { adicionarAviso } = useAvisos();
+  const temaAtual = obterTemaJornada(journeyParam);
 
   // Estados principais da sessão
   const [carregando, setCarregando] = useState(true);
@@ -66,7 +68,7 @@ function JogarJogoInterno() {
   const [textoMestre, setTextoMestre] = useState<string | null>(null);
   const [statusMestre, setStatusMestre] = useState<'idle' | 'escrevendo' | 'pronto' | 'falhou'>('idle');
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
-  const [abaLateral, setAbaLateral] = useState<'mapa' | 'diario'>('mapa');
+  const [abaLateral, setAbaLateral] = useState<'mapa' | 'casas' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [ultimaEscolhaId, setUltimaEscolhaId] = useState<string | null>(null);
   const [ultimoNodeId, setUltimoNodeId] = useState<string | null>(null);
@@ -485,12 +487,15 @@ function JogarJogoInterno() {
             />
           </div>
 
-          {/* Coluna Direita: Mapa e Diário (320px) */}
+          {/* Coluna Direita: Mapa, Casas e Diário (320px) */}
           <ColunaMundo
             aberta={colunaMundoAberta}
             abaAtiva={abaLateral}
             onAlternarAba={setAbaLateral}
-            localizacao={nodeAtual.localizacao || 'Westeros'}
+            regioes={temaAtual.regioes}
+            regiaoAtualId={nodeAtual.regionId || 'pedra_dragao'}
+            casasPrincipais={temaAtual.casas}
+            reputacaoCasas={worldState.reputacaoCasas}
             historico={historico}
             onDesfazer={handleDesfazerTurno}
             onExportarSave={handleExportarSave}
@@ -501,7 +506,10 @@ function JogarJogoInterno() {
       {/* Barra Inferior Fixa e Gavetas para Mobile (< 1024px) */}
       <BarraInferiorMobile
         ficha={ficha}
-        localizacao={nodeAtual.localizacao || 'Westeros'}
+        regioes={temaAtual.regioes}
+        regiaoAtualId={nodeAtual.regionId || 'pedra_dragao'}
+        casasPrincipais={temaAtual.casas}
+        reputacaoCasas={worldState.reputacaoCasas}
         historico={historico}
         onDesfazer={handleDesfazerTurno}
         onExportarSave={handleExportarSave}
@@ -536,16 +544,23 @@ function JogarJogoInterno() {
             </div>
 
             <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
-              <span className="text-[var(--tinta-suave)]">Diário da Crônica</span>
+              <span className="text-[var(--tinta-suave)]">Mapa das Crônicas</span>
               <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
-                J
+                M
               </kbd>
             </div>
 
             <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
-              <span className="text-[var(--tinta-suave)]">Mapa de Westeros</span>
+              <span className="text-[var(--tinta-suave)]">Reputação das Casas</span>
               <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
-                M
+                C
+              </kbd>
+            </div>
+
+            <div className="p-3 rounded-lg bg-[var(--pergaminho-1)] border border-[var(--borda)] flex items-center justify-between">
+              <span className="text-[var(--tinta-suave)]">Diário da Crônica</span>
+              <kbd className="px-2 py-1 rounded bg-[var(--pergaminho-3)] border border-[var(--borda)] font-mono text-[var(--ouro)] font-bold">
+                J
               </kbd>
             </div>
 

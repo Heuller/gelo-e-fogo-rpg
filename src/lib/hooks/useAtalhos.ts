@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export interface UseAtalhosOptions {
   onEscolher: (indice: number) => void;
-  onAlternarAba?: (aba: 'mapa' | 'diario') => void;
+  onAlternarAba?: (aba: 'mapa' | 'casas' | 'diario') => void;
   onAlternarColunaFicha?: () => void;
   onAlternarColunaMundo?: () => void;
   onAbrirAjuda?: () => void;
@@ -45,6 +45,9 @@ export function useAtalhos({
       } else if (keyUpper === 'M' && onAlternarAba) {
         e.preventDefault();
         onAlternarAba('mapa');
+      } else if (keyUpper === 'C' && onAlternarAba) {
+        e.preventDefault();
+        onAlternarAba('casas');
       } else if (e.key === '[' && onAlternarColunaFicha) {
         e.preventDefault();
         onAlternarColunaFicha();
