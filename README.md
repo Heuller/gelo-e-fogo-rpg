@@ -1,8 +1,25 @@
 # Crônicas de Sangue e Gelo — RPG Textual de Westeros
 
+[![Release v2.0.0](https://img.shields.io/badge/Release-v2.0.0-c5a059.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0)
+[![Deploy on Vercel](https://img.shields.io/badge/Vercel-Produção%20Online-000000.svg?logo=vercel)](https://gelo-e-fogo-rpg.vercel.app)
+[![Portal GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Portal%20Códice%20Vivo-181717.svg?logo=github)](https://heuller.github.io/gelo-e-fogo-rpg/)
+[![Tests Passing](https://img.shields.io/badge/Vitest-169%20Passing-22c55e.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/actions)
+[![Acessibilidade WCAG 2.2 AA](https://img.shields.io/badge/Acessibilidade-WCAG%202.2%20AA-3b82f6.svg)](#)
+
 > *«Ninguém conta o nome de um corvo qualquer — até a noite em que a contagem dos mortos precisa de alguém que o saiba.»*
 
 Um RPG textual grimdark de alta fidelidade literária ambientado no universo de *As Crônicas de Gelo e Fogo* de George R. R. Martin. Desenvolvido com **Next.js 15 (App Router)**, **React 19**, **TypeScript estrito**, **Tailwind CSS**, **Supabase (RLS)** e **Google Gemini** como Mestre de Jogo literário.
+
+---
+
+## 🚀 Publicação & Acesso Online
+
+- **Jogo em Produção (Vercel):** [https://gelo-e-fogo-rpg.vercel.app](https://gelo-e-fogo-rpg.vercel.app)
+- **Portal & Códice Interativo (GitHub Pages):** [https://heuller.github.io/gelo-e-fogo-rpg/](https://heuller.github.io/gelo-e-fogo-rpg/)
+- **Repositório Oficial (GitHub):** [https://github.com/Heuller/gelo-e-fogo-rpg](https://github.com/Heuller/gelo-e-fogo-rpg)
+- **Release Canônica:** [v2.0.0 — Códice Vivo e Jornada 4](https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHeuller%2Fgelo-e-fogo-rpg&project-name=gelo-e-fogo-rpg&repository-name=gelo-e-fogo-rpg&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,SUPABASE_SECRET_KEY,ALLOWED_USER_EMAIL,GEMINI_API_KEY)
 
 ---
 
