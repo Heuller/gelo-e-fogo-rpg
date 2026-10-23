@@ -109,7 +109,7 @@ describe('Simulação de Jogabilidade e Alcance de Finais (Fase 10)', () => {
 
       it('50 simulações aleatórias completas devem alcançar um nó final sem loops infinitos', () => {
         const SIMULACOES = 50;
-        const LIMITE_PASSOS = 60;
+        const LIMITE_PASSOS = 100;
 
         for (let s = 0; s < SIMULACOES; s++) {
           let atualId = startNodeId;

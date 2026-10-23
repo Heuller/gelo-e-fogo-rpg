@@ -3,12 +3,14 @@ import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
 import { grafoJ4Ato1 } from './j4_act1';
 import { grafoJ4Ato2 } from './j4_act2';
 import { grafoJ4Ato3 } from './j4_act3';
+import { grafoJ4Ato3BOeste } from './j4_act3b_oeste';
 import { grafoJ4Ato4 } from './j4_act4';
 
 const todosNosJ4: Record<string, NodeJornada> = {
   ...grafoJ4Ato1.nodes,
   ...grafoJ4Ato2.nodes,
   ...grafoJ4Ato3.nodes,
+  ...grafoJ4Ato3BOeste.nodes,
   ...grafoJ4Ato4.nodes,
 };
 
@@ -57,6 +59,13 @@ todosNosJ4['j4_a2_vigilia_da_meia_noite'] = {
       delta: { marcoConcluido: 'ato2_concluido' },
       nextNodeId: 'j4_a3_combate_no_patio',
     },
+    {
+      id: 'esc_transicao_j4_a2_a3b_marcha_oeste',
+      texto: 'Juntar-se à coluna de emergência de Bowen Marsh rumo à Ponte das Caveiras no Oeste (Ato III-B).',
+      tipo: 'simples',
+      delta: { flagsAdicionadas: ['expedicao_oeste_iniciada'], marcoConcluido: 'ato2_concluido' },
+      nextNodeId: 'j4_a3b_marcha_para_o_oeste',
+    },
   ],
 };
 
@@ -81,6 +90,13 @@ todosNosJ4['j4_a3_comando_de_jon'] = {
       tipo: 'simples',
       delta: { marcoConcluido: 'ato3_concluido' },
       nextNodeId: 'j4_a4_thorne_e_slynt_chegam',
+    },
+    {
+      id: 'esc_transicao_j4_a3_a3b_ponte_caveiras',
+      texto: 'Oferecer-se para cavalgar a oeste em socorro da coluna de Bowen Marsh na Ponte das Caveiras (Ato III-B).',
+      tipo: 'simples',
+      delta: { flagsAdicionadas: ['socorro_oeste_tardio'] },
+      nextNodeId: 'j4_a3b_marcha_para_o_oeste',
     },
   ],
 };

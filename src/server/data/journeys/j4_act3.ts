@@ -59,6 +59,13 @@ export const grafoJ4Ato3: GrafoJornada = {
           onPartialFailureNodeId: 'j4_a3_combate_no_patio',
           delta: { flagsAdicionadas: ['arqueiro_no_telhado'] },
         },
+        {
+          id: 'esc_j4_a3_marchar_com_bowen_marsh',
+          texto: 'Atender à convocação urgente de Bowen Marsh e cavalgar na expedição de emergência à Ponte das Caveiras a oeste (Ato III-B).',
+          tipo: 'simples',
+          delta: { flagsAdicionadas: ['expedicao_oeste_iniciada'], honra: 1 },
+          nextNodeId: 'j4_a3b_marcha_para_o_oeste',
+        },
       ],
     },
 
