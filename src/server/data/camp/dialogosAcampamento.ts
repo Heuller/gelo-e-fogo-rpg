@@ -350,6 +350,142 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
       },
     ],
   },
+
+  // =========================================================================
+  // JORNADA 5: A REBELIÃO DE ROBERT
+  // =========================================================================
+  robert_baratheon: {
+    id: 'robert_baratheon',
+    nome: 'Robert Baratheon',
+    titulo: 'Senhor de Ponta Tempestade & Líder da Rebelião',
+    era: 'rebeliao_robert',
+    citacao: '«Um dia acordei e descobri que o rei queria minha cabeça. Pois bem, que venha buscá-la com o próprio pescoço em jogo!»',
+    topicos: [
+      {
+        id: 'robert_o_martelo_de_donoy',
+        titulo: 'Sobre o martelo de guerra forjado por Donal Noye',
+        resumo: 'A arma monumental que decidirá o destino dos Sete Reinos.',
+        falaInicial: `Robert descansa a pesada cabeça de aço do seu martelo sobre um tronco cortado. Ele entorna um corno de cerveja escura e ri alto, com o vigor de um jovem gigante.
+        
+— Donal Noye fez este martelo nas forjas de Ponta Tempestade antes do cerco — diz Robert, passando a manopla pelo cabo cravado de rebites. — Espadas são boas para fidalgos que gostam de dançar na ponta dos pés. Mas quando bato isto no peito de um homem de armas lealista, a couraça se dobra como estanho e o coração para no mesmo instante. Rhaegar acha que seus versos tristes vão salvá-lo quando nos encontrarmos no Tridente?`,
+        respostas: [
+          {
+            id: 'resp_robert_apoiar_ira',
+            texto: '«O dragão queimou lordes justos e roubou vossa prometida. O martelo fará a justiça que a corte de Aerys negou.»',
+            reacaoCompanheiro: 'Robert bate a mão pesada no vosso ombro com uma risada tonitruante. «Bem dito! Pelos sete infernos, vós falais como um verdadeiro homem de armas das Terras da Tempestade!»',
+            deltaAprovacao: 12,
+            bonusInspiracao: 1,
+            bonusCompostura: 1,
+            flagConcedida: 'parceiro_de_armas_de_robert',
+          },
+          {
+            id: 'resp_robert_cautela_estrategica',
+            texto: '«Rhaegar comanda quarenta mil homens, incluindo a Guarda Real. Precisamos de tática tanto quanto de fúria, meu senhor.»',
+            reacaoCompanheiro: 'Robert bufa desdenhoso, mas assente lentamente. «Ned diz exatamente a mesma coisa. Tendes razão... mas na hora do choque, nada supera o peso do bom aço.»',
+            deltaAprovacao: 5,
+            bonusCompostura: 1,
+          },
+        ],
+      },
+      {
+        id: 'robert_saudade_lyanna',
+        titulo: 'Sobre a memória de Lyanna Stark',
+        resumo: 'O motivo pessoal e apaixonado que incendeia a rebelião.',
+        falaInicial: `Quando as fogueiras começam a apagar e os outros capitães dormem, o riso de Robert desaparece. O olhar do jovem lorde perde-se na noite em direção ao sul.
+        
+— Ela não era feita para gaiolas de ouro em Porto Real — murmura Robert com uma voz rouca e surpreendentemente vulnerável. — Lyanna tinha a fúria e a beleza selvagem do Norte no sangue. Rhaegar a sequestrou e a trancou em algum buraco no sul. Às vezes acordo no meio da noite com o som da risada dela... e tudo o que quero é queimar cada castelo Targaryen até encontrar o sorriso dela novamente.`,
+        respostas: [
+          {
+            id: 'resp_robert_promessa_resgate',
+            texto: '«Nós a resgataremos, Robert. E quando ela estiver a salvo, o reino inteiro celebrará vossa união.»',
+            reacaoCompanheiro: 'Robert aperta a vossa mão com força silenciosa. «Obrigado, amigo. Sem vós e Ned, eu já teria perdido a razão neste mar de sangue.»',
+            deltaAprovacao: 15,
+            bonusInspiracao: 1,
+            flagConcedida: 'juramento_de_resgate_lyanna',
+          },
+          {
+            id: 'resp_robert_foco_dever',
+            texto: '«Mantende vossa cabeça fria, lorde Baratheon. Um rei enfurecido comete erros que custam a vida de seus vassalos.»',
+            reacaoCompanheiro: 'Robert cerra a mandíbula por um instante, sentindo a ferroada da repreensão. «Duro... mas verdadeiro. Um comandante não pode fraquejar.»',
+            deltaAprovacao: 2,
+            bonusCompostura: 2,
+          },
+        ],
+      },
+    ],
+  },
+
+  ned_stark: {
+    id: 'ned_stark',
+    nome: 'Eddard Stark',
+    titulo: 'Senhor de Winterfell & Protetor do Norte',
+    era: 'rebeliao_robert',
+    citacao: '«O homem que profere a sentença deve manejar a espada. Não lutamos por coroas nem por glória; lutamos para que a honra volte a ter valor.»',
+    topicos: [
+      {
+        id: 'ned_o_fardo_do_norte',
+        titulo: 'Sobre a execução de Brandon e Lorde Rickard Stark',
+        resumo: 'A tragédia familiar que obrigou Ned a assumir a liderança de Winterfell.',
+        falaInicial: `Eddard Stark senta-se sozinho à margem do fogo com Gelo desembainhada sobre os joelhos. A lâmina de aço valiriano de duas mãos reflete o brilho tremeluzente das chamas como gelo banhado em sangue.
+        
+— Eu nunca deveria ser o Senhor de Winterfell — diz Ned em voz baixa, as feições austeras esculpidas em mágoa antiga. — Brandon nasceu para governar; ele era valente, orgulhoso e amado por todos. Meu pai Rickard viajou para a corte acreditando nas leis da cavalaria... e o Rei Louco o assou em sua armadura enquanto Brandon se enforcava tentando salvá-lo. Os Deuses Antigos exigem justiça, não vingança cega. Temo que a fúria de Robert destrua coisas que jamais poderemos reconstruir.`,
+        respostas: [
+          {
+            id: 'resp_ned_honra_stark',
+            texto: '«Vosso pai e vosso irmão vivem na vossa retidão, Ned. O Norte vos seguirá até o fim dos dias porque vós sois o sangue de Winterfell.»',
+            reacaoCompanheiro: 'Ned ergue o olhar e vos fita com gratidão sincera e respeitosa. «Vossas palavras confortam o coração de um homem em luto. Enquanto houver lealdade como a vossa, o Norte resistirá.»',
+            deltaAprovacao: 14,
+            bonusInspiracao: 1,
+            bonusCompostura: 1,
+            flagConcedida: 'amizade_eterna_de_ned_stark',
+          },
+          {
+            id: 'resp_ned_pragmatismo_guerra',
+            texto: '«Robert pode ser impetuoso, mas é o martelo de que precisamos para quebrar os dragões. Depois da vitória cuidamos da paz.»',
+            reacaoCompanheiro: 'Ned suspira pesadamente, embainhando Gelo com reverência. «Talvez tenhais razão. Mas a vitória comprada sem honra não passa de uma derrota disfarçada.»',
+            deltaAprovacao: 6,
+            bonusCompostura: 1,
+          },
+        ],
+      },
+    ],
+  },
+
+  jon_arryn: {
+    id: 'jon_arryn',
+    nome: 'Lorde Jon Arryn',
+    titulo: 'Senhor do Ninho da Águia & Defensor do Vale',
+    era: 'rebeliao_robert',
+    citacao: '«Tão Alto Como a Honra não é apenas o lema da minha Casa; é o único alicerce sobre o qual um reino pode permanecer de pé.»',
+    topicos: [
+      {
+        id: 'jon_arryn_desafio_ao_rei',
+        titulo: 'Sobre a decisão de levantar os estandartes contra o Trono de Ferro',
+        resumo: 'A recusa sagrada de um guardião em entregar os rapazes que jurou proteger.',
+        falaInicial: `Lorde Jon Arryn examina mapas militares de Westeros à luz de uma lanterna de chifre. Apesar dos cabelos brancos e das rugas profundas de idade, seus olhos azuis retêm uma claridade inflexível.
+        
+— Quando o corvo chegou de Porto Real com a ordem do Rei Aerys para que eu enviasse as cabeças de Robert e Eddard — diz Lorde Arryn pausadamente —, os meistres do Ninho empalideceram de terror. Um homem menor teria obedecido para salvar seu próprio castelo. Mas a hospitalidade e a proteção aos protegidos são votos mais antigos do que a linhagem dos Targaryen. Preferi atear fogo a todo o reino a manchar a honra do Vale entregando dois jovens inocentes à sanha de um carrasco.`,
+        respostas: [
+          {
+            id: 'resp_jon_arryn_louvar_virtude',
+            texto: '«Vossa coragem salvou o reino, Lorde Arryn. Nenhum monarca legítimo pode exigir a traição de juramentos sagrados.»',
+            reacaoCompanheiro: 'Jon Arryn coloca a mão trêmula, mas firme, sobre o vosso ombro. «Obrigado, meu nobre amigo. É o respeito de homens honrados como vós que me dá forças para cavalgar nesta idade avançada.»',
+            deltaAprovacao: 15,
+            bonusInspiracao: 1,
+            bonusCompostura: 1,
+            flagConcedida: 'bencao_de_jon_arryn',
+          },
+          {
+            id: 'resp_jon_arryn_planejar_governo',
+            texto: '«Quando Robert sentar no Trono de Ferro, vós tereis que governar por ele como Mão do Rei para manter os lordes sob rédeas firmes.»',
+            reacaoCompanheiro: 'Jon sorri com brandura cansada. «Uma coisa de cada vez. Primeiro façamos a paz reinar; os fardos do governo virão com o tempo.»',
+            deltaAprovacao: 8,
+            bonusCompostura: 1,
+          },
+        ],
+      },
+    ],
+  },
 };
 
 /**

@@ -15,6 +15,9 @@ describe('Sistema de Diálogos de Acampamento (Estilo BG3 / Dragon Age)', () => 
     expect(DIALOGOS_DE_ACAMPAMENTO['visenya']).toBeDefined();
     expect(DIALOGOS_DE_ACAMPAMENTO['orys_baratheon']).toBeDefined();
     expect(DIALOGOS_DE_ACAMPAMENTO['daemon']).toBeDefined();
+    expect(DIALOGOS_DE_ACAMPAMENTO['robert_baratheon']).toBeDefined();
+    expect(DIALOGOS_DE_ACAMPAMENTO['ned_stark']).toBeDefined();
+    expect(DIALOGOS_DE_ACAMPAMENTO['jon_arryn']).toBeDefined();
   });
 
   it('deve calcular corretamente a mudança de status por limiar de aprovação', () => {

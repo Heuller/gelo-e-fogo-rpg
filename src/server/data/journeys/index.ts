@@ -4,6 +4,7 @@ import { grafoJornada1Completo, obterNodeJornada1 } from './j1_conquista_full';
 import { grafoJornada2Completo, obterNodeJornada2 } from './j2_danca_full';
 import { grafoJornada3Completo, obterNodeJornada3 } from './j3_tronos_full';
 import { grafoJornada4Completo, obterNodeJornada4 } from './j4_muralha_full';
+import { grafoJornada5Completo, obterNodeJornada5 } from './j5_rebeliao_full';
 import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
 import { FichaPersonagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';
 
@@ -17,6 +18,8 @@ export {
   obterNodeJornada3,
   grafoJornada4Completo,
   obterNodeJornada4,
+  grafoJornada5Completo,
+  obterNodeJornada5,
 };
 export const grafoJ2DancaCompleto = grafoJornada2Completo;
 export const obterNodeJ2Danca = obterNodeJornada2;
@@ -24,6 +27,8 @@ export const grafoJ3TronosCompleto = grafoJornada3Completo;
 export const obterNodeJ3Tronos = obterNodeJornada3;
 export const grafoJ4MuralhaCompleto = grafoJornada4Completo;
 export const obterNodeJ4Muralha = obterNodeJornada4;
+export const grafoJ5RebeliaoCompleto = grafoJornada5Completo;
+export const obterNodeJ5Rebeliao = obterNodeJornada5;
 
 export type JourneyIdentifier =
   | 'conquista_aegon'
@@ -34,16 +39,21 @@ export type JourneyIdentifier =
   | 'jornada_3_guerra_tronos'
   | 'patrulha_muralha'
   | 'jornada_4_patrulha'
-  | 'irmao_sem_nome';
+  | 'irmao_sem_nome'
+  | 'rebeliao_robert'
+  | 'jornada_5_rebeliao';
 
 /**
  * Normaliza o identificador da jornada para o formato canônico
  */
 export function normalizarIdJornada(
   id?: string
-): 'conquista_aegon' | 'danca_dragoes' | 'guerra_tronos' | 'patrulha_muralha' {
+): 'conquista_aegon' | 'danca_dragoes' | 'guerra_tronos' | 'patrulha_muralha' | 'rebeliao_robert' {
   if (!id) return 'conquista_aegon';
   const lower = id.toLowerCase();
+  if (lower.includes('rebeliao') || lower.includes('robert') || lower.includes('jornada_5')) {
+    return 'rebeliao_robert';
+  }
   if (lower.includes('danca') || lower.includes('jornada_2')) {
     return 'danca_dragoes';
   }
@@ -62,6 +72,8 @@ export function normalizarIdJornada(
 export function obterGrafoJornada(journeyId?: string): GrafoJornada {
   const norm = normalizarIdJornada(journeyId);
   switch (norm) {
+    case 'rebeliao_robert':
+      return grafoJornada5Completo;
     case 'danca_dragoes':
       return grafoJornada2Completo;
     case 'guerra_tronos':
@@ -102,13 +114,17 @@ export function obterNodeQualquerJornada(
   if (nodeId.startsWith('j4_')) {
     return obterNodeJornada4(nodeId);
   }
+  if (nodeId.startsWith('j5_')) {
+    return obterNodeJornada5(nodeId);
+  }
 
   // 3. Busca exaustiva em todos os grafos
   return (
     obterNodeJornada1(nodeId) ||
     obterNodeJornada2(nodeId) ||
     obterNodeJornada3(nodeId) ||
-    obterNodeJornada4(nodeId)
+    obterNodeJornada4(nodeId) ||
+    obterNodeJornada5(nodeId)
   );
 }
 
@@ -219,12 +235,40 @@ export const FICHA_INICIAL_PATRULHA_DUNSTAN: FichaPersonagem = {
   companheiros: obterCompanheirosIniciais('patrulha_muralha'),
 };
 
+export const FICHA_INICIAL_RONNEL_GLOVER: FichaPersonagem = {
+  id: 'ronnel-glover',
+  nome: 'Sor Ronnel Glover',
+  origem: 'honra_do_norte',
+  atributos: {
+    comando: 4,
+    furia: 4,
+    astucia: 4,
+    cortesia: 3,
+    erudicao: 3,
+    pressagio: 4,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Corte raso de adaga na têmpora esquerda sofrido no porto de Vila Gaivota'],
+  segredos: [
+    'Jurou sobre o túmulo de Brandon Stark vingar a Casa Stark contra a tirania do Rei Louco',
+    'Conhece os caminhos secretos de pescadores entre as Ilhas Três Irmãs e a Foz do Ramo Branco',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('rebeliao_robert'),
+};
+
 /**
  * Retorna a ficha inicial adequada para a Jornada selecionada
  */
 export function obterFichaInicialJornada(journeyId?: string): FichaPersonagem {
   const norm = normalizarIdJornada(journeyId);
   switch (norm) {
+    case 'rebeliao_robert':
+      return { ...FICHA_INICIAL_RONNEL_GLOVER };
     case 'danca_dragoes':
       return { ...FICHA_INICIAL_RHAENYRA };
     case 'guerra_tronos':
@@ -243,6 +287,23 @@ export function obterFichaInicialJornada(journeyId?: string): FichaPersonagem {
 export function obterWorldStateInicialJornada(journeyId?: string): WorldState {
   const norm = normalizarIdJornada(journeyId);
   switch (norm) {
+    case 'rebeliao_robert':
+      return {
+        reputacaoCasas: {
+          Baratheon: 10,
+          Stark: 10,
+          Arryn: 10,
+          Tully: 5,
+          Targaryen: -10,
+          Lannister: 0,
+          Martell: -5,
+        },
+        flagsBorboleta: {
+          fase_rebeliao_iniciada: true,
+          chamado_do_ninho_atendido: true,
+        },
+        marcosConcluidos: ['282_dc_chamado_do_ninho'],
+      };
     case 'danca_dragoes':
       return {
         reputacaoCasas: {

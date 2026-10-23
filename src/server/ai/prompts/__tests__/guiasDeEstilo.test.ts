@@ -9,8 +9,8 @@ import { NodeJornada } from '@/server/engine/storyLinter';
 import { FichaPersonagem } from '@/server/engine/rpgEngine';
 
 describe('Guias de Estilo e Guardrails Temporais do Mestre IA (Fase 11)', () => {
-  it('todas as 4 eras canônicas devem possuir guias de estilo detalhados', () => {
-    const erasEsperadas = ['conquista_aegon', 'danca_dragoes', 'guerra_tronos', 'patrulha_muralha'];
+  it('todas as 5 eras canônicas devem possuir guias de estilo detalhados', () => {
+    const erasEsperadas = ['conquista_aegon', 'danca_dragoes', 'guerra_tronos', 'patrulha_muralha', 'rebeliao_robert'];
     for (const era of erasEsperadas) {
       const guia = GUIAS_DE_ESTILO_POR_JORNADA[era];
       expect(guia).toBeDefined();
@@ -81,6 +81,23 @@ describe('Guias de Estilo e Guardrails Temporais do Mestre IA (Fase 11)', () => 
       const texto = 'Balerion desceu rugindo sobre a Fortaleza Vermelha com suas asas negras.';
       const res = validarAnacronismosEra(texto, 'guerra_tronos');
       expect(res.valido).toBe(false);
+      expect(res.anacronismosEncontrados).toContain('Balerion');
+    });
+  });
+
+  describe('Validação de Anacronismos: A Rebelião de Robert', () => {
+    it('deve aprovar narrativa canônica da Rebelião de Robert', () => {
+      const texto = 'Robert Baratheon desferiu o golpe de martelo no peito do Príncipe Rhaegar nas águas do Tridente.';
+      const res = validarAnacronismosEra(texto, 'rebeliao_robert');
+      expect(res.valido).toBe(true);
+      expect(res.anacronismosEncontrados).toHaveLength(0);
+    });
+
+    it('deve barrar menções a personagens de outras eras na Rebelião', () => {
+      const texto = 'Aegon, o Conquistador montou Balerion para desafiar Rhaenyra Targaryen.';
+      const res = validarAnacronismosEra(texto, 'rebeliao_robert');
+      expect(res.valido).toBe(false);
+      expect(res.anacronismosEncontrados).toContain('Aegon, o Conquistador');
       expect(res.anacronismosEncontrados).toContain('Balerion');
     });
   });

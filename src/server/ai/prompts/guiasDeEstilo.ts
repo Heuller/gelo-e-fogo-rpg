@@ -144,10 +144,48 @@ export const GUIAS_DE_ESTILO_POR_JORNADA: Record<string, GuiaEstiloEra> = {
       'couro ensebado', 'vapor da respiração', 'caldo de nabo', 'olhos azuis frios',
     ],
   },
+
+  rebeliao_robert: {
+    id: 'rebeliao_robert',
+    nome: 'A Rebelião de Robert',
+    periodo: '282 d.C. a 283 d.C.',
+    tomNarrativo:
+      'Épico heroico e trágico, nobreza marcial em colapso com a loucura dinástica. Choque visceral de aço, honra de juramentos quebrados, camaradagem forjada na revolta contra a tirania. Narração em 2ª pessoa ("Vós vedes...", "Avançais com o martelo..."), presente, fiel aos livros canônicos.',
+    diretrizesEstilo: [
+      'Robert Baratheon é um jovem titã de seis pés e meio, risonho na taverna e monstruoso com o martelo no campo de batalha.',
+      'Eddard Stark é solene, melancólico e inflexível quanto à honra, marcado pela execução covarde do pai e do irmão por Aerys II.',
+      'O Rei Aerys II Targaryen está em seu ápice de paranoia com unhas aduncas e fogueiras de fogovivo preparadas por piromantes.',
+      'O Príncipe Rhaegar é uma figura trágica, melancólica, vestida em armadura negra de rubis, obcecada por profecias antigas.',
+      'A atmosfera evoca chuva torrencial, águas barrentas do Tridente tingidas de carmesim e o choque monumental de exércitos de cavalaria.',
+    ],
+    personagensPermitidos: [
+      'Robert Baratheon', 'Eddard Stark', 'Jon Arryn', 'Hoster Tully', 'Brynden Tully',
+      'Rhaegar Targaryen', 'Aerys II Targaryen', 'Jaime Lannister', 'Tywin Lannister',
+      'Arthur Dayne', 'Gerold Hightower', 'Oswell Whent', 'Barristan Selmy', 'Lewyn Martell',
+      'Jon Connington', 'Mace Tyrell', 'Stannis Baratheon', 'Howland Reed', 'Lyanna Stark',
+      'Elia Martell', 'Pycelle', 'Varys', 'Rossart', 'Gregor Clegane', 'Amory Lorch',
+    ],
+    anacronismosProibidos: [
+      // Personagens de eras passadas
+      'Aegon, o Conquistador', 'Visenya', 'Rhaenys (irmã de Aegon)', 'Balerion',
+      'Rhaenyra Targaryen', 'Daemon Targaryen', 'Aemond Targaryen', 'Criston Cole',
+      // Personagens do futuro que ainda não nasceram ou não têm papel
+      'Joffrey Baratheon', 'Tommen', 'Myrcella', 'Robb Stark em combate',
+      'Mance Rayder na Muralha', 'Daenerys adulta',
+      // Modernidades
+      'polvora', 'canhao', 'espingarda',
+    ],
+    sensoriaisChave: [
+      'martelo de guerra fendendo armaduras', 'rubis voando na água barrenta',
+      'fumaça de fogovivo', 'sinos dobrando ao longe', 'vento das montanhas vermelhas',
+      'rosas de inverno azuis', 'sangue no vau', 'ferro retorcido',
+    ],
+  },
 };
 
 export function obterGuiaEstilo(jornadaId: string): GuiaEstiloEra {
   const norm = jornadaId.toLowerCase();
+  if (norm.includes('rebeliao') || norm.includes('robert') || norm.includes('jornada_5')) return GUIAS_DE_ESTILO_POR_JORNADA.rebeliao_robert;
   if (norm.includes('danca') || norm.includes('jornada_2')) return GUIAS_DE_ESTILO_POR_JORNADA.danca_dragoes;
   if (norm.includes('tronos') || norm.includes('guerra') || norm.includes('jornada_3')) return GUIAS_DE_ESTILO_POR_JORNADA.guerra_tronos;
   if (norm.includes('patrulha') || norm.includes('irmao') || norm.includes('jornada_4')) return GUIAS_DE_ESTILO_POR_JORNADA.patrulha_muralha;

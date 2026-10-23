@@ -5,11 +5,13 @@ import { grafoJornada1Completo } from '@/server/data/journeys/j1_conquista_full'
 import { grafoJornada2Completo } from '@/server/data/journeys/j2_danca_full';
 import { grafoJornada3Completo } from '@/server/data/journeys/j3_tronos_full';
 import { grafoJornada4Completo } from '@/server/data/journeys/j4_muralha_full';
+import { grafoJornada5Completo } from '@/server/data/journeys/j5_rebeliao_full';
 import {
   FICHA_INICIAL_AEGON,
   FICHA_INICIAL_RHAENYRA,
   FICHA_INICIAL_EDDARD_STARK,
   FICHA_INICIAL_PATRULHA_DUNSTAN,
+  FICHA_INICIAL_RONNEL_GLOVER,
 } from '@/server/data/journeys/index';
 
 export interface FichaPronta {
@@ -107,6 +109,59 @@ export const FICHA_PATRULHA_ARIC: FichaPersonagem = {
   ],
   inspiracao: 2,
   companheiros: obterCompanheirosIniciais('patrulha_muralha'),
+};
+
+// Fichas adicionais de 22 pontos da Jornada 5 (A Rebelião de Robert)
+export const FICHA_REBELIAO_DENYS_ARRYN: FichaPersonagem = {
+  id: 'denys-arryn',
+  nome: 'Lorde Denys Arryn',
+  origem: 'senhor_nobre',
+  atributos: {
+    comando: 5,
+    furia: 3,
+    astucia: 3,
+    cortesia: 4,
+    erudicao: 4,
+    pressagio: 3,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Marca de queimadura no flanco direito por flecha incendiária em Vila Gaivota'],
+  segredos: [
+    'Herdeiro presuntivo do Ninho da Águia com bênção pessoal de Lorde Jon Arryn',
+    'Conhece a rota dos contrabandistas nos Dedos para abastecer as tropas rebeldes',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('rebeliao_robert'),
+};
+
+export const FICHA_REBELIAO_JONOTHOR_MORRIGEN: FichaPersonagem = {
+  id: 'jonothor-morrigen',
+  nome: 'Sor Jonothor Morrigen',
+  origem: 'cavaleiro_andante',
+  atributos: {
+    comando: 3,
+    furia: 5,
+    astucia: 4,
+    cortesia: 3,
+    erudicao: 3,
+    pressagio: 4,
+  },
+  estado: {
+    sangue: 10,
+    compostura: 10,
+    honra: 5,
+  },
+  cicatrizes: ['Cicatriz de corte de maça no joelho esquerdo recebida na Batalha de Solarestival'],
+  segredos: [
+    'Lutou nas três batalhas de Solarestival no mesmo dia sob o comando direto de Robert Baratheon',
+    'Recusou a anistia do Rei Louco para proteger os feudos juramentados à Casa Baratheon',
+  ],
+  inspiracao: 2,
+  companheiros: obterCompanheirosIniciais('rebeliao_robert'),
 };
 
 export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
@@ -229,12 +284,55 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
     temaId: 'patrulha_muralha',
     ativa: true,
   },
+
+  rebeliao_robert: {
+    id: 'rebeliao_robert',
+    numero: 5,
+    titulo: 'A Rebelião de Robert',
+    subtitulo: 'A Queda dos Dragões & A Forja de Uma Nova Coroa',
+    sinopse:
+      'A revolta lendária que encerrou quase trezentos anos de dinastia Targaryen, desde o desafio no Vale até o duelo no Vade dos Rubis e a promessa na Torre da Alegria.',
+    origem: 'canonica',
+    epoca: '282 a 283 d.C.',
+    startNodeId: 'j5_a1_o_chamado_do_ninho',
+    grafo: grafoJornada5Completo,
+    fichasProntas: [
+      {
+        id: 'ronnel-glover',
+        nome: 'Sor Ronnel Glover',
+        titulo: 'Cavaleiro de Bosque Profundo & Vanguarda do Norte',
+        origem: 'honra_do_norte',
+        descricao: 'Leal seguidor de Brandon e Ned Stark; empunha espada longa com destreza implacável e honra inabalável.',
+        ficha: FICHA_INICIAL_RONNEL_GLOVER,
+      },
+      {
+        id: 'denys-arryn',
+        nome: 'Lorde Denys Arryn',
+        titulo: 'O Querido do Vale & Cavaleiro do Falcão',
+        origem: 'senhor_nobre',
+        descricao: 'Herdeiro do Vale de Arryn; líder carismático e estrategista refinado nas cortes e nas montanhas.',
+        ficha: FICHA_REBELIAO_DENYS_ARRYN,
+      },
+      {
+        id: 'jonothor-morrigen',
+        nome: 'Sor Jonothor Morrigen',
+        titulo: 'Cavaleiro do Ninho de Corvos & Vanguarda das Terras da Tempestade',
+        origem: 'cavaleiro_andante',
+        descricao: 'Veterano das três batalhas de Solarestival; guerreiro tempestuoso cuja fúria em combate quebra linhas inimigas.',
+        ficha: FICHA_REBELIAO_JONOTHOR_MORRIGEN,
+      },
+    ],
+    companheirosIniciais: obterCompanheirosIniciais('rebeliao_robert'),
+    temaId: 'rebeliao_robert',
+    ativa: true,
+  },
 };
 
 export const JOURNEY_REGISTRY = REGISTRO_JORNADAS;
 
 export function obterJornada(id: string): DefinicaoJornada | undefined {
   const norm = id.toLowerCase();
+  if (norm.includes('rebeliao') || norm.includes('robert') || norm.includes('jornada_5')) return REGISTRO_JORNADAS.rebeliao_robert;
   if (norm.includes('conquista') || norm.includes('jornada_1')) return REGISTRO_JORNADAS.conquista_aegon;
   if (norm.includes('danca') || norm.includes('jornada_2')) return REGISTRO_JORNADAS.danca_dragoes;
   if (norm.includes('tronos') || norm.includes('guerra') || norm.includes('jornada_3')) return REGISTRO_JORNADAS.guerra_tronos;

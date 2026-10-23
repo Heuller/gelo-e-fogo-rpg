@@ -282,6 +282,46 @@ export function rerrolarUltimoTesteComInspiracao(
 export function obterCompanheirosIniciais(journeyId?: string): Record<string, Companheiro> {
   const lower = (journeyId || '').toLowerCase();
 
+  if (lower.includes('rebeliao') || lower.includes('robert') || lower.includes('jornada_5')) {
+    return {
+      robert_baratheon: {
+        id: 'robert_baratheon',
+        nome: 'Robert Baratheon',
+        titulo: 'Senhor de Ponta Tempestade & Líder da Rebelião',
+        aprovacao: 35,
+        status: 'Leal',
+      },
+      ned_stark: {
+        id: 'ned_stark',
+        nome: 'Eddard Stark',
+        titulo: 'Senhor de Winterfell & Protetor do Norte',
+        aprovacao: 35,
+        status: 'Leal',
+      },
+      jon_arryn: {
+        id: 'jon_arryn',
+        nome: 'Lorde Jon Arryn',
+        titulo: 'Senhor do Ninho da Águia & Defensor do Vale',
+        aprovacao: 30,
+        status: 'Leal',
+      },
+      peixe_negro: {
+        id: 'peixe_negro',
+        nome: 'Sor Brynden Tully (Peixe Negro)',
+        titulo: 'Vanguarda do Tridente & Escudo de Correrrio',
+        aprovacao: 25,
+        status: 'Neutro',
+      },
+      howland_reed: {
+        id: 'howland_reed',
+        nome: 'Howland Reed',
+        titulo: 'Senhor de Atalaia da Água Cinzenta & O Crannogman',
+        aprovacao: 30,
+        status: 'Leal',
+      },
+    };
+  }
+
   if (lower.includes('danca') || lower.includes('jornada_2')) {
     return {
       daemon: {
