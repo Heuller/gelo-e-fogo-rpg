@@ -38,18 +38,18 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0D0B0A] text-[#E6DEC8] flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-8 shadow-2xl backdrop-blur-md">
+    <main className="min-h-screen bg-[[var(--pagina)]] text-[[var(--tinta)]] flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl p-8 shadow-2xl backdrop-blur-md">
         
         {/* Brasão / Cabeçalho */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#8B1E1E]/40 border-2 border-[#C5A059] mb-4 shadow-lg shadow-black/60">
-            <Shield className="w-8 h-8 text-[#C5A059]" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[[var(--carmim)]]/40 border-2 border-[[var(--ouro)]] mb-4 shadow-lg shadow-black/60">
+            <Shield className="w-8 h-8 text-[[var(--ouro)]]" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#C5A059] font-serif">
+          <h1 className="text-3xl font-bold tracking-tight text-[[var(--ouro)]] font-serif">
             Crônicas de Sangue e Gelo
           </h1>
-          <p className="text-xs uppercase tracking-widest text-[#A69E89] mt-2">
+          <p className="text-xs uppercase tracking-widest text-[[var(--tinta-suave)]] mt-2">
             Acesso Restrito aos Arquivos da Cidadela
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function LoginPage() {
         {/* Formulário de Acesso */}
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-xs uppercase tracking-wider text-[#A69E89] mb-1">
+            <label htmlFor="email" className="block text-xs uppercase tracking-wider text-[[var(--tinta-suave)]] mb-1">
               E-mail do Proprietário
             </label>
             <input
@@ -75,12 +75,12 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="seu-email@dominio.com"
-              className="w-full px-3 py-2.5 bg-[#12100E] border border-[#2D2620] rounded-lg text-sm text-[#E6DEC8] placeholder-[#8F8774] focus:outline-none focus:border-[#C5A059] transition-colors"
+              className="w-full px-3 py-2.5 bg-[[var(--pergaminho-1)]] border border-[[var(--borda)]] rounded-lg text-sm text-[[var(--tinta)]] placeholder-[[var(--tinta-fraca)]] focus:outline-none focus:border-[[var(--ouro)]] transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-xs uppercase tracking-wider text-[#A69E89] mb-1">
+            <label htmlFor="password" className="block text-xs uppercase tracking-wider text-[[var(--tinta-suave)]] mb-1">
               Senha Selada
             </label>
             <input
@@ -91,7 +91,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
-              className="w-full px-3 py-2.5 bg-[#12100E] border border-[#2D2620] rounded-lg text-sm text-[#E6DEC8] placeholder-[#8F8774] focus:outline-none focus:border-[#C5A059] transition-colors"
+              className="w-full px-3 py-2.5 bg-[[var(--pergaminho-1)]] border border-[[var(--borda)]] rounded-lg text-sm text-[[var(--tinta)]] placeholder-[[var(--tinta-fraca)]] focus:outline-none focus:border-[[var(--ouro)]] transition-colors"
             />
           </div>
 

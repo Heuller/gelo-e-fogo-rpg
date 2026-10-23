@@ -1,0 +1,85 @@
+:root {
+  /* Cores de Fundo e Superfície (Pergaminho Grimdark) */
+  --pagina: #0D0B0A;
+  --pergaminho-1: #12100E;
+  --pergaminho-2: #171412;
+  --pergaminho-3: #1C1815;
+  --pergaminho-4: #221D19;
+  --borda: #2D2620;
+
+  /* Cores de Tinta e Tipografia */
+  --tinta: #E6DEC8;
+  --tinta-suave: #A69E89;
+  --tinta-fraca: #8F8774;
+
+  /* Acentos Heráldicos Dourados */
+  --ouro: #C5A059;
+  --ouro-claro: #DFC27D;
+  --ouro-escuro: #9B7A35;
+
+  /* Acentos de Perigo e Fogo Valiriano */
+  --carmim: #8B1E1E;
+  --carmim-brilho: #A82E2E;
+  --perigo-texto: #D9534F;
+
+  /* Barras Vitais */
+  --barra-sangue: #DC2626;
+  --barra-compostura: #38BDF8;
+  --barra-honra: #F59E0B;
+
+  /* Escala de Raios */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 16px;
+
+  /* Z-Index */
+  --z-sticky: 40;
+  --z-gaveta: 50;
+  --z-overlay-dado: 60;
+  --z-toast: 70;
+}
+
+/* Foco Global Acessível (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--ouro-claro) !important;
+  outline-offset: 2px !important;
+}
+
+/* Redução Global de Movimento (WCAG 2.2.2 / prefers-reduced-motion) */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Classes Utilitárias Nativas do Códice Vivo */
+.fundo-radial {
+  background: radial-gradient(circle at center, #1A1215 0%, #0D0B0A 100%);
+}
+
+.entrada-fade {
+  animation: codiceFade 250ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.entrada-sobe {
+  animation: codiceSobe 250ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes codiceFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes codiceSobe {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

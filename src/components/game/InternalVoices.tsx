@@ -35,16 +35,16 @@ const CONFIG_VOZES: Record<AtributoVoz, ConfiguracaoVoz> = {
   comando: {
     titulo: 'Comando',
     subtitulo: 'O Marechal',
-    corBorda: 'border-[#C5A059]',
+    corBorda: 'border-[[var(--ouro)]]',
     corBg: 'bg-[#1e1913]/90',
     corTexto: 'text-[#E8CD8C]',
-    corBadge: 'bg-amber-950/70 text-[#C5A059] border-amber-600/40',
+    corBadge: 'bg-amber-950/70 text-[[var(--ouro)]] border-amber-600/40',
     icone: Crown,
   },
   furia: {
     titulo: 'Fúria',
     subtitulo: 'O Guerreiro',
-    corBorda: 'border-[#8B1E1E]',
+    corBorda: 'border-[[var(--carmim)]]',
     corBg: 'bg-[#1f1010]/90',
     corTexto: 'text-red-200',
     corBadge: 'bg-red-950/70 text-red-400 border-red-700/50',
@@ -120,7 +120,7 @@ export function InternalVoices({ intervencoes, className = '' }: PropsInternalVo
 
               {item.resultadoPassivo && (
                 <span
-                  className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded border flex items-center gap-1 ${
+                  className={`text-xs uppercase font-bold px-2 py-0.5 rounded border flex items-center gap-1 ${
                     item.resultadoPassivo === 'CRITICO' || item.resultadoPassivo === 'SUCESSO'
                       ? 'bg-emerald-950/70 text-emerald-300 border-emerald-700/50'
                       : 'bg-amber-950/70 text-amber-300 border-amber-700/50'

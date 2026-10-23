@@ -119,12 +119,12 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
   );
 
   return (
-    <div className={`bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-5 shadow-2xl text-[#E6DEC8] font-cinzel space-y-4 ${className}`}>
+    <div className={`bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl p-5 shadow-2xl text-[[var(--tinta)]] font-cinzel space-y-4 ${className}`}>
       
       {/* Cabeçalho */}
-      <div className="flex items-center justify-between border-b border-[#2D2620] pb-3">
+      <div className="flex items-center justify-between border-b border-[[var(--borda)]] pb-3">
         <div className="flex items-center gap-2">
-          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[#C5A059]">
+          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[[var(--ouro)]]">
             <Crown className="w-4 h-4" />
           </span>
           <h3 className="text-sm font-bold uppercase tracking-wider text-amber-200">
@@ -132,20 +132,20 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
           </h3>
         </div>
 
-        <span className="text-[10px] uppercase font-bold text-slate-400 bg-[#100e0c] px-2 py-0.5 rounded border border-slate-800">
+        <span className="text-xs uppercase font-bold text-slate-400 bg-[#100e0c] px-2 py-0.5 rounded border border-slate-800">
           Mapa da Conquista
         </span>
       </div>
 
       {/* Carta Cartográfica Vetorial */}
-      <div className="relative w-full aspect-[4/5] bg-gradient-to-b from-[#14181f] via-[#101217] to-[#120f12] rounded-xl border border-[#2D2620] overflow-hidden p-2 flex items-center justify-center">
+      <div className="relative w-full aspect-[4/5] bg-gradient-to-b from-[#14181f] via-[#101217] to-[#120f12] rounded-xl border border-[[var(--borda)]] overflow-hidden p-2 flex items-center justify-center">
         
         {/* Silhueta Artística de Westeros em SVG */}
-        <svg viewBox="0 0 100 120" className="w-full h-full opacity-30 text-[#C5A059] fill-current">
+        <svg viewBox="0 0 100 120" className="w-full h-full opacity-30 text-[[var(--ouro)]] fill-current">
           {/* Costa e contorno do continente */}
           <path d="M 45 5 C 55 5, 60 15, 62 25 C 65 35, 75 40, 72 50 C 78 55, 75 65, 70 70 C 65 75, 70 85, 65 95 C 60 105, 50 110, 45 105 C 40 100, 30 95, 25 85 C 20 75, 25 65, 30 55 C 25 45, 35 30, 40 20 Z" />
           {/* Muralha */}
-          <line x1="38" y1="18" x2="62" y2="18" stroke="#E6DEC8" strokeWidth="2" strokeDasharray="2,2" />
+          <line x1="38" y1="18" x2="62" y2="18" stroke="[var(--tinta)]" strokeWidth="2" strokeDasharray="2,2" />
         </svg>
 
         {/* Pinos das Regiões de Conquista */}
@@ -158,28 +158,28 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
               key={regiao.id}
               onClick={() => setRegiaoSelecionada(regiao)}
               style={{ left: `${regiao.pontoX}%`, top: `${regiao.pontoY}%` }}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 p-1.5 rounded-full transition-transform hover:scale-125 cursor-pointer ${
+              className={`absolute -translate-x-1/2 -translate-y-1/2 p-1.5 rounded-full transition-transform hover:scale-125 ${
                 ehAtual
                   ? 'bg-red-900 border-2 border-red-500 shadow-lg shadow-red-900/80 animate-pulse'
                   : ehSelecionada
-                  ? 'bg-amber-900 border-2 border-[#C5A059]'
-                  : 'bg-[#1C1815] border border-slate-600 text-slate-400'
+                  ? 'bg-amber-900 border-2 border-[[var(--ouro)]]'
+                  : 'bg-[[var(--pergaminho-3)]] border border-slate-600 text-slate-400'
               }`}
               title={`${regiao.nome} (${regiao.casaPrincipal})`}
             >
-              <MapPin className={`w-3.5 h-3.5 ${ehAtual ? 'text-amber-300' : 'text-[#C5A059]'}`} />
+              <MapPin className={`w-3.5 h-3.5 ${ehAtual ? 'text-amber-300' : 'text-[[var(--ouro)]]'}`} />
             </button>
           );
         })}
       </div>
 
       {/* Cartão de Detalhes da Região Selecionada */}
-      <div className="bg-[#12100E] p-3.5 rounded-xl border border-[#2D2620] space-y-2">
+      <div className="bg-[[var(--pergaminho-1)]] p-3.5 rounded-xl border border-[[var(--borda)]] space-y-2">
         <div className="flex items-center justify-between">
           <span className="text-xs font-bold text-amber-200">
             {regiaoSelecionada.nome}
           </span>
-          <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded border ${
+          <span className={`text-xs uppercase font-bold px-2 py-0.5 rounded border ${
             regiaoSelecionada.status === 'Aliado'
               ? 'bg-emerald-950 text-emerald-300 border-emerald-800'
               : regiaoSelecionada.status === 'Hostil'
@@ -190,25 +190,25 @@ export function WesterosMapSVG({ regiaoAtualId, activeRegionId, className = '' }
           </span>
         </div>
 
-        <p className="text-[11px] text-[#A69E89] font-garamond italic">
+        <p className="text-xs text-[[var(--tinta-suave)]] font-garamond italic">
           {regiaoSelecionada.senhorAtual}
         </p>
 
         {/* Barra de Lealdade / Domínio */}
         <div className="space-y-1 pt-1">
-          <div className="flex justify-between text-[10px] text-slate-400 font-sans">
+          <div className="flex justify-between text-xs text-slate-400 font-sans">
             <span>Lealdade ao Trono de Ferro:</span>
             <span className="font-bold text-amber-300">{regiaoSelecionada.lealdade}%</span>
           </div>
           <div className="w-full h-1.5 bg-stone-900 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-amber-700 to-[#C5A059] rounded-full"
+              className="h-full bg-gradient-to-r from-amber-700 to-[[var(--ouro)]] rounded-full"
               style={{ width: `${regiaoSelecionada.lealdade}%` }}
             />
           </div>
         </div>
 
-        <p className="text-[11px] text-slate-400 font-garamond pt-1 leading-snug">
+        <p className="text-xs text-slate-400 font-garamond pt-1 leading-snug">
           {regiaoSelecionada.descricao}
         </p>
       </div>

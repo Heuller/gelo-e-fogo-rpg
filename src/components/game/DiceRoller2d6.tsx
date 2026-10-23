@@ -28,13 +28,13 @@ function DadoVisual({ valor, animando }: { valor: number; animando?: boolean }) 
 
   return (
     <div
-      className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-[#2b2520] via-[#1c1815] to-[#110e0c] border-2 border-[#C5A059] p-2 flex items-center justify-center shadow-xl shadow-black/80 transition-transform ${
+      className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-[#2b2520] via-[[var(--pergaminho-3)]] to-[#110e0c] border-2 border-[[var(--ouro)]] p-2 flex items-center justify-center shadow-xl shadow-black/80 transition-transform ${
         animando ? 'animate-spin motion-reduce:animate-none' : ''
       }`}
     >
-      <svg viewBox="0 0 100 100" className="w-full h-full text-[#E6DEC8] fill-current">
+      <svg viewBox="0 0 100 100" className="w-full h-full text-[[var(--tinta)]] fill-current">
         {pontos.map(([cx, cy], idx) => (
-          <circle key={idx} cx={cx} cy={cy} r="8" fill="#C5A059" stroke="#3d2f17" strokeWidth="2" />
+          <circle key={idx} cx={cx} cy={cy} r="8" fill="[var(--ouro)]" stroke="#3d2f17" strokeWidth="2" />
         ))}
       </svg>
     </div>
@@ -69,12 +69,12 @@ export function DiceRoller2d6({
   }
 
   return (
-    <div className={`bg-[#171412] border-2 border-[#2D2620] rounded-2xl p-5 shadow-2xl text-[#E6DEC8] font-cinzel space-y-5 ${className}`}>
+    <div className={`bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl p-5 shadow-2xl text-[[var(--tinta)]] font-cinzel space-y-5 ${className}`}>
       
       {/* Cabeçalho da Bandeja */}
-      <div className="flex items-center justify-between border-b border-[#2D2620] pb-3">
+      <div className="flex items-center justify-between border-b border-[[var(--borda)]] pb-3">
         <div className="flex items-center gap-2">
-          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[#C5A059]">
+          <span className="p-1.5 rounded bg-amber-950/70 border border-amber-700/50 text-[[var(--ouro)]]">
             <Dices className="w-5 h-5" />
           </span>
           <h3 className="text-sm font-bold uppercase tracking-wider text-amber-200">
@@ -85,7 +85,7 @@ export function DiceRoller2d6({
         <button
           onClick={() => rolarTesteManual(3, 10, false)}
           disabled={animando}
-          className="text-[11px] px-2.5 py-1 rounded bg-[#2D2620] hover:bg-[#3D342C] text-[#C5A059] border border-amber-900/40 transition-colors cursor-pointer disabled:opacity-50"
+          className="text-xs px-2.5 py-1 rounded bg-[[var(--borda)]] hover:bg-[#3D342C] text-[[var(--ouro)]] border border-amber-900/40 transition-colors disabled:opacity-50"
         >
           {animando ? 'Rolando...' : 'Rolar Dados'}
         </button>
@@ -96,13 +96,13 @@ export function DiceRoller2d6({
           {/* Os 2 Dados Visuais */}
           <div className="flex items-center justify-center gap-6 py-2">
             <DadoVisual valor={res.dados[0]} animando={animando} />
-            <span className="text-2xl text-[#C5A059] font-bold">+</span>
+            <span className="text-2xl text-[[var(--ouro)]] font-bold">+</span>
             <DadoVisual valor={res.dados[1]} animando={animando} />
           </div>
 
           {/* Cálculo Numérico */}
-          <div className="text-center bg-[#100e0c] p-3 rounded-lg border border-[#2D2620] text-xs font-sans">
-            <span className="text-[#A69E89]">
+          <div className="text-center bg-[#100e0c] p-3 rounded-lg border border-[[var(--borda)]] text-xs font-sans">
+            <span className="text-[[var(--tinta-suave)]]">
               Dados ({res.dados[0]} + {res.dados[1]} = {res.somaDados}) + Atributo ({res.valorAtributo}) =
             </span>
             <strong className="text-lg text-amber-300 ml-1.5 font-cinzel">
@@ -114,8 +114,8 @@ export function DiceRoller2d6({
           {/* Selo Colorido de Resultado */}
           <div className="text-center pt-1">
             {res.resultado === 'CRITICO' && (
-              <div className="p-3 rounded-xl bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 border-2 border-[#C5A059] text-amber-200 shadow-lg shadow-amber-950/50">
-                <div className="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#DFC27D]">
+              <div className="p-3 rounded-xl bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 border-2 border-[[var(--ouro)]] text-amber-200 shadow-lg shadow-amber-950/50">
+                <div className="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[[var(--ouro-claro)]]">
                   <Sparkles className="w-4 h-4 text-amber-400" />
                   <span>Sucesso Crítico</span>
                 </div>
@@ -168,7 +168,7 @@ export function DiceRoller2d6({
               <button
                 type="button"
                 onClick={onRerrolarComInspiracao}
-                className="w-full mt-3 py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-stone-950 font-cinzel font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-900/40 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300/50"
+                className="w-full mt-3 py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-stone-950 font-cinzel font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-900/40 transition-all flex items-center justify-center gap-2 border border-amber-300/50"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>✨ Usar 1 Inspiração para Rerrolar (Restam: {inspiracao})</span>

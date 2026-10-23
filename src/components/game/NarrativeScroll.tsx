@@ -90,10 +90,10 @@ export function NarrativeScroll({
   }
 
   return (
-    <article className="w-full max-w-3xl mx-auto bg-[#171412] border-2 border-[#2D2620] rounded-2xl shadow-2xl shadow-black/90 p-6 sm:p-10 text-[#E6DEC8] relative overflow-hidden font-garamond">
+    <article className="w-full max-w-3xl mx-auto bg-[[var(--pergaminho-2)]] border-2 border-[[var(--borda)]] rounded-2xl shadow-2xl shadow-black/90 p-6 sm:p-10 text-[[var(--tinta)]] relative overflow-hidden font-garamond">
       
       {/* Moldura / Friso Decorativo Medieval Superior */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-80" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[[var(--ouro)]] to-transparent opacity-80" />
 
       {/* Banner / Toast de Aprovação de Companheiros Estilo BG3 */}
       {notificacoesCompanheiros.length > 0 && (
@@ -105,8 +105,8 @@ export function NarrativeScroll({
                 key={idx}
                 className={`p-3 rounded-xl border flex items-center gap-2.5 text-xs font-cinzel font-bold shadow-lg animate-in fade-in slide-in-from-top-2 duration-300 ${
                   ehAprovacao
-                    ? 'bg-gradient-to-r from-emerald-950/90 to-[#12100E] border-emerald-600/70 text-emerald-200'
-                    : 'bg-gradient-to-r from-rose-950/90 to-[#12100E] border-rose-600/70 text-rose-200'
+                    ? 'bg-gradient-to-r from-emerald-950/90 to-[[var(--pergaminho-1)]] border-emerald-600/70 text-emerald-200'
+                    : 'bg-gradient-to-r from-rose-950/90 to-[[var(--pergaminho-1)]] border-rose-600/70 text-rose-200'
                 }`}
               >
                 <Users className={`w-4 h-4 ${ehAprovacao ? 'text-emerald-400' : 'text-rose-400'}`} />
@@ -118,17 +118,17 @@ export function NarrativeScroll({
       )}
 
       {/* Cabeçalho da Cena */}
-      <header className="text-center pb-6 mb-4 border-b border-[#C5A059]/25">
-        <span className="text-[11px] font-cinzel uppercase tracking-[0.25em] text-[#C5A059] font-bold">
+      <header className="text-center pb-6 mb-4 border-b border-[[var(--ouro)]]/25">
+        <span className="text-xs font-cinzel uppercase tracking-[0.25em] text-[[var(--ouro)]] font-bold">
           {localizacao} &bull; {anoHistorico}
         </span>
         <h2 className="text-2xl sm:text-3xl font-bold font-cinzel text-amber-200 mt-2 tracking-wide uppercase drop-shadow-md">
           {atoTitulo}
         </h2>
         <div className="flex items-center justify-center gap-3 mt-3 text-slate-500">
-          <span className="h-px w-12 bg-[#C5A059]/30" />
-          <Crown className="w-4 h-4 text-[#C5A059]/70" />
-          <span className="h-px w-12 bg-[#C5A059]/30" />
+          <span className="h-px w-12 bg-[[var(--ouro)]]/30" />
+          <Crown className="w-4 h-4 text-[[var(--ouro)]]/70" />
+          <span className="h-px w-12 bg-[[var(--ouro)]]/30" />
         </div>
       </header>
 
@@ -139,7 +139,7 @@ export function NarrativeScroll({
       <div 
         aria-live="polite"
         aria-atomic="true"
-        className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[#E6DEC8] mt-6"
+        className="space-y-6 text-lg sm:text-[20px] leading-relaxed text-[[var(--tinta)]] mt-6"
       >
         {paragrafos.map((paragrafo, idx) => {
           const ehPrimeiro = idx === 0;
@@ -147,7 +147,7 @@ export function NarrativeScroll({
           return (
             <p
               key={idx}
-              className={`${ehPrimeiro ? 'drop-cap' : ''} text-justify selection:bg-[#8B1E1E] selection:text-white`}
+              className={`${ehPrimeiro ? 'drop-cap' : ''} text-justify selection:bg-[[var(--carmim)]] selection:text-white`}
             >
               <LoreText texto={paragrafo} verbetes={verbetes} />
             </p>
@@ -157,9 +157,9 @@ export function NarrativeScroll({
 
       {/* Parágrafos Condicionais Ativos (Eco das Suas Escolhas estilo BG3) */}
       {conditionalAtivos.length > 0 && (
-        <div className="my-6 p-4 sm:p-5 rounded-xl bg-gradient-to-r from-amber-950/30 via-[#1a1512] to-amber-950/10 border-l-4 border-[#C5A059] shadow-inner space-y-3">
+        <div className="my-6 p-4 sm:p-5 rounded-xl bg-gradient-to-r from-amber-950/30 via-[#1a1512] to-amber-950/10 border-l-4 border-[[var(--ouro)]] shadow-inner space-y-3">
           <div className="flex items-center gap-2 text-xs font-cinzel font-bold text-amber-300 uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+            <Sparkles className="w-3.5 h-3.5 text-[[var(--ouro)]]" />
             <span>[Eco das Suas Escolhas]</span>
           </div>
           {conditionalAtivos.map((item, idx) => (
@@ -176,8 +176,8 @@ export function NarrativeScroll({
       )}
 
       {/* Divisor de Decisão */}
-      <div className="my-10 pt-6 border-t border-[#C5A059]/30 text-center relative">
-        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#171412] px-4 text-xs font-cinzel uppercase tracking-widest text-[#C5A059] font-semibold">
+      <div className="my-10 pt-6 border-t border-[[var(--ouro)]]/30 text-center relative">
+        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[[var(--pergaminho-2)]] px-4 text-xs font-cinzel uppercase tracking-widest text-[[var(--ouro)]] font-semibold">
           Qual é o vosso desígnio?
         </span>
       </div>
@@ -218,14 +218,14 @@ export function NarrativeScroll({
                 estaBloqueada
                   ? 'bg-[#100e0d] border-stone-800 text-stone-500 opacity-60 cursor-not-allowed'
                   : temRiscoMortal
-                  ? 'bg-gradient-to-r from-[#200f11] to-[#170e10] border-red-700/70 hover:border-red-500 shadow-lg shadow-red-950/30 cursor-pointer'
-                  : 'bg-[#1C1815] border-[#2D2620] hover:border-[#C5A059]/80 hover:bg-[#221d19] cursor-pointer'
+                  ? 'bg-gradient-to-r from-[#200f11] to-[#170e10] border-red-700/70 hover:border-red-500 shadow-lg shadow-red-950/30'
+                  : 'bg-[[var(--pergaminho-3)]] border-[[var(--borda)]] hover:border-[[var(--ouro)]]/80 hover:bg-[[var(--pergaminho-4)]]'
               }`}
             >
               {/* Texto da Escolha e Badges */}
               <div className="flex flex-col gap-1.5 flex-1">
                 <div className="flex items-start gap-3">
-                  <span className="font-cinzel text-xs text-[#C5A059] pt-1 select-none font-bold">
+                  <span className="font-cinzel text-xs text-[[var(--ouro)]] pt-1 select-none font-bold">
                     {estaBloqueada ? <Lock className="w-3.5 h-3.5 text-stone-500 inline" /> : '•'}
                   </span>
                   <span className={`font-garamond text-base sm:text-lg leading-snug ${
@@ -240,20 +240,20 @@ export function NarrativeScroll({
                 {/* Motivo do Bloqueio ou Selos Estilo BG3 */}
                 <div className="flex flex-wrap items-center gap-2 pl-6">
                   {escolha.tagOrigem && (
-                    <span className="text-[10px] font-cinzel uppercase px-2 py-0.5 rounded bg-amber-950/80 border border-amber-700/60 text-amber-300 font-bold">
+                    <span className="text-xs font-cinzel uppercase px-2 py-0.5 rounded bg-amber-950/80 border border-amber-700/60 text-amber-300 font-bold">
                       {escolha.tagOrigem}
                     </span>
                   )}
 
                   {foiDesbloqueada && (
-                    <span className="text-[10px] font-cinzel uppercase px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 font-bold flex items-center gap-1">
+                    <span className="text-xs font-cinzel uppercase px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 font-bold flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3 text-emerald-400" />
                       [DESBLOQUEADO PELA SUA JORNADA]
                     </span>
                   )}
 
                   {estaBloqueada && escolha.motivoBloqueio && (
-                    <span className="text-[11px] font-garamond italic text-amber-500/90 flex items-center gap-1">
+                    <span className="text-xs font-garamond italic text-amber-500/90 flex items-center gap-1">
                       <Lock className="w-3 h-3 text-amber-600" />
                       {escolha.motivoBloqueio}
                     </span>
@@ -264,14 +264,14 @@ export function NarrativeScroll({
               {/* Indicadores Técnicos de Teste e Risco */}
               <div className="flex items-center gap-2 flex-shrink-0 self-end sm:self-center font-sans text-xs">
                 {ehTeste && escolha.atributo && (
-                  <span className="px-2.5 py-1 rounded bg-[#12100E] border border-amber-600/40 text-amber-300 font-semibold flex items-center gap-1.5 uppercase text-[11px]">
-                    <Dices className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <span className="px-2.5 py-1 rounded bg-[[var(--pergaminho-1)]] border border-amber-600/40 text-amber-300 font-semibold flex items-center gap-1.5 uppercase text-xs">
+                    <Dices className="w-3.5 h-3.5 text-[[var(--ouro)]]" />
                     <span>{escolha.atributo} &bull; DC {escolha.dc}</span>
                   </span>
                 )}
 
                 {temRiscoMortal && (
-                  <span className="px-2.5 py-1 rounded bg-red-950 border border-red-600 text-red-300 font-bold flex items-center gap-1 text-[11px] animate-pulse">
+                  <span className="px-2.5 py-1 rounded bg-red-950 border border-red-600 text-red-300 font-bold flex items-center gap-1 text-xs animate-pulse">
                     <Skull className="w-3.5 h-3.5 text-red-400" />
                     <span>[RISCO MORTAL]</span>
                   </span>
@@ -290,9 +290,9 @@ export function NarrativeScroll({
             audioManager.tocarSomPagina();
             setAcaoLivreAberta(!acaoLivreAberta);
           }}
-          className="w-full py-2.5 px-4 text-xs font-cinzel uppercase tracking-wider text-slate-400 hover:text-amber-300 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+          className="w-full py-2.5 px-4 text-xs font-cinzel uppercase tracking-wider text-slate-400 hover:text-amber-300 flex items-center justify-center gap-2 transition-colors"
         >
-          <Sparkles className="w-4 h-4 text-[#C5A059]" />
+          <Sparkles className="w-4 h-4 text-[[var(--ouro)]]" />
           <span>Propor Ação Livre Personalizada ao Mestre</span>
           {acaoLivreAberta ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </button>
@@ -304,12 +304,12 @@ export function NarrativeScroll({
               onChange={(e) => setTextoAcaoLivre(e.target.value)}
               placeholder="Descreva minuciosamente vossas palavras ou ordens aos meistres e vassalos..."
               rows={3}
-              className="w-full p-3.5 bg-[#0e0c0b] border border-[#2D2620] rounded-xl text-sm font-garamond text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-[#C5A059]"
+              className="w-full p-3.5 bg-[#0e0c0b] border border-[[var(--borda)]] rounded-xl text-sm font-garamond text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-[[var(--ouro)]]"
             />
             <button
               type="submit"
               disabled={!textoAcaoLivre.trim()}
-              className="w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-black font-cinzel font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-40"
+              className="w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-black font-cinzel font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-40"
             >
               <Send className="w-4 h-4" />
               <span>Submeter Ação ao Mestre</span>

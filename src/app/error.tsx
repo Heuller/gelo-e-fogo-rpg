@@ -17,7 +17,7 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0c] bg-radial from-[#1e1418] to-[#0a0a0c] text-amber-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[[var(--pagina)]] fundo-radial text-amber-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-[#14141a] border border-red-900/40 rounded-xl p-8 shadow-2xl shadow-black text-center">
         <div className="w-16 h-16 rounded-full bg-red-950/60 border border-red-600/50 flex items-center justify-center mx-auto mb-4">
           <ShieldAlert className="w-8 h-8 text-red-400" />

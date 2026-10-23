@@ -329,7 +329,7 @@ function JogarJogoInterno() {
 
   if (carregando || !nodeAtual) {
     return (
-      <div className="min-h-screen bg-[#0d0b0a] text-[#C5A059] flex items-center justify-center font-cinzel text-lg">
+      <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--ouro)]] flex items-center justify-center font-cinzel text-lg">
         Consultando os pergaminhos da Cidadela...
       </div>
     );
@@ -358,7 +358,7 @@ function JogarJogoInterno() {
   const worldFlags = Object.keys(worldState.flagsBorboleta || {});
 
   return (
-    <div className="min-h-screen bg-[#0d0b0a] text-[#E6DEC8] flex flex-col font-garamond pb-20 lg:pb-8">
+    <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--tinta)]] flex flex-col font-garamond pb-20 lg:pb-8">
       {/* Barra de Topo */}
       <TopBar
         jornadaTitulo={getTituloJornadaFormatado(journeyParam)}
@@ -373,11 +373,11 @@ function JogarJogoInterno() {
 
       {feedback && (
         <div className="max-w-7xl mx-auto w-full px-4 pt-3">
-          <div className="p-3 bg-[#1e1713] border border-[#C5A059]/60 rounded-xl text-amber-200 text-xs flex items-center justify-between">
+          <div className="p-3 bg-[#1e1713] border border-[[var(--ouro)]]/60 rounded-xl text-amber-200 text-xs flex items-center justify-between">
             <span>{feedback}</span>
             <button
               onClick={() => setFeedback(null)}
-              className="text-amber-400 underline cursor-pointer text-[11px]"
+              className="text-amber-400 underline text-xs"
             >
               Fechar
             </button>
@@ -425,12 +425,12 @@ function JogarJogoInterno() {
 
         {/* Coluna Direita (3 cols): Mapa, Dados e Diário */}
         <div className="hidden lg:block lg:col-span-3 sticky top-16 space-y-4">
-          <div className="grid grid-cols-3 gap-1 bg-[#12100E] p-1 rounded-xl border border-[#2D2620] text-center font-cinzel">
+          <div className="grid grid-cols-3 gap-1 bg-[[var(--pergaminho-1)]] p-1 rounded-xl border border-[[var(--borda)]] text-center font-cinzel">
             <button
               onClick={() => setAbaLateral('mapa')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
                 abaLateral === 'mapa'
-                  ? 'bg-[#C5A059] text-black shadow'
+                  ? 'bg-[[var(--ouro)]] text-black shadow'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -440,9 +440,9 @@ function JogarJogoInterno() {
 
             <button
               onClick={() => setAbaLateral('dados')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
                 abaLateral === 'dados'
-                  ? 'bg-[#C5A059] text-black shadow'
+                  ? 'bg-[[var(--ouro)]] text-black shadow'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -452,9 +452,9 @@ function JogarJogoInterno() {
 
             <button
               onClick={() => setAbaLateral('diario')}
-              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+              className={`py-1.5 px-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 ${
                 abaLateral === 'diario'
-                  ? 'bg-[#C5A059] text-black shadow'
+                  ? 'bg-[[var(--ouro)]] text-black shadow'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -513,7 +513,7 @@ export default function JogarPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#0d0b0a] text-[#C5A059] flex items-center justify-center font-cinzel text-lg">
+        <div className="min-h-screen bg-[[var(--pagina)]] text-[[var(--ouro)]] flex items-center justify-center font-cinzel text-lg">
           Abrindo os pergaminhos de Westeros...
         </div>
       }

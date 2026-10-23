@@ -11,7 +11,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-[#0a0a0c] text-amber-100 min-h-screen flex items-center justify-center p-4 font-serif">
+      <body className="bg-[[var(--pagina)]] text-amber-100 min-h-screen flex items-center justify-center p-4 font-serif">
         <div className="max-w-md w-full bg-[#14141a] border border-red-900/60 rounded-xl p-8 text-center shadow-2xl">
           <h1 className="text-xl font-bold text-red-400 mb-3 tracking-widest uppercase">
             Falha Crítica no Reino
