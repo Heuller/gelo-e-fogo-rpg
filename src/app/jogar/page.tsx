@@ -3,6 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TopBar } from '@/components/game/TopBar';
+import { TelaDeFinal } from '@/components/game/TelaDeFinal';
 import { CharacterPanel } from '@/components/game/CharacterPanel';
 import { NarrativeScroll, EscolhaNarrativa } from '@/components/game/NarrativeScroll';
 import { IntervencaoVoz } from '@/components/game/InternalVoices';
@@ -385,7 +386,19 @@ function JogarJogoInterno() {
       )}
 
       {/* Conteúdo Principal Responsivo (12 Colunas) */}
-      <main className="max-w-7xl mx-auto w-full p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 items-start">
+      {nodeAtual.isEnding ? (
+        <main className="max-w-4xl mx-auto w-full p-4 flex-1">
+          <TelaDeFinal
+            node={nodeAtual}
+            ficha={ficha}
+            worldState={worldState}
+            jornadaId={journeyParam}
+            slotNumber={slotParam}
+            onRecomecar={handleVoltarCheckpoint}
+          />
+        </main>
+      ) : (
+        <main className="max-w-7xl mx-auto w-full p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 items-start">
         {/* Coluna Esquerda (3 cols): Ficha do Personagem */}
         <div className="hidden lg:block lg:col-span-3 sticky top-16">
           <CharacterPanel ficha={ficha} />
@@ -470,6 +483,7 @@ function JogarJogoInterno() {
           </div>
         </div>
       </main>
+      )}
 
       {/* Gavetas deslizantes Mobile para celular (Ficha, Mapa e Diário) */}
       <MobileDrawerNav
