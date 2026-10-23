@@ -7,6 +7,7 @@ import { ColunaFicha } from '@/components/game/shell/ColunaFicha';
 import { ColunaMundo } from '@/components/game/shell/ColunaMundo';
 import { BarraInferiorMobile } from '@/components/game/shell/BarraInferiorMobile';
 import { NarrativeScroll } from '@/components/game/NarrativeScroll';
+import { CartaoDeRolagem } from '@/components/game/CartaoDeRolagem';
 import { TelaDeFinal } from '@/components/game/TelaDeFinal';
 import {
   PainelDeConfiguracoes,
@@ -65,7 +66,7 @@ function JogarJogoInterno() {
   const [textoMestre, setTextoMestre] = useState<string | null>(null);
   const [statusMestre, setStatusMestre] = useState<'idle' | 'escrevendo' | 'pronto' | 'falhou'>('idle');
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
-  const [abaLateral, setAbaLateral] = useState<'mapa' | 'dados' | 'diario'>('mapa');
+  const [abaLateral, setAbaLateral] = useState<'mapa' | 'diario'>('mapa');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
   const [ultimaEscolhaId, setUltimaEscolhaId] = useState<string | null>(null);
   const [ultimoNodeId, setUltimoNodeId] = useState<string | null>(null);
@@ -198,7 +199,6 @@ function JogarJogoInterno() {
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
-        setAbaLateral('dados');
         const veredito = res.resultadoRolagem.resultado.toUpperCase();
         adicionarAviso(
           `Rolagem 2d6: [${res.resultadoRolagem.dados[0]}+${res.resultadoRolagem.dados[1]} + ${res.resultadoRolagem.valorAtributo} = ${res.resultadoRolagem.total} vs DC ${res.resultadoRolagem.dc}] — ${veredito}`,
@@ -297,7 +297,6 @@ function JogarJogoInterno() {
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
-        setAbaLateral('dados');
       }
 
       const msg = res.classificacao
@@ -431,8 +430,37 @@ function JogarJogoInterno() {
           {/* Coluna Esquerda: Ficha do Personagem (280px) */}
           <ColunaFicha ficha={ficha} aberta={colunaFichaAberta} />
 
-          {/* Coluna Central: Rolo Narrativo (max-w-[66ch]) */}
-          <div className="w-full max-w-[66ch] flex-1">
+          {/* Coluna Central: Rolo Narrativo (max-w-[66ch]) e Mesa de Dados */}
+          <div className="w-full max-w-[66ch] flex-1 space-y-6">
+            {/* Cartão de Rolagem Dramático (Overlay central ao realizar teste) */}
+            {resultadoRolagem && (
+              <CartaoDeRolagem
+                resultado={resultadoRolagem}
+                nomeAtributo={
+                  ultimaEscolhaId && nodeAtual
+                    ? (() => {
+                        const esc = nodeAtual.escolhas.find((e) => e.id === ultimaEscolhaId);
+                        if (esc && esc.tipo === 'teste_atributo') {
+                          const mapaNomes: Record<string, string> = {
+                            comando: 'Comando',
+                            furia: 'Fúria',
+                            astucia: 'Astúcia',
+                            cortesia: 'Cortesia',
+                            erudicao: 'Erudição',
+                            pressagio: 'Presságio',
+                          };
+                          return mapaNomes[esc.atributo] || 'Atributo';
+                        }
+                        return 'Atributo';
+                      })()
+                    : 'Atributo'
+                }
+                inspiracaoRestante={ficha.inspiracao ?? 0}
+                onContinuar={() => setResultadoRolagem(null)}
+                onRerrolar={handleRerrolarComInspiracao}
+              />
+            )}
+
             <NarrativeScroll
               nodeId={nodeAtual.id}
               atoTitulo={nodeAtual.titulo}
@@ -457,17 +485,14 @@ function JogarJogoInterno() {
             />
           </div>
 
-          {/* Coluna Direita: Mapa, Dados e Diário (320px) */}
+          {/* Coluna Direita: Mapa e Diário (320px) */}
           <ColunaMundo
             aberta={colunaMundoAberta}
             abaAtiva={abaLateral}
             onAlternarAba={setAbaLateral}
             localizacao={nodeAtual.localizacao || 'Westeros'}
-            resultadoRolagem={resultadoRolagem}
             historico={historico}
-            inspiracao={ficha.inspiracao ?? 2}
             onDesfazer={handleDesfazerTurno}
-            onRerrolar={handleRerrolarComInspiracao}
             onExportarSave={handleExportarSave}
           />
         </main>
@@ -477,11 +502,8 @@ function JogarJogoInterno() {
       <BarraInferiorMobile
         ficha={ficha}
         localizacao={nodeAtual.localizacao || 'Westeros'}
-        resultadoRolagem={resultadoRolagem}
         historico={historico}
-        inspiracao={ficha.inspiracao ?? 2}
         onDesfazer={handleDesfazerTurno}
-        onRerrolar={handleRerrolarComInspiracao}
         onExportarSave={handleExportarSave}
         onAbrirConfiguracoes={() => setModalConfigAberto(true)}
       />

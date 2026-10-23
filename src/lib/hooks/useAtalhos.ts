@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export interface UseAtalhosOptions {
   onEscolher: (indice: number) => void;
-  onAlternarAba?: (aba: 'mapa' | 'dados' | 'diario') => void;
+  onAlternarAba?: (aba: 'mapa' | 'diario') => void;
   onAlternarColunaFicha?: () => void;
   onAlternarColunaMundo?: () => void;
   onAbrirAjuda?: () => void;

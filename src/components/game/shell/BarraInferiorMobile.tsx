@@ -1,23 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import { User, Map, Scroll, Settings, X, Dices } from 'lucide-react';
+import { User, Map, Scroll, Settings } from 'lucide-react';
 import { Gaveta } from '@/components/ui/Gaveta';
 import { CharacterPanel } from '@/components/game/CharacterPanel';
 import { WesterosMapSVG } from '@/components/game/WesterosMapSVG';
-import { DiceRoller2d6 } from '@/components/game/DiceRoller2d6';
 import { ChronicleTimeline } from '@/components/game/ChronicleTimeline';
-import { FichaPersonagem, ResultadoRolagem } from '@/server/engine/rpgEngine';
+import { FichaPersonagem } from '@/server/engine/rpgEngine';
 import type { TurnEvent } from '@/server/saves';
 
 export interface BarraInferiorMobileProps {
   ficha: FichaPersonagem;
   localizacao: string;
-  resultadoRolagem: ResultadoRolagem | null;
   historico: TurnEvent[];
-  inspiracao: number;
   onDesfazer?: () => void;
-  onRerrolar?: () => void;
   onExportarSave?: () => void;
   onAbrirConfiguracoes?: () => void;
 }
@@ -25,15 +21,12 @@ export interface BarraInferiorMobileProps {
 export function BarraInferiorMobile({
   ficha,
   localizacao,
-  resultadoRolagem,
   historico,
-  inspiracao,
   onDesfazer,
-  onRerrolar,
   onExportarSave,
   onAbrirConfiguracoes,
 }: BarraInferiorMobileProps) {
-  const [gavetaAtiva, setGavetaAtiva] = useState<'ficha' | 'mapa' | 'dados' | 'diario' | null>(null);
+  const [gavetaAtiva, setGavetaAtiva] = useState<'ficha' | 'mapa' | 'diario' | null>(null);
 
   function fechar() {
     setGavetaAtiva(null);
@@ -44,9 +37,9 @@ export function BarraInferiorMobile({
       {/* Barra Inferior Fixa para Mobile (< 1024px) */}
       <nav
         aria-label="Navegação móvel"
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-sticky bg-[var(--pergaminho-1)]/95 border-t border-[var(--borda)] backdrop-blur-md px-2 py-1 shadow-2xl"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-sticky bg-[var(--pergaminho-1)]/95 border-t border-[var(--borda)] backdrop-blur-md px-3 py-1 shadow-2xl"
       >
-        <div className="grid grid-cols-5 gap-1 max-w-md mx-auto">
+        <div className="grid grid-cols-4 gap-2 max-w-md mx-auto">
           {/* Ficha */}
           <button
             type="button"
@@ -73,20 +66,6 @@ export function BarraInferiorMobile({
           >
             <Map className="w-4 h-4" />
             <span>Mapa</span>
-          </button>
-
-          {/* Dados */}
-          <button
-            type="button"
-            onClick={() => setGavetaAtiva('dados')}
-            className={`min-h-[44px] flex flex-col items-center justify-center gap-1 rounded-lg text-xs font-cinzel transition-colors ${
-              gavetaAtiva === 'dados'
-                ? 'text-[var(--ouro)] bg-[var(--pergaminho-3)] font-bold'
-                : 'text-[var(--tinta-suave)] hover:text-[var(--tinta)]'
-            }`}
-          >
-            <Dices className="w-4 h-4" />
-            <span>Dados</span>
           </button>
 
           {/* Diário */}
@@ -123,15 +102,6 @@ export function BarraInferiorMobile({
       {/* Gaveta de Mapa */}
       <Gaveta aberta={gavetaAtiva === 'mapa'} onFechar={fechar} titulo="Mapa de Westeros">
         <WesterosMapSVG regiaoAtualId={localizacao} />
-      </Gaveta>
-
-      {/* Gaveta de Dados */}
-      <Gaveta aberta={gavetaAtiva === 'dados'} onFechar={fechar} titulo="Mesa de Dados 2d6">
-        <DiceRoller2d6
-          resultado={resultadoRolagem}
-          inspiracao={inspiracao}
-          onRerrolarComInspiracao={onRerrolar}
-        />
       </Gaveta>
 
       {/* Gaveta de Diário */}
