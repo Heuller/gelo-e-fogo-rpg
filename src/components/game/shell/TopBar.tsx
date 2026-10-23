@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Crown,
@@ -54,8 +54,14 @@ export function TopBar({
 }: PropsTopBar) {
   const [audioAtivo, setAudioAtivo] = useState(false);
 
+  useEffect(() => {
+    if (audioAtivo && localizacao) {
+      audioManager.atualizarRegiao(localizacao);
+    }
+  }, [localizacao, audioAtivo]);
+
   function handleToggleAudio() {
-    const novoEstado = audioManager.toggleAmbiente();
+    const novoEstado = audioManager.toggleAmbiente(localizacao);
     setAudioAtivo(novoEstado);
   }
 
