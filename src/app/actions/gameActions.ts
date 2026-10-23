@@ -154,6 +154,7 @@ export async function processarEscolhaAction(
 
     if (params.usarIA) {
       const resIA = await enriquecerCenaComIA({
+        jornadaId: resTurno.novoSlot.jornadaId || params.journeyId,
         noDestino: resTurno.proximoNode,
         resultadoDado: resTurno.resultadoRolagem,
         escolhaTexto: resTurno.escolhaRealizada.texto,
@@ -215,6 +216,7 @@ export async function processarEscolhaAction(
 
   if (params.usarIA) {
     const resIA = await enriquecerCenaComIA({
+      jornadaId: resTurno.novoSlot.jornadaId || jId,
       noDestino: resTurno.proximoNode,
       resultadoDado: resTurno.resultadoRolagem,
       escolhaTexto: resTurno.escolhaRealizada.texto,
@@ -264,6 +266,7 @@ export async function obterTextoMestreAction(params: {
   }
 
   return enriquecerCenaComIA({
+    jornadaId: resSlot.valor.jornadaId || params.journeyId,
     noDestino: node,
     resultadoDado: params.resultadoDado || null,
     escolhaTexto: params.escolhaTexto || '',

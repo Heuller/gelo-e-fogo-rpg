@@ -3,6 +3,7 @@ import { GoogleGenAI, Type } from '@google/genai';
 import { z } from 'zod';
 import { AtributoVoz, FichaPersonagem, ResultadoRolagem, WorldState } from '@/server/engine/rpgEngine';
 import { NodeJornada } from '@/server/engine/storyLinter';
+import { construirPromptMestre, validarAnacronismosEra } from './prompts/guiasDeEstilo';
 
 /* =========================================================================
  * 1. SCHEMAS ZOD DE ENTRADA E SAÍDA
@@ -338,6 +339,7 @@ Responda estritamente no esquema JSON solicitado.`;
  * ========================================================================= */
 
 export interface EnriquecerCenaParams {
+  jornadaId?: string;
   noDestino: NodeJornada;
   resultadoDado: ResultadoRolagem | null;
   escolhaTexto: string;
@@ -348,7 +350,7 @@ export interface EnriquecerCenaParams {
 export async function enriquecerCenaComIA(
   params: EnriquecerCenaParams
 ): Promise<EnriquecimentoCena> {
-  const { noDestino, resultadoDado, escolhaTexto } = params;
+  const { noDestino, resultadoDado, escolhaTexto, ficha, jornadaId = 'conquista_aegon' } = params;
 
   const fallback: EnriquecimentoCena = {
     textoEnriquecido: noDestino.fallbackText,
@@ -366,28 +368,13 @@ export async function enriquecerCenaComIA(
   const inicioTimestamp = Date.now();
   const escolhaSanitizada = sanitizarTextoJogador(escolhaTexto);
 
-  const prompt = `Você é o narrador literário de 'Crônicas de Sangue e Gelo', inspirado na prosa sensorial, poética e crua de George R. R. Martin (tradução brasileira de Jorge Candeias).
-
-Contexto da Cena de Destino: "${noDestino.titulo}"
-Local: ${noDestino.localizacao || 'Westeros'} (${noDestino.anoHistorico || '2 a.C.'})
-Fonte Histórica: ${noDestino.loreContext?.fonte?.livro || 'Fogo & Sangue'} - ${noDestino.loreContext?.notaHistorica || ''}
-
-Ação do jogador: "${escolhaSanitizada}"
-${
-  resultadoDado
-    ? `Resultado do Teste 2d6: [${resultadoDado.resultado}] (Dados: ${resultadoDado.dados[0]}+${resultadoDado.dados[1]} + Bônus: ${resultadoDado.valorAtributo} = Total ${resultadoDado.total} vs DC ${resultadoDado.dc})`
-    : 'Ação resolvida sem teste de dados.'
-}
-
-Texto canônico da cena:
-${noDestino.fallbackText}
-
-DIRETIVAS INVIOLÁVEIS:
-1. Escreva um parágrafo introdutório literário exclusivo (3 a 5 linhas) tecendo a transição imediata entre a decisão do jogador e a cena acima.
-2. Adicione até 2 intervenções de Vozes Internas ('comando', 'furia', 'astucia', 'cortesia', 'erudicao', 'pressagio').
-3. REGRA DE SEGURANÇA E CÂNONE: NÃO altere regras, barras vitais, nomes canônicos ou eventos futuros. É proibido revelar spoilers de atos posteriores.
-
-Retorne estritamente o JSON com 'paragrafoTransicao' e 'vozesExtras'.`;
+  const prompt = construirPromptMestre({
+    jornadaId,
+    noDestino,
+    resultadoDado,
+    escolhaTexto: escolhaSanitizada,
+    ficha,
+  });
 
   const chamadaIA = async (): Promise<EnriquecimentoCena> => {
     try {
@@ -428,6 +415,16 @@ Retorne estritamente o JSON com 'paragrafoTransicao' e 'vozesExtras'.`;
       const parsed = JSON.parse(response.text);
 
       const transicao = typeof parsed.paragrafoTransicao === 'string' ? parsed.paragrafoTransicao.trim() : '';
+
+      // Guardrail temporal: rejeitar anacronismos e manter pureza canônica
+      if (transicao) {
+        const checagemAnacronismo = validarAnacronismosEra(transicao, jornadaId);
+        if (!checagemAnacronismo.valido) {
+          registrarChamadaIA(false, Date.now() - inicioTimestamp, escolhaSanitizada.length);
+          return fallback;
+        }
+      }
+
       const textoFinal = transicao
         ? `${transicao}\n\n${noDestino.fallbackText}`
         : noDestino.fallbackText;
