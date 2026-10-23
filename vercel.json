@@ -2,6 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "buildCommand": "npm run build",
-  "cleanUrls": true,
-  "regions": ["iad1", "gru1"]
+  "cleanUrls": true
 }
