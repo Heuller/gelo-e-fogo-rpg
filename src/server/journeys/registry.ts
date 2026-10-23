@@ -134,6 +134,8 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
   },
 };
 
+export const JOURNEY_REGISTRY = REGISTRO_JORNADAS;
+
 export function obterJornada(id: string): DefinicaoJornada | undefined {
   const norm = id.toLowerCase();
   if (norm.includes('conquista') || norm.includes('jornada_1')) return REGISTRO_JORNADAS.conquista_aegon;

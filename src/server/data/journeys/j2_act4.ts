@@ -229,6 +229,7 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
           id: 'esc_j2_a4_unir_rhaenyra_com_cregan',
           texto: 'Unir a rainha sobrevivente aos vinte mil guerreiros do Norte de Lorde Cregan Stark.',
           tipo: 'simples',
+          delta: { flagsAdicionadas: ['rhaenyra_salva'] },
           nextNodeId: 'j2_final_triunfo_negro_rhaenyra',
         },
 
@@ -282,7 +283,7 @@ Lorde Corlys Velaryon e Larys Strong aconselharam o rei a render-se e vestir o n
           texto: 'Apoiar Lorde Corlys Velaryon na pacificação da capital e emissão de perdões gerais aos soldados de ambos os lados.',
           tipo: 'simples',
           aprovacaoCompanheiros: { corlys: 30, rhaenys_j2: 25 },
-          delta: { compostura: 2 },
+          delta: { flagsAdicionadas: ['aegon2_mantido_trono', 'acordo_partilha_reinos'], compostura: 2 },
           nextNodeId: 'j2_a4_julgamento_larys_corlys',
         },
         {
@@ -602,6 +603,16 @@ O jovem Rei Aegon III, marcado para sempre pela visão de sua mãe sendo devorad
     // FINAL 2: WHAT IF ÉPICO - TRIUNFO DE RHAENYRA
     j2_final_triunfo_negro_rhaenyra: {
       id: 'j2_final_triunfo_negro_rhaenyra',
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'pacto_gelo_e_fogo_selado',
+          text: 'Os estandartes cinzentos de Cregan Stark tremulam lado a lado com os dragões vermelhos, selando o juramento solene feito perante os represeiros do Norte.',
+        },
+        {
+          requiredFlag: 'urtigas_patrocinada_velaryon',
+          text: 'Urtigas e Rouba-Ovelhas pousam nas muralhas de Derivamarca sob aplausos calorosos dos marinheiros e plebeus de toda a Baía.',
+        },
+      ],
       titulo: 'Final 2: O Reinado de Fogo e Rubi (Triunfo dos Pretos)',
       anoHistorico: '131 d.C.',
       localizacao: 'Porto Real',

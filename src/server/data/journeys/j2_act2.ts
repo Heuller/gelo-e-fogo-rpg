@@ -322,6 +322,7 @@ Mas a vitória dos Verdes teve um custo devastador: uma das asas de Sunfyre foi 
           id: 'esc_j2_a2_avancar_pos_salvamento_rhaenys',
           texto: 'Fortalecer a frota Velaryon com a lealdade inquebrável de Corlys e Rhaenys.',
           tipo: 'simples',
+          delta: { flagsAdicionadas: ['rhaenys_salva'] },
           nextNodeId: 'j2_a2_semeadura_vermelha_convocacao',
         },
 
@@ -441,6 +442,7 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
           id: 'esc_j2_a2_avancar_batalha_goela',
           texto: 'Voar em Vermithor para esmagar a frota da Triarquia na Batalha da Goela.',
           tipo: 'simples',
+          delta: { flagsAdicionadas: ['domou_vermithor'] },
           nextNodeId: 'j2_a2_batalha_da_goela_frota',
         },
 

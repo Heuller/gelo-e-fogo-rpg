@@ -649,6 +649,7 @@ Lucerys Velaryon sobreviveu à fúria de Aemond, conseguindo ganhar altitude e e
           id: 'esc_j2_a1_retorno_triunfante_luke',
           texto: 'Acompanhar Lucerys de volta a Pedra do Dragão vivo e ileso.',
           tipo: 'simples',
+          delta: { flagsAdicionadas: ['lucerys_salvo'] },
           nextNodeId: 'j2_a1_luto_e_vinganca_sangue_e_queijo',
         },
 

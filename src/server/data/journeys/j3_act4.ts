@@ -49,7 +49,6 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           onSuccessNodeId: 'j3_a4_alerta_vento_cinzento_armadilha',
           onPartialFailureNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
         },
-
         {
           id: 'esc_karstark_justica_ned',
           texto: 'Executar Rickard Karstark pessoalmente em nome da justiça e da honra de Eddard Stark.',
@@ -65,7 +64,7 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 20, grande_jon: -10 },
           delta: { flagsAdicionadas: ['karstark_mantido_refem'], compostura: 2 },
           nextNodeId: 'j3_a4_alerta_vento_cinzento_armadilha',
-        }
+        },
       ],
     },
 
@@ -100,7 +99,6 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           tipo: 'simples',
           nextNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
         },
-
         {
           id: 'esc_alerta_vento_entrar_armados',
           texto: 'Ordenar que cada cavaleiro nortenho entre no salão das Gêmeas com cota de malha e adaga oculta.',
@@ -116,7 +114,7 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           aprovacaoCompanheiros: { grande_jon: 25, catelyn: 20 },
           delta: { flagsAdicionadas: ['vento_cinzento_ao_lado_robb'] },
           nextNodeId: 'j3_a4_banquete_das_gemeas_chuvas_castamere',
-        }
+        },
       ],
     },
 
@@ -154,6 +152,20 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
         },
         notaHistorica: 'O clímax sombrio do Casamento Vermelho.',
       },
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'vento_cinzento_ao_lado_robb',
+          text: 'Vento Cinzento permanece vigilante aos pés da mesa de honra; com as orelhas em pé e rosnando baixo, o lobo gigante pressente a traição antes do primeiro virote.',
+        },
+        {
+          requiredFlag: 'nortenhos_com_armadura_banquete',
+          text: 'A cota de malha oculta sob as vestes festivas dos guerreiros nortenhos desvia os tiros iniciais disparados da galeria alta, salvando dezenas de homens leais à Casa Stark.',
+        },
+        {
+          requiredFlag: 'karstark_mantido_refem',
+          text: 'Os lanceiros de Karhold permanecem fiéis no pátio exterior, sem abandonar o acampamento de Robb graças à prudência de manter Lorde Rickard sob custódia.',
+        },
+      ],
       escolhas: [
         {
           id: 'esc_j3_a4_tentativa_heroica_reverter_casamento',
@@ -172,7 +184,6 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
           tipo: 'simples',
           nextNodeId: 'j3_a4_morte_canonica_casamento_vermelho',
         },
-
         {
           id: 'esc_banquete_catelyn_adaga_guizo',
           texto: 'Catelyn saca a adaga e agarra o tolo Guizo ao notar a cota de malha sob o gibão de Roose Bolton.',
@@ -188,7 +199,7 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
           aprovacaoCompanheiros: { grande_jon: 25, peixe_negro: 25 },
           delta: { sangue: -2, compostura: 1 },
           nextNodeId: 'j3_a4_morte_canonica_casamento_vermelho',
-        }
+        },
       ],
     },
 
@@ -219,7 +230,6 @@ O exército nortenho foi massacrado em suas tendas. A cabeça de Robb foi cortad
           tipo: 'simples',
           nextNodeId: 'j3_a4_batalha_castelo_negro_mance',
         },
-
         {
           id: 'esc_morte_casamento_catelyn_sacrificio',
           texto: 'Lady Catelyn agarra o tolo Guizo e faz o último apelo desesperado em honra à lei sagrada do pão e sal.',
@@ -235,7 +245,7 @@ O exército nortenho foi massacrado em suas tendas. A cabeça de Robb foi cortad
           aprovacaoCompanheiros: { grande_jon: 30, peixe_negro: 25 },
           delta: { flagsAdicionadas: ['furia_final_umber'] },
           nextNodeId: 'j3_a4_batalha_castelo_negro_mance',
-        }
+        },
       ],
     },
 
@@ -309,6 +319,16 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
         },
         notaHistorica: 'A vitória da Patrulha da Noite com a chegada do Rei Stannis.',
       },
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'adagas_obsidiana_distribuidas',
+          text: 'As lâminas de vidro de dragão resgatadas do Punho dos Primeiros Homens reluzem nas cinturas dos arqueiros na Muralha, lembrando a todos o verdadeiro inimigo além da floresta.',
+        },
+        {
+          requiredFlag: 'criatura_incinerada_muralha',
+          text: 'Os irmãos da Patrulha mantêm tochas de pez acesas e flechas embebidas em óleo, cientes de que somente o fogo purificador destrói os mortos-vivos.',
+        },
+      ],
       escolhas: [
         {
           id: 'esc_j3_a4_eleicao_senhor_comandante_jon',
@@ -316,7 +336,6 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
           tipo: 'simples',
           nextNodeId: 'j3_a4_eleicao_jon_snow_senhor_comandante',
         },
-
         {
           id: 'esc_castelo_negro_stannis_saudacao',
           texto: 'Jon Snow saúda o Rei Stannis Baratheon e Sor Davos Seaworth como salvadores da Muralha.',
@@ -332,7 +351,7 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
           aprovacaoCompanheiros: { jon_snow: 25 },
           delta: { flagsAdicionadas: ['selvagens_paz_iniciada'] },
           nextNodeId: 'j3_a4_eleicao_jon_snow_senhor_comandante',
-        }
+        },
       ],
     },
 
@@ -408,6 +427,20 @@ Stannis Baratheon ofereceu legitimar Jon como Senhor de Winterfell com a mão de
       fallbackText: `O Casamento Vermelho foi revertido com fúria heroica! Os Frey e os Bolton foram purgados pelo aço da justiça, e as fortalezas das Gêmeas e do Forte do Pavor hastearam os lobos gigantes de Winterfell.
       
 Robb Stark marchou de volta para o Norte, libertou Fosso Cailin e expulsou os homens de ferro das praias. Soberano, invicto em todas as batalhas campais e aclamado pelos senhores dos rios e das florestas, o Jovem Lobo restaura o Reino do Norte e do Tridente como uma potência livre e independente para sempre.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'vento_cinzento_ao_lado_robb',
+          text: 'Vento Cinzento caminha ao lado de Robb Stark pelas neves reconquistadas de Winterfell, consagrado como o terror dos traidores e o mais leal guardião da linhagem dos lobos.',
+        },
+        {
+          requiredFlag: 'regicida_acorrentado_correrrio',
+          text: 'Jaime Lannister permanece como valioso refém nas masmorras de Correrrio, forçando Rochedo Casterly a reconhecer a soberania intocada do Reino do Norte.',
+        },
+        {
+          requiredFlag: 'lady_salva_em_winterfell',
+          text: 'Sansa Stark retorna a Winterfell com a loba Lady viva e imponente ao seu lado, protegida da falsidade e da perversidade da corte do sul.',
+        },
+      ],
       escolhas: [],
     },
 
@@ -430,6 +463,16 @@ Robb Stark marchou de volta para o Norte, libertou Fosso Cailin e expulsou os ho
       fallbackText: `Ao vencer o golpe na noite fatal de Porto Real com as cem espadas de Renly, Lorde Eddard Stark expurgou a conspiração de Cersei e dos Lannister sem derramamento injusto de sangue.
       
 A bastardia dos herdeiros reais foi declarada perante a Fé e os lordes, e a coroa foi oferecida ao legítimo herdeiro Stannis Baratheon. Com Ned governando com justiça austera e a espada Gelo ao lado do Trono, os Sete Reinos evitam a devastação da guerra civil e consolidam uma era de dever, lei e integridade moral.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'adaga_sob_guarda_norte',
+          text: 'A adaga de osso de dragão e aço valiriano de Mindinho permanece guardada nos cofres da Torre da Mão como prova material indelével do complô desmontado.',
+        },
+        {
+          requiredFlag: 'arya_resgatada_yoren',
+          text: 'Arya Stark é reconduzida em segurança aos salões da Fortaleza Vermelha pelos irmãos da Patrulha da Noite, reunida a seu pai em paz e dignidade.',
+        },
+      ],
       escolhas: [],
     },
 
@@ -452,6 +495,16 @@ A bastardia dos herdeiros reais foi declarada perante a Fé e os lordes, e a cor
       fallbackText: `Poupado no Septo de Baelor, Lorde Eddard Stark vestiu o negro e cavalgou com a Patrulha da Noite até a Muralha de gelo. Nos pátios de Castelo Negro, pai e filho se abraçaram sob o olhar silencioso de Fantasma.
       
 Ali, no coração gelado do mundo, Ned revelou a Jon o segredo proibido da promessa de Lyanna Stark na Torre da Alegria e a verdade sobre seu sangue valiriano. Assumindo o comando da irmandade, Ned e Jon lideram a Patrulha e os Sete Reinos unidos contra a verdadeira ameaça que se ergue nas brumas do inverno.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'arya_resgatada_yoren',
+          text: 'Arya Stark cavalga até a Muralha ao lado de Yoren, reencontrando Jon Snow e Eddard sob as sombras colossais de Castelo Negro.',
+        },
+        {
+          requiredFlag: 'adagas_obsidiana_distribuidas',
+          text: 'Eddard Stark e Meistre Aemon examinam os fragmentos de obsidiana ancestral, forjando armas sagradas para a Patrulha com sabedoria e reverência.',
+        },
+      ],
       escolhas: [],
     },
 
@@ -474,6 +527,16 @@ Ali, no coração gelado do mundo, Ned revelou a Jon o segredo proibido da prome
       fallbackText: `O cânone implacável de A Tormenta de Espadas consuma seu destino histórico. Robb e Catelyn Stark tombaram nas Gêmeas, mas o eco de sua memória queima como fogo subterrâneo sob a neve de Westeros: 'O Norte se lembra, e a farsa dos Frey logo terminará.'
       
 Em Castelo Negro, Jon Snow empunha a lâmina Garra Longa como Senhor Comandante, preparando a defesa contra os Outros enquanto Stannis Baratheon planeja a libertação do Norte. A escuridão desce sobre o mundo, mas a honra dos lobos jamais será esquecida.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'nymeria_liberta_florestas',
+          text: 'Lendas sussurram pelas matas do Tridente sobre Nymeria, a loba gigante que lidera centenas de lobos selvagens caçando os patrulheiros de Walder Frey pelas estradas enlameadas.',
+        },
+        {
+          requiredFlag: 'cota_malha_bolton_descoberta',
+          text: 'A infâmia da cota de malha de Roose Bolton é cantada em versos furiosos pelos bardos nortenhos, garantindo que o juramento de vingança jamais se apague.',
+        },
+      ],
       escolhas: [],
     },
 
@@ -496,6 +559,16 @@ Em Castelo Negro, Jon Snow empunha a lâmina Garra Longa como Senhor Comandante,
       fallbackText: `Com a vitória esmagadora na Baía da Água Negra e a ruína dos Stark no Casamento Vermelho, a aliança Lannister-Tyrell consolida um domínio inexpugnável sobre os Sete Reinos.
       
 Lorde Tywin Lannister dita as leis do continente a partir da Torre da Mão com frieza impiedosa. O ouro de Rochedo Casterly e os grãos de Jardim de Cima compram a paz das grandes casas, inaugurando uma era de autoridade centralizadora onde a insurreição é punida com o ferro e o terror da canção de Castamere.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'verdade_incesto_gritada_praca',
+          text: 'Apesar do controle absoluto de Tywin, os sussurros sobre a bastardia dos filhos de Cersei continuam a ecoar como um veneno silencioso pelos becos da Baixada das Pulgas.',
+        },
+        {
+          requiredFlag: 'corrente_ferro_agua_negra',
+          text: 'Os elos partidos da grande corrente da Baía da Água Negra jazem como troféus enferrujados nos cais de Porto Real, marcos do triunfo implacável do Leão.',
+        },
+      ],
       escolhas: [],
     },
 
@@ -518,6 +591,16 @@ Lorde Tywin Lannister dita as leis do continente a partir da Torre da Mão com f
       fallbackText: `Diante dos relatórios aterrorizantes das criaturas mortas e dos Caminhantes Brancos, os senhores de Westeros deixam as disputas mesquinhas pelo trono para trás.
       
 Jon Snow forja uma aliança histórica integrando o Povo Livre de Mance Rayder aos reinos dos homens. Corvos enviados aos quatro cantos do mundo recebem resposta, e os primeiros rumores do renascimento de dragões no leste trazem a esperança mística da profecia de Daenys e Azor Ahai. Westeros ergue-se unida para cantar sua verdadeira Canção de Gelo e Fogo contra a Longa Noite.`,
+      conditionalParagraphs: [
+        {
+          requiredFlag: 'selvagens_paz_iniciada',
+          text: 'A integração pacífica do Povo Livre estabelece guarnições vigilantes em toda a extensão do Muro, acolhendo clãs inteiros como cidadãos de pleno direito dos reinos.',
+        },
+        {
+          requiredFlag: 'adagas_obsidiana_distribuidas',
+          text: 'Lanças, flechas e pontas forjadas em vidro de dragão brilham nas mãos de cada sentinela, prontas para a batalha profetizada contra a escuridão sem fim.',
+        },
+      ],
       escolhas: [],
     },
   },
