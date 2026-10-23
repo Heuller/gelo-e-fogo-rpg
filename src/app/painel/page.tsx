@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import {
+  getCatalogoJornadasAction,
   listarSlotsAction,
   criarNovoJogoAction,
   desfazerTurnoSlotAction,
@@ -35,6 +36,7 @@ interface JornadaInfo {
   periodo: string;
   descricao: string;
   ativa: boolean;
+  startNodeId?: string;
   protagonista: {
     id: string;
     nome: string;
@@ -49,6 +51,7 @@ const JORNADAS_DISPONIVEIS: JornadaInfo[] = [
     id: 'conquista_aegon',
     numero: 1,
     titulo: 'A Conquista de Aegon',
+    startNodeId: 'j1_a1_mesa_pintada',
     periodo: '2 a.C. a 1 d.C.',
     descricao:
       'Unifique os Sete Reinos sob a dinastia Targaryen a partir da Mesa Pintada com Balerion, Vhagar e Meraxes.',
@@ -72,6 +75,7 @@ const JORNADAS_DISPONIVEIS: JornadaInfo[] = [
     id: 'jornada_2_danca',
     numero: 2,
     titulo: 'A Dança dos Dragões',
+    startNodeId: 'j2_a1_conselho_negro',
     periodo: '129 d.C. a 131 d.C.',
     descricao:
       'A sangrenta guerra civil entre Pretos e Verdes pela sucessão do Trono de Ferro com fogo e sangue.',
@@ -95,6 +99,7 @@ const JORNADAS_DISPONIVEIS: JornadaInfo[] = [
     id: 'jornada_3_guerra_tronos',
     numero: 3,
     titulo: 'A Guerra dos Cinco Reis',
+    startNodeId: 'j3_a1_chegada_porto_real',
     periodo: '298 d.C. em diante',
     descricao:
       'A conspiração das grandes Casas após a morte de Jon Arryn e o colapso do reinado de Robert Baratheon.',
@@ -105,11 +110,11 @@ const JORNADAS_DISPONIVEIS: JornadaInfo[] = [
       titulo: 'Senhor de Winterfell & Protetor do Norte',
       origem: 'honra_do_norte',
       atributos: {
-        comando: 4,
-        furia: 3,
-        astucia: 2,
+        comando: 5,
+        furia: 4,
+        astucia: 3,
         cortesia: 3,
-        erudicao: 4,
+        erudicao: 3,
         pressagio: 4,
       },
     },
@@ -173,23 +178,8 @@ export default function PainelPage() {
     if (!slotNovoJogo) return;
 
     let characterSheet: FichaPersonagem;
-    let currentNodeId = 'j1_a1_mesa_pintada';
-    let capituloTitulo = 'Ato I - A Mesa Pintada';
-    let choiceMade = 'Reunir os meistres e vassalos na Mesa Pintada';
-
-    if (jornadaSelecionada === 'jornada_2_danca') {
-      currentNodeId = 'j2_a1_morte_viserys_conselho_verde';
-      capituloTitulo = 'Ato I - A Morte do Rei Viserys';
-      choiceMade = 'Reunir o Conselho Negro em Pedra do Dragão';
-    } else if (
-      jornadaSelecionada === 'jornada_3_guerra_tronos' ||
-      jornadaSelecionada === 'guerra_tronos'
-    ) {
-      currentNodeId = 'j3_a1_execucao_desertor_lobos';
-      capituloTitulo = 'Ato I - A Lâmina de Gelo & A Ninhada na Neve';
-      choiceMade = 'Executar o desertor e adotar a ninhada de lobos';
-    }
-
+    const currentNodeId = jornadaInfoAtual.startNodeId || 'j1_a1_mesa_pintada';
+    const capituloTitulo = `${jornadaInfoAtual.titulo} - Início`;
     const companheirosIniciais = obterCompanheirosIniciais(jornadaSelecionada);
 
     if (tipoCriacao === 'canonico') {

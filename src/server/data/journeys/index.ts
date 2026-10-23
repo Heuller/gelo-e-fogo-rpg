@@ -153,10 +153,10 @@ export const FICHA_INICIAL_RHAENYRA: FichaPersonagem = {
 export const FICHA_INICIAL_EDDARD_STARK: FichaPersonagem = {
   id: 'eddard-stark',
   nome: 'Eddard Stark',
-  origem: 'sangue_primeiros_homens',
+  origem: 'honra_do_norte',
   atributos: {
     comando: 5,
-    furia: 3,
+    furia: 4,
     astucia: 3,
     cortesia: 3,
     erudicao: 3,

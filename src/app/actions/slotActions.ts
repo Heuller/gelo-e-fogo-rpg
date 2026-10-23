@@ -4,6 +4,7 @@ import { requireOwner } from '@/server/auth/requireOwner';
 import { getSaveRepository, SaveSlot } from '@/server/saves';
 import { FichaPersonagem, WorldState } from '@/server/engine/rpgEngine';
 import { normalizarIdJornada } from '@/server/data/journeys';
+import { getCatalogoPublico, CatalogoJornadaPublico, obterJornada } from '@/server/journeys/registry';
 
 async function autenticarDono() {
   const auth = await requireOwner(true);
@@ -11,6 +12,10 @@ async function autenticarDono() {
     throw new Error('Acesso negado: apenas o proprietário da crônica possui acesso aos slots.');
   }
   return auth.user;
+}
+
+export async function getCatalogoJornadasAction(): Promise<CatalogoJornadaPublico[]> {
+  return getCatalogoPublico();
 }
 
 export async function listarSlotsAction(jornadaId: string): Promise<SaveSlot[]> {
@@ -39,19 +44,23 @@ export async function criarNovoJogoAction(params: {
   jornadaId: string;
   slotNumber: number;
   characterSheet: FichaPersonagem;
-  currentNodeId: string;
-  capituloTitulo: string;
+  currentNodeId?: string;
+  capituloTitulo?: string;
   dataFiccao?: string;
 }): Promise<SaveSlot> {
   const user = await autenticarDono();
   const jId = normalizarIdJornada(params.jornadaId);
+  const def = obterJornada(jId);
   const repo = getSaveRepository();
+
+  const nodeId = params.currentNodeId || def?.startNodeId || 'j1_a1_mesa_pintada';
+  const capituloTitulo = params.capituloTitulo || `${def?.titulo || 'Ato I'} - Início`;
 
   const res = await repo.criarSlot({
     userId: user.id,
     jornadaId: jId,
     slotNumber: params.slotNumber,
-    currentNodeId: params.currentNodeId,
+    currentNodeId: nodeId,
     characterSheet: params.characterSheet,
     worldState: {
       reputacaoCasas: { [jId]: 10 },
@@ -60,9 +69,9 @@ export async function criarNovoJogoAction(params: {
     },
     chapterCheckpoint: {
       atoId: 'ato_1',
-      capituloTitulo: params.capituloTitulo,
+      capituloTitulo,
       timestamp: new Date().toISOString(),
-      dataFiccao: params.dataFiccao,
+      dataFiccao: params.dataFiccao || def?.epoca,
       snapshotFicha: params.characterSheet,
     },
   });
