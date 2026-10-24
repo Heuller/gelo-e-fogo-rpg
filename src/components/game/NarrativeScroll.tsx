@@ -13,7 +13,11 @@ import { audioManager } from '@/lib/audio/audioManager';
 import { validarEscolhaDesbloqueada } from '@/lib/engine-shared/validacao';
 import { PreferenciasLeitura, PREFERENCIAS_PADRAO } from './PainelDeConfiguracoes';
 import { StatusMestre } from '@/lib/store/jogoStore';
-import { Send, ChevronDown, ChevronUp, Feather } from 'lucide-react';
+import { Send, ChevronDown, ChevronUp, Feather, Sparkles } from 'lucide-react';
+import { NodeJornada } from '@/server/engine/storyLinter';
+import type { TurnEvent } from '@/server/saves';
+import { PainelTentativaLivre } from './PainelTentativaLivre';
+import type { RespostaTentativaLivre } from '@/server/engine/tentativaLivre';
 
 export interface PropsNarrativeScroll {
   nodeId?: string;
@@ -36,6 +40,9 @@ export interface PropsNarrativeScroll {
   headingRef?: React.RefObject<HTMLHeadingElement | null>;
   onEscolha: (escolhaId: string) => void;
   onAcaoLivre?: (acaoTexto: string) => void;
+  nodeCompleto?: NodeJornada;
+  historicoTurnos?: TurnEvent[];
+  onTentativaLivre?: (textoAcao: string) => Promise<RespostaTentativaLivre | null>;
 }
 
 export function NarrativeScroll({
@@ -59,6 +66,9 @@ export function NarrativeScroll({
   headingRef,
   onEscolha,
   onAcaoLivre,
+  nodeCompleto,
+  historicoTurnos = [],
+  onTentativaLivre,
 }: PropsNarrativeScroll) {
   const [acaoLivreAberta, setAcaoLivreAberta] = useState(false);
   const [textoAcaoLivre, setTextoAcaoLivre] = useState('');
@@ -181,8 +191,8 @@ export function NarrativeScroll({
         })}
       </div>
 
-      {/* 6. Ação Livre com o Mestre IA (opcional) */}
-      {onAcaoLivre && modoIA && (
+      {/* 6. Ação Livre / Tentativa Livre BG3 */}
+      {(onTentativaLivre || onAcaoLivre) && modoIA && (
         <div className="mt-8 pt-6 border-t border-[var(--borda)] space-y-3">
           <button
             type="button"
@@ -190,32 +200,42 @@ export function NarrativeScroll({
             className="w-full flex items-center justify-between text-xs font-cinzel font-semibold text-[var(--tinta-suave)] hover:text-[var(--ouro)] p-2 rounded-lg hover:bg-[var(--pergaminho-3)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)]"
           >
             <span className="flex items-center gap-2">
-              <Feather className="w-3.5 h-3.5 text-[var(--ouro)]" />
-              <span>Desejais proclamar vossa própria ação inédita ao Mestre?</span>
+              <Sparkles className="w-3.5 h-3.5 text-[var(--ouro)]" />
+              <span>Desejais tentar uma ação inédita com prévia de perícia?</span>
             </span>
             {acaoLivreAberta ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
 
           {acaoLivreAberta && (
-            <form onSubmit={handleEnviarAcaoLivre} className="space-y-3 pt-2 entrada-fade">
-              <textarea
-                value={textoAcaoLivre}
-                onChange={(e) => setTextoAcaoLivre(e.target.value)}
-                placeholder="Descrevei em palavras vossa intenção, e o Mestre julgará vossos atributos…"
-                rows={3}
-                className="w-full bg-[var(--pergaminho-1)] border border-[var(--borda)] focus:border-[var(--ouro)] rounded-xl p-3 text-sm font-garamond text-[var(--tinta)] placeholder-[var(--tinta-fraca)] focus-visible:outline-none transition-colors resize-none"
+            onTentativaLivre && nodeCompleto ? (
+              <PainelTentativaLivre
+                node={nodeCompleto}
+                ficha={fichaReal}
+                historicoTurnos={historicoTurnos}
+                onConfirmarTentativa={onTentativaLivre}
+                onCancelar={() => setAcaoLivreAberta(false)}
               />
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  disabled={!textoAcaoLivre.trim()}
-                  className="px-4 py-2 bg-[var(--pergaminho-3)] hover:bg-[var(--pergaminho-4)] border border-[var(--ouro)] text-[var(--ouro-claro)] text-xs font-cinzel font-bold rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)]"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Submeter ao Mestre</span>
-                </button>
-              </div>
-            </form>
+            ) : (
+              <form onSubmit={handleEnviarAcaoLivre} className="space-y-3 pt-2 entrada-fade">
+                <textarea
+                  value={textoAcaoLivre}
+                  onChange={(e) => setTextoAcaoLivre(e.target.value)}
+                  placeholder="Descrevei em palavras vossa intenção, e o Mestre julgará vossos atributos…"
+                  rows={3}
+                  className="w-full bg-[var(--pergaminho-1)] border border-[var(--borda)] focus:border-[var(--ouro)] rounded-xl p-3 text-sm font-garamond text-[var(--tinta)] placeholder-[var(--tinta-fraca)] focus-visible:outline-none transition-colors resize-none"
+                />
+                <div className="flex justify-end">
+                  <button
+                    type="submit"
+                    disabled={!textoAcaoLivre.trim()}
+                    className="px-4 py-2 bg-[var(--pergaminho-3)] hover:bg-[var(--pergaminho-4)] border border-[var(--ouro)] text-[var(--ouro-claro)] text-xs font-cinzel font-bold rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)]"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Submeter ao Mestre</span>
+                  </button>
+                </div>
+              </form>
+            )
           )}
         </div>
       )}

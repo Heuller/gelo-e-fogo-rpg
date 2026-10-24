@@ -99,6 +99,17 @@ export const NodeJornadaSchema = z.object({
   escolhas: z.array(EscolhaJornadaSchema),
   isEnding: z.boolean().optional(),
   conditionalParagraphs: z.array(ConditionalParagraphSchema).optional(),
+  durezaCena: z.number().int().min(1).max(3).optional(),
+  permiteTentativaLivre: z.boolean().optional(),
+  ganchosLivres: z
+    .array(
+      z.object({
+        intencao: z.string(),
+        exigeFaixa: z.enum(['sucesso', 'parcial']),
+        desbloqueiaEscolhaId: z.string(),
+      })
+    )
+    .optional(),
 });
 export type NodeJornada = z.infer<typeof NodeJornadaSchema>;
 

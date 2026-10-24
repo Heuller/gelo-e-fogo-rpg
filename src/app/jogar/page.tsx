@@ -34,9 +34,11 @@ import {
   obterCenaPorIdAction,
   processarEscolhaAction,
   processarAcaoLivreAction,
+  executarTentativaLivreAction,
   rerrolarTesteInspiracaoAction,
   desfazerTurnoAction,
 } from '@/app/actions/gameActions';
+import type { RespostaTentativaLivre } from '@/server/engine/tentativaLivre';
 import { Keyboard } from 'lucide-react';
 
 function getTituloJornadaFormatado(id: string): string {
@@ -327,6 +329,38 @@ function JogarJogoInterno() {
     }
   }
 
+  async function handleTentativaLivre(textoAcao: string): Promise<RespostaTentativaLivre | null> {
+    if (!nodeAtual || !slotAtual) return null;
+
+    try {
+      adicionarAviso('Executando tentativa livre na Cidadela…', 'info');
+      const res = await executarTentativaLivreAction({
+        slotId: slotAtual.id,
+        versaoEsperada: slotAtual.versao,
+        texto: textoAcao,
+        journeyId: journeyParam,
+      });
+
+      setSlotAtual(res.novoSlot);
+      setFicha(res.novoSlot.characterSheet);
+      setWorldState(res.novoSlot.worldState);
+      setHistorico(res.novoSlot.turnHistory || []);
+      setResultadoRolagem(res.resultadoRolagem);
+
+      const veredito = res.resultadoRolagem.resultado.toUpperCase();
+      adicionarAviso(
+        `Tentativa [${res.rotuloIntencao}]: ${veredito} (${res.resultadoRolagem.total} vs CD ${res.resultadoRolagem.dc})`,
+        veredito.includes('SUCESSO') || veredito === 'CRITICO' ? 'sucesso' : 'erro'
+      );
+
+      return res;
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao executar tentativa livre: ' + msg, 'erro');
+      return null;
+    }
+  }
+
   async function handleDesfazerTurno() {
     if (!slotAtual) {
       adicionarAviso('Sessão de jogo não inicializada.', 'erro');
@@ -509,6 +543,9 @@ function JogarJogoInterno() {
               headingRef={headingRef}
               onEscolha={handleEscolha}
               onAcaoLivre={handleAcaoLivre}
+              nodeCompleto={nodeAtual}
+              historicoTurnos={historico}
+              onTentativaLivre={handleTentativaLivre}
             />
           </div>
 

@@ -22,6 +22,12 @@ import {
   rerrolarComInspiracao,
   mesclarDeltas,
 } from '@/server/engine/turno';
+import {
+  calcularPreviaTentativaLivre,
+  executarTentativaLivre,
+  PreviaTentativaLivre,
+  RespostaTentativaLivre,
+} from '@/server/engine/tentativaLivre';
 import { requireOwner } from '@/server/auth/requireOwner';
 import {
   classificarAcaoLivre,
@@ -345,4 +351,70 @@ export async function processarAcaoLivreAction(
   resEscolha.classificacao = classificacao;
 
   return resEscolha;
+}
+
+export interface ObterPreviaTentativaParams {
+  slotId: string;
+  nodeId: string;
+  texto: string;
+  journeyId?: string;
+}
+
+/**
+ * Retorna a prévia determinística no estilo BG3 antes de o jogador confirmar a rolagem.
+ */
+export async function obterPreviaTentativaLivreAction(
+  params: ObterPreviaTentativaParams
+): Promise<PreviaTentativaLivre> {
+  const user = await validarProprietario();
+  const repo = getSaveRepository();
+
+  const resSlot = await repo.obterSlotPorId(user.id, params.slotId);
+  if (!resSlot.ok) {
+    throw new Error(`Slot '${params.slotId}' não encontrado.`);
+  }
+
+  const slot = resSlot.valor;
+  const node = obterNodeQualquerJornada(params.nodeId, params.journeyId || slot.jornadaId);
+  if (!node) {
+    throw new Error(`Cena '${params.nodeId}' não encontrada.`);
+  }
+
+  return calcularPreviaTentativaLivre({
+    texto: params.texto,
+    node,
+    ficha: slot.characterSheet,
+    turnHistory: slot.turnHistory,
+  });
+}
+
+export interface ExecutarTentativaLivreActionParams {
+  slotId: string;
+  versaoEsperada: number;
+  texto: string;
+  journeyId?: string;
+  dadosFixos?: [number, number];
+}
+
+/**
+ * Executa a tentativa livre no servidor de forma autoritativa com tabela fechada de efeitos.
+ * O nó da cena permanece estritamente o mesmo.
+ */
+export async function executarTentativaLivreAction(
+  params: ExecutarTentativaLivreActionParams
+): Promise<RespostaTentativaLivre> {
+  const user = await validarProprietario();
+
+  if (!params.slotId || typeof params.versaoEsperada !== 'number') {
+    throw new Error('slotId e versaoEsperada são obrigatórios para executar a tentativa livre.');
+  }
+
+  return executarTentativaLivre({
+    userId: user.id,
+    slotId: params.slotId,
+    versaoEsperada: params.versaoEsperada,
+    textoAcao: params.texto,
+    journeyId: params.journeyId,
+    dadosFixos: params.dadosFixos,
+  });
 }
