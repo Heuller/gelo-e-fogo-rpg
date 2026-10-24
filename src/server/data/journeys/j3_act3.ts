@@ -25,11 +25,12 @@ Nas ruínas de Fosso Cailin, Robb uniu suas forças à Senhora Catelyn, preparan
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn VIII',
-        },
+      },
         notaHistorica: 'Robb Stark reúne o exército do Norte em Fosso Cailin.',
       },
       escolhas: [
@@ -87,11 +88,12 @@ Robb aceitou os termos solenes, e quatro mil lanceiros Frey uniram-se à marcha 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn IX',
-        },
+      },
         notaHistorica: 'O pacto nupcial entre Robb Stark e a Casa Frey nas Gêmeas.',
       },
       escolhas: [
@@ -141,11 +143,12 @@ O Regicida era prisioneiro dos Stark.`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn X',
-        },
+      },
         notaHistorica: 'A vitória esmagadora de Robb Stark no Bosque dos Murmúrios.',
       },
       escolhas: [
@@ -195,11 +198,12 @@ Cinqüenta espadas desembainhadas reluziram nas tochas. 'O Rei no Norte! O Rei n
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn XI',
-        },
+      },
         notaHistorica: 'A consagração de Robb Stark como Rei no Norte.',
       },
       escolhas: [
@@ -249,11 +253,12 @@ Como recompensa pelo ato heroico, Jeor Mormont entregou a Jon a espada ancestral
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Jon Snow salva Jeor Mormont da criatura e recebe Garra Longa.',
       },
       escolhas: [
@@ -302,11 +307,12 @@ Enviado com o lendário batedor Qhorin Meia-Mão nas gargantas glaciais, Jon cap
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'O sacrifício de Qhorin Meia-Mão para infiltrar Jon Snow.',
       },
       escolhas: [
@@ -355,11 +361,12 @@ Ali, no lodo escuro, a sacerdotisa vermelha despiu suas vestes de seda e pariu u
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Davos II',
-        },
+      },
         notaHistorica: 'O nascimento da sombra de Melisandre e a morte de Renly.',
       },
       escolhas: [
@@ -411,11 +418,12 @@ Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Davos III / Tyrion XIV',
-        },
+      },
         notaHistorica: 'A Batalha da Água Negra e a salvação da capital por Tywin Lannister.',
       },
       escolhas: [
@@ -465,11 +473,12 @@ Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o 
       
 Nas celas e nos corredores, os preparativos para o fim da rebelião do Norte começaram a ser traçados em cartas lacradas com ouro e cera de escorpião enviadas a Roose Bolton e Walder Frey.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Livro 2',
-        },
+      },
         notaHistorica: 'A Fúria dos Reis (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -507,11 +516,12 @@ Nas celas e nos corredores, os preparativos para o fim da rebelião do Norte com
       localizacao: 'Correrrio e Porto Real',
       regionId: 'tridente',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Livro 2',
-        },
+      },
         notaHistorica: 'A Fúria dos Reis (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,

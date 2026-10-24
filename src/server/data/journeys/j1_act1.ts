@@ -35,12 +35,13 @@ Orys Baratheon, irmão bastardo de Aegon e seu companheiro mais leal desde a inf
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'mesa_pintada',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'A Mesa Pintada foi encomendada por Aegon anos antes da Conquista, sem fronteiras entre os reinos.',
       },
       escolhas: [
@@ -109,12 +110,14 @@ Aegon já possuía duas esposas e não desonraria Visenya e Rhaenys tomando uma 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'argilac_durrandon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -178,12 +181,14 @@ Aegon convocou imediatamente seus vassalos insulares: Daemon Velaryon, senhor de
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'aegon_conquistador',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -250,12 +255,14 @@ Os pequenos senhores da região costeira estavam desamparados. Seus suseranos di
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'forte_aegon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -322,12 +329,14 @@ Ambos os senhores foram conduzidos ao Forte de Aegon na condição de prisioneir
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'vhagar',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -398,12 +407,14 @@ O combate corpo a corpo eclodiu nas alas não tocadas pelo fogo. Lorde Darklyn l
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'balerion',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -477,11 +488,12 @@ A Conquista morreu em seu nascedouro. Westeros permaneceu dividida entre guerras
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Ponto de divergência: A morte precoce de Aegon em Valdocaso impediria a fundação dos Sete Reinos.',
       },
       escolhas: [],
@@ -516,11 +528,13 @@ O estuário da Água Negra e toda a costa leste agora pertenciam à Casa Targary
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -588,12 +602,14 @@ Aegon nomeou imediatamente os primeiros grandes dignitários do império: Orys B
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'trono_de_ferro',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -646,12 +662,14 @@ Nos céus, Visenya preparava o mergulho incendiário de Vhagar, mas o vento fort
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'daemon_velaryon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -715,11 +733,12 @@ A notícia da vitória naval e da sobrevivência do Mestre dos Navios ecoou por 
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Ponto de divergência original: Na história canônica, Lorde Daemon Velaryon morre na Batalha de Vila Gaivota.',
       },
       escolhas: [
@@ -772,11 +791,13 @@ O controle do mar costeiro estava garantido, mas a morte de Daemon ensinou ao jo
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -834,12 +855,14 @@ Uma negociação astuta com os Tully pode desencadear a revolta de todos os senh
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'harrenhal',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -903,12 +926,14 @@ Harrenhal estava completamente isolada do resto do mundo, cercada por terra e co
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'edmyn_tully',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -960,11 +985,13 @@ Ambos os filhos de Harren pereceram sob o hálito do Terror Negro. As notícias 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -1022,12 +1049,14 @@ Orys Baratheon desembainhou sua espada de aço escuro no meio da trilha estreita
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'orys_baratheon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -1101,11 +1130,12 @@ Argilac, o Arrogante, proclamou vitória nos salões de pedra, enviando os despo
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Ponto de divergência: A derrota na travessia de Wendwater frustraria o avanço de Orys Baratheon.',
       },
       escolhas: [],
@@ -1134,12 +1164,14 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'meraxes',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -1197,11 +1229,12 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
         },
       ],
             loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
       escolhas: [
@@ -1260,11 +1293,12 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
         },
       ],
             loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
       escolhas: [
@@ -1323,11 +1357,12 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
         },
       ],
             loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
       escolhas: [

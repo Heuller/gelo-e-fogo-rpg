@@ -40,12 +40,13 @@ Jon Arryn rasga o pergaminho real e joga os pedaços no abismo.
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
-        notaHistorica: 'Âncora Canônica: Jon Arryn recusa a ordem de Aerys II de entregar as cabeças de Robert e Ned, iniciando a Rebelião.',
+      },
+        notaHistorica: 'Criação autoral: dramatização da reação de Jon Arryn rasgando o pergaminho de Aerys II e convocando os vassalos do Vale.',
       },
       escolhas: [
         {
@@ -103,11 +104,12 @@ Robert Baratheon não espera por arietes ou catapultas. Com seu elmo adornado po
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert Baratheon é o primeiro a escalar as muralhas de Vila Gaivota e mata pessoalmente Lorde Marq Grafton.',
       },
       escolhas: [
@@ -173,11 +175,12 @@ Robert ri alto, secando o sal marinho da barba.
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Catelyn III',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert marcha velozmente para Solarestival e vence três batalhas no mesmo dia.',
       },
       escolhas: [
@@ -237,11 +240,12 @@ O plano de Robert funciona com perfeição letal. Primeiro, a vanguarda de Lorde
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Catelyn III',
-        },
+      },
         notaHistorica: 'Âncora Canônica: As três batalhas de Solarestival consagram a lenda militar de Robert Baratheon.',
       },
       escolhas: [
@@ -297,11 +301,12 @@ Os cativos, conquistados pelo carisma e pela generosidade descomunal de Robert, 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_2_a-furia-dos-reis_resumo-completo.md',
           livro: 'A Fúria dos Reis',
           capitulo: 'Catelyn III',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert conquista a devoção eterna de Silveraxe e dos lordes rebeldes em Ponta da Tempestade.',
       },
       escolhas: [
@@ -354,11 +359,12 @@ No entanto, os exércitos reais despertam: o Príncipe Rhaegar ainda está desap
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert marcha em direção às Terras Fluviais para encontrar Ned Stark e Jon Arryn, culminando na Batalha dos Sinos.',
       },
       escolhas: [

@@ -24,11 +24,12 @@ Ser Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cerc
           fala: 'Cole morreu como um cão sem honra, mas enquanto Vhagar voar nos céus, nenhuma vitória em terra é segura.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -62,11 +63,12 @@ Ser Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cerc
       localizacao: 'Harrenhal',
       regionId: 'tridente',
       fallbackText: `Durante quatorze dias, Daemon Targaryen acampou em Harrenhal, fazendo um corte em um represeiro a cada manhã e desafiando Aemond a enfrentá-lo. Urtigas partiu para o exílio nas montanhas após uma ordem desvairada de Rhaenyra exigindo sua cabeça por ciúmes. No décimo quarto dia, a sombra titânica de Vhagar finalmente cruzou as nuvens.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -119,11 +121,12 @@ escolhas: [
           fala: 'O olhar de Hugh Martelo é de pura cobiça. Se eles voltarem suas chamas no meio da batalha, ninguém escapará.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -179,11 +182,12 @@ escolhas: [
       fallbackText: `Quando a infantaria leal a Rhaenyra estava prestes a romper as linhas inimigas, Vermithor e Asaprata alçaram voo — e viraram suas chamas nas costas dos próprios soldados Pretos!
       
 Hugh Martelo e Ulf, o Branco traíram a rainha pelo ouro e terras prometidos pelos Verdes. Tumbleton foi pilhada com ferocidade monstruosa, incendiada por três dragões. A notícia da traição chegou a Porto Real como um golpe devastador na sanidade de Rhaenyra.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -222,11 +226,12 @@ Hugh Martelo e Ulf, o Branco traíram a rainha pelo ouro e terras prometidos pel
       localizacao: 'Tumbleton',
       regionId: 'campina',
       fallbackText: `Com astúcia cirúrgica, os batedores fiéis misturaram veneno do estrangulador nas jarras de cerveja de Hugh e Ulf antes que pudessem alcançar as selas! O exército Verde de Hightower foi pego de surpresa e aniquilado pelo choque conjunto das Terras Fluviais.`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -275,11 +280,12 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
           fala: 'O salto de Daemon desafia os deuses e os homens! É a morte definitiva do maior monstro alado de Westeros.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -335,11 +341,12 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
       localizacao: 'Olho de Deus',
       regionId: 'tridente',
       fallbackText: `O estrondo da queda no lago foi ouvido a léguas de distância. O crânio de Vhagar afundou no lodo com os ossos de Aemond acorrentados à sela e a espada Irmã Sombria ainda cravada em seu olho. O corpo de Daemon nunca foi encontrado, alimentando canções eternas de que teria sobrevivido com Urtigas nas montanhas.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -378,11 +385,12 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
       localizacao: 'Margens do Olho de Deus',
       regionId: 'tridente',
       fallbackText: `Resgatado semi-afogado entre os juncos por homens fiéis de Harrenhal antes de sucumbir, Daemon Targaryen ergueu-se com a Irmã Sombria recuperada! Aemond e Vhagar estavam mortos, e o Príncipe Negro ainda respirava para liderar a batalha final.`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -431,11 +439,12 @@ Por sua lealdade, Corlys foi espancado e jogado nas masmorras. A frota Velaryon 
           fala: 'Prender a Serpente do Mar é um suicídio político. A cidade entrará em erupção em poucas horas.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -499,11 +508,12 @@ Presos em correntes de ferro, Shrykos, Morghul e Tyraxes lutaram bravamente, que
           fala: 'A turba está cega de ódio fanático. Só uma carga impiedosa de cavaleiros com lanças e espadas pode dispersá-los!',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -561,11 +571,12 @@ Presos em correntes de ferro, Shrykos, Morghul e Tyraxes lutaram bravamente, que
       regionId: 'terras_da_coroa',
       isEnding: true,
       fallbackText: `Seu cavalo foi puxado para a lama por dezenas de mãos ensanguentadas. Desarmado e pisoteado sob as pedras em colapso do domo do Fosso, sua vida apagou-se entre os gritos dos moribundos e a fumaça de enxofre.`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -582,11 +593,12 @@ Presos em correntes de ferro, Shrykos, Morghul e Tyraxes lutaram bravamente, que
       fallbackText: `Syrax foi morta a golpes de machado e picaretas na lama da praça. Pela primeira vez desde a Conquista, cinco dragões reais foram abatidos em uma única noite de pavor popular. O príncipe Joffrey Velaryon despencou do dorso de Syrax tentando montá-la e morreu na calçada de paralelepípedos.
       
 Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na calada da noite sob disfarce com o pequeno príncipe Aegon, vendendo sua coroa para comprar passagem num navio mercante.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -625,11 +637,12 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
       localizacao: 'Fosso dos Dragões',
       regionId: 'terras_da_coroa',
       fallbackText: `Sua carga de cavalaria despedaçou as linhas dos fanáticos antes que as correntes dos dragões cedessem! O Pastor foi capturado e amarrado aos portões de ferro. Syrax e Dreamfyre rugiram triunfantes no topo da colina, preservando os dragões vivos de Westeros!`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -678,11 +691,12 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_06_morte-dos-dragoes-rhaenyra-destituida.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Destituída',
-        },
+      },
         notaHistorica: 'A revolta popular em Porto Real.',
       },
       escolhas: [
@@ -741,11 +755,12 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'O massacre de Criston Cole no Baile do Açougueiro.',
       },
       escolhas: [
@@ -784,11 +799,12 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
       regionId: 'terras_da_coroa',
       isEnding: true,
       fallbackText: `O Ato III encerra-se no ponto de maior tensão da Dança dos Dragões: com a capital em ruínas, Rhaenyra em fuga ignorando que Aegon II está escondido em Pedra do Dragão, e Ser Addam Velaryon reunindo quatro mil homens leais para um ataque noturno desesperado em Tumbleton. O Ato IV decidirá quem reinará sobre os escombros.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Rhaenyra Triunfante',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 

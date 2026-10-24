@@ -32,11 +32,12 @@ Sua capa negra está em farrapos, o rosto queimado pelo vento gélido e uma flec
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C10. Jon foge em Coroa da Rainha e retorna ferido a Castelo Negro alertando sobre os Thenns.',
       },
       escolhas: [
@@ -80,11 +81,12 @@ Com duzentos irmãos mortos ou dispersos no Grande Patrulhamento e Bowen Marsh m
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C1, C5. A vulnerabilidade de Castelo Negro ao sul e a guarnição reduzida a quarenta irmãos.',
       },
       escolhas: [
@@ -124,11 +126,12 @@ Com duzentos irmãos mortos ou dispersos no Grande Patrulhamento e Bowen Marsh m
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon II',
-        },
+      },
         notaHistorica: 'Âncora: C8. Bowen Marsh e seus números na intendência.',
       },
       escolhas: [
@@ -171,11 +174,12 @@ Cartas foram enviadas ao Rei Joffrey em Porto Real, ao Rei Stannis em Pedra do D
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Tyrion IV',
-        },
+      },
         notaHistorica: 'Âncora: C8. Os apelos da Patrulha aos reis de Westeros e a negligência do Trono de Ferro.',
       },
       escolhas: [
@@ -219,11 +223,12 @@ Quando você lhe perguntais sobre as patrulhas e a ordem de batalha contra os Th
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C9. Ser Wynton Stout esquece seu posto e Donal Noye assume o comando.',
       },
       escolhas: [
@@ -264,11 +269,12 @@ Quando você lhe perguntais sobre as patrulhas e a ordem de batalha contra os Th
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C9, C16, C25. Donal Noye assume o comando prático e prepara as barricadas.',
       },
       escolhas: [
@@ -315,11 +321,12 @@ Jon abre os olhos cheios de dor e olha para você:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C10, C12. O tratamento da perna flechada de Jon por Meistre Aemon e o aviso sobre a Vila Toupeira.',
       },
       escolhas: [
@@ -364,11 +371,12 @@ Pyp coloca um elmo de ferro torto sobre a cabeça de um dos bonecos de palha e d
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C11. Meistre Aemon propõe os bonecos de palha em mantos negros; Pyp batiza um de Edd.',
       },
       escolhas: [
@@ -420,11 +428,12 @@ No pátio, Donal Noye olha para a turba faminta. São mais bocas para alimentar,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
-        },
+      },
         notaHistorica: 'Âncora: C10. A população da Vila Toupeira busca abrigo em Castelo Negro.',
       },
       escolhas: [
@@ -467,11 +476,12 @@ Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C13, C17. Preparação de barris de piche e pedra britada para a defesa contra os thenns.',
       },
       escolhas: [
@@ -514,11 +524,12 @@ Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C13. A queima deliberada da grande escadaria de madeira para barrar os Thenns.',
       },
       escolhas: [
@@ -562,11 +573,12 @@ Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C12, C13, C16. Distribuição dos postos táticos de Castelo Negro.',
       },
       escolhas: [
@@ -615,11 +627,12 @@ De repente, do labirinto escuro dos bosques da Dádiva ao sul, um grito gutural 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C12. O ataque noturno dos Thenns a Castelo Negro.',
       },
       escolhas: [

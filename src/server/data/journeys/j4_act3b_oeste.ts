@@ -38,12 +38,13 @@ Bowen Marsh, o Lorde Intendente, reúne sessenta homens — a maioria construtor
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII, Jon VIII',
-        },
-        notaHistorica: 'Âncora Canônica: Bowen Marsh retira a maior parte dos defensores móveis de Castelo Negro para confrontar o Chorão na Ponte das Caveiras.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): dramatização da expedição de Bowen Marsh à Ponte das Caveiras contra o Chorão.',
       },
       escolhas: [
         {
@@ -103,12 +104,13 @@ No segundo dia, ao passar por uma garganta estreita cercada de pinheiros cinzent
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
-        notaHistorica: 'Âncora Canônica: Batedores selvagens infiltrados na Dádiva que antecedem o combate na Ponte das Caveiras.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): marcha dos patrulheiros pelas colinas da Dádiva enfrentando o inverno rigoroso.',
       },
       escolhas: [
         {
@@ -170,12 +172,13 @@ Do lado além-da-Muralha, trezentos guerreiros do Povo Livre rugem e batem lanç
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII, Jon IX',
-        },
-        notaHistorica: 'Âncora Canônica: A Batalha da Ponte das Caveiras custou a vida de dezenas de patrulheiros e deixou Bowen Marsh mutilado.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): o combate desesperado e sangrento nas falésias da Ponte das Caveiras.',
       },
       escolhas: [
         {
@@ -233,12 +236,13 @@ Bowen Marsh ergue a espada tarde demais. O gume do machado estilhaça a bochecha
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII, Jon IX',
-        },
-        notaHistorica: 'Âncora Canônica: Bowen Marsh sobrevive à terrível ferida na cabeça que desfigura seu rosto permanentemente.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): o resgate de Bowen Marsh gravemente ferido na Ponte das Caveiras.',
       },
       escolhas: [
         {
@@ -299,12 +303,13 @@ O Chorão berra de ódio ao ver sua travessia arruinada e recua para a escuridã
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
-        },
-        notaHistorica: 'Âncora Canônica: A chegada da guarnição da Torre Sombria sob Ser Denys Mallister vence a Batalha da Ponte das Caveiras.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): intervenção dos cavaleiros da Torre Sombria comandados por Ser Denys Mallister.',
       },
       escolhas: [
         {
@@ -368,12 +373,13 @@ Samwell Tarly ergue os olhos banhados em lágrimas e gratidão.
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell IV, Jon IX',
-        },
-        notaHistorica: 'Âncora Canônica: Samwell Tarly e Goiva cruzam a Porta Negra no Forte Noite auxiliados por Mãos-Frias e se reencontram com patrulheiros.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): reencontro fortuito com os fugitivos de Fortenoite na retaguarda ocidental.',
       },
       escolhas: [
         {
@@ -430,12 +436,13 @@ Contudo, ao fundo do pátio, estandartes dourados e carmesins chamam a atenção
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
-        },
-        notaHistorica: 'Âncora Canônica: O retorno dos combatentes do oeste coincide com a chegada de Janos Slynt e a crise política que antecede a eleição.',
+      },
+        notaHistorica: 'Ramal do Oeste (Criação autoral): o regresso dos veteranos da Ponte das Caveiras a Castelo Negro sob tensão política.',
       },
       escolhas: [
         {

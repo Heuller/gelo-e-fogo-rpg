@@ -35,11 +35,12 @@ A visão do Terror Negro rasgando os céus salgados quebrou qualquer resistênci
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Aegon desce em 2 d.C. sobre as Ilhas de Ferro e pacifica os rebeldes.',
       },
       escolhas: [
@@ -101,12 +102,13 @@ Com o Norte ajoelhado, o Oeste domado, o Vale pacificado e as Ilhas de Ferro em 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'greyjoy',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Vickon Greyjoy é eleito Senhor das Ilhas de Ferro e jura vassalagem a Aegon.',
       },
       escolhas: [
@@ -165,11 +167,12 @@ Aegon ofereceu casamentos de honra, isenção de tributos e respeito absoluto ao
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Meria Martell rejeita todas as embaixadas diplomáticas de Aegon.',
       },
       escolhas: [
@@ -241,12 +244,13 @@ No ponto em que o Caminho do Espinhaço cruzava o traiçoeiro Rio Wyl, sobre uma
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'orys_baratheon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Orys Baratheon é emboscado por Wyl de Wyl no Caminho do Espinhaço.',
       },
       escolhas: [
@@ -311,11 +315,12 @@ Quando Orys finalmente retornou à corte, com o coto curado e uma barra de ferro
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Wyl de Wyl decepa a mão de Orys Baratheon.',
       },
       escolhas: [
@@ -368,11 +373,12 @@ Quando as forças reais finalmente convergiram para Lançassolar, a capital dos 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Os dorneses abandonam seus castelos e travam guerra de guerrilha.',
       },
       escolhas: [
@@ -428,12 +434,13 @@ Aegon e Rhaenys declararam Dorne conquistada, deixando Lorde Jon Rosby como cast
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'martell',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'O diálogo lendário entre Meria Martell e a Rainha Rhaenys.',
       },
       escolhas: [
@@ -486,11 +493,12 @@ Pior destino coube a Lorde Harlen Tyrell. O governante de Jardim de Cima marchou
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Meria joga Rosby da Torre da Lança e o exército Tyrell desaparece nas areias.',
       },
       escolhas: [
@@ -549,12 +557,13 @@ Meraxes descia em mergulho rasante para expelir suas chamas douradas sobre as am
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'meraxes',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Meraxes é abatida por um virote de escorpião no olho em Hellholt no ano 10 d.C.',
       },
       escolhas: [
@@ -626,11 +635,12 @@ Com as três montarias da Conquista intactas e os três soberanos reinando junto
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Grande Ponto de Divergência: Rhaenys e Meraxes sobrevivem à batalha de Hellholt.',
       },
       escolhas: [
@@ -683,12 +693,13 @@ Os dois anos seguintes ficaram conhecidos como "A Ira do Dragão". Balerion e Vh
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'rhaenys_targaryen',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Morte canônica de Rhaenys e os dois anos da Ira do Dragão.',
       },
       escolhas: [
@@ -747,12 +758,13 @@ Quando os guardas reais hesitaram, a Rainha Visenya sacou a espada de aço valir
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'guarda_real',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Visenya funda a Guarda Real com sete cavaleiros de manto branco.',
       },
       escolhas: [
@@ -808,11 +820,12 @@ A comitiva de Deria não vinha desarmada: traziam um cortejo solene escoltando u
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Nymor Martell sucede Meria e envia a Princesa Deria com proposta de paz.',
       },
       escolhas: [
@@ -873,12 +886,13 @@ Mas a princesa permaneceu impassível. Com um passo à frente, ela retirou de su
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'trono_de_ferro',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Deria Martell entrega o crânio de Meraxes e a carta secreta a Aegon.',
       },
       escolhas: [
@@ -937,11 +951,12 @@ Sem proferir uma única palavra aos lordes ou a Visenya, o rei levantou-se, cami
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Aegon lê a carta secreta de Nymor, voa a Pedra do Dragão e decide a paz.',
       },
       escolhas: [
@@ -994,11 +1009,12 @@ Aegon ergueu sua mão enfaixada e proclamou seu desígnio imutável ao mundo.`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'O grande nó de convergência para os 6 Finais da Jornada 1.',
       },
       escolhas: [
@@ -1075,11 +1091,12 @@ No ano 37 d.C., com sessenta e quatro anos, o Conquistador faleceu serenamente n
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_03_tres-cabecas-governo.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Três Cabeças: Governo',
-        },
+      },
         notaHistorica: 'Final Canônico: Paz com Dorne e consolidação do governo de Aegon até 37 d.C.',
       },
       escolhas: [],
@@ -1109,11 +1126,12 @@ Balerion, Vhagar e Meraxes sobrevoaram juntos a Baía da Água Negra sob os apla
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Final Alternativo de Glória: Rhaenys viva e unificação de Dorne sem a tragédia de Hellholt.',
       },
       escolhas: [],
@@ -1143,11 +1161,12 @@ Westeros estava inteiramente subjugada, mas o preço foi aterrador. O Trono de F
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Final Ruthless: Extinção de Dorne pelo fogo total e governo pelo terror absoluto.',
       },
       escolhas: [],
@@ -1177,11 +1196,12 @@ Sob a tutela da Fé e da Cidadela, o império tornou-se uma metrópole de conhec
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Final Alternativo Político: Vilavelha como capital imperial permanente em aliança com a Fé e a Cidadela.',
       },
       escolhas: [],
@@ -1211,12 +1231,13 @@ O reino dos dragões tornou-se uma máquina de guerra disciplinada, justa porém
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'visenya_targaryen',
         fonte: {
           arquivo_md: 'fogo-e-sangue_02_reinado-do-dragao-guerras.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'Reinado do Dragão: Guerras',
-        },
+      },
         notaHistorica: 'Final Alternativo Marcial: Visenya assume a regência e impõe hegemonia militar valiriana absoluta.',
       },
       escolhas: [],
@@ -1246,11 +1267,12 @@ Aegon gravou com fogo de dragão nas lâminas do Trono de Ferro o aviso proféti
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Final Místico: O pacto profético da Canção de Gelo e Fogo e preparação contra a Longa Noite.',
       },
       escolhas: [],

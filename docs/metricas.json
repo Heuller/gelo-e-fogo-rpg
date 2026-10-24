@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-24T16:47:58.926Z",
+  "geradoEm": "2026-10-24T17:25:01.867Z",
   "jornadasAuditadas": 5,
   "totalCenasGlobal": 299,
   "totalPalavrasGlobal": 30519,
@@ -29,8 +29,8 @@
         "percentualResumo": 0
       },
       "origem": {
-        "totalOriginal": 0,
-        "totalCanonica": 74
+        "totalOriginal": 9,
+        "totalCanonica": 65
       },
       "vozesInternasTotal": 117,
       "narrativa": {
@@ -122,8 +122,8 @@
         "percentualResumo": 0
       },
       "origem": {
-        "totalOriginal": 0,
-        "totalCanonica": 66
+        "totalOriginal": 9,
+        "totalCanonica": 57
       },
       "vozesInternasTotal": 31,
       "narrativa": {
@@ -205,8 +205,8 @@
         "percentualResumo": 100
       },
       "origem": {
-        "totalOriginal": 0,
-        "totalCanonica": 54
+        "totalOriginal": 4,
+        "totalCanonica": 50
       },
       "vozesInternasTotal": 38,
       "narrativa": {
@@ -272,8 +272,8 @@
         "percentualResumo": 100
       },
       "origem": {
-        "totalOriginal": 0,
-        "totalCanonica": 75
+        "totalOriginal": 7,
+        "totalCanonica": 68
       },
       "vozesInternasTotal": 73,
       "narrativa": {
@@ -440,8 +440,8 @@
         "percentualResumo": 100
       },
       "origem": {
-        "totalOriginal": 0,
-        "totalCanonica": 30
+        "totalOriginal": 1,
+        "totalCanonica": 29
       },
       "vozesInternasTotal": 38,
       "narrativa": {

@@ -163,7 +163,8 @@ describe('G0 — Geração Oficial de Métricas do Acervo (docs/metricas.json)',
         }
 
         // Origem
-        if ((node as any).origem === 'original') {
+        const origemEfetiva = (node as any).origem || (node.loreContext as any)?.origem;
+        if (origemEfetiva === 'original') {
           cenasOrigemOriginal++;
         } else {
           cenasOrigemCanonica++;

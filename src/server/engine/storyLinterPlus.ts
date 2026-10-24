@@ -10,7 +10,9 @@ export interface AvisoGrafo {
     | 'FLAG_ESCRITA_NUNCA_LIDA'
     | 'FINAL_SEM_CONDICAO'
     | 'RISCO_MORTAL_DC_BAIXA'
-    | 'TESTE_SEM_CONSEQUENCIA';
+    | 'TESTE_SEM_CONSEQUENCIA'
+    | 'CENA_SEM_ORIGEM'
+    | 'ORIGEM_ORIGINAL_SEM_NOTA';
   nodeId?: string;
   escolhaId?: string;
   mensagem: string;
@@ -26,6 +28,8 @@ export interface RelatorioAnaliseAvancada {
     flagsLidasNuncaEscritas: number;
     flagsEscritasNuncaLidas: number;
     finaisSemBloqueio: number;
+    cenasSemOrigem: number;
+    cenasOriginaisSemNota: number;
   };
 }
 
@@ -136,6 +140,25 @@ export function analisarGrafoAvancado(
         }
       }
     }
+
+    // 4. Verificação de Origem e Fidelidade Canônica (Fase G5)
+    const origem = (node as { origem?: string }).origem || (node.loreContext as { origem?: string })?.origem;
+    if (!origem) {
+      avisos.push({
+        tipo: 'CENA_SEM_ORIGEM',
+        nodeId: node.id,
+        mensagem: `Cena '${node.id}' não possui marcação explícita de 'origem' ('canonica' | 'original').`,
+      });
+    } else if (origem === 'original') {
+      const nota = (node as { notaHistorica?: string }).notaHistorica || node.loreContext?.notaHistorica;
+      if (!nota || nota.trim().length === 0) {
+        avisos.push({
+          tipo: 'ORIGEM_ORIGINAL_SEM_NOTA',
+          nodeId: node.id,
+          mensagem: `Cena '${node.id}' possui origem='original' mas não possui 'notaHistorica' justificando a criação autoral.`,
+        });
+      }
+    }
   }
 
   // 4. Flags lidas que nunca são escritas
@@ -168,6 +191,8 @@ export function analisarGrafoAvancado(
       flagsLidasNuncaEscritas: avisos.filter((a) => a.tipo === 'FLAG_LIDA_NUNCA_ESCRITA').length,
       flagsEscritasNuncaLidas: avisos.filter((a) => a.tipo === 'FLAG_ESCRITA_NUNCA_LIDA').length,
       finaisSemBloqueio: finaisSemBloqueio.length,
+      cenasSemOrigem: avisos.filter((a) => a.tipo === 'CENA_SEM_ORIGEM').length,
+      cenasOriginaisSemNota: avisos.filter((a) => a.tipo === 'ORIGEM_ORIGINAL_SEM_NOTA').length,
     },
   };
 }

@@ -35,12 +35,13 @@ Acima deles, Balerion rugiu nos céus, e sua sombra titânica engoliu as margens
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'harrenhal',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Lorde Edmyn Tully lidera os senhores fluviais na rebelião contra Harren Hoare e une-se a Aegon I.',
       },
       escolhas: [
@@ -102,12 +103,13 @@ Aegon contemplou as torres colossais e proferiu a sentença que ecoaria nos séc
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'harren_o_negro',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'O diálogo lendário entre Aegon e Harren nos portões do castelo.',
       },
       escolhas: [
@@ -167,12 +169,14 @@ No entanto, quando a última nesga de luz solar se extinguiu no horizonte, Aegon
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'balerion',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Fato canônico adaptado de Fogo & Sangue - Volume 1 (A Conquista de Aegon).',
       },
       escolhas: [
         {
@@ -240,12 +244,13 @@ Gritos horríveis ecoaram no pátio quando o Rei Harren Hoare e todos os seus fi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'harrenhal',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Balerion incendeia Harrenhal, extinguindo a Casa Hoare.',
       },
       escolhas: [
@@ -305,11 +310,12 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Ramificação alternativa: Harren Hoare capturado com vida e enviado à Patrulha da Noite.',
       },
       escolhas: [
@@ -371,12 +377,13 @@ Os lordes Blackwood, Bracken, Frey, Vance e Mallister ajoelharam-se em aclamaç�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'tully',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Edmyn Tully é aclamado primeiro Senhor Supremo do Tridente.',
       },
       escolhas: [
@@ -430,12 +437,13 @@ Orys Baratheon liderava as forças Targaryen com sua couraça de aço martelado 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'argilac_o_arrogante',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Argilac marcha para enfrentar Orys na Batalha da Última Tempestade.',
       },
       escolhas: [
@@ -489,12 +497,13 @@ Na terceira carga, o próprio cavalo de Argilac foi derrubado pelas chamas, e o 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'meraxes',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Meraxes quebra a carga de Argilac e o rei é derrubado de seu cavalo.',
       },
       escolhas: [
@@ -553,13 +562,14 @@ Com a morte de seu soberano, o exército da tempestade quebrou as fileiras e fug
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'orys_baratheon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
-        notaHistorica: 'Orys Baratheon mata Argilac em combate singular.',
+      },
+        notaHistorica: 'Orys Baratheon mata Argilac Durrandon em combate singular durante a Batalha da Última Tempestade, conforme Fogo & Sangue.',
       },
       escolhas: [
         {
@@ -627,11 +637,12 @@ A linhagem dos Targaryen provou que mesmo dragões podem tombar quando o ferro e
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Derrota fatal de Orys no duelo contra Argilac Durrandon.',
       },
       escolhas: [],
@@ -666,12 +677,13 @@ Ao amanhecer, quando o exército de Orys e Meraxes chegou aos pés das muralhas 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'argella_durrandon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'A guarnição de Ponta Tempestade entrega Argella acorrentada.',
       },
       escolhas: [
@@ -739,12 +751,13 @@ Em reconhecimento à nobreza dos Durrandon, Orys tomou para sua nova Casa os bra
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'baratheon',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Orys casa-se com Argella e adota o brasão e o lema dos Durrandon.',
       },
       escolhas: [
@@ -812,11 +825,12 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Visenya pacifica a Ponta da Garra Rachada sem derramamento de sangue.',
       },
       escolhas: [
@@ -884,11 +898,12 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
         },
       ],
             loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
       escolhas: [
@@ -947,11 +962,12 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
         },
       ],
             loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_1_conquista/fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Acampamento e conselho de guerra da Conquista de Aegon.',
       },
       escolhas: [

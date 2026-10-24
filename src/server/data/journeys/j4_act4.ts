@@ -35,11 +35,12 @@ Janos Slynt franze o cenho espesso e ladra ordens aos guardas:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
-        },
+      },
         notaHistorica: 'Âncora: C18, C29. A chegada de Thorne e Janos Slynt e a acusação de deserção contra Jon Snow.',
       },
       escolhas: [
@@ -85,11 +86,12 @@ Do lado de fora das grades de ferro, Thorne e Slynt comemoram com vinho quente e
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
-        },
+      },
         notaHistorica: 'Âncora: C18. A prisão de Jon nas celas de gelo.',
       },
       escolhas: [
@@ -135,11 +137,12 @@ Janos Slynt engole em seco, intimidado pelo peso de um Targaryen centenário que
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
-        },
+      },
         notaHistorica: 'Âncora: C18, C24. Meistre Aemon intervém e impede a execução sumária de Jon por Janos Slynt.',
       },
       escolhas: [
@@ -185,11 +188,12 @@ Jon olha para a lâmina fria. Sabe que matar um rei sob uma bandeira de paz é q
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon X',
-        },
+      },
         notaHistorica: 'Âncora: C19. Slynt e Thorne enviam Jon como falso emissário para assassinar Mance Rayder.',
       },
       escolhas: [
@@ -241,11 +245,12 @@ Mance aponta para um objeto colocado sobre peles de urso: uma corneta colossal d
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon X',
-        },
+      },
         notaHistorica: 'Âncora: C20, C31, C33. O parlamento na tenda de Mance; a Trompa de Joramun e o parto de Dalla.',
       },
       escolhas: [
@@ -293,11 +298,12 @@ O acampamento dos selvagens colapsa em segundos: guerreiros fogem em pânico, o 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon X',
-        },
+      },
         notaHistorica: 'Âncora: C20. A chegada fulminante de Stannis Baratheon e Cotter Pyke destroçando o exército de Mance Rayder.',
       },
       escolhas: [
@@ -350,11 +356,12 @@ O rei vira-se para Jon Snow com uma oferta tentadora:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XI',
-        },
+      },
         notaHistorica: 'Âncora: C21, C25, C32. Stannis na Torre do Rei elogia Donal Noye e oferece legitimar Jon como Senhor de Winterfell.',
       },
       escolhas: [
@@ -395,11 +402,12 @@ Ser Alliser Thorne e Janos Slynt defendem colocá-los todos na forca ou despach�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XI',
-        },
+      },
         notaHistorica: 'Âncora: C20. Os cativos do Povo Livre e o debate sobre seu destino.',
       },
       escolhas: [
@@ -442,11 +450,12 @@ Com a liderança reunida, Stannis exige uma solução imediata: a Patrulha da No
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell IV',
-        },
+      },
         notaHistorica: 'Âncora: C22. A volta de Samwell, Goiva, Mallister e Marsh ferido para a eleição.',
       },
       escolhas: [
@@ -489,11 +498,12 @@ Ser Denys Mallister tem o apoio dos cavaleiros e homens honrados; Cotter Pyke te
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell V',
-        },
+      },
         notaHistorica: 'Âncora: C23. O sistema de eleição por dois terços com caldeirões de ferro.',
       },
       escolhas: [
@@ -540,11 +550,12 @@ Mas a paciência do Rei Stannis está esgotando-se: ele avisa que se a Patrulha 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell V',
-        },
+      },
         notaHistorica: 'Âncora: C23. O impasse na eleição, os votos em Hobb e a ameaça de Stannis.',
       },
       escolhas: [
@@ -593,11 +604,12 @@ Na manhã seguinte, no salão comum, o nome de Jon Snow é formally apresentado 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell V',
-        },
+      },
         notaHistorica: 'Âncora: C23. Sam convence Cotter Pyke e Denys Mallister a apoiarem Jon Snow.',
       },
       escolhas: [
@@ -644,11 +656,12 @@ Uma onda de espanto e reverência percorre a sala. Os deuses falaram.`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Âncora: C23. O corvo de Mormont pousa no ombro de Jon gritando «Snow!».',
       },
       escolhas: [
@@ -694,11 +707,12 @@ Ele não esqueceu quem esteve ao seu lado na escadaria em chamas, no portão esc
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Âncora: C23. Jon é oficializado como o 998º Senhor Comandante da Patrulha da Noite.',
       },
       escolhas: [
@@ -741,11 +755,12 @@ Qual é o seu desígnio derradeiro, irmão juramentado?`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Hub de veredito final da Jornada 4 «Irmão Sem Nome». Ponto de convergência para os 6 finais canônicos.',
       },
       escolhas: [
@@ -804,11 +819,12 @@ Qual é o seu desígnio derradeiro, irmão juramentado?`,
       
 Você não é mais um estranho sem rosto nas casernas; você é o homem que guardou as costas de Jon quando o aço ardia e as intrigas queriam enforcá-lo. Enquanto a Patrulha da Noite permanecer de pé no fim do mundo, seu juramento será o alicerce da nova era da Muralha.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F1: Lealdade ao 998º Senhor Comandante Jon Snow e reconhecimento como irmão de confiança.',
       },
       escolhas: [],
@@ -826,11 +842,12 @@ Você não é mais um estranho sem rosto nas casernas; você é o homem que guar
       
 O vento uiva feroz vindo do norte distante, trazendo os primeiros flocos pesados do verdadeiro inverno. Nenhum bardo no sul cantará suas façanhas; nenhum rei cobrirá você de ouro. Mas lá embaixo, do outro lado do abismo de gelo, milhões de almas dormem em paz porque você e seus irmãos anônimos continuam de pé na sentinela. Você é a espada na escuridão, o vigia nas muralhas... um corvo de passagem que cumpriu seu voto até o fim.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F2: A sobrevivência digna do irmão juramentado anônimo no posto eterno da sentinela.',
       },
       escolhas: [],
@@ -848,11 +865,12 @@ O vento uiva feroz vindo do norte distante, trazendo os primeiros flocos pesados
       
 Onde antes havia apenas medo e sangue derramado, sua voz ergueu pontes de respeito mútuo. Val e os guerreiros livres chamam você de irmão que não mente; os corvos negros da Patrulha aprendem a marchar ao lado de lanceiras selvagens. Ao entardecer, quando as fogueiras se acendem nos vales ao sul da Muralha, homens livres e irmãos negros sentam-se à mesma mesa, unidos pelo mesmo fogo contra a longa noite que se aproxima.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F3: A reconciliação entre a Patrulha da Noite e o Povo Livre além da Muralha.',
       },
       escolhas: [],
@@ -870,11 +888,12 @@ Onde antes havia apenas medo e sangue derramado, sua voz ergueu pontes de respei
       
 Para você, a Patrulha jurou proteger o reino dos selvagens, não trazê-los para dentro de nossas camas e despensas. Você guarda seu aço bem afiado, observando cada decisão de Jon Snow com desconfiança gélida. A semente da fissura foi plantada no gelo; você aguarda o seu momento... «Pela Patrulha».`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F4: O alinhamento com a facção conservadora da Guarda Velha liderada por Marsh e Thorne.',
       },
       escolhas: [],
@@ -892,11 +911,12 @@ Para você, a Patrulha jurou proteger o reino dos selvagens, não trazê-los par
       
 Com um casaco de peles de foca e um machado de caçador, você cavalga para o norte profundo com um bando disperso de homens livres fugitivos. Você quebrou o juramento que fez perante os homens, mas ganhou o ar livre e a vastidão infinita das florestas sem mestres. Se os Outros marcharem, você lutará como um homem livre, não como um prisioneiro vestindo o negro.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F5: Deserção e integração definitiva no Povo Livre além da Muralha.',
       },
       escolhas: [],
@@ -914,11 +934,12 @@ Com um casaco de peles de foca e um machado de caçador, você cavalga para o no
       
 Página após página, com caligrafia firme e tinta indelével, você registra cada homem que caiu no Grande Patrulhamento, cada irmão esmagado no portão de ferro e cada alma que sangrou na neve para deter a escuridão. Suas mãos preservam a memória dos homens sem nome; daqui a quinhentos anos, quando outros lerem as crônicas do Muro, eles saberão que nenhum irmão lutou em vão.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon XII',
-        },
+      },
         notaHistorica: 'Final F6: O papel de cronista e guardião dos nomes dos caídos na Patrulha da Noite.',
       },
       escolhas: [],
@@ -940,11 +961,12 @@ Página após página, com caligrafia firme e tinta indelével, você registra c
       
 Enquanto sua visão escurecia em um vermelho pulsante, você viu Donal Noye cravando a lâmina de aço na garganta da besta e a grande grade de ferro descendo com um estrondo de vitória. O portão não caiu; seu sangue selou a passagem. Seu turno terminou.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Morte M1: Morte heroica no túnel da Muralha enfrentando Mag, o Poderoso.',
       },
       escolhas: [],
@@ -962,11 +984,12 @@ Enquanto sua visão escurecia em um vermelho pulsante, você viu Donal Noye crav
       
 O mundo girou em um turbilhão vertiginoso de fumaça, chamas e neve. Você sentiu o vento gélido da Muralha fustigando seu rosto em queda livre antes do impacto final na rocha fria. Você deu a vida para conter o fogo do sul. Seu turno terminou.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Morte M2: Morte trágica na queda da grande escadaria ou durante o desabamento do gelo.',
       },
       escolhas: [],
@@ -984,11 +1007,12 @@ O mundo girou em um turbilhão vertiginoso de fumaça, chamas e neve. Você sent
       
 Você tombastes de joelhos sobre a neve imaculada da Floresta Assombrada, vendo o estandarte do coração flamejante tremulando ao longe enquanto seu sangue quente derretia o gelo ao redor. Você tombastes na vitória final que salvou o reino dos homens. Seu turno terminou.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon X',
-        },
+      },
         notaHistorica: 'Morte M3: Morte no campo de batalha durante a grande sortida e a carga de cavalaria de Stannis.',
       },
       escolhas: [],

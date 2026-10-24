@@ -40,11 +40,12 @@ Do lado rebelde, Robert Baratheon ajeita o elmo com chifres de veado e ergue o m
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II, Daenerys I',
-        },
+      },
         notaHistorica: 'Âncora Canônica: A Batalha do Tridente opõe quarenta mil rebeldes a quarenta mil lealistas pelo destino do Trono de Ferro.',
       },
       escolhas: [
@@ -98,11 +99,12 @@ Ser Barristan Selmy, o Ousado, avança como uma lenda viva em seu manto branco i
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Barristan Selmy luta com bravura descomunal no Tridente, matando muitos rebeldes antes de cair ferido.',
       },
       escolhas: [
@@ -155,11 +157,12 @@ Ser Lyn Corbray pega a espada de aço valiriano de seu pai caído, a lendária S
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Sansa VI',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Ser Lyn Corbray mata o Príncipe Lewyn Martell com a Senhora Desespero na Batalha do Tridente.',
       },
       escolhas: [
@@ -214,11 +217,12 @@ Os dois cavalos colidem nas águas profundas. A espada de Rhaegar abre um corte 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert mata Rhaegar Targaryen no vau do Tridente com um golpe devastador de martelo no peito.',
       },
       escolhas: [
@@ -275,11 +279,12 @@ Com um último murmúrio que sussurra um nome feminino que a correnteza engole �
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Rhaegar morre com o peitoral de rubis estilhaçado murmurando o nome de Lyanna.',
       },
       escolhas: [
@@ -332,11 +337,12 @@ Robert Baratheon, apoiado em seus ombros enquanto seu meistre estanca o sangue, 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert confia a perseguição e a vanguarda para Porto Real a Eddard Stark devido aos seus ferimentos.',
       },
       escolhas: [

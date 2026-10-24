@@ -24,11 +24,12 @@ O ataque surpresa foi devastador: as tendas dos Verdes arderam enquanto dormiam 
           fala: 'O exército dos Verdes que ameaçava marchar sobre Porto Real foi aniquilado. Mas onde estão Aegon II e Rhaenyra?',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -91,11 +92,12 @@ Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala,
           fala: 'O cheiro de carne queimada impregna a brisa. O destino histórico de Rhaenyra está suspenso por um fio de espada.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -152,11 +154,12 @@ Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala,
       regionId: 'pedra_dragao',
       isEnding: true,
       fallbackText: `Seu salto contra Ser Alfred Broome foi interceptado por um jato de chamas douradas incandescentes saídas das fauces de Sunfyre. Suas vestes e carne foram incineradas antes de tocardes o chão de obsidiana.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -173,11 +176,12 @@ Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala,
       fallbackText: `Aegon II deu a ordem fria: 'Alimenta-o, Sunfyre.'
       
 O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em seis dentadas sangrentas diante dos olhos aterrorizados de seu filho de dez anos, o Príncipe Aegon, o Jovem. Restou apenas sua perna esquerda abaixo do joelho. O dragão expirou semanas depois em decorrência de seus ferimentos incuráveis.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -216,11 +220,12 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
       fallbackText: `Com fúria implacável, Ser Alfred Broome teve a garganta cortada e os leais a Aegon II foram encurralados! Rhaenyra e o Príncipe Aegon foram colocados a bordo de uma galé rápida da frota Velaryon, rumando com segurança para as forças do Norte que desciam a Estrada do Rei!`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -262,11 +267,12 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
       fallbackText: `Aegon II retornou a Porto Real incapaz de andar, com dores agonizantes e exigindo mutilar a orelha do pequeno príncipe Aegon. Porém, os exércitos dos Pretos não haviam morrido: os rapazes do Tridente venceram a Batalha da Estrada do Rei, e vinte mil lobos famintos de Lorde Cregan Stark cruzaram o Gargalo.
       
 Lorde Corlys Velaryon e Larys Strong aconselharam o rei a render-se e vestir o negro. Aegon II recusou furiosamente. Meia hora depois, foi encontrado morto em sua carruagem real com sangue negro nos lábios, envenenado por seus próprios conselheiros.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -317,11 +323,12 @@ O jovem Aegon III foi coroado ao lado de Jaehaera, unindo simbolicamente os Pret
           fala: 'A justiça de Cregan Stark é a única rocha sólida num mar de traições. As escolhas do jogador decidirão o desfecho final.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -395,11 +402,12 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'A vitória dos Senhores dos Rios na Estrada do Rei.',
       },
       escolhas: [
@@ -446,11 +454,12 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_08_momento-posterior-hora-do-lobo.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'O Momento Posterior - A Hora do Lobo',
-        },
+      },
         notaHistorica: 'O julgamento implacável de Cregan Stark.',
       },
       escolhas: [
@@ -527,11 +536,12 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_08_momento-posterior-hora-do-lobo.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'O Momento Posterior - A Hora do Lobo',
-        },
+      },
         notaHistorica: 'O matrimônio dinástico selando o fim da guerra.',
       },
       escolhas: [
@@ -589,11 +599,12 @@ No meio da lama, os arqueiros de Blackwood crivaram a cavalaria da Tempestade. L
       fallbackText: `A guerra civil mais sangrenta da Casa Targaryen termina como dita o cânone sagrado da Cidadela. Lorde Cregan Stark renunciou ao cargo de Mão após seis dias de justiça austera e retornou aos ermos gelados de Winterfell com sua noiva Alysanne Blackwood.
       
 O jovem Rei Aegon III, marcado para sempre pela visão de sua mãe sendo devorada viva diante de seus olhos, senta-se no Trono de Ferro com um olhar melancólico e distante. Os dragões, outrora soberanos dos céus, estão quase todos mortos; o último ovo rachará em uma criatura raquítica e disforme. A Dança dos Dragões ceifou o fogo do mundo, mas os Sete Reinos sobrevivem sob o governo prudente da regência de Corlys Velaryon.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -621,11 +632,12 @@ O jovem Rei Aegon III, marcado para sempre pela visão de sua mãe sendo devorad
       fallbackText: `Contra todas as conspirações dos Verdes, a Rainha Rhaenyra Targaryen sobreviveu e adentrou Porto Real à frente dos vinte mil combatentes do Norte e da frota Velaryon! O Fosso dos Dragões foi preservado e fortificado com guardiões de ferro.
       
 Com Daemon e seus herdeiros ao seu lado, Rhaenyra governa incontestada sobre o Trono de Ferro com a coroa de Viserys I. O legado valiriano floresce com novas ninhadas de dragões nos pátios da Fortaleza Vermelha, e o nome da Primeira Rainha Soberana de Westeros é gravado em letras douradas em todos os anais da história.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -643,11 +655,12 @@ Com Daemon e seus herdeiros ao seu lado, Rhaenyra governa incontestada sobre o T
       fallbackText: `A facção Verde consolidou sua supremacia absoluta. Com o apoio financeiro e diplomático de Vilavelha, da Cidadela e da Fé dos Sete, a linhagem de Alicent Hightower e Aegon II expurgou os partidários de Pedra do Dragão de todos os cargos da corte.
       
 O Trono de Ferro governa sob as bênçãos do Alto Septão, subordinando o poder dos dragões às antigas tradições ândalas e às leis de sucessão patriarcal, inaugurando uma era de opulência e conservadorismo sacro em Westeros.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -665,11 +678,12 @@ O Trono de Ferro governa sob as bênçãos do Alto Septão, subordinando o poder
       fallbackText: `A ousadia das sementes de dragão mudou o curso do mundo. Ao domar Vermithor, o novo montador uniu os cavaleiros plebeus de Asaprata e Rouba-Ovelhas, recusando-se a dobrar o joelho tanto aos Pretos quanto aos Verdes.
       
 Erguendo a 'Coroa de Bronze' nas muralhas colossais de Harrenhal, uma nova dinastia valiriana plebeia impõe-se pela força bruta de três dragões adultos. Os lordes de Westeros contemplam aterrorizados uma nova ordem onde o fogo do dragão pertence a quem tem a coragem de montá-lo, e não a quem herda pergaminhos de corte.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -687,11 +701,12 @@ Erguendo a 'Coroa de Bronze' nas muralhas colossais de Harrenhal, uma nova dinas
       fallbackText: `Com Lucerys e Rhaenys salvos das primeiras emboscadas, a carnificina cega foi interrompida antes do aniquilamento total. Convocado nas margens do Olho de Deus, o Grande Conselho de 131 d.C. reuniu quinhentos lordes para selar uma partilha de poder histórica.
       
 Um casamento entre os ramos Pretos e Verdes unificou as pretensões, mantendo doze dragões vivos nos céus e salvaguardando a dinastia Targaryen em seu zênite militar para as provações sombrias do inverno vindouro.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -709,11 +724,12 @@ Um casamento entre os ramos Pretos e Verdes unificou as pretensões, mantendo do
       fallbackText: `Desgostoso com a fraqueza e venenos dos nobres sulistas, Lorde Cregan Stark recusou-se a soltar o selo de Mão do Rei. Declarando o Protetorado Militar Permanente dos Sete Reinos, o Senhor de Winterfell governou com a espada de aço valiriano Gelo no colo diante do Trono.
       
 Durante duas décadas de mão de ferro, os vassalos sulistas foram subjugados à lei estrita e incorruptível do Norte. Os traidores foram executados ou mandados para a Muralha, e Westeros aprendeu com pavor e respeito que quando o lobo governa, a honra é paga em sangue.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Breve e Triste Reinado de Aegon II',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 

@@ -38,11 +38,12 @@ Do lado de fora dos muros, os tambores reais ressoam: Connington oferece montanh
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jaime V, Epílogo',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Jon Connington cerca Septo de Pedra e busca Robert de casa em casa antes da chegada de Ned Stark.',
       },
       escolhas: [
@@ -97,11 +98,12 @@ Do alto da torre do septo, um sino solitário soa uma vez. Depois outro. E de re
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jaime V',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Os sinos de Septo de Pedra tocam para alertar sobre o ataque rebelde, dando nome à célebre batalha.',
       },
       escolhas: [
@@ -153,11 +155,12 @@ Homens de armas derrubam portas de tavernas e reviram sótãos. Connington não 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_5_a-dança-dos-dragões_resumo-completo.md',
           livro: 'A Dança dos Dragões',
           capitulo: 'O Grifo Renascido',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Jon Connington mais tarde lamentará ter buscado Robert de casa em casa em vez de queimar a cidade como Tywin faria.',
       },
       escolhas: [
@@ -207,11 +210,12 @@ Gritos de 'Winterfell!' e 'Correrrio!' tomam as ruelas estreitas enquanto a host
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jaime V',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Ned Stark e Hoster Tully atacam os muros de Septo de Pedra, iniciando o confronto generalizado.',
       },
       escolhas: [
@@ -267,11 +271,12 @@ Antes que alguém possa responder, uma gargalhada retumbante corta o ar: Robert 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Robert sai do esconderijo e luta pessoalmente ao lado de Ned Stark e Hoster Tully.',
       },
       escolhas: [
@@ -326,11 +331,12 @@ A Batalha dos Sinos terminou em triunfo total para a Rebelião! Robert, Ned e Jo
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jaime V, Epílogo',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Jon Connington é derrotado e destituído do cargo de Mão do Rei por Aerys II, sendo enviado ao exílio.',
       },
       escolhas: [

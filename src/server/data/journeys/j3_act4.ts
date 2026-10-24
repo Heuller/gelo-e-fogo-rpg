@@ -26,11 +26,12 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Catelyn III',
-        },
+      },
         notaHistorica: 'Robb executa Lorde Karstark e perde suas forças.',
       },
       escolhas: [
@@ -85,11 +86,12 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Catelyn VI',
-        },
+      },
         notaHistorica: 'Vento Cinzento pressente a traição nas Gêmeas.',
       },
       escolhas: [
@@ -145,11 +147,12 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Catelyn VII',
-        },
+      },
         notaHistorica: 'O clímax sombrio do Casamento Vermelho.',
       },
       conditionalParagraphs: [
@@ -216,11 +219,12 @@ Besteiros surgiram na galeria alta disparando virotes sem piedade sobre a mesa d
 Catelyn Stark enlouqueceu de agonia, cortou a garganta do bobo dos Frey com uma faca de carne e começou a rir em desespero enquanto unhas arrancavam a carne de suas próprias bochechas. Um homem aproximou-se por trás e cortou sua garganta até os ossos.
 O exército nortenho foi massacrado em suas tendas. A cabeça de Robb foi cortada e substituída pela cabeça costurada de Vento Cinzento. O Norte parecia destruído para sempre.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -260,11 +264,12 @@ O exército nortenho foi massacrado em suas tendas. A cabeça de Robb foi cortad
       
 Roose Bolton foi encurralado e decapitado pelo próprio Robb ferido; Walder Frey foi jogado de joelhos em sua própria cadeira sob o olhar implacável dos nortenhos. As Gêmeas foram tomadas pelo sangue da justiça, e o exército do Rei no Norte sobreviveu intacto e vingado!`,
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -312,11 +317,12 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon X / Jon XI',
-        },
+      },
         notaHistorica: 'A vitória da Patrulha da Noite com a chegada do Rei Stannis.',
       },
       conditionalParagraphs: [
@@ -366,11 +372,12 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
       
 Stannis Baratheon ofereceu legitimar Jon como Senhor de Winterfell com a mão de Val, mas Jon recusou o Trono do Norte para honrar seus votos sagrados diante da Muralha. As escolhas do jogador decidirão o encerramento supremo da campanha!`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -416,11 +423,12 @@ Stannis Baratheon ofereceu legitimar Jon como Senhor de Winterfell com a mão de
       localizacao: 'Winterfell e As Gêmeas',
       regionId: 'norte',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,
@@ -452,11 +460,12 @@ Robb Stark marchou de volta para o Norte, libertou Fosso Cailin e expulsou os ho
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,
@@ -484,11 +493,12 @@ A bastardia dos herdeiros reais foi declarada perante a Fé e os lordes, e a cor
       localizacao: 'Castelo Negro, A Muralha',
       regionId: 'muralha',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,
@@ -516,12 +526,13 @@ Ali, no coração gelado do mundo, Ned revelou a Jon o segredo proibido da prome
       localizacao: 'A Muralha e Winterfell',
       regionId: 'norte',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
-        notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
+      },
+        notaHistorica: 'Desfecho canônico do Ato IV: O Norte se lembra da traição nas Gêmeas e jura vingança pela Casa Stark.',
       },
       isEnding: true,
       fallbackText: `O cânone implacável de A Tormenta de Espadas consuma seu destino histórico. Robb e Catelyn Stark tombaram nas Gêmeas, mas o eco de sua memória queima como fogo subterrâneo sob a neve de Westeros: 'O Norte se lembra, e a farsa dos Frey logo terminará.'
@@ -548,11 +559,12 @@ Em Castelo Negro, Jon Snow empunha a lâmina Garra Longa como Senhor Comandante,
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,
@@ -580,11 +592,12 @@ Lorde Tywin Lannister dita as leis do continente a partir da Torre da Mão com f
       localizacao: 'Castelo Negro e Winterfell',
       regionId: 'muralha',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Livro 3',
-        },
+      },
         notaHistorica: 'A Tormenta de Espadas (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,

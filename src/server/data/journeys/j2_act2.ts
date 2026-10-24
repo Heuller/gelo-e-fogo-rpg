@@ -24,11 +24,12 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
           fala: 'A guerra corrompeu até o sangue mais íntimo. A segurança de Pedra do Dragão precisa ser redobrada imediatamente.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -82,11 +83,12 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
       fallbackText: `Os batedores descobriram o ardil: Ser Criston Cole cercara deliberadamente o modesto castelo de Lorde Staunton em Pouso de Gralhas para forçar um dragão dos Pretos a vir em socorro, mantendo Sunfyre e Vhagar emboscados nas florestas próximas.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -125,11 +127,12 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
       localizacao: 'Terras da Ponta da Garra Rachada',
       regionId: 'terras_da_coroa',
       fallbackText: `Ser Criston Cole queimou Rosby e Stokeworth, incorporando suas forças e cercando Pouso de Gralhas. Lorde Staunton trancou os portões e enviou um corvo desesperado para Pedra do Dragão implorando socorro de asas.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -184,11 +187,12 @@ Rhaenys não fugiu. Rindo com desdém valiriano, ela lançou Meleys diretamente 
           fala: 'O calor da queda é infernal. As armaduras de ferro derretem na própria carne dos cavaleiros!',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -245,11 +249,12 @@ Rhaenys não fugiu. Rindo com desdém valiriano, ela lançou Meleys diretamente 
       regionId: 'terras_da_coroa',
       isEnding: true,
       fallbackText: `Sua intervenção foi engolida pela torrente monumental de fogo de Vhagar. Sua montaria e seu corpo foram reduzidos a cinzas estalantes antes que seus pés pudessem tocar a terra queimada.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -266,11 +271,12 @@ Rhaenys não fugiu. Rindo com desdém valiriano, ela lançou Meleys diretamente 
       fallbackText: `O impacto da queda estremeceu as colinas. Meleys morreu no impacto com a espinha partida; ao lado de sua carcaça, o corpo carbonizado da Princesa Rhaenys jazia irreconhecível.
       
 Mas a vitória dos Verdes teve um custo devastador: uma das asas de Sunfyre foi arrancada, e o Rei Aegon II sofreu queimaduras terríveis, com sua armadura de aço fundida na carne das costelas e o quadril estilhaçado. Aemond assumiu como Príncipe Regente.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -309,11 +315,12 @@ Mas a vitória dos Verdes teve um custo devastador: uma das asas de Sunfyre foi 
       localizacao: 'Pouso de Gralhas',
       regionId: 'terras_da_coroa',
       fallbackText: `Com uma manobra arrojada, Meleys conseguiu soltar-se de Sunfyre antes do impacto final, forçando o dragão de Aegon a colidir sozinho contra o penhasco! Rhaenys retornou gravemente ferida mas viva para Derivaderiva, enquanto Sunfyre permaneceu mutilado na lama.`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -363,11 +370,12 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
           fala: 'O sangue do dragão não conhece leis de matrimônio. Um bastardo montado num dragão pode ser tanto a salvação quanto a ruína de um reino.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -410,11 +418,12 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       regionId: 'pedra_dragao',
       isEnding: true,
       fallbackText: `Sua aproximação irritou o antigo dragão do Rei Jaehaerys. Com um bafo flamejante que derreteu sua cota de malha em segundos, Vermithor engoliu seus restos e retornou ao seu sono na caverna vulcânica.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -429,11 +438,12 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       localizacao: 'Monte Dragão',
       regionId: 'pedra_dragao',
       fallbackText: `Com nervos de aço e a voz ressoando em alto valiriano, conseguistes subjugar a besta titânica! Vermithor curvou sua cabeça cor de bronze, permitindo que a sela fosse atada em seu dorso. Você é agora o senhor da segunda maior arma viva de Westeros!`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -473,11 +483,12 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
       fallbackText: `Urtigas ofereceu pacientemente uma ovelha recém-abatida todas as manhãs até que a criatura selvagem aceitou seu toque. Uma garota plebeia morena e descalça tornara-se senhora dos céus.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -516,11 +527,12 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
       fallbackText: `Hugh Martelo domou Vermithor; Ulf, o Branco montou Asaprata; Addam de Casco reivindicou Fumaresia e Urtigas subiu em Rouba-Ovelhas. Seis dragões voavam agora sob o estandarte de Rhaenyra, mas a frota de guerra de Lys, Myr e Tyrosh aproximava-se com noventa galés.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -569,11 +581,12 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
           fala: 'A frota inimiga está em cinzas, mas o herdeiro de Rhaenyra está no mar cercado por flecheiros de Lys!',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -627,11 +640,12 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
       localizacao: 'Mar da Goela',
       regionId: 'pedra_dragao',
       fallbackText: `Jacaerys conseguiu soltar-se dos arreios de Vermax, mas ao emergir entre os destroços, dezenas de besteiros myrenses dispararam em uníssono. O príncipe desapareceu nas águas salgadas. A vitória foi conquistada, mas Derivaderiva foi saqueada e Espreitamar ardeu.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -670,11 +684,12 @@ Cinco dragões caíram dos céus vomitando chamas vorazes que transformaram as g
       localizacao: 'Águas de Derivaderiva',
       regionId: 'pedra_dragao',
       fallbackText: `Com bravura descomunal, uma galera Velaryon interceptou os disparos e resgatou o jovem herdeiro ferido mas com vida! A vitória na Goela é total e a sucessão de Rhaenyra permanece firme.`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -723,11 +738,12 @@ A Rainha Alicent rendeu a Fortaleza Vermelha, mas Aegon II e seus dois filhos ha
           fala: 'A coroa foi recuperada, mas as lâminas do Trono cortaram a mão de Rhaenyra. O ferro frio ainda não aceitou seu reinado por completo.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -773,11 +789,12 @@ escolhas: [
       regionId: 'terras_da_coroa',
       isEnding: true,
       fallbackText: `O Trono de Ferro pertence a Rhaenyra, mas o tesouro real foi esvaziado pelos Hightower e o povo geme sob pesados impostos. Aemond Caolho queima o Tridente com Vhagar, e o exército Verde de Ormund Hightower marcha em direção a Tumbleton com o Príncipe Daeron e Tessarion. O Ato III e as maiores traições da guerra aguardam.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Dragão Vermelho e Dourado',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 

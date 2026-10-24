@@ -30,11 +30,12 @@ Ser Otto Hightower anunciou que o Trono de Ferro não seria entregue a uma mulhe
           fala: 'O sangue de Beesbury ainda está morno. Quem hesitar agora terminará nas masmorras de Larys Strong.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -77,11 +78,12 @@ Ser Otto Hightower anunciou que o Trono de Ferro não seria entregue a uma mulhe
       regionId: 'terras_da_coroa',
       isEnding: true,
       fallbackText: `Seus passos nas galerias escuras foram interceptados pelos carrascos silenciosos de Ser Otto Hightower. Acusado de traição à nova ordem de Aegon II, foi arrastado para o terceiro nível das masmorras, onde a lâmina de Ser Criston Cole pôs fim aos seus desígnios na escuridão úmida.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -106,11 +108,12 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
           fala: 'Traição pura e vil! O sangue dos dragões legítimos deve lavar os degraus da Fortaleza Vermelha.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -164,11 +167,12 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
       localizacao: 'Portão da Lama, Porto Real',
       regionId: 'terras_da_coroa',
       fallbackText: `Esquivando-se das patrulhas dos Mantos Dourados leais a Ser Otto, conseguistes escapar num esquife mercante pelo rio Água Negra, alcançando as praias de basalto negro de Pedra do Dragão sob o olhar vigilante de Syrax e Caraxes.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -219,13 +223,15 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
           dcPassiva: 10,
           fala: 'A facção Verde tem o ouro, o tesouro e a maior besta alada de Westeros. Mas o Norte e o Mar Estreito não se curvarão sem sangue.',
         },
-      ],      loreContext: {
+      ],
+      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
-        notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
+      },
+        notaHistorica: 'Coroação pública de Aegon II no Fosso dos Dragões perante a plebe de Porto Real (Fogo & Sangue).',
       },
 
       escolhas: [
@@ -278,11 +284,12 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
       localizacao: 'Passagens Secretas de Maegor',
       regionId: 'terras_da_coroa',
       fallbackText: `Lorde Larys Strong, o mestre dos sussurros de passos mancos, conduziu você pelos túneis secretos escavados dentro das paredes de pedra vermelha. Seus espiões sabiam que o jovem Lucerys Velaryon estava voando em Arrax para o sul, rumo a Ponta Tempestade.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -321,11 +328,12 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
       fallbackText: `Os navios da Serpente do Mar fecharam a Goela, impedindo a chegada de grãos e vinho a Porto Real. Otto Hightower despachou corvos para Vilavelha e Rochedo Casterly, convocando as lanças do Ocidente e da Campina.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -380,11 +388,12 @@ Os jovens príncipes Jacaerys e Lucerys deram um passo à frente. Jacaerys ofere
           fala: 'Lorde Borros é um homem iletrado e belicoso. Palavras doces não bastarão diante de uma promessa de casamento.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -440,11 +449,12 @@ Os jovens príncipes Jacaerys e Lucerys deram um passo à frente. Jacaerys ofere
       fallbackText: `Daemon Targaryen pousou Caraxes sobre o topo da Torre dos Fogos Vermelhos de Harrenhal. Diante das mandíbulas sibilantes do dragão vermelho, Ser Simon Strong rendeu as doze muralhas sem disparar uma flecha.
       
 Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, mas as más novas de Ponta Tempestade logo cruzaram os céus.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -483,11 +493,12 @@ Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, m
       localizacao: 'Bosque Sagrado de Winterfell',
       regionId: 'norte',
       fallbackText: `Jacaerys Velaryon pousou Vermax nos pátios nevados de Winterfell. Diante do represeiro ancestral de olhos ensanguentados, ele e o jovem Lorde Cregan Stark beberam sangue e vinho, forjando o Pacto de Gelo e Fogo: o Norte enviaria milhares de homens armados e, em troca, uma princesa Targaryen se casaria com o herdeiro Stark.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -543,11 +554,12 @@ No Grande Salão, Lorde Borros Baratheon zombou da mensagem de Rhaenyra, exigind
           fala: 'Arrax é jovem e veloz, mas a tempestade favorece o peso colossal e a envergadura de Vhagar.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -591,11 +603,12 @@ No Grande Salão, Lorde Borros Baratheon zombou da mensagem de Rhaenyra, exigind
       fallbackText: `Entre relâmpagos e trovões estrondosos, Arrax tentou fugir pelas rajadas de chuva, mas a sombra colossal de Vhagar emergiu das nuvens cinco vezes maior. As mandíbulas titânicas da velha dragão fecharam-se sobre o pescoço de Arrax.
       
 Pedaços de carne, escamas brancas e o corpo do jovem Príncipe Lucerys Velaryon despencaram nas ondas revoltas da Baía dos Naufrágios. A guerra de palavras terminara; a guerra de sangue e fogo estava decretada.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -636,11 +649,12 @@ Pedaços de carne, escamas brancas e o corpo do jovem Príncipe Lucerys Velaryon
       fallbackText: `Com uma manobra acrobática quase sobrenatural guiada pelo presságio dos ventos, Arrax mergulhou numa fenda de penhascos onde a envergadura monumental de Vhagar não pôde passar! O bafo de chamas verdes de Vhagar queimou apenas a rocha úmida.
       
 Lucerys Velaryon sobreviveu à fúria de Aemond, conseguindo ganhar altitude e escapar rumo ao Mar Estreito com segredos vitais sobre a aliança dos Verdes!`,      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -696,11 +710,12 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
           fala: 'A morte de uma criança no berço destruirá a simpatia dos nobres de Westeros por Rhaenyra.',
         },
       ],      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -754,11 +769,12 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
       fallbackText: `A cabeça do Príncipe Jaehaerys rolou diante dos olhos de sua mãe, que caiu em loucura irreversível. O reino estremeceu em pavor. Aegon II jurou arrancar o coração de Rhaenyra com as próprias mãos, e Ser Otto Hightower ordenou o enforcamento de todos os caçadores de ratos da cidade.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 
@@ -796,13 +812,15 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
       anoHistorico: '129 d.C.',
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Sua intervenção conseguiu conter a lâmina de Sangue, sequestrando o príncipe infante como refém em vez de assassiná-lo barbaramente. A guerra ganha um tom de disputa política sem o estigma hediondo do infanticídio.`,      loreContext: {
+      fallbackText: `Sua intervenção conseguiu conter a lâmina de Sangue, sequestrando o príncipe infante como refém em vez de assassiná-lo barbaramente. A guerra ganha um tom de disputa política sem o estigma hediondo do infanticídio.`,
+      loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
-        notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
+      },
+        notaHistorica: 'Criação autoral: dilema ético do protagonista diante do plano sangrento de Sangue e Queijo.',
       },
 
       escolhas: [
@@ -841,11 +859,12 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
       regionId: 'pedra_dragao',
       isEnding: true,
       fallbackText: `O primeiro ano da guerra dinástica chega ao fim marcado por tragédias indeléveis. O sangue de príncipes e dragões foi derramado nos céus e na corte. Criston Cole prepara a grande marcha militar sobre as terras da Coroa, marchando para o Pouso de Gralhas onde os dragões de ambos os lados colidirão em chamas.`,      loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Morte dos Dragões - Pretos e Verdes',
-        },
+      },
         notaHistorica: 'Fogo & Sangue (George R. R. Martin)',
       },
 

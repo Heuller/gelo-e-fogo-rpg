@@ -35,12 +35,13 @@ Do outro lado, as tropas combinadas dos Targaryen não passavam de dez mil comba
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'campo_de_fogo',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Mern IX e Loren Lannister unem 55.000 homens contra Aegon I.',
       },
       escolhas: [
@@ -103,12 +104,14 @@ Nas celas de couro trabalhado, Aegon ajustava as rédeas de Balerion, enquanto a
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'campo_de_fogo',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Posicionamento histórico das hostes reais e do exército dos Dois Reis antes do confronto no Campo de Fogo.',
       },
       escolhas: [
         {
@@ -170,11 +173,12 @@ O próprio Aegon combateu a cavalo durante os primeiros minutos para conter o p�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'A carga Gardener quebra as linhas de infantaria antes da intervenção dos dragões.',
       },
       escolhas: [
@@ -249,12 +253,13 @@ Quatro mil homens arderam vivos na planície, incluindo o Rei Mern IX Gardener e
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'campo_de_fogo',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Quatro mil homens morrem no Campo de Fogo e a Casa Gardener é extinta.',
       },
       escolhas: [
@@ -324,11 +329,12 @@ Sem o Conquistador para guiar os dragões e forjar as leis de um reino unificado
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Morte prematura no Campo de Fogo por falha crítica.',
       },
       escolhas: [],
@@ -357,12 +363,13 @@ Enquanto isso, patrulheiros de Orys Baratheon capturavam nos bosques próximos o
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'gardener',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'A Casa Gardener é declarada extinta após a batalha.',
       },
       escolhas: [
@@ -432,12 +439,13 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'lannister',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Loren I Lannister ajoelha-se e é confirmado Lorde de Rochedo Casterly.',
       },
       escolhas: [
@@ -505,12 +513,13 @@ Porém, nas antessalas do castelo, emissários da Casa Florent de Fortaleza de �
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'tyrell',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Harlen Tyrell entrega Jardim de Cima e é nomeado Protetor do Sul.',
       },
       escolhas: [
@@ -570,12 +579,13 @@ Porém, quando os batedores nortenhos subiram as colinas, avistaram as forças d
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'stark',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Torrhen Stark desce com 30.000 homens ao Tridente.',
       },
       escolhas: [
@@ -635,12 +645,13 @@ Do outro lado do rio, as sentinelas reais sentiram o peso de um presságio teneb
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
-        notaHistorica: 'Brandon Snow propõe matar os dragões durante a noite com flechas de represeiro.',
+      },
+        notaHistorica: 'Proposta histórica de Brandon Snow a Torrhen Stark para infiltrar-se e assassinar os dragões com flechas de represeiro.',
       },
       escolhas: [
         {
@@ -698,11 +709,13 @@ Brandon lutou com a destreza selvagem dos lobos do Norte, cravando uma adaga de 
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
+        notaHistorica: 'Ramificação alternativa do RPG: Brandon Snow executa a tentativa noturna de emboscada aos dragões.',
       },
       escolhas: [
         {
@@ -770,11 +783,12 @@ O Norte permaneceu livre e indomável atrás de suas neves eternas, mas a promes
         },
       ],
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Morte trágica por emboscada noturna no Tridente.',
       },
       escolhas: [],
@@ -809,12 +823,13 @@ Com dignidade régia incomparável, Torrhen despiu a antiga coroa de bronze enta
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'torrhen_stark',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Torrhen Stark ajoelha-se no Tridente, poupando seu exército e tornando-se Protetor do Norte.',
       },
       escolhas: [
@@ -874,12 +889,13 @@ Quando a Rainha Sharra e seus guardas correram ao pátio com espadas desembainha
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'arryn',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Visenya pousa no Ninho da Águia e Ronnel Arryn voa em Vhagar, selando a paz.',
       },
       escolhas: [
@@ -947,12 +963,13 @@ Nenhum rei deveria sentar-se confortavelmente em seu posto, declarou Aegon. O Tr
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'trono_de_ferro',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'Balerion funde as espadas dos derrotados para forjar o Trono de Ferro.',
       },
       escolhas: [
@@ -1023,12 +1040,13 @@ A maior parte do continente estava unida, mas as sombras ainda persistiam: nas I
         },
       ],
       loreContext: {
+        origem: 'canonica',
         idVerbete: 'aegon_o_conquistador',
         fonte: {
           arquivo_md: 'fogo-e-sangue_01_a-conquista-de-aegon.md',
           livro: 'Fogo & Sangue - Volume 1',
           capitulo: 'A Conquista de Aegon',
-        },
+      },
         notaHistorica: 'O Alto Septão unge Aegon em Vilavelha, marcando o Ano 1 d.C.',
       },
       escolhas: [],

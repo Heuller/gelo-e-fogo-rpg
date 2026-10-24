@@ -32,11 +32,12 @@ Ao seu redor, o acampamento de trezentos irmãos jurados da Patrulha da Noite tr
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Prólogo / Samwell I',
-        },
+      },
         notaHistorica: 'O ataque dos Outros no Punho dos Primeiros Homens.',
       },
       escolhas: [
@@ -79,11 +80,12 @@ Atrás de você, Samwell Tarly soluça em agonia, com os pés em carne viva e as
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell I',
-        },
+      },
         notaHistorica: 'A penosa retirada da Patrulha através da nevasca.',
       },
       escolhas: [
@@ -127,11 +129,12 @@ No canto escuro do celeiro, homens feridos delirantes gemem de dor. O ressentime
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell II',
-        },
+      },
         notaHistorica: 'O descanso tenso na Fortaleza de Craster.',
       },
       escolhas: [
@@ -175,11 +178,12 @@ Quando o Senhor Comandante Jeor Mormont berrou exigindo ordem em nome do rei, Ka
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell II',
-        },
+      },
         notaHistorica: 'O infame motim onde Jeor Mormont é assassinado.',
       },
       escolhas: [
@@ -222,11 +226,12 @@ Os olhos de granito cinzento do lorde da Ilha dos Ursos fixam-se no teto enfuma�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell II',
-        },
+      },
         notaHistorica: 'O perdão final de Jeor Mormont ao filho Jorah.',
       },
       escolhas: [
@@ -262,11 +267,12 @@ Os olhos de granito cinzento do lorde da Ilha dos Ursos fixam-se no teto enfuma�
       
 Você, Samwell Tarly e Goiva escapais na escuridão sob a nevasca torrencial, deixando para trás o salão em chamas.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell II / III',
-        },
+      },
         notaHistorica: 'A fuga desesperada com a jovem Goiva e seu bebê.',
       },
       escolhas: [
@@ -311,11 +317,12 @@ As tábuas podres da porta estalam e voam em pedaços. Um Outro surge no vão, c
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell III',
-        },
+      },
         notaHistorica: 'O confronto aterrorizante com o Outro.',
       },
       escolhas: [
@@ -358,11 +365,12 @@ O monstro soltou um uivo que pareceu rachar o próprio céu ártico. A lâmina f
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell III',
-        },
+      },
         notaHistorica: 'Samwell descobre que obsidiana mata os Outros.',
       },
       escolhas: [
@@ -400,11 +408,12 @@ Mil corvos mergulharam da copa do grande represeiro, bicando os olhos dos mortos
 — Vão! Vão! — pareciam gritar as aves.
 Por entre os pinheiros nevados, montado em um alce colossal, surge uma figura silenciosa envolta em farrapos negros da Patrulha.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell III',
-        },
+      },
         notaHistorica: 'A intervenção mística de Mãos-Frias e a revoada de corvos.',
       },
       escolhas: [
@@ -446,11 +455,12 @@ Por entre os pinheiros nevados, montado em um alce colossal, surge uma figura si
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell IV',
-        },
+      },
         notaHistorica: 'Mãos-Frias guia os fugitivos até Fortenoite.',
       },
       escolhas: [
@@ -486,11 +496,12 @@ Por entre os pinheiros nevados, montado em um alce colossal, surge uma figura si
 Um rosto ancestral esculpido na madeira abre os olhos de seiva vermelha e fala com uma voz cavernosa que ecoa pela pedra:
 — Quem vem lá?`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Bran IV / Samwell IV',
-        },
+      },
         notaHistorica: 'O lendário Portão Negro de Fortenoite.',
       },
       escolhas: [
@@ -535,11 +546,12 @@ As mandíbulas de madeira se abrem e você cruzais para o lado sul da Muralha, s
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Bran IV',
-        },
+      },
         notaHistorica: 'O juramento sagrado que abre o Portão Negro.',
       },
       escolhas: [
@@ -576,11 +588,12 @@ O pátio está enlameado, com poucos homens trabalhando nas forjas e nos estábu
 — Pelos deuses... são os sobreviventes do Punho! O Velho Urso retornou?
 — Não — respondeis com a garganta seca. — O Velho Urso foi assassinado em Craster. Estamos quase todos mortos.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII / Samwell V',
-        },
+      },
         notaHistorica: 'A notícia do massacre do Punho e do motim chega a Castelo Negro.',
       },
       escolhas: [
@@ -621,11 +634,12 @@ Ao ouvir o relato da morte de Mormont e do massacre no Punho, Noye cospe na bras
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Donal Noye assume o comando prático de Castelo Negro.',
       },
       escolhas: [
@@ -671,11 +685,12 @@ O velho meistre ergue o rosto cego na sua direção:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Samwell V',
-        },
+      },
         notaHistorica: 'Meistre Aemon reconhece o valor da obsidiana.',
       },
       escolhas: [
@@ -707,11 +722,12 @@ O velho meistre ergue o rosto cego na sua direção:
       regionId: 'castelo_negro',
       fallbackText: `Você se posta no pátio de Castelo Negro sob o céu cinzento de chumbo. O Grande Alcance terminou em tragédia, o Velho Urso está sepultado nas neves da floresta, mas você trouxe a verdade de volta: os mortos caminham, a obsidiana é sua ruína e o cerco dos homens livres está prestes a desabar sobre o Muro.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Transição entre o retorno do Punho e a defesa contra os thenns.',
       },
       escolhas: [

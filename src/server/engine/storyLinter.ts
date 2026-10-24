@@ -12,8 +12,12 @@ export const FonteLoreSchema = z.object({
 });
 export type FonteLore = z.infer<typeof FonteLoreSchema>;
 
+export const OrigemCenaEnum = z.enum(['canonica', 'original']);
+export type OrigemCena = z.infer<typeof OrigemCenaEnum>;
+
 export const LoreContextSchema = z.object({
   idVerbete: z.string().optional(),
+  origem: OrigemCenaEnum.optional(),
   fonte: FonteLoreSchema,
   notaHistorica: z.string().optional(),
 });
@@ -91,6 +95,8 @@ export const NodeJornadaSchema = z.object({
   titulo: z.string().min(1),
   fallbackText: z.string().min(1, 'fallbackText literário não pode ser vazio'),
   loreContext: LoreContextSchema,
+  origem: OrigemCenaEnum.optional(),
+  notaHistorica: z.string().optional(),
   regionId: z.string().optional(),
   anoHistorico: z.string().optional(),
   localizacao: z.string().optional(),

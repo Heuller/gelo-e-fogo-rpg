@@ -31,11 +31,12 @@ export const grafoJ4Ato3: GrafoJornada = {
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C12. O ataque noturno dos Thenns liderados por Styr pelo flanco desprotegido do sul.',
       },
       escolhas: [
@@ -88,11 +89,12 @@ Ao seu lado, um noviço de dezesseis anos tomba com o crânio fendido pelo bronz
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C12, C13. O combate corpo a corpo no pátio interno contra os guerreiros de Styr.',
       },
       escolhas: [
@@ -138,11 +140,12 @@ Flechas acesas voam no mesmo segundo. O óleo de baleia, a aguarrás e o breu mi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C13. O incêndio deliberado da escadaria de madeira colapsa sobre os Thenns.',
       },
       escolhas: [
@@ -186,11 +189,12 @@ Placas maciças de gelo azul do tamanho de carroças de carga desprendem-se do a
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII',
-        },
+      },
         notaHistorica: 'Âncora: C13, C30. A Muralha chora e desaba placas de gelo esmagando os atacantes Thenns.',
       },
       escolhas: [
@@ -243,11 +247,12 @@ Sua cabeça tomba para o lado; a respiração cessa suavemente na noite gelada. 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VII, Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C14. Ygritte morre nos braços de Jon perto da Torre do Senhor Comandante; o autor do disparo da flecha nunca é revelado.',
       },
       escolhas: [
@@ -288,11 +293,12 @@ Jon Snow não permite que o corpo de Ygritte seja jogado na vala comum dos inimi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C14, C16. A queima do corpo de Ygritte por Jon e o início do cerco de Mance pelo norte.',
       },
       escolhas: [
@@ -336,11 +342,12 @@ Cem mil homens, mulheres e guerreiros do Povo Livre acampam na neve: fogueiras f
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C16. O cerco maciço de Mance Rayder com gigantes e mamutes.',
       },
       escolhas: [
@@ -386,11 +393,12 @@ Sobre suas corcovas peludas, gigantes urram com vozes que parecem avalanches de 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C16, C17. O ataque com mamutes e aríete contra o portão externo.',
       },
       escolhas: [
@@ -436,11 +444,12 @@ Sob o abrigo da tartaruga, mineiros e machadeiros trabalham com picaretas e barr
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII, Jon IX',
-        },
+      },
         notaHistorica: 'Âncora: C17. A estrutura móvel («a tartaruga») usada para proteger os mineiros selvagens.',
       },
       escolhas: [
@@ -485,11 +494,12 @@ CRASH! O impacto é estrondoso como a queda de uma torre inteira. A tartaruga de
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C17. Destruição da tartaruga com barris de pedra britada e piche.',
       },
       escolhas: [
@@ -532,11 +542,12 @@ Donal Noye desembainha sua espada longa e aperta a empunhadura com sua única m�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C16. Noye passa o comando do alto da Muralha para Jon/Grenn e desce para defender o túnel contra Mag.',
       },
       escolhas: [
@@ -581,11 +592,12 @@ Donal Noye não recua um único palmo. Ele finca a bota na pedra e ergue a lâmi
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C16. O combate fatal entre Donal Noye e Mag, o Poderoso, no túnel da Muralha.',
       },
       escolhas: [
@@ -635,11 +647,12 @@ O portão segurou. Castelo Negro resistiu.`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII, Jon X',
-        },
+      },
         notaHistorica: 'Âncora: C16, C25, C32. Donal Noye e Mag matam-se mutuamente no túnel; o portão permanece fechado.',
       },
       escolhas: [
@@ -680,11 +693,12 @@ Os defensores sobreviventes chegam trôpegos, com as mãos roxas de queimaduras 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII',
-        },
+      },
         notaHistorica: 'Âncora: C15, C27. Hobb serve pão preto e caldo de cebola aos exaustos defensores.',
       },
       escolhas: [
@@ -726,11 +740,12 @@ Ao longe, pela estrada oriental de Vigilância do Mar, estandartes negros e lan�
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VIII, Jon IX',
-        },
+      },
         notaHistorica: 'Âncora: C16, C18. Jon assume a liderança militar da Muralha enquanto reforços de Vigilância do Mar chegam.',
       },
       escolhas: [

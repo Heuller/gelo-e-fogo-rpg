@@ -32,11 +32,12 @@ Visitando uma forja na Colina de Visenya, Ned encontrou Gendry, um rapaz forte c
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard VI',
-        },
+      },
         notaHistorica: 'Ned Stark descobre a verdade sobre a bastardia de Joffrey.',
       },
       escolhas: [
@@ -93,11 +94,12 @@ Visitando uma forja na Colina de Visenya, Ned encontrou Gendry, um rapaz forte c
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard V',
-        },
+      },
         notaHistorica: 'O confronto velado entre Ned e Pycelle.',
       },
       escolhas: [
@@ -148,11 +150,12 @@ Naquela mesma tarde, corvos trouxeram notícias alarmantes do Tridente: na Estal
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard VII',
-        },
+      },
         notaHistorica: 'O Torneio da Mão e a briga dos irmãos Clegane.',
       },
       escolhas: [
@@ -203,11 +206,12 @@ Jory Cassel e os fiéis guardas de Winterfell foram massacrados na lama diante d
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard IX',
-        },
+      },
         notaHistorica: 'A emboscada de Jaime Lannister contra Ned Stark na chuva.',
       },
       escolhas: [
@@ -264,11 +268,12 @@ Cersei ergueu a cabeça dourada, olhando-o com escárnio e compaixão cortante:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XII',
-        },
+      },
         notaHistorica: 'O diálogo lendário entre Ned e Cersei sobre o jogo dos tronos.',
       },
       escolhas: [
@@ -329,11 +334,12 @@ Robert assinou com mão trêmula e fechou os olhos. A contagem regressiva para o
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XIII',
-        },
+      },
         notaHistorica: 'O testamento final do Rei Robert Baratheon.',
       },
       escolhas: [
@@ -390,11 +396,12 @@ Ned recusou com a honra cega do Norte:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XIII',
-        },
+      },
         notaHistorica: 'A oferta rejeitada de Renly Baratheon a Ned.',
       },
       escolhas: [
@@ -457,11 +464,12 @@ Ned recusou com a honra cega do Norte:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XIV',
-        },
+      },
         notaHistorica: 'O pacto fatal de Ned com Mindinho.',
       },
       escolhas: [
@@ -521,11 +529,12 @@ Ned ordenou que Janos Slynt prendesse a rainha e o menino. Num relance de aço, 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XIV',
-        },
+      },
         notaHistorica: 'A traição de Mindinho na Sala do Trono.',
       },
       escolhas: [
@@ -566,11 +575,12 @@ Ned ordenou que Janos Slynt prendesse a rainha e o menino. Num relance de aço, 
       
 Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diante do Pequeno Conselho estupefato. Uma carta urgente foi despachada a Stannis Baratheon para que assuma a coroa de direito.`,
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1 - Porto Real',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -633,11 +643,12 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard XV',
-        },
+      },
         notaHistorica: 'O diálogo de Varys e Ned Stark nas masmorras.',
       },
       escolhas: [
@@ -676,11 +687,12 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
     // 12. O Septo de Baelor e a Execução de Ned Stark
     j3_a2_septo_baelor_execucao_ned: {
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1 - Porto Real',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
 
@@ -758,11 +770,12 @@ Mas o Rei Joffrey deu um passo à frente com um sorriso sádico:
 Sansa desmaiou nos degraus; Yoren agarrou Arya pelas roupas de menino, cortou seus cabelos com uma adaga para disfarçá-la e arrastou-a para longe do horror. A cabeça de Ned foi cravada numa estaca de ferro coberta de piche sobre as muralhas da Fortaleza Vermelha.
 O Norte recebia o chamado definitivo para a guerra.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1 - Porto Real',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -803,11 +816,12 @@ O Norte recebia o chamado definitivo para a guerra.`,
       
 Ned Stark teve os ferros trocados pelo manto negro da Patrulha da Noite e foi entregue imediatamente a Yoren para ser escoltado em segredo até Castelo Negro vivo!`,
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1 - Porto Real',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -860,11 +874,12 @@ Ned Stark teve os ferros trocados pelo manto negro da Patrulha da Noite e foi en
       localizacao: 'Porto Real e Winterfell',
       regionId: 'norte',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1 - Porto Real',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,

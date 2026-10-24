@@ -38,11 +38,12 @@ No entanto, quando os muros de arenito vermelho da cidade surgem no horizonte en
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Eddard Stark lidera a vanguarda rebelde para tomar Porto Real, mas encontra o exército de Tywin Lannister às portas da capital.',
       },
       escolhas: [
@@ -96,11 +97,12 @@ Agora, fumaça negra sobe de centenas de casas incendiadas. Gritos de desespero 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II, Daenerys I, Jaime II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Pycelle convence Aerys a abrir as portas; os Lannister saquearam a cidade impiedosamente.',
       },
       escolhas: [
@@ -159,11 +161,12 @@ Quando os olhos gélidos e severos de Ned Stark encontram o olhar verde e brilha
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Jaime mata Aerys e senta no Trono de Ferro; Ned Stark entra na sala do trono e o força a descer.',
       },
       escolhas: [
@@ -226,11 +229,12 @@ Sem olhar para trás, Lorde Stark reúne seus cavaleiros do Norte e parte a galo
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II, Daenerys I',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Ned e Robert rompem violentamente após o massacre dos filhos de Rhaegar; Ned parte sozinho para o Sul.',
       },
       escolhas: [
@@ -288,11 +292,12 @@ Aos pés da muralha da torre, três cavaleiros com mantos brancos imaculados e a
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard X',
-        },
+      },
         notaHistorica: 'Âncora Canônica: Ned Stark cavalga com 6 companheiros até a Torre da Alegria nas montanhas de Dorne.',
       },
       escolhas: [
@@ -357,11 +362,12 @@ Sete homens do Norte contra três dos maiores cavaleiros que o reino já viu.`,
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard X',
-        },
+      },
         notaHistorica: 'Âncora Canônica: O diálogo mais célebre das Crônicas: "Agora começa." / "Não, agora acaba." 7 nortistas contra 3 guardas reais.',
       },
       escolhas: [
@@ -428,11 +434,12 @@ Mais tarde, as pedras da Torre da Alegria são derrubadas uma a uma para erguer 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard I, Eddard X',
-        },
+      },
         notaHistorica: 'Âncora Canônica: A promessa de Lyanna Stark no leito de morte e o nascimento de Jon Snow como herdeiro de Rhaegar e Lyanna.',
       },
       escolhas: [
@@ -490,11 +497,12 @@ Enquanto o reino celebra a coroação de Robert Baratheon e seu noivado arranjad
       
 Sua honra permanece imaculada perante os Deuses Antigos do bosque sagrado. Você sobreviveu à Rebelião que derrubou três séculos de reinado de dragões, e guardará o maior mistério de Westeros até o seu último suspiro.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Conclusão Histórica Canônica: O pacto sagrado da Torre da Alegria é preservado em Winterfell.',
       },
       escolhas: [],
@@ -514,11 +522,12 @@ Pelos seus feitos audaciosos desde o Ninho da Águia até as margens turbulentas
       
 A paz finalmente recai sobre Westeros — uma paz dourada e frágil, erguida sobre as cinzas de uma dinastia de dragões.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Conclusão Política: A ascensão da Casa Baratheon e a pacificação dos Sete Reinos sob Robert I.',
       },
       escolhas: [],
@@ -538,11 +547,12 @@ As cicatrizes do Tridente, do Septo de Pedra e das montanhas de Dorne continuam 
       
 Seu povo saúda você como um herói que marchou ao lado de Ned Stark e Robert Baratheon para trazer a justiça de volta ao mundo. Nos longos invernos que virão, seus netos ouvirão à lareira o relato verídico de como os homens livres quebraram as correntes do dragão.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard I',
-        },
+      },
         notaHistorica: 'Conclusão Reflexiva: O guerreiro veterano regressa às suas terras ancestrais após o término da guerra civil.',
       },
       escolhas: [],
@@ -562,11 +572,12 @@ Você tombou de joelhos na poeira vermelha de Dorne, ouvindo as palavras finais 
       
 Você caiu enfrentando o cavaleiro mais formidável de toda uma era. Suas façanhas serão lembradas com honra eterna nos contos dos homens do Norte. Seu turno terminou.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard X',
-        },
+      },
         notaHistorica: 'Morte Canônica: Um dos oito guerreiros caídos no lendário combate da Torre da Alegria.',
       },
       escolhas: [],
@@ -586,11 +597,12 @@ Você desabou sobre os ladrilhos frios da Fortaleza Vermelha, mesclando seu sang
       
 Sua audácia foi sua ruína nos corredores traiçoeiros do poder da capital. Seu turno terminou.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard II',
-        },
+      },
         notaHistorica: 'Morte Trágica: Queda em combate perante o Regicida no Salão do Trono durante o Saque de Porto Real.',
       },
       escolhas: [],

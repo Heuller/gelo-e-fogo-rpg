@@ -34,11 +34,12 @@ No regresso através da mata nevada, Robb e Jon Snow encontraram a carcaça de u
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Bran I',
-        },
+      },
         notaHistorica: 'O início da saga com a execução de Gared e os lobos gigantes.',
       },
       escolhas: [
@@ -95,11 +96,12 @@ No regresso através da mata nevada, Robb e Jon Snow encontraram a carcaça de u
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn II',
-        },
+      },
         notaHistorica: 'A revelação do veneno de Jon Arryn por Lysa.',
       },
       escolhas: [
@@ -148,11 +150,12 @@ Ao seu lado desceram a Rainha Cersei em sedas e peles douradas, Ser Jaime Lannis
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard I',
-        },
+      },
         notaHistorica: 'Robert nas criptas de Winterfell nomeando Ned Mão do Rei.',
       },
       escolhas: [
@@ -211,11 +214,12 @@ No dia seguinte, o rei partiu para uma caçada nos bosques. Bran Stark, escaland
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Jon I',
-        },
+      },
         notaHistorica: 'O diálogo célebre de Tyrion e Jon Snow no pátio.',
       },
       escolhas: [
@@ -265,11 +269,12 @@ Um gemido escapou de seus lábios. Jaime virou-se com agilidade felina, agarrou 
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Bran II',
-        },
+      },
         notaHistorica: 'O empurrão de Jaime Lannister em Bran.',
       },
       escolhas: [
@@ -328,11 +333,12 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Catelyn III',
-        },
+      },
         notaHistorica: 'O ataque do assassino com a adaga de aço valiriano.',
       },
       escolhas: [
@@ -387,11 +393,12 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
       regionId: 'norte',
       fallbackText: `Nos bolsos do assassino moribundo foram encontradas noventa moedas de prata de cunhagem recente da capital. O homem era um cavalariço que viajava com a comitiva do Rei. A ordem partira do próprio séquito real.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -432,11 +439,12 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
       
 Ned cavalgava para o sul pela Estrada do Rei com Sansa, Arya e as lobas Lady e Nymeria, cercado pelos cavaleiros arrogantes de Joffrey.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -497,11 +505,12 @@ Com ajuda de Tyrion e seu lobo Fantasma, Jon venceu a hostilidade inicial e juro
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Jon III',
-        },
+      },
         notaHistorica: 'Jon Snow e Tyrion Lannister no topo da Muralha.',
       },
       escolhas: [
@@ -550,11 +559,12 @@ Arya atacou o príncipe com um pedaço de pau. Quando Joffrey ergueu a lâmina p
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Arya III',
-        },
+      },
         notaHistorica: 'O ataque de Nymeria a Joffrey no Tridente.',
       },
       escolhas: [
@@ -614,11 +624,12 @@ Ned recusou que o carrasco Ilyn Payne tocasse na criatura:
         },
       ],
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Eddard III',
-        },
+      },
         notaHistorica: 'O sacrifício trágico da loba Lady por Ned Stark.',
       },
       escolhas: [
@@ -659,11 +670,12 @@ Ned recusou que o carrasco Ilyn Payne tocasse na criatura:
 — Chega de tolices, mulher! Um rapaz apanhou de uma menina menor e inventou mentiras! O lobo não morrerá!
 Lady foi enviada secretamente de volta a Winterfell em segurança.`,
       loreContext: {
+        origem: 'original',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -704,11 +716,12 @@ Lady foi enviada secretamente de volta a Winterfell em segurança.`,
       
 Ser Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned. A corte aguardava sua nova Mão do Rei para abrir o primeiro conselho de governo.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -747,11 +760,12 @@ Ser Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned.
       regionId: 'terras_da_coroa',
       fallbackText: `A lareira crepitava nos aposentos circulares da Torre da Mão. Ned depositou a espada Gelo sobre a mesa de carvalho negro e contemplou a corrente de mãos entrelaçadas de ouro pesado. Ao seu redor, as paredes de pedra pareciam ter ouvidos.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -792,11 +806,12 @@ Ser Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned.
 — Ah, Lorde Stark. Esperava um homem mais alto.
 Ao seu lado, o eunuco Varys cheirava a pó de lilás e água de rosas, com passos silenciosos de veludo. Lorde Renly Baratheon sorria com elegância esbanjadora, e o Grande Meistre Pycelle cochilava sob suas pesadas correntes de múltiplos metais. O Ato I encerra-se com Ned percebendo que a coroa está falida com seis milhões de dragões em dívidas — a maior parte aos Lannister.`,
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       escolhas: [
@@ -834,11 +849,12 @@ Ao seu lado, o eunuco Varys cheirava a pó de lilás e água de rosas, com passo
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
       loreContext: {
+        origem: 'canonica',
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
           livro: 'A Guerra dos Tronos',
           capitulo: 'Livro 1',
-        },
+      },
         notaHistorica: 'A Guerra dos Tronos (George R. R. Martin) - Tradução Jorge Candeias (LeYa)',
       },
       isEnding: true,
