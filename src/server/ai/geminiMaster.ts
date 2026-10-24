@@ -4,6 +4,12 @@ import { z } from 'zod';
 import { AtributoVoz, FichaPersonagem, ResultadoRolagem, WorldState } from '@/server/engine/rpgEngine';
 import { NodeJornada } from '@/server/engine/storyLinter';
 import { construirPromptMestre, validarAnacronismosEra } from './prompts/guiasDeEstilo';
+import {
+  gerarChaveCacheIA,
+  obterCacheIA,
+  salvarCacheIA,
+  verificarEIncrementarCotaIA,
+} from './cacheELimites';
 
 /* =========================================================================
  * 1. SCHEMAS ZOD DE ENTRADA E SAÍDA
@@ -339,6 +345,7 @@ Responda estritamente no esquema JSON solicitado.`;
  * ========================================================================= */
 
 export interface EnriquecerCenaParams {
+  userId?: string;
   jornadaId?: string;
   noDestino: NodeJornada;
   resultadoDado: ResultadoRolagem | null;
@@ -350,13 +357,38 @@ export interface EnriquecerCenaParams {
 export async function enriquecerCenaComIA(
   params: EnriquecerCenaParams
 ): Promise<EnriquecimentoCena> {
-  const { noDestino, resultadoDado, escolhaTexto, ficha, jornadaId = 'conquista_aegon' } = params;
+  const {
+    noDestino,
+    resultadoDado,
+    escolhaTexto,
+    ficha,
+    worldState,
+    jornadaId = 'conquista_aegon',
+    userId = 'anonimo',
+  } = params;
 
   const fallback: EnriquecimentoCena = {
     textoEnriquecido: noDestino.fallbackText,
     vozesExtras: [],
     usouFallback: true,
   };
+
+  // 1. Verificação de Cache Persistente Determinístico (evita custo e latência em rejogos)
+  const chaveCache = gerarChaveCacheIA(jornadaId, noDestino.id, worldState, resultadoDado);
+  const cacheHit = await obterCacheIA(chaveCache);
+  if (cacheHit) {
+    return {
+      textoEnriquecido: cacheHit.textoEnriquecido,
+      vozesExtras: cacheHit.vozesExtras,
+      usouFallback: false,
+    };
+  }
+
+  // 2. Verificação de cota diária persistente por usuário
+  const cota = await verificarEIncrementarCotaIA(userId);
+  if (!cota.permitido) {
+    return fallback;
+  }
 
   const circuito = verificarCircuitoIA();
   if (!circuito.permitido) return fallback;
@@ -430,9 +462,11 @@ export async function enriquecerCenaComIA(
         : noDestino.fallbackText;
 
       const rawVozes = Array.isArray(parsed.vozesExtras) ? parsed.vozesExtras.slice(0, 2) : [];
-      const vozesValidadas = rawVozes.filter((v: any) =>
-        AtributoVozEnum.safeParse(v.voz).success && typeof v.fala === 'string'
-      );
+      const vozesValidadas = rawVozes.filter((v: unknown) => {
+        if (!v || typeof v !== 'object') return false;
+        const item = v as Record<string, unknown>;
+        return AtributoVozEnum.safeParse(item.voz).success && typeof item.fala === 'string';
+      }) as VozExtra[];
 
       const validado = EnriquecimentoCenaSchema.safeParse({
         textoEnriquecido: textoFinal,
@@ -444,6 +478,9 @@ export async function enriquecerCenaComIA(
         registrarChamadaIA(false, Date.now() - inicioTimestamp, escolhaSanitizada.length);
         return fallback;
       }
+
+      // Persiste no cache para consultas idênticas futuras
+      await salvarCacheIA(chaveCache, jornadaId, noDestino.id, validado.data.textoEnriquecido, validado.data.vozesExtras);
 
       registrarChamadaIA(true, Date.now() - inicioTimestamp, escolhaSanitizada.length);
       return validado.data;

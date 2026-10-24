@@ -157,24 +157,8 @@ export async function processarEscolhaAction(
 
   const ultimoEvento = resTurno.novoSlot.turnHistory[resTurno.novoSlot.turnHistory.length - 1];
 
-  let textoEnriquecido = resTurno.proximoNode.fallbackText;
-  let vozesExtras: VozExtra[] = [];
-  let usouFallbackIA = true;
-
-  if (params.usarIA) {
-    const resIA = await enriquecerCenaComIA({
-      jornadaId: resTurno.novoSlot.jornadaId || params.journeyId,
-      noDestino: resTurno.proximoNode,
-      resultadoDado: resTurno.resultadoRolagem,
-      escolhaTexto: resTurno.escolhaRealizada.texto,
-      ficha: resTurno.novoSlot.characterSheet,
-      worldState: resTurno.novoSlot.worldState,
-    });
-    textoEnriquecido = resIA.textoEnriquecido;
-    vozesExtras = resIA.vozesExtras;
-    usouFallbackIA = resIA.usouFallback;
-  }
-
+  // O turno autoritativo responde de imediato (< 300ms) com o texto canônico da cena.
+  // O enriquecimento por IA é assíncrono e executado fora do caminho crítico via obterTextoMestreAction.
   return {
     proximoNode: resTurno.proximoNode,
     resultadoRolagem: resTurno.resultadoRolagem,
@@ -182,9 +166,9 @@ export async function processarEscolhaAction(
     worldStateAtualizado: resTurno.novoSlot.worldState,
     turnEvent: ultimoEvento,
     slotAtualizado: resTurno.novoSlot,
-    textoEnriquecido,
-    vozesExtras,
-    usouFallbackIA,
+    textoEnriquecido: resTurno.proximoNode.fallbackText,
+    vozesExtras: [],
+    usouFallbackIA: true,
     notificacoesCompanheiros: resTurno.notificacoesCompanheiros,
     escolhaRealizada: resTurno.escolhaRealizada,
   };
@@ -192,6 +176,7 @@ export async function processarEscolhaAction(
 
 /**
  * Consulta de enriquecimento de IA fora do caminho crítico de renderização da cena.
+ * Consulta o cache determinístico persistente e valida a cota diária antes de chamar o Gemini.
  */
 export async function obterTextoMestreAction(params: {
   slotId: string;
@@ -213,6 +198,7 @@ export async function obterTextoMestreAction(params: {
   }
 
   return enriquecerCenaComIA({
+    userId: user.id,
     jornadaId: resSlot.valor.jornadaId || params.journeyId,
     noDestino: node,
     resultadoDado: params.resultadoDado || null,

@@ -37,6 +37,7 @@ import {
   executarTentativaLivreAction,
   rerrolarTesteInspiracaoAction,
   desfazerTurnoAction,
+  obterTextoMestreAction,
 } from '@/app/actions/gameActions';
 import type { RespostaTentativaLivre } from '@/server/engine/tentativaLivre';
 import { Keyboard } from 'lucide-react';
@@ -177,12 +178,41 @@ function JogarJogoInterno() {
 
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.proximoNode.fallbackText);
+      setTextoMestre(null);
 
-      if (res.textoEnriquecido) {
-        setTextoMestre(res.textoEnriquecido);
-        setStatusMestre('pronto');
+      // Dispara o enriquecimento de IA fora do caminho crítico (TTFT imediato com fallbackText)
+      if (modoIA) {
+        setStatusMestre('escrevendo');
+        const timeoutPromise = new Promise<{ usouFallback: true }>((resolve) =>
+          setTimeout(() => resolve({ usouFallback: true }), 6000)
+        );
+        const iaPromise = obterTextoMestreAction({
+          slotId: res.slotAtualizado?.id || slotAtual.id,
+          nodeId: res.proximoNode.id,
+          journeyId: journeyParam,
+          escolhaTexto: res.escolhaRealizada?.texto || '',
+          resultadoDado: res.resultadoRolagem,
+        });
+
+        Promise.race([iaPromise, timeoutPromise])
+          .then((resIA) => {
+            if (
+              'usouFallback' in resIA &&
+              !resIA.usouFallback &&
+              'textoEnriquecido' in resIA &&
+              resIA.textoEnriquecido &&
+              resIA.textoEnriquecido !== res.proximoNode.fallbackText
+            ) {
+              setTextoMestre(resIA.textoEnriquecido);
+              setStatusMestre('pronto');
+            } else {
+              setStatusMestre('idle');
+            }
+          })
+          .catch(() => {
+            setStatusMestre('idle');
+          });
       } else {
-        setTextoMestre(null);
         setStatusMestre('idle');
       }
 
@@ -267,8 +297,25 @@ function JogarJogoInterno() {
       }
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.proximoNode.fallbackText);
-      if (res.textoEnriquecido) {
-        setTextoMestre(res.textoEnriquecido);
+      setTextoMestre(null);
+      if (modoIA) {
+        setStatusMestre('escrevendo');
+        obterTextoMestreAction({
+          slotId: res.slotAtualizado?.id || slotAtual.id,
+          nodeId: res.proximoNode.id,
+          journeyId: journeyParam,
+          escolhaTexto: res.escolhaRealizada?.texto || '',
+          resultadoDado: res.resultadoRolagem,
+        })
+          .then((resIA) => {
+            if (!resIA.usouFallback && resIA.textoEnriquecido && resIA.textoEnriquecido !== res.proximoNode.fallbackText) {
+              setTextoMestre(resIA.textoEnriquecido);
+              setStatusMestre('pronto');
+            } else {
+              setStatusMestre('idle');
+            }
+          })
+          .catch(() => setStatusMestre('idle'));
       }
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);

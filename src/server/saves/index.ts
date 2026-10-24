@@ -1,5 +1,6 @@
 import 'server-only';
-import { SaveRepository } from './types';
+import { SaveRepository, AplicarTurnoParams, ChapterCheckpoint } from './types';
+import { FichaPersonagem, WorldState } from '@/server/engine/rpgEngine';
 import { MemoriaSaveRepository } from './memoria';
 import { SupabaseSaveRepository } from './repository';
 
@@ -42,14 +43,14 @@ export async function criarSlot(dados: {
   jornadaId: string;
   slotNumber: number;
   currentNodeId: string;
-  characterSheet: any;
-  worldState: any;
-  chapterCheckpoint?: any;
+  characterSheet: FichaPersonagem;
+  worldState: WorldState;
+  chapterCheckpoint?: ChapterCheckpoint;
 }) {
   return getSaveRepository().criarSlot(dados);
 }
 
-export async function aplicarTurno(params: any) {
+export async function aplicarTurno(params: AplicarTurnoParams) {
   return getSaveRepository().aplicarTurno(params);
 }
 
