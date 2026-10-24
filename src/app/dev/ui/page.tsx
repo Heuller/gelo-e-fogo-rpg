@@ -123,7 +123,7 @@ export default function DevUiPage() {
       <section className="space-y-4">
         <h2 className="text-xl font-cinzel text-[var(--ouro-claro)]">6. Avisos (`Aviso`)</h2>
         <div className="space-y-2 max-w-lg">
-          <Aviso tipo="info" mensagem="Visenya Targaryen aprova vosso desígnio (+15)." />
+          <Aviso tipo="info" mensagem="Visenya Targaryen aprova seu desígnio (+15)." />
           <Aviso tipo="sucesso" mensagem="Crônica gravada com sucesso nos pergaminhos da Cidadela." />
           <Aviso tipo="erro" mensagem="Falha de conexão com o banco de dados. Tentando novamente..." />
         </div>

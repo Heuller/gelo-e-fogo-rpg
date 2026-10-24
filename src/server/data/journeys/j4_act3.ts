@@ -76,9 +76,9 @@ export const grafoJ4Ato3: GrafoJornada = {
       anoHistorico: '300 d.C.',
       localizacao: 'O Pátio dos Quartéis',
       regionId: 'castelo_negro',
-      fallbackText: `O combate degenera em um massacre feroz e caótico de curta distância. Homens resvalam na lama e no gelo escorregadio; um thenn com tatuagens de runas nas bochechas arremete contra vós com um machado largo de duas mãos, urrando na Língua Antiga.
+      fallbackText: `O combate degenera em um massacre feroz e caótico de curta distância. Homens resvalam na lama e no gelo escorregadio; um thenn com tatuagens de runas nas bochechas arremete contra você com um machado largo de duas mãos, urrando na Língua Antiga.
       
-Ao vosso lado, um noviço de dezesseis anos tomba com o crânio fendido pelo bronze. O cheiro de entranhas fumegantes e sangue quente no gelo embrulha o estômago, mas os gritos de incentivo de Jon Snow do alto da barricada mantêm a resistência unida.`,
+Ao seu lado, um noviço de dezesseis anos tomba com o crânio fendido pelo bronze. O cheiro de entranhas fumegantes e sangue quente no gelo embrulha o estômago, mas os gritos de incentivo de Jon Snow do alto da barricada mantêm a resistência unida.`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -228,7 +228,7 @@ Placas maciças de gelo azul do tamanho de carroças de carga desprendem-se do a
       anoHistorico: '300 d.C.',
       localizacao: 'Ruínas Próximas à Torre do Senhor Comandante',
       regionId: 'castelo_negro',
-      fallbackText: `A calmaria desce sobre o pátio fumegante, quebrada apenas pelo crepitar das brasas e pelos gemidos dos agonizantes. Vós caminhais entre as ruínas carbonizadas e encontrais Jon Snow de joelhos sobre a neve manchada de fuligem.
+      fallbackText: `A calmaria desce sobre o pátio fumegante, quebrada apenas pelo crepitar das brasas e pelos gemidos dos agonizantes. Você caminha entre as ruínas carbonizadas e encontra Jon Snow de joelhos sobre a neve manchada de fuligem.
       
 Em seus braços está a garota selvagem de cabelos ruivos cor de fogo: Ygritte. Uma flecha com penas cinzentas está cravada logo abaixo de sua clavícula; o sangue escorre escuro por seus lábios entreabertos. Ela ergue uma mão trêmula, toca a face de Jon e sussurra com um sorriso doloroso e tênue:
 — Você não sabe de nada... Jon Snow...
@@ -278,7 +278,7 @@ Sua cabeça tomba para o lado; a respiração cessa suavemente na noite gelada. 
       regionId: 'castelo_negro',
       fallbackText: `A aurora rompe em tons de ardósia e sangue diluído. Oitenta guerreiros Thenn e dezoito irmãos juramentados jazem mortos na lama enegrecida pelo óleo.
       
-Jon Snow não permite que o corpo de Ygritte seja jogado na vala comum dos inimigos; com a ajuda de vós e de Pyp, ele ergue uma pira de troncos de pinheiro em uma elevação ao sul. Quando a tocha toca a lenha resinosa, as chamas alaranjadas sobem aos céus, devolvendo os cabelos cor de fogo ao vento do norte. Mas não há tempo para descanso: ao norte da Muralha, uma trompa soa longa e estrondosa na Floresta Assombrada!`,
+Jon Snow não permite que o corpo de Ygritte seja jogado na vala comum dos inimigos; com a ajuda de você e de Pyp, ele ergue uma pira de troncos de pinheiro em uma elevação ao sul. Quando a tocha toca a lenha resinosa, as chamas alaranjadas sobem aos céus, devolvendo os cabelos cor de fogo ao vento do norte. Mas não há tempo para descanso: ao norte da Muralha, uma trompa soa longa e estrondosa na Floresta Assombrada!`,
       internalVoices: [
         {
           atributo: 'pressagio',
@@ -471,7 +471,7 @@ Sob o abrigo da tartaruga, mineiros e machadeiros trabalham com picaretas e barr
       anoHistorico: '300 d.C.',
       localizacao: 'O Topo da Muralha',
       regionId: 'topo_da_muralha',
-      fallbackText: `Vós, Grenn e dois irmãos forçam as alavancas de ferro com todo o vigor dos corpos. O colossal barril abarrotado com meia tonelada de pedregulhos e cascalho rola sobre o parapeito de gelo e despenca em silêncio absoluto através do abismo de setecentos pés.
+      fallbackText: `Você, Grenn e dois irmãos forçam as alavancas de ferro com todo o vigor dos corpos. O colossal barril abarrotado com meia tonelada de pedregulhos e cascalho rola sobre o parapeito de gelo e despenca em silêncio absoluto através do abismo de setecentos pés.
       
 Um segundo... dois segundos... três segundos...
       
@@ -522,7 +522,7 @@ CRASH! O impacto é estrondoso como a queda de uma torre inteira. A tartaruga de
 Ele entrou no túnel escuro da Muralha.
       
 Donal Noye desembainha sua espada longa e aperta a empunhadura com sua única mão de ferro:
-— Grenn! Jon! Vossos postos são no alto! Eu vou descer pela cesta para segurar os portões internos de ferro! Preciso de voluntários que não temam a morte! Quem vem comigo para as trevas?`,
+— Grenn! Jon! Seus postos são no alto! Eu vou descer pela cesta para segurar os portões internos de ferro! Preciso de voluntários que não temam a morte! Quem vem comigo para as trevas?`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -690,7 +690,7 @@ Os defensores sobreviventes chegam trôpegos, com as mãos roxas de queimaduras 
       escolhas: [
         {
           id: 'esc_j4_a3_agradecer_hobb_refeicao',
-          texto: 'Agradecer a Hobb pela comida e dividir vossa côdea de pão com um jovem noviço que chora de exaustão.',
+          texto: 'Agradecer a Hobb pela comida e dividir sua côdea de pão com um jovem noviço que chora de exaustão.',
           tipo: 'simples',
           delta: { flagsAdicionadas: ['ea_creme_de_trigo', 'ea_tres_carnes'], compostura: 2, honra: 1 },
           nextNodeId: 'j4_a3_comando_de_jon',

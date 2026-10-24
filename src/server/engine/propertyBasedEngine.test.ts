@@ -19,7 +19,7 @@ describe('Testes de Propriedades e Invariantes do Motor (Property-Based Simulati
     segredos: [],
     inspiracao: 2,
     companheiros: {
-      comp1: { id: 'comp1', nome: 'Companheiro 1', titulo: 'Sor', aprovacao: 0, status: 'Neutro' },
+      comp1: { id: 'comp1', nome: 'Companheiro 1', titulo: 'Ser', aprovacao: 0, status: 'Neutro' },
     },
   });
 

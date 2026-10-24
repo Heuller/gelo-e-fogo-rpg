@@ -140,7 +140,7 @@ export const FICHA_REBELIAO_DENYS_ARRYN: FichaPersonagem = {
 
 export const FICHA_REBELIAO_JONOTHOR_MORRIGEN: FichaPersonagem = {
   id: 'jonothor-morrigen',
-  nome: 'Sor Jonothor Morrigen',
+  nome: 'Ser Jonothor Morrigen',
   origem: 'cavaleiro_andante',
   atributos: {
     comando: 3,
@@ -299,7 +299,7 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
     fichasProntas: [
       {
         id: 'ronnel-glover',
-        nome: 'Sor Ronnel Glover',
+        nome: 'Ser Ronnel Glover',
         titulo: 'Cavaleiro de Bosque Profundo & Vanguarda do Norte',
         origem: 'honra_do_norte',
         descricao: 'Leal seguidor de Brandon e Ned Stark; empunha espada longa com destreza implacável e honra inabalável.',
@@ -315,7 +315,7 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
       },
       {
         id: 'jonothor-morrigen',
-        nome: 'Sor Jonothor Morrigen',
+        nome: 'Ser Jonothor Morrigen',
         titulo: 'Cavaleiro do Ninho de Corvos & Vanguarda das Terras da Tempestade',
         origem: 'cavaleiro_andante',
         descricao: 'Veterano das três batalhas de Solarestival; guerreiro tempestuoso cuja fúria em combate quebra linhas inimigas.',

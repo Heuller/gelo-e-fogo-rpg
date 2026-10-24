@@ -237,7 +237,7 @@ export const FICHA_INICIAL_PATRULHA_DUNSTAN: FichaPersonagem = {
 
 export const FICHA_INICIAL_RONNEL_GLOVER: FichaPersonagem = {
   id: 'ronnel-glover',
-  nome: 'Sor Ronnel Glover',
+  nome: 'Ser Ronnel Glover',
   origem: 'honra_do_norte',
   atributos: {
     comando: 4,

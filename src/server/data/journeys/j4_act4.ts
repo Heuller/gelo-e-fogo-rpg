@@ -13,7 +13,7 @@ export const grafoJ4Ato4: GrafoJornada = {
       anoHistorico: '300 d.C.',
       localizacao: 'Pátio Central, Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `Cavalos frescos e lanças bem engraxadas entram pelo portão leste. Uma coluna de reforços de Vigilância do Mar chega liderada por Sor Alliser Thorne e Janos Slynt — o ex-comandante dos Mantos Dourados de Porto Real, exilado para o Muro pelo Duende Tyrion Lannister.
+      fallbackText: `Cavalos frescos e lanças bem engraxadas entram pelo portão leste. Uma coluna de reforços de Vigilância do Mar chega liderada por Ser Alliser Thorne e Janos Slynt — o ex-comandante dos Mantos Dourados de Porto Real, exilado para o Muro pelo Duende Tyrion Lannister.
       
 Slynt usa um pesado casaco de peles forrado de veludo escuro e tem a cara vermelha e inflada de um sapo gordo. Ao ver os destroços da escadaria e Jon Snow claudicando à frente dos homens, Thorne aponta um dedo acusador:
 — Aí está ele! O bastardo desertor! Fugiu com os selvagens, dividiu a tenda com uma cadela ruiva e agora se proclama o senhor de Castelo Negro!
@@ -121,9 +121,9 @@ Do lado de fora das grades de ferro, Thorne e Slynt comemoram com vinho quente e
       anoHistorico: '300 d.C.',
       localizacao: 'O Salão de Julgamento',
       regionId: 'castelo_negro',
-      fallbackText: `A porta de carvalho do tribunal improvisado abre-se com um rangido pesado. Apoiado nos braços de Clydas e de vós, Meistre Aemon Targaryen entra lentamente no salão. Cego, encurvado por um século de invernos, ele parece frágil como um galho seco, mas quando ergue a voz, o silêncio desce instantâneo sobre a sala.
+      fallbackText: `A porta de carvalho do tribunal improvisado abre-se com um rangido pesado. Apoiado nos braços de Clydas e de você, Meistre Aemon Targaryen entra lentamente no salão. Cego, encurvado por um século de invernos, ele parece frágil como um galho seco, mas quando ergue a voz, o silêncio desce instantâneo sobre a sala.
       
-— Sor Alliser. Lorde Slynt. Vós sois recém-chegados a este castelo — diz Aemon, cada palavra afiada como obsidiana. — Jon Snow agiu sob ordens de Qhorin Meia-Mão para infiltrar os selvagens. Ele nos alertou sobre os Thenns. Ele lutou na escadaria quando outros fugiam. Vós não derramareis o sangue deste rapaz sob este teto enquanto eu viver.
+— Ser Alliser. Lorde Slynt. Você é recém-chegados a este castelo — diz Aemon, cada palavra afiada como obsidiana. — Jon Snow agiu sob ordens de Qhorin Meia-Mão para infiltrar os selvagens. Ele nos alertou sobre os Thenns. Ele lutou na escadaria quando outros fugiam. Você não derramareis o sangue deste rapaz sob este teto enquanto eu viver.
       
 Janos Slynt engole em seco, intimidado pelo peso de um Targaryen centenário que recusou a coroa de Westeros.`,
       internalVoices: [
@@ -171,7 +171,7 @@ Janos Slynt engole em seco, intimidado pelo peso de um Targaryen centenário que
       anoHistorico: '300 d.C.',
       localizacao: 'A Armaria de Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `Impossibilitados de enforcar Jon Snow, Thorne e Slynt urdem um plano maquiavélico. Convocam Jon e vós na armaria:
+      fallbackText: `Impossibilitados de enforcar Jon Snow, Thorne e Slynt urdem um plano maquiavélico. Convocam Jon e você na armaria:
       
 — Se o bastardo é tão inocente — sibila Janos Slynt com um sorriso torpe —, ele cavalgará além da Muralha sob um estandarte de trégua. Ele irá à tenda de Mance Rayder como emissário da Patrulha. Mas quando estiver a sós com o Rei-para-lá-da-Muralha... ele enterrará esta adaga na garganta de Mance. Ou os selvagens o degolam, ou ele volta como herói.
       
@@ -221,11 +221,11 @@ Jon olha para a lâmina fria. Sabe que matar um rei sob uma bandeira de paz é q
       anoHistorico: '300 d.C.',
       localizacao: 'O Acampamento do Povo Livre na Floresta Assombrada',
       regionId: 'floresta_assombrada',
-      fallbackText: `No interior da grande tenda real aquecida por braseiros de turfa, Mance Rayder recebe Jon e vós com uma tigela de hidromel quente. Mance veste seu manto negro remendado com seda escarlate de Asshai; no canto da tenda, sua mulher Dalla geme em trabalho de parto, assistida por sua irmã Val, a bela de olhos azuis como gelo.
+      fallbackText: `No interior da grande tenda real aquecida por braseiros de turfa, Mance Rayder recebe Jon e você com uma tigela de hidromel quente. Mance veste seu manto negro remendado com seda escarlate de Asshai; no canto da tenda, sua mulher Dalla geme em trabalho de parto, assistida por sua irmã Val, a bela de olhos azuis como gelo.
       
 Mance aponta para um objeto colocado sobre peles de urso: uma corneta colossal de oito pés de comprimento, feita de chifre de auroque ancestral, com anéis de ouro gravados com runas dos Primeiros Homens: a lendária Trompa de Joramun.
       
-— Meus termos são simples, Jon Snow — diz Mance com gravidade fúnebre. — Abram o portão. Deixem meu povo passar para as terras do sul. Não queremos vossos castelos; queremos salvar nossos filhos dos Outros que marcham atrás de nós. Se recusardes... eu toco a Trompa de Inverno e a Muralha inteira desaba sobre vossas cabeças!`,
+— Meus termos são simples, Jon Snow — diz Mance com gravidade fúnebre. — Abram o portão. Deixem meu povo passar para as terras do sul. Não queremos seus castelos; queremos salvar nossos filhos dos Outros que marcham atrás de nós. Se recusardes... eu toco a Trompa de Inverno e a Muralha inteira desaba sobre suas cabeças!`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -337,7 +337,7 @@ O acampamento dos selvagens colapsa em segundos: guerreiros fogem em pânico, o 
       
 Na Torre do Rei, Stannis Baratheon senta-se diante de uma mesa tosca, seu rosto lívido e magro marcado por linhas duras como granito. Ao lado dele, a espada Luminífera brilha com uma luz trêmula avermelhada.
       
-— Donal Noye me conhecia melhor do que a maioria — diz Stannis friamente, olhando para Jon e vós. — Ele disse que Robert era o aço verdadeiro e eu era o ferro que quebra antes de dobrar. Mas eu salvei este reino enquanto o rapaz Joffrey brincava com bonecas de ouro em Porto Real.
+— Donal Noye me conhecia melhor do que a maioria — diz Stannis friamente, olhando para Jon e você. — Ele disse que Robert era o aço verdadeiro e eu era o ferro que quebra antes de dobrar. Mas eu salvei este reino enquanto o rapaz Joffrey brincava com bonecas de ouro em Porto Real.
       
 O rei vira-se para Jon Snow com uma oferta tentadora:
 — Dobre o joelho perante o Senhor da Luz, queime os represeiros e eu o legitimarei perante os Sete Reinos como Jon Stark, Lorde de Winterfell!`,
@@ -360,7 +360,7 @@ O rei vira-se para Jon Snow com uma oferta tentadora:
       escolhas: [
         {
           id: 'esc_j4_a4_lembrar_juramento_voto',
-          texto: 'Murmurar a Jon: «A noite se aproxima e o vosso manto é negro, irmão». Reforçar a fidelidade ao Voto.',
+          texto: 'Murmurar a Jon: «A noite se aproxima e o seu manto é negro, irmão». Reforçar a fidelidade ao Voto.',
           tipo: 'simples',
           aprovacaoCompanheiros: { jon_snow: 25 },
           delta: { flagsAdicionadas: ['fidelidade_ao_voto_lembrada'], honra: 2 },
@@ -385,7 +385,7 @@ O rei vira-se para Jon Snow com uma oferta tentadora:
       regionId: 'castelo_negro',
       fallbackText: `Mais de mil selvagens estão amontoados em currais improvisados no pátio congelado. Crianças com os lábios roxos de frio tremem sob peles rotas; homens feridos gemem sem ataduras e as mulheres guardam silêncio altivo perante os cavaleiros sulistas de Stannis.
       
-Sor Alliser Thorne e Janos Slynt defendem colocá-los todos na forca ou despachá-los amarrados para as minas de sal. Mas Val e as mães livres olham nos vossos olhos, implorando por água e pão preto.`,
+Ser Alliser Thorne e Janos Slynt defendem colocá-los todos na forca ou despachá-los amarrados para as minas de sal. Mas Val e as mães livres olham nos seus olhos, implorando por água e pão preto.`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -430,7 +430,7 @@ Sor Alliser Thorne e Janos Slynt defendem colocá-los todos na forca ou despach�
       regionId: 'castelo_negro',
       fallbackText: `Pela estrada do oeste, uma nova comitiva surge na neve. É Samwell Tarly, ainda gordo mas com o rosto marcado pela jornada além do Muro, trazendo Goiva e seu bebê a salvo.
       
-Com eles marcham os comandantes restantes da Patrulha: Sor Denys Mallister, o idoso e cortês senhor da Torre Sombria, e Cotter Pyke, o marinheiro rude de Vigilância do Mar, além de Bowen Marsh, com a cabeça envolta em ataduras sangrentas após a terrível carnificina contra o Chorão na Ponte das Caveiras.
+Com eles marcham os comandantes restantes da Patrulha: Ser Denys Mallister, o idoso e cortês senhor da Torre Sombria, e Cotter Pyke, o marinheiro rude de Vigilância do Mar, além de Bowen Marsh, com a cabeça envolta em ataduras sangrentas após a terrível carnificina contra o Chorão na Ponte das Caveiras.
       
 Com a liderança reunida, Stannis exige uma solução imediata: a Patrulha da Noite precisa eleger seu 998º Senhor Comandante!`,
       internalVoices: [
@@ -479,7 +479,7 @@ Com a liderança reunida, Stannis exige uma solução imediata: a Patrulha da No
       
 Pela lei ancestral da Patrulha da Noite, o Senhor Comandante só é eleito quando um candidato alcança dois terços dos votos de todos os irmãos. Moedas de cobre, conchas, botões de chumbo e seixos de pedra representam os votos de cada homem.
       
-Sor Denys Mallister tem o apoio dos cavaleiros e homens honrados; Cotter Pyke tem o voto dos homens do mar e dos arqueiros; e Janos Slynt distribui favores, comida fresca e promessas de títulos para comprar os votos dos mais fracos.`,
+Ser Denys Mallister tem o apoio dos cavaleiros e homens honrados; Cotter Pyke tem o voto dos homens do mar e dos arqueiros; e Janos Slynt distribui favores, comida fresca e promessas de títulos para comprar os votos dos mais fracos.`,
       internalVoices: [
         {
           atributo: 'astucia',
@@ -499,7 +499,7 @@ Sor Denys Mallister tem o apoio dos cavaleiros e homens honrados; Cotter Pyke te
       escolhas: [
         {
           id: 'esc_j4_a4_depositar_seixo_nos_caldeiroes',
-          texto: 'Depositar o vosso seixo de voto e ouvir o debate acalorado entre as facções.',
+          texto: 'Depositar o seu seixo de voto e ouvir o debate acalorado entre as facções.',
           tipo: 'simples',
           delta: { flagsAdicionadas: ['voto_depositado'], honra: 1 },
           nextNodeId: 'j4_a4_os_dias_longos',
@@ -576,7 +576,7 @@ Mas a paciência do Rei Stannis está esgotando-se: ele avisa que se a Patrulha 
       anoHistorico: '300 d.C.',
       localizacao: 'Os Quartéis dos Oficiais',
       regionId: 'castelo_negro',
-      fallbackText: `Na calada da noite anterior à votação final, Samwell Tarly revela a genialidade herdada da Casa Tarly. Ele vai aos aposentos de Cotter Pyke e depois aos de Sor Denys Mallister com a mesma pergunta delicada:
+      fallbackText: `Na calada da noite anterior à votação final, Samwell Tarly revela a genialidade herdada da Casa Tarly. Ele vai aos aposentos de Cotter Pyke e depois aos de Ser Denys Mallister com a mesma pergunta delicada:
       
 — Nenhum dos senhores aceitará ver o rival comandando o Muro — sussurra Sam com humildade respeitosa. — Mas os senhores permitiriam que um vassalo corrupto dos Lannister como Janos Slynt assumisse o manto do Velho Urso?
       
@@ -611,7 +611,7 @@ Na manhã seguinte, no salão comum, o nome de Jon Snow é formally apresentado 
         },
         {
           id: 'esc_j4_a4_votar_em_jon_snow',
-          texto: 'Pegar o vosso seixo negro e depositá-lo firmemente no caldeirão em nome de Jon Snow.',
+          texto: 'Pegar o seu seixo negro e depositá-lo firmemente no caldeirão em nome de Jon Snow.',
           tipo: 'simples',
           aprovacaoCompanheiros: { jon_snow: 30 },
           delta: { flagsAdicionadas: ['votou_em_jon_snow'], honra: 2 },
@@ -683,14 +683,14 @@ Uma onda de espanto e reverência percorre a sala. Os deuses falaram.`,
       
 Os homens batem os pés nas tábuas do chão; canecos de cerveja tilintam e abraços fraternais ecoam de ponta a ponta. Jon Snow, com Garra Longa à cinta e os olhos cinzentos brilhando de serenidade firme, olha para os irmãos sobreviventes.
       
-Ele não esqueceu quem esteve ao seu lado na escadaria em chamas, no portão escuro e na defesa dos inocentes. O olhar de Jon cruza o vosso:
+Ele não esqueceu quem esteve ao seu lado na escadaria em chamas, no portão escuro e na defesa dos inocentes. O olhar de Jon cruza o seu:
 — O inverno está sobre nós, irmãos — diz Jon com voz mansa e firme. — E nós temos um reino inteiro para salvar.`,
       internalVoices: [
         {
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'A batalha terminou, mas o dever eterno apenas começou. Vossa conduta neste cerco definiu quem vós sois.',
+          fala: 'A batalha terminou, mas o dever eterno apenas começou. Sua conduta neste cerco definiu quem você é.',
         },
       ],
       loreContext: {
@@ -704,7 +704,7 @@ Ele não esqueceu quem esteve ao seu lado na escadaria em chamas, no portão esc
       escolhas: [
         {
           id: 'esc_j4_a4_ir_ao_livro_dos_nomes',
-          texto: 'Retirar-se para o vosso beliche e contemplar o vosso legado na Muralha (Avançar para o Veredito Final).',
+          texto: 'Retirar-se para o seu beliche e contemplar o seu legado na Muralha (Avançar para o Veredito Final).',
           tipo: 'simples',
           delta: { marcoConcluido: 'jornada4_concluida' },
           nextNodeId: 'j4_a4_o_livro_dos_nomes',
@@ -729,15 +729,15 @@ Ele não esqueceu quem esteve ao seu lado na escadaria em chamas, no portão esc
       regionId: 'castelo_negro',
       fallbackText: `A calmaria desce sobre a fortaleza congelada. Nas mesas da velha biblioteca onde a luz fraca de velas de sebo espanta a escuridão, repousa um pesado tomo encadernado em couro negro de carneiro: o registro dos homens da Patrulha da Noite.
       
-Nenhum corvo comum recebe cantigas de menestréis no sul. Mas a Muralha não esquece. Vossas escolhas, vosso sangue derramado nas vigas e vossas palavras forjaram um nome que ecoará pelos séculos de gelo.
+Nenhum corvo comum recebe cantigas de menestréis no sul. Mas a Muralha não esquece. Suas escolhas, seu sangue derramado nas vigas e suas palavras forjaram um nome que ecoará pelos séculos de gelo.
       
-Qual é o vosso desígnio derradeiro, irmão juramentado?`,
+Qual é o seu desígnio derradeiro, irmão juramentado?`,
       internalVoices: [
         {
           atributo: 'pressagio',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'O livro está aberto diante de vós. Escolhei como vossa lenda será lembrada pelas gerações futuras.',
+          fala: 'O livro está aberto diante de você. Escolhei como sua lenda será lembrada pelas gerações futuras.',
         },
       ],
       loreContext: {
@@ -757,7 +757,7 @@ Qual é o vosso desígnio derradeiro, irmão juramentado?`,
         },
         {
           id: 'esc_j4_end_corvo_de_passagem',
-          texto: 'Retornar silenciosamente ao vosso posto de vigia nos parapeitos como mais um irmão (Final: Corvo de Passagem).',
+          texto: 'Retornar silenciosamente ao seu posto de vigia nos parapeitos como mais um irmão (Final: Corvo de Passagem).',
           tipo: 'simples',
           nextNodeId: 'j4_end_corvo_de_passagem',
         },
@@ -800,9 +800,9 @@ Qual é o vosso desígnio derradeiro, irmão juramentado?`,
       localizacao: 'Torre do Senhor Comandante',
       regionId: 'castelo_negro',
       isEnding: true,
-      fallbackText: `Vosso nome foi inscrito com tinta fresca pelo punho do próprio Jon Snow no rol dos batedores de elite de Castelo Negro. Quando o novo Senhor Comandante convoca o conselho de guerra para planejar o acolhimento dos selvagens e o reforço dos castelos abandonados, vós estais ao lado dele na cabeceira da mesa.
+      fallbackText: `Seu nome foi inscrito com tinta fresca pelo punho do próprio Jon Snow no rol dos batedores de elite de Castelo Negro. Quando o novo Senhor Comandante convoca o conselho de guerra para planejar o acolhimento dos selvagens e o reforço dos castelos abandonados, você está ao lado dele na cabeceira da mesa.
       
-Vós não sois mais um estranho sem rosto nas casernas; vós sois o homem que guardou as costas de Jon quando o aço ardia e as intrigas queriam enforcá-lo. Enquanto a Patrulha da Noite permanecer de pé no fim do mundo, vosso juramento será o alicerce da nova era da Muralha.`,
+Você não é mais um estranho sem rosto nas casernas; você é o homem que guardou as costas de Jon quando o aço ardia e as intrigas queriam enforcá-lo. Enquanto a Patrulha da Noite permanecer de pé no fim do mundo, seu juramento será o alicerce da nova era da Muralha.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -822,9 +822,9 @@ Vós não sois mais um estranho sem rosto nas casernas; vós sois o homem que gu
       localizacao: 'O Topo da Muralha sob a Neve',
       regionId: 'topo_da_muralha',
       isEnding: true,
-      fallbackText: `Quando a eleição termina e os vivas silenciam, vós colocais a luva de couro grosso, ajeitais a capa esfarrapada e tomais o guincho de volta para o topo da Muralha.
+      fallbackText: `Quando a eleição termina e os vivas silenciam, você calça a luva de couro grosso, ajeita a capa esfarrapada e toma o guincho de volta para o topo da Muralha.
       
-O vento uiva feroz vindo do norte distante, trazendo os primeiros flocos pesados do verdadeiro inverno. Nenhum bardo no sul cantará vossas façanhas; nenhum rei vos cobrirá de ouro. Mas lá embaixo, do outro lado do abismo de gelo, milhões de almas dormem em paz porque vós e vossos irmãos anônimos continuais de pé na sentinela. Vós sois a espada na escuridão, o vigia nas muralhas... um corvo de passagem que cumpriu seu voto até o fim.`,
+O vento uiva feroz vindo do norte distante, trazendo os primeiros flocos pesados do verdadeiro inverno. Nenhum bardo no sul cantará suas façanhas; nenhum rei cobrirá você de ouro. Mas lá embaixo, do outro lado do abismo de gelo, milhões de almas dormem em paz porque você e seus irmãos anônimos continuam de pé na sentinela. Você é a espada na escuridão, o vigia nas muralhas... um corvo de passagem que cumpriu seu voto até o fim.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -844,9 +844,9 @@ O vento uiva feroz vindo do norte distante, trazendo os primeiros flocos pesados
       localizacao: 'A Dádiva de Brandon',
       regionId: 'a_dadiva',
       isEnding: true,
-      fallbackText: `Vós fostes nomeado pelo Senhor Comandante Jon Snow para supervisionar o assentamento dos clãs do Povo Livre nas aldeias abandonadas da Dádiva.
+      fallbackText: `Você foi nomeado pelo Senhor Comandante Jon Snow para supervisionar o assentamento dos clãs do Povo Livre nas aldeias abandonadas da Dádiva.
       
-Onde antes havia apenas medo e sangue derramado, vossa voz ergueu pontes de respeito mútuo. Val e os guerreiros livres chamam-vos de irmão que não mente; os corvos negros da Patrulha aprendem a marchar ao lado de lanceiras selvagens. Ao entardecer, quando as fogueiras se acendem nos vales ao sul da Muralha, homens livres e irmãos negros sentam-se à mesma mesa, unidos pelo mesmo fogo contra a longa noite que se aproxima.`,
+Onde antes havia apenas medo e sangue derramado, sua voz ergueu pontes de respeito mútuo. Val e os guerreiros livres chamam você de irmão que não mente; os corvos negros da Patrulha aprendem a marchar ao lado de lanceiras selvagens. Ao entardecer, quando as fogueiras se acendem nos vales ao sul da Muralha, homens livres e irmãos negros sentam-se à mesma mesa, unidos pelo mesmo fogo contra a longa noite que se aproxima.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -866,9 +866,9 @@ Onde antes havia apenas medo e sangue derramado, vossa voz ergueu pontes de resp
       localizacao: 'A Armaria dos Tradicionalistas',
       regionId: 'castelo_negro',
       isEnding: true,
-      fallbackText: `Vós vos recusais a dobrar a espinha perante as ideias heréticas do jovem bastardo de Winterfell. Nas sombras da intendência e nos corredores gelados da Torre dos Guardas, vós vos reunis com Bowen Marsh e Sor Alliser Thorne.
+      fallbackText: `Você se recusa a dobrar a espinha perante as ideias heréticas do jovem bastardo de Winterfell. Nas sombras da intendência e nos corredores gelados da Torre dos Guardas, você se reúne com Bowen Marsh e Ser Alliser Thorne.
       
-Para vós, a Patrulha jurou proteger o reino dos selvagens, não trazê-los para dentro de nossas camas e despensas. Vós guardais vosso aço bem afiado, observando cada decisão de Jon Snow com desconfiança gélida. A semente da fissura foi plantada no gelo; vós aguardareis o vosso momento... «Pela Patrulha».`,
+Para você, a Patrulha jurou proteger o reino dos selvagens, não trazê-los para dentro de nossas camas e despensas. Você guarda seu aço bem afiado, observando cada decisão de Jon Snow com desconfiança gélida. A semente da fissura foi plantada no gelo; você aguarda o seu momento... «Pela Patrulha».`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -888,9 +888,9 @@ Para vós, a Patrulha jurou proteger o reino dos selvagens, não trazê-los para
       localizacao: 'As Matas Profundas da Floresta Assombrada',
       regionId: 'floresta_assombrada',
       isEnding: true,
-      fallbackText: `Na névoa que se seguiu à carga de cavalaria de Stannis, vós despistes o manto negro puído e atirastes o broquel da Patrulha no fundo de uma ravina de neve.
+      fallbackText: `Na névoa que se seguiu à carga de cavalaria de Stannis, você despiu o manto negro puído e atirou o broquel da Patrulha no fundo de uma ravina de neve.
       
-Com um casaco de peles de foca e um machado de caçador, vós cavalgais para o norte profundo com um bando disperso de homens livres fugitivos. Vós quebrastes o juramento que fizestes perante os homens, mas ganhestes o ar livre e a vastidão infinita das florestas sem mestres. Se os Outros marcharem, vós lutareis como um homem livre, não como um prisioneiro vestindo o negro.`,
+Com um casaco de peles de foca e um machado de caçador, você cavalga para o norte profundo com um bando disperso de homens livres fugitivos. Você quebrou o juramento que fez perante os homens, mas ganhou o ar livre e a vastidão infinita das florestas sem mestres. Se os Outros marcharem, você lutará como um homem livre, não como um prisioneiro vestindo o negro.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -910,9 +910,9 @@ Com um casaco de peles de foca e um machado de caçador, vós cavalgais para o n
       localizacao: 'As Câmaras de Meistre Aemon',
       regionId: 'castelo_negro',
       isEnding: true,
-      fallbackText: `Vós guardastes a espada no armário de ferro e tomais a pena de ganso e o tinteiro de chumbo. A pedido de Meistre Aemon, vós vos tornais o escriba oficial de Castelo Negro.
+      fallbackText: `Você guardou a espada no armário de ferro e tomou a pena de ganso e o tinteiro de chumbo. A pedido de Meistre Aemon, você se torna o escriba oficial de Castelo Negro.
       
-Página após página, com caligrafia firme e tinta indelével, vós registrais cada homem que caiu no Grande Patrulhamento, cada irmão esmagado no portão de ferro e cada alma que sangrou na neve para deter a escuridão. Vossas mãos preservam a memória dos homens sem nome; daqui a quinhentos anos, quando outros lerem as crônicas do Muro, eles saberão que nenhum irmão lutou em vão.`,
+Página após página, com caligrafia firme e tinta indelével, você registra cada homem que caiu no Grande Patrulhamento, cada irmão esmagado no portão de ferro e cada alma que sangrou na neve para deter a escuridão. Suas mãos preservam a memória dos homens sem nome; daqui a quinhentos anos, quando outros lerem as crônicas do Muro, eles saberão que nenhum irmão lutou em vão.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -936,9 +936,9 @@ Página após página, com caligrafia firme e tinta indelével, vós registrais 
       localizacao: 'O Túnel Interno da Muralha',
       regionId: 'portao_e_tunel',
       isEnding: true,
-      fallbackText: `A clava monstruosa de pedra de Mag, o Poderoso, fendeu a escuridão do túnel com a fúria cega de uma montanha em colapso. O impacto quebrou vosso escudo de carvalho em mil lascas e esmagou vossa caixa torácica contra a parede maciça de gelo.
+      fallbackText: `A clava monstruosa de pedra de Mag, o Poderoso, fendeu a escuridão do túnel com a fúria cega de uma montanha em colapso. O impacto quebrou seu escudo de carvalho em mil lascas e esmagou sua caixa torácica contra a parede maciça de gelo.
       
-Enquanto vossa visão escurecia em um vermelho pulsante, vós vistes Donal Noye cravando a lâmina de aço na garganta da besta e a grande grade de ferro descendo com um estrondo de vitória. O portão não caiu; vosso sangue selou a passagem. Vosso turno terminou.`,
+Enquanto sua visão escurecia em um vermelho pulsante, você viu Donal Noye cravando a lâmina de aço na garganta da besta e a grande grade de ferro descendo com um estrondo de vitória. O portão não caiu; seu sangue selou a passagem. Seu turno terminou.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -958,9 +958,9 @@ Enquanto vossa visão escurecia em um vermelho pulsante, vós vistes Donal Noye 
       localizacao: 'A Face Sul da Muralha',
       regionId: 'castelo_negro',
       isEnding: true,
-      fallbackText: `Uma colossal placa de gelo desprendida pelo calor do incêndio da escadaria rompeu-se no ar com um trovão ensurdecedor. A onda de choque e os estilhaços de gelo afiados como navalhas arrastaram-vos para o abismo vazio.
+      fallbackText: `Uma colossal placa de gelo desprendida pelo calor do incêndio da escadaria rompeu-se no ar com um trovão ensurdecedor. A onda de choque e os estilhaços de gelo afiados como navalhas arrastaram você para o abismo vazio.
       
-O mundo girou em um turbilhão vertiginoso de fumaça, chamas e neve. Vós sentistes o vento gélido da Muralha fustigando vosso rosto em queda livre antes do impacto final na rocha fria. Vós destes a vida para conter o fogo do sul. Vosso turno terminou.`,
+O mundo girou em um turbilhão vertiginoso de fumaça, chamas e neve. Você sentiu o vento gélido da Muralha fustigando seu rosto em queda livre antes do impacto final na rocha fria. Você deu a vida para conter o fogo do sul. Seu turno terminou.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -980,9 +980,9 @@ O mundo girou em um turbilhão vertiginoso de fumaça, chamas e neve. Vós senti
       localizacao: 'As Margens da Floresta Assombrada',
       regionId: 'floresta_assombrada',
       isEnding: true,
-      fallbackText: `No caos desenfreado da investida dos cavaleiros de Stannis contra o acampamento de Mance Rayder, uma lança montada trespassou vossa cota de malha em meio à confusão da nevasca.
+      fallbackText: `No caos desenfreado da investida dos cavaleiros de Stannis contra o acampamento de Mance Rayder, uma lança montada trespassou sua cota de malha em meio à confusão da nevasca.
       
-Vós tombastes de joelhos sobre a neve imaculada da Floresta Assombrada, vendo o estandarte do coração flamejante tremulando ao longe enquanto vosso sangue quente derretia o gelo ao redor. Vós tombastes na vitória final que salvou o reino dos homens. Vosso turno terminou.`,
+Você tombastes de joelhos sobre a neve imaculada da Floresta Assombrada, vendo o estandarte do coração flamejante tremulando ao longe enquanto seu sangue quente derretia o gelo ao redor. Você tombastes na vitória final que salvou o reino dos homens. Seu turno terminou.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',

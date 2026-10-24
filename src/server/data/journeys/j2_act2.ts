@@ -13,7 +13,7 @@ export const grafoJ2Ato2: GrafoJornada = {
       anoHistorico: '129 d.C.',
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Sor Otto Hightower enviou Sor Arryk Cargyll disfarçado para se infiltrar em Pedra do Dragão e assassinar Rhaenyra em seus aposentos. Nos corredores escuros da cidadela de obsidiana, Arryk deu de cara com seu irmão gêmeo, Sor Erryk Cargyll da Guarda da Rainha.
+      fallbackText: `Ser Otto Hightower enviou Ser Arryk Cargyll disfarçado para se infiltrar em Pedra do Dragão e assassinar Rhaenyra em seus aposentos. Nos corredores escuros da cidadela de obsidiana, Arryk deu de cara com seu irmão gêmeo, Ser Erryk Cargyll da Guarda da Rainha.
       
 Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos travaram um duelo mortal em silêncio fúnebre, matando-se mutuamente nos braços um do outro.`,
       internalVoices: [
@@ -81,7 +81,7 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
       anoHistorico: '129 d.C.',
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Os batedores descobriram o ardil: Sor Criston Cole cercara deliberadamente o modesto castelo de Lorde Staunton em Pouso de Gralhas para forçar um dragão dos Pretos a vir em socorro, mantendo Sunfyre e Vhagar emboscados nas florestas próximas.`,      loreContext: {
+      fallbackText: `Os batedores descobriram o ardil: Ser Criston Cole cercara deliberadamente o modesto castelo de Lorde Staunton em Pouso de Gralhas para forçar um dragão dos Pretos a vir em socorro, mantendo Sunfyre e Vhagar emboscados nas florestas próximas.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -124,7 +124,7 @@ Com lágrimas nos olhos e lâminas desembainhadas, os dois irmãos idênticos tr
       anoHistorico: '129 d.C.',
       localizacao: 'Terras da Ponta da Garra Rachada',
       regionId: 'terras_da_coroa',
-      fallbackText: `Sor Criston Cole queimou Rosby e Stokeworth, incorporando suas forças e cercando Pouso de Gralhas. Lorde Staunton trancou os portões e enviou um corvo desesperado para Pedra do Dragão implorando socorro de asas.`,      loreContext: {
+      fallbackText: `Ser Criston Cole queimou Rosby e Stokeworth, incorporando suas forças e cercando Pouso de Gralhas. Lorde Staunton trancou os portões e enviou um corvo desesperado para Pedra do Dragão implorando socorro de asas.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -244,7 +244,7 @@ Rhaenys não fugiu. Rindo com desdém valiriano, ela lançou Meleys diretamente 
       localizacao: 'Pouso de Gralhas',
       regionId: 'terras_da_coroa',
       isEnding: true,
-      fallbackText: `Vossa intervenção foi engolida pela torrente monumental de fogo de Vhagar. Vossa montaria e vosso corpo foram reduzidos a cinzas estalantes antes que vossos pés pudessem tocar a terra queimada.`,      loreContext: {
+      fallbackText: `Sua intervenção foi engolida pela torrente monumental de fogo de Vhagar. Sua montaria e seu corpo foram reduzidos a cinzas estalantes antes que seus pés pudessem tocar a terra queimada.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -409,7 +409,7 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       localizacao: 'Monte Dragão, Pedra do Dragão',
       regionId: 'pedra_dragao',
       isEnding: true,
-      fallbackText: `Vossa aproximação irritou o antigo dragão do Rei Jaehaerys. Com um bafo flamejante que derreteu vossa cota de malha em segundos, Vermithor engoliu vossos restos e retornou ao seu sono na caverna vulcânica.`,      loreContext: {
+      fallbackText: `Sua aproximação irritou o antigo dragão do Rei Jaehaerys. Com um bafo flamejante que derreteu sua cota de malha em segundos, Vermithor engoliu seus restos e retornou ao seu sono na caverna vulcânica.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -428,7 +428,7 @@ Centenas de homens e mulheres queimaram e foram devorados nas semanas seguintes,
       anoHistorico: '129 d.C.',
       localizacao: 'Monte Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Com nervos de aço e a voz ressoando em alto valiriano, conseguistes subjugar a besta titânica! Vermithor curvou sua cabeça cor de bronze, permitindo que a sela fosse atada em seu dorso. Vós sois agora o senhor da segunda maior arma viva de Westeros!`,      loreContext: {
+      fallbackText: `Com nervos de aço e a voz ressoando em alto valiriano, conseguistes subjugar a besta titânica! Vermithor curvou sua cabeça cor de bronze, permitindo que a sela fosse atada em seu dorso. Você é agora o senhor da segunda maior arma viva de Westeros!`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_04_morte-dos-dragoes-dragao-vermelho-dourado.md',
           livro: 'Fogo & Sangue - Volume 1',

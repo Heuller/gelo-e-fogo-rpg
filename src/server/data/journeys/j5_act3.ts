@@ -20,7 +20,7 @@ export const grafoJ5Ato3: GrafoJornada = {
       regionId: 'tridente',
       fallbackText: `O Ramo Verde do Tridente corre largo e barrento entre margens de salgueiros e caniços. Do outro lado da água rasa do vau, quarenta mil lanças reais estendem-se até o horizonte sob uma floresta de estandartes de dragões de três cabeças.
       
-O Príncipe Rhaegar Targaryen retornou finalmente do Sul. Ele monta um corcel negro puro com armadura de escamas de aço escurecido, seu peitoral resplandecendo com um dragão heráldico moldado inteiramente em rubis reluzentes. Ao lado dele cavalgam os irmãos da Guarda Real: Sor Jonothor Darry e o formidável Sor Barristan Selmy.
+O Príncipe Rhaegar Targaryen retornou finalmente do Sul. Ele monta um corcel negro puro com armadura de escamas de aço escurecido, seu peitoral resplandecendo com um dragão heráldico moldado inteiramente em rubis reluzentes. Ao lado dele cavalgam os irmãos da Guarda Real: Ser Jonothor Darry e o formidável Ser Barristan Selmy.
       
 Do lado rebelde, Robert Baratheon ajeita o elmo com chifres de veado e ergue o martelo forjado por Donal Noye.
       
@@ -88,7 +88,7 @@ Do lado rebelde, Robert Baratheon ajeita o elmo com chifres de veado e ergue o m
       regionId: 'tridente',
       fallbackText: `O choque dos dois exércitos nas águas rasas faz o rio espumar em vermelho. Cavalos escorregam nos seixos de cascalho; escudos de carvalho lascam sob golpes de machado e flechas caem como chuva torrencial do céu cinzento.
       
-Sor Barristan Selmy, o Ousado, avança como uma lenda viva em seu manto branco imaculado, abatendo uma dúzia de cavaleiros rebeldes ao redor de sua lâmina cintilante. Ao vosso lado, a lança de um guarda real quebra contra vosso escudo e a correnteza fria puxa homens e armaduras para o fundo do leito.`,
+Ser Barristan Selmy, o Ousado, avança como uma lenda viva em seu manto branco imaculado, abatendo uma dúzia de cavaleiros rebeldes ao redor de sua lâmina cintilante. Ao seu lado, a lança de um guarda real quebra contra seu escudo e a correnteza fria puxa homens e armaduras para o fundo do leito.`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -145,7 +145,7 @@ Sor Barristan Selmy, o Ousado, avança como uma lenda viva em seu manto branco i
       regionId: 'tridente',
       fallbackText: `Dez mil guerreiros de Dorne marcham sob as ordens do Príncipe Lewyn Martell da Guarda Real. Suas lanças compridas de freixo formam uma cerca impenetrável de aço pontiagudo que começa a empurrar a linha do Vale de volta para a água.
       
-Sor Lyn Corbray pega a espada de aço valiriano de seu pai caído, a lendária Senhora Desespero, e com um grito de fúria selvagem rasga a linha dornesa. Em um duelo vertiginoso sobre a lama avermelhada, Corbray fere mortalmente o Príncipe Lewyn, quebrando a espinha dorsal da infantaria do Sul!`,
+Ser Lyn Corbray pega a espada de aço valiriano de seu pai caído, a lendária Senhora Desespero, e com um grito de fúria selvagem rasga a linha dornesa. Em um duelo vertiginoso sobre a lama avermelhada, Corbray fere mortalmente o Príncipe Lewyn, quebrando a espinha dorsal da infantaria do Sul!`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -160,7 +160,7 @@ Sor Lyn Corbray pega a espada de aço valiriano de seu pai caído, a lendária S
           livro: 'A Tormenta de Espadas',
           capitulo: 'Sansa VI',
         },
-        notaHistorica: 'Âncora Canônica: Sor Lyn Corbray mata o Príncipe Lewyn Martell com a Senhora Desespero na Batalha do Tridente.',
+        notaHistorica: 'Âncora Canônica: Ser Lyn Corbray mata o Príncipe Lewyn Martell com a Senhora Desespero na Batalha do Tridente.',
       },
       escolhas: [
         {
@@ -296,7 +296,7 @@ Com um último murmúrio que sussurra um nome feminino que a correnteza engole �
         },
         {
           id: 'esc_j5_a3_proteger_barristan_caido',
-          texto: 'Intervir para que Sor Barristan Selmy, caído gravemente ferido no cascalho, não seja degolado por soldados saqueadores.',
+          texto: 'Intervir para que Ser Barristan Selmy, caído gravemente ferido no cascalho, não seja degolado por soldados saqueadores.',
           tipo: 'teste_atributo',
           atributo: 'cortesia',
           dc: 10,
@@ -320,7 +320,7 @@ Com um último murmúrio que sussurra um nome feminino que a correnteza engole �
       regionId: 'tridente',
       fallbackText: `Com a morte de Rhaegar, o exército real quebra em pânico e debandada absoluta. Soldados atiram escudos e elmos na água e fogem pela Estrada do Rei em direção ao sul.
       
-Robert Baratheon, apoiado em vossos ombros enquanto seu meistre estanca o sangue, entrega a Ned Stark a liderança das tropas avançadas.
+Robert Baratheon, apoiado em seus ombros enquanto seu meistre estanca o sangue, entrega a Ned Stark a liderança das tropas avançadas.
       
 — Eu não consigo montar com esta coxa rasgada, Ned — diz Robert, respirando com dificuldade. — Pega a vanguarda e cavalga como o vento. Tywin Lannister ainda não declarou de que lado está e Porto Real está desprotegida. Não permitas que o Rei Louco destrua a cidade antes da nossa chegada!`,
       internalVoices: [

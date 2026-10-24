@@ -25,7 +25,7 @@ Acima deles, Balerion rugiu nos céus, e sua sombra titânica engoliu as margens
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Os Senhores dos Rios clamam por vingança. Dê a eles justiça contra os Hoare e o Tridente será vosso para sempre.',
+          fala: 'Os Senhores dos Rios clamam por vingança. Dê a eles justiça contra os Hoare e o Tridente será seu para sempre.',
         },
         {
           atributo: 'astucia',
@@ -251,7 +251,7 @@ Gritos horríveis ecoaram no pátio quando o Rei Harren Hoare e todos os seus fi
       escolhas: [
         {
           id: 'esc_consagrar_edmyn_tully',
-          texto: 'Pousar Balerion no pátio enegrecido e aclamar Lorde Edmyn Tully Senhor Supremo do Tridente, cedendo Harrenhal a Sor Quenton Qoherys.',
+          texto: 'Pousar Balerion no pátio enegrecido e aclamar Lorde Edmyn Tully Senhor Supremo do Tridente, cedendo Harrenhal a Ser Quenton Qoherys.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_senhor_supremo_tridente',
         },
@@ -295,7 +295,7 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
           atributo: 'astucia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'Uma vitória magistral sem desperdício de fogo. A maior fortaleza do continente agora é vossa, intacta.',
+          fala: 'Uma vitória magistral sem desperdício de fogo. A maior fortaleza do continente agora é sua, intacta.',
         },
         {
           atributo: 'erudicao',
@@ -315,7 +315,7 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
       escolhas: [
         {
           id: 'esc_avancar_pos_infiltracao_canonico',
-          texto: 'Nomear a Casa Tully governante dos rios e conceder Harrenhal intacta a Sor Quenton Qoherys.',
+          texto: 'Nomear a Casa Tully governante dos rios e conceder Harrenhal intacta a Ser Quenton Qoherys.',
           tipo: 'simples',
           nextNodeId: 'j1_a2_senhor_supremo_tridente',
         },
@@ -359,7 +359,7 @@ Embora Harren tenha sido despachado acorrentado para a Muralha para vestir o neg
       regionId: 'tridente',
       fallbackText: `Na manhã seguinte ao cataclismo, a fumaça de Harrenhal subia em colunas negras que podiam ser vistas a cinquenta léguas de distância. Diante de milhares de guerreiros exultantes das Terras dos Rios, Aegon I desembainhou Blackfyre e tocou os ombros curvados de Lorde Edmyn Tully de Correrrio.
 
-"Por vossa bravura e por ter sido o primeiro a se rebelar contra a tirania dos homens de ferro", proclamou o Conquistador, "eu vos nomeio Senhor Supremo do Tridente. Todos os senhores dos rios prestarão vassalagem a vós e a vossa Casa em Correrrio a partir deste dia."
+"Por sua bravura e por ter sido o primeiro a se rebelar contra a tirania dos homens de ferro", proclamou o Conquistador, "eu o nomeio Senhor Supremo do Tridente. Todos os senhores dos rios prestarão vassalagem a você e a sua Casa em Correrrio a partir deste dia."
 
 Os lordes Blackwood, Bracken, Frey, Vance e Mallister ajoelharam-se em aclamação unânime. O Tridente estava livre de seus antigos senhores de ferro e selado para sempre sob a égide dos dragões. Enquanto isso, mensageiros exaustos chegavam do sul trazendo notícias alarmantes: a batalha decisiva nas Terras da Tempestade acabara de ter início sob um temporal furioso.`,
       internalVoices: [
@@ -874,7 +874,7 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+          fala: 'O calor da fogueira e a partilha do pão com seus vassalos restabelecem a confiança na coroa.',
         },
         {
           atributo: 'pressagio',
@@ -937,7 +937,7 @@ Em vez de derramar sangue, Visenya desceu sozinha de Vhagar e recebeu os lídere
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+          fala: 'O calor da fogueira e a partilha do pão com seus vassalos restabelecem a confiança na coroa.',
         },
         {
           atributo: 'pressagio',

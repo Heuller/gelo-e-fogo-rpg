@@ -108,13 +108,13 @@ export const CartaoDeRolagem: React.FC<CartaoDeRolagemProps> = ({
   > = {
     CRITICO: {
       titulo: 'Triunfo',
-      subtitulo: 'Um golpe do destino a vosso favor. Os deuses sorriem para vossa ousadia.',
+      subtitulo: 'Um golpe do destino a seu favor. Os deuses sorriem para sua ousadia.',
       seloVariante: 'triunfo',
       icone: <Sparkles className="w-5 h-5" />,
     },
     SUCESSO: {
       titulo: 'Sucesso',
-      subtitulo: 'Vossa perícia prevalece sobre a adversidade.',
+      subtitulo: 'Sua perícia prevalece sobre a adversidade.',
       seloVariante: 'sucesso',
       icone: <CheckCircle2 className="w-5 h-5" />,
     },
@@ -126,7 +126,7 @@ export const CartaoDeRolagem: React.FC<CartaoDeRolagemProps> = ({
     },
     FALHA_CRITICA: {
       titulo: 'Calamidade',
-      subtitulo: 'As consequências desabam com severidade sobre vossa casa.',
+      subtitulo: 'As consequências desabam com severidade sobre sua casa.',
       seloVariante: 'calamidade',
       icone: <Skull className="w-5 h-5" />,
     },

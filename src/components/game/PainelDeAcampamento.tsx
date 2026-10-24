@@ -72,7 +72,7 @@ export function PainelDeAcampamento({
     }
     if (resp.bonusInspiracao) {
       ficha.inspiracao = (ficha.inspiracao || 0) + resp.bonusInspiracao;
-      adicionarAviso(`✨ Vosso vínculo com ${compAtual?.nome || 'o companheiro'} concedeu +1 Ponto de Inspiração!`);
+      adicionarAviso(`✨ Seu vínculo com ${compAtual?.nome || 'o companheiro'} concedeu +1 Ponto de Inspiração!`);
     }
 
     // 3. Flags narrativas
@@ -132,7 +132,7 @@ export function PainelDeAcampamento({
 
           {compsAtivos.length === 0 ? (
             <p className="text-xs text-[var(--tinta-fraca,#a89f8a)] italic">
-              Nenhum companheiro acompanha vossa vigília no momento.
+              Nenhum companheiro acompanha sua vigília no momento.
             </p>
           ) : (
             compsAtivos.map((comp) => {
@@ -276,7 +276,7 @@ export function PainelDeAcampamento({
               {!respostaEscolhida ? (
                 <div className="space-y-2 pt-2">
                   <span className="text-xs font-cinzel text-[var(--ouro-brilho,#dfbe76)] uppercase block mb-1">
-                    Como vós respondeis:
+                    Como você respondeis:
                   </span>
                   {topicoAtivo.respostas.map((resp) => (
                     <button

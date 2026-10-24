@@ -372,7 +372,7 @@ export default function PainelPage() {
         >
           <div className="space-y-4 text-xs font-sans text-[var(--tinta)]">
             <p className="text-sm font-garamond leading-relaxed">
-              Desejais realmente romper e apagar os registros do <strong>Slot {slotParaExcluir}</strong>? Todo o progresso deste personagem será perdido irreversivelmente.
+              Deseja realmente romper e apagar os registros do <strong>Slot {slotParaExcluir}</strong>? Todo o progresso deste personagem será perdido irreversivelmente.
             </p>
             <div className="flex items-center justify-end gap-3 pt-3 border-t border-[var(--borda)]">
               <Botao variante="fantasma" onClick={() => setSlotParaExcluir(null)}>

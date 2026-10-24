@@ -138,7 +138,7 @@ No regresso através da mata nevada, Robb e Jon Snow encontraram a carcaça de u
       regionId: 'norte',
       fallbackText: `Trombetas ecoaram quando trezentos cavaleiros cruzaram a ponte levadiça de Winterfell. O Rei Robert Baratheon apeou de seu imenso garanhão, pesado e barbudo, abraçando Ned com um estrondo de gargalhadas.
       
-Ao seu lado desceram a Rainha Cersei em sedas e peles douradas, Sor Jaime Lannister resplandecente como o sol em sua armadura dourada da Guarda Real, e o anão Tyrion Lannister. Antes mesmo de lavar a poeira da viagem, Robert arrastou Ned até as criptas subterrâneas para chorar sobre a estátua de pedra de Lyanna Stark. Ali, no silêncio dos túmulos dos Reis do Inverno, Robert pediu a mão de Sansa para o Príncipe Joffrey e nomeou Ned como a nova Mão do Rei.`,
+Ao seu lado desceram a Rainha Cersei em sedas e peles douradas, Ser Jaime Lannister resplandecente como o sol em sua armadura dourada da Guarda Real, e o anão Tyrion Lannister. Antes mesmo de lavar a poeira da viagem, Robert arrastou Ned até as criptas subterrâneas para chorar sobre a estátua de pedra de Lyanna Stark. Ali, no silêncio dos túmulos dos Reis do Inverno, Robert pediu a mão de Sansa para o Príncipe Joffrey e nomeou Ned como a nova Mão do Rei.`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -236,7 +236,7 @@ No dia seguinte, o rei partiu para uma caçada nos bosques. Bran Stark, escaland
         },
         {
           id: 'esc_banquete_observar_lannister',
-          texto: 'Manter olhar atento sobre a Rainha Cersei e Sor Jaime durante todo o serviço de jantar.',
+          texto: 'Manter olhar atento sobre a Rainha Cersei e Ser Jaime durante todo o serviço de jantar.',
           tipo: 'simples',
           aprovacaoCompanheiros: { catelyn: 20, peixe_negro: 15 },
           delta: { flagsAdicionadas: ['lannister_observados_banquete'] },
@@ -252,7 +252,7 @@ No dia seguinte, o rei partiu para uma caçada nos bosques. Bran Stark, escaland
       anoHistorico: '298 d.C.',
       localizacao: 'Torre Quebrada de Winterfell',
       regionId: 'norte',
-      fallbackText: `Espiando pela fresta estreita da janela alta, os olhos de sete anos de Bran contemplaram o horror indizível: a Rainha Cersei e Sor Jaime Lannister nus em abraço carnal sobre o piso empoeirado da torre.
+      fallbackText: `Espiando pela fresta estreita da janela alta, os olhos de sete anos de Bran contemplaram o horror indizível: a Rainha Cersei e Ser Jaime Lannister nus em abraço carnal sobre o piso empoeirado da torre.
       
 Um gemido escapou de seus lábios. Jaime virou-se com agilidade felina, agarrou o menino pelo pulso e suspendeu-o sobre o precipício de pedras pontiagudas cem pés abaixo.
 — As coisas que eu faço por amor — sussurrou o Regicida antes de empurrá-lo para o vazio.`,
@@ -404,7 +404,7 @@ Catelyn Stark agarrou a lâmina com as duas mãos nuas, o aço cortando seus ten
 
         {
           id: 'esc_pista_adaga_catelyn_viagem',
-          texto: 'Apoiar Catelyn em sua jornada secreta a cavalo até Porto Real com Sor Rodrik Cassel.',
+          texto: 'Apoiar Catelyn em sua jornada secreta a cavalo até Porto Real com Ser Rodrik Cassel.',
           tipo: 'simples',
           aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 20 },
           delta: { compostura: 2 },
@@ -455,7 +455,7 @@ Ned cavalgava para o sul pela Estrada do Rei com Sansa, Arya e as lobas Lady e N
       
         {
           id: 'esc_j3_a1_escoltar_catelyn_porto_branco',
-          texto: 'Escoltar Lady Catelyn e Sor Rodrik Cassel até Porto Branco para fretar uma galé rápida e segura.',
+          texto: 'Escoltar Lady Catelyn e Ser Rodrik Cassel até Porto Branco para fretar uma galé rápida e segura.',
           tipo: 'teste_atributo',
           atributo: 'comando',
           dc: 11,
@@ -485,7 +485,7 @@ Ned cavalgava para o sul pela Estrada do Rei com Sansa, Arya e as lobas Lady e N
       anoHistorico: '298 d.C.',
       localizacao: 'Castelo Negro, A Muralha',
       regionId: 'muralha',
-      fallbackText: `Setecentos pés de gelo sólido brilhavam sob o sol pálido do norte. Em Castelo Negro, Jon encontrou uma realidade dura e crua: em vez de nobres cavaleiros, a Patrulha da Noite era formada por ladrões, estupradores e camponeses famintos treinados pelo brutal Sor Alliser Thorne.
+      fallbackText: `Setecentos pés de gelo sólido brilhavam sob o sol pálido do norte. Em Castelo Negro, Jon encontrou uma realidade dura e crua: em vez de nobres cavaleiros, a Patrulha da Noite era formada por ladrões, estupradores e camponeses famintos treinados pelo brutal Ser Alliser Thorne.
       
 Com ajuda de Tyrion e seu lobo Fantasma, Jon venceu a hostilidade inicial e jurou proteger Samwell Tarly, o gordo e covarde herdeiro deserdado de Monte Chifre. No topo da Muralha, contemplando a imensidão da Floresta Assombrada, Tyrion urinou sobre a borda do mundo antes de despedir-se como amigo.`,
       internalVoices: [
@@ -702,7 +702,7 @@ Lady foi enviada secretamente de volta a Winterfell em segurança.`,
       regionId: 'terras_da_coroa',
       fallbackText: `No horizonte banhado pela maresia e fétido de curtumes e dejetos humanos, erguiam-se as três colinas da capital do império. No alto da Colina de Aegon, a Fortaleza Vermelha brilhava com suas pedras cor de sangue e ameias imensas voltadas para a baía.
       
-Sor Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned. A corte aguardava sua nova Mão do Rei para abrir o primeiro conselho de governo.`,
+Ser Barristan Selmy e os membros do Pequeno Conselho saíram ao encontro de Ned. A corte aguardava sua nova Mão do Rei para abrir o primeiro conselho de governo.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',

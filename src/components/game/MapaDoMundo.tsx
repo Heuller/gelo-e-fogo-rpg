@@ -131,7 +131,7 @@ export function MapaDoMundo({
           </span>
           {regiaoExibida.id === regiaoAtiva.id && (
             <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 font-sans font-semibold">
-              Vossa Localização
+              Sua Localização
             </span>
           )}
         </div>

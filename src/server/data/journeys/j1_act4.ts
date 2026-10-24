@@ -89,7 +89,7 @@ A visão do Terror Negro rasgando os céus salgados quebrou qualquer resistênci
       regionId: 'tridente',
       fallbackText: `Reunidos nos rochedos salgados de Pyke, os capitães de ferro escolheram Vickon Greyjoy, o respeitado Senhor Ceifeiro de Pyke, como seu novo suserano. Vickon dobrou os joelhos diante de Aegon I, jurando lealdade irrestrita à Coroa Real e renunciando para sempre a todas as terras conquistadas no continente.
 
-Em troca, Aegon cedeu o domínio pacificado de Harrenhal a Sor Quenton Qoherys com a mão de uma filha de Lorde Tully, separando definitivamente o destino das Terras dos Rios do destino das Ilhas de Ferro.
+Em troca, Aegon cedeu o domínio pacificado de Harrenhal a Ser Quenton Qoherys com a mão de uma filha de Lorde Tully, separando definitivamente o destino das Terras dos Rios do destino das Ilhas de Ferro.
 
 Com o Norte ajoelhado, o Oeste domado, o Vale pacificado e as Ilhas de Ferro em ordem, todo o continente ao sul da Muralha curvava-se a Aegon Targaryen. Todo o continente, exceto um único reino meridional: o principado de Dorne.`,
       internalVoices: [
@@ -155,7 +155,7 @@ Com o Norte ajoelhado, o Oeste domado, o Vale pacificado e as Ilhas de Ferro em 
 
 Aegon ofereceu casamentos de honra, isenção de tributos e respeito absoluto aos costumes dorneses se Meria aceitasse a soberania do Trono de Ferro. Mas a velha princesa ouvia as propostas com um sorriso desdenhoso.
 
-"Nossos ancestrais cruzaram os mares fugindo dos dragões de Valíria", respondeu a princesa. "Westeros pode se queimar sob as vossas asas, mas Dorne nunca terá um rei estrangeiro." As negociações falharam, e em 4 d.C. a Rainha Rhaenys montou Meraxes para cumprir a promessa de levar fogo e sangue.`,
+"Nossos ancestrais cruzaram os mares fugindo dos dragões de Valíria", respondeu a princesa. "Westeros pode se queimar sob as suas asas, mas Dorne nunca terá um rei estrangeiro." As negociações falharam, e em 4 d.C. a Rainha Rhaenys montou Meraxes para cumprir a promessa de levar fogo e sangue.`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -307,7 +307,7 @@ Quando Orys finalmente retornou à corte, com o coto curado e uma barra de ferro
           atributo: 'furia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'A mão do vosso irmão de armas foi decepada no lodo dornês. Não haverá perdão nas areias.',
+          fala: 'A mão do seu irmão de armas foi decepada no lodo dornês. Não haverá perdão nas areias.',
         },
       ],
       loreContext: {
@@ -413,7 +413,7 @@ Quando as forças reais finalmente convergiram para Lançassolar, a capital dos 
       regionId: 'dorne',
       fallbackText: `Sentada em seu trono de madeira esculpida no pátio escaldante de Lançassolar, cega, desdentada e gorda aos oitenta anos de idade, a Princesa Meria Martell encarou a Rainha Rhaenys Targaryen e as presas de Meraxes sem pestanejar.
 
-"Renda-se, princesa", intimou Rhaenys com a mão no punho de sua adaga, "ou voltaremos com fogo e sangue para consumir vossas areias."
+"Renda-se, princesa", intimou Rhaenys com a mão no punho de sua adaga, "ou voltaremos com fogo e sangue para consumir suas areias."
 
 A velha senhora soltou uma risada rouca e respondeu com o lema imortal de Nymeria:
 "Eu não vou lutar com você, nem vou me ajoelhar diante de você. Dorne não tem rei. Diga isso ao seu irmão. Vocês podem queimar nossos castelos, mas nós somos Insubmissos, Não Curvados, Não Quebrados!"
@@ -857,7 +857,7 @@ A comitiva de Deria não vinha desarmada: traziam um cortejo solene escoltando u
 
 Gritos de indignação e sede de sangue ecoaram pelos bancos dos lordes. Orys Baratheon, com o braço de ferro apertado na cintura, bradou que Deria deveria ser queimada viva e enviada a Dorne em pedaços.
 
-Mas a princesa permaneceu impassível. Com um passo à frente, ela retirou de suas vestes uma carta selada com o sinete pessoal do Príncipe Nymor Martell. "Isto é apenas para os olhos de Vossa Graça", proclamou ela. "Uma mensagem pessoal do governante de Dorne para o Conquistador de Westeros."`,
+Mas a princesa permaneceu impassível. Com um passo à frente, ela retirou de suas vestes uma carta selada com o sinete pessoal do Príncipe Nymor Martell. "Isto é apenas para os olhos de Sua Graça", proclamou ela. "Uma mensagem pessoal do governante de Dorne para o Conquistador de Westeros."`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -869,7 +869,7 @@ Mas a princesa permaneceu impassível. Com um passo à frente, ela retirou de su
           atributo: 'pressagio',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'Esta carta encerra um segredo capaz de abalar as fundações de todo o vosso reinado.',
+          fala: 'Esta carta encerra um segredo capaz de abalar as fundações de todo o seu reinado.',
         },
       ],
       loreContext: {
@@ -927,7 +927,7 @@ Sem proferir uma única palavra aos lordes ou a Visenya, o rei levantou-se, cami
           atributo: 'pressagio',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'A verdade foi revelada na solidão de Pedra do Dragão. Vossa decisão moldará os próximos trezentos anos de história.',
+          fala: 'A verdade foi revelada na solidão de Pedra do Dragão. Sua decisão moldará os próximos trezentos anos de história.',
         },
         {
           atributo: 'erudicao',
@@ -990,7 +990,7 @@ Aegon ergueu sua mão enfaixada e proclamou seu desígnio imutável ao mundo.`,
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Vos dizeis vossa palavra, e a história do mundo será gravada para sempre no bronze e no fogo.',
+          fala: 'Diga sua palavra, e a história do mundo será gravada para sempre no bronze e no fogo.',
         },
       ],
       loreContext: {
@@ -1071,7 +1071,7 @@ No ano 37 d.C., com sessenta e quatro anos, o Conquistador faleceu serenamente n
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O reinado da espada terminou em justiça e paz. Vosso nome será venerado por toda a posteridade.',
+          fala: 'O reinado da espada terminou em justiça e paz. Seu nome será venerado por toda a posteridade.',
         },
       ],
       loreContext: {
@@ -1173,7 +1173,7 @@ Sob a tutela da Fé e da Cidadela, o império tornou-se uma metrópole de conhec
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'A espada cedeu lugar à pena e ao livro sagrado. A cidade mais bela do mundo é agora a cabeça do vosso império.',
+          fala: 'A espada cedeu lugar à pena e ao livro sagrado. A cidade mais bela do mundo é agora a cabeça do seu império.',
         },
       ],
       loreContext: {

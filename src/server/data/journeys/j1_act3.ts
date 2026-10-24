@@ -414,7 +414,7 @@ Enquanto isso, patrulheiros de Orys Baratheon capturavam nos bosques próximos o
 
 Aegon desembainhou Blackfyre e cortou as cordas que prendiam os pulsos de Loren. Ergueu o senhor do ocidente pelos ombros e proferiu a sentença magnânima:
 
-"Vós entrastes nesta batalha como rei soberano, mas sairás dela como vassalo juramentado. Em troca de vossa vida e do ouro do Rochedo Casterly para a coroa, eu vos mantenho como Lorde de Rochedo Casterly e vos nomeio Protetor do Oeste."
+"Você entrou nesta batalha como rei soberano, mas sairá dela como vassalo juramentado. Em troca de sua vida e do ouro do Rochedo Casterly para a coroa, eu o mantenho como Lorde de Rochedo Casterly e o nomeio Protetor do Oeste."
 
 Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e ordenou que todos os cavaleiros das Terras Ocidentais depusessem suas espadas aos pés do Trono de Ferro.`,
       internalVoices: [
@@ -422,7 +422,7 @@ Loren beijou a mão de Aegon em gratidão por manter suas terras ancestrais e or
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 7,
-          fala: 'Um leão humilhado, mas salvo da fornalha. Ouro e exércitos ocidentais agora enriquecerão vosso império.',
+          fala: 'Um leão humilhado, mas salvo da fornalha. Ouro e exércitos ocidentais agora enriquecerão seu império.',
         },
         {
           atributo: 'astucia',
@@ -694,7 +694,7 @@ Brandon lutou com a destreza selvagem dos lobos do Norte, cravando uma adaga de 
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Poupou o sangue do irmão bastardo. Torrhen Stark reconhecerá a grandeza da vossa alma.',
+          fala: 'Poupou o sangue do irmão bastardo. Torrhen Stark reconhecerá a grandeza da sua alma.',
         },
       ],
       loreContext: {

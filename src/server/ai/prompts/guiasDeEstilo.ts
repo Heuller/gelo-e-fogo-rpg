@@ -119,7 +119,7 @@ export const GUIAS_DE_ESTILO_POR_JORNADA: Record<string, GuiaEstiloEra> = {
     nome: 'Irmão Sem Nome',
     periodo: '299 d.C. a 300 d.C.',
     tomNarrativo:
-      'Grimdark realista de caserna, humor seco de irmãos jurados, sentidos táteis agudos da Muralha. Narração envolvente em 2ª pessoa ("Vós vedes...", "Sentis o frio..."), presente, estritamente canônica.',
+      'Grimdark realista de caserna, humor seco de irmãos jurados, sentidos táteis agudos da Muralha. Narração envolvente em 2ª pessoa ("Você vê...", "Sentis o frio..."), presente, estritamente canônica.',
     diretrizesEstilo: [
       'Enfatize a textura física do ofício: couro engelhado pela geada, piche fervente nos caldeirões, fumaça rascante de turfa, caldo ralo de cebola e carneiro.',
       'A camaradagem dura dos homens negros: ladrões, bastardos e fidalgos decaídos que compartilham a mesma palha e o mesmo destino.',
@@ -150,7 +150,7 @@ export const GUIAS_DE_ESTILO_POR_JORNADA: Record<string, GuiaEstiloEra> = {
     nome: 'A Rebelião de Robert',
     periodo: '282 d.C. a 283 d.C.',
     tomNarrativo:
-      'Épico heroico e trágico, nobreza marcial em colapso com a loucura dinástica. Choque visceral de aço, honra de juramentos quebrados, camaradagem forjada na revolta contra a tirania. Narração em 2ª pessoa ("Vós vedes...", "Avançais com o martelo..."), presente, fiel aos livros canônicos.',
+      'Épico heroico e trágico, nobreza marcial em colapso com a loucura dinástica. Choque visceral de aço, honra de juramentos quebrados, camaradagem forjada na revolta contra a tirania. Narração em 2ª pessoa ("Você vê...", "Avança com o martelo..."), presente, fiel aos livros canônicos.',
     diretrizesEstilo: [
       'Robert Baratheon é um jovem titã de seis pés e meio, risonho na taverna e monstruoso com o martelo no campo de batalha.',
       'Eddard Stark é solene, melancólico e inflexível quanto à honra, marcado pela execução covarde do pai e do irmão por Aerys II.',

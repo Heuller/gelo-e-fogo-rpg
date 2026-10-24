@@ -15,7 +15,7 @@ export const grafoJ2Ato3: GrafoJornada = {
       regionId: 'tridente',
       fallbackText: `Enlouquecido pela perda de Porto Real, o Príncipe Regente Aemond abandonou o exército de Criston Cole e passou a voar sozinho em Vhagar, incinerando aldeias, plantações e castelos de Darry, Harrenhal e Lagoa da Donzela.
       
-Sor Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cercado no 'Baile do Açougueiro' pelos Senhores dos Rios comandados por Roddy Ruína e seus nortenhos. Cole caiu crivado de flechas sem direito a um duelo singular.`,
+Ser Criston Cole, marchando para o sul em busca dos aliados da Campina, foi cercado no 'Baile do Açougueiro' pelos Senhores dos Rios comandados por Roddy Ruína e seus nortenhos. Cole caiu crivado de flechas sem direito a um duelo singular.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -420,7 +420,7 @@ Enquanto os dois dragões despencavam em espiral mortal em direção às águas,
       anoHistorico: '130 d.C.',
       localizacao: 'Fortaleza Vermelha, Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Consumida pelo luto dos filhos e pela traição de Tumbleton, Rhaenyra ordenou a prisão de Sor Addam Velaryon, duvidando da lealdade de todos os bastardos. Lorde Corlys Velaryon interveio, permitindo que Addam fugisse em Fumaresia.
+      fallbackText: `Consumida pelo luto dos filhos e pela traição de Tumbleton, Rhaenyra ordenou a prisão de Ser Addam Velaryon, duvidando da lealdade de todos os bastardos. Lorde Corlys Velaryon interveio, permitindo que Addam fugisse em Fumaresia.
       
 Por sua lealdade, Corlys foi espancado e jogado nas masmorras. A frota Velaryon retirou-se em protesto, deixando a capital vulnerável e faminta. Nas ruas da Baixada das Pulgas, um profeta louco e mutilado chamado O Pastor começou a pregar que os dragões eram demônios do fogo que deviam ser extirpados.`,
       internalVoices: [
@@ -560,7 +560,7 @@ Presos em correntes de ferro, Shrykos, Morghul e Tyraxes lutaram bravamente, que
       localizacao: 'Colina de Rhaenys',
       regionId: 'terras_da_coroa',
       isEnding: true,
-      fallbackText: `Vosso cavalo foi puxado para a lama por dezenas de mãos ensanguentadas. Desarmado e pisoteado sob as pedras em colapso do domo do Fosso, vossa vida apagou-se entre os gritos dos moribundos e a fumaça de enxofre.`,      loreContext: {
+      fallbackText: `Seu cavalo foi puxado para a lama por dezenas de mãos ensanguentadas. Desarmado e pisoteado sob as pedras em colapso do domo do Fosso, sua vida apagou-se entre os gritos dos moribundos e a fumaça de enxofre.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -624,7 +624,7 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
       anoHistorico: '130 d.C.',
       localizacao: 'Fosso dos Dragões',
       regionId: 'terras_da_coroa',
-      fallbackText: `Vossa carga de cavalaria despedaçou as linhas dos fanáticos antes que as correntes dos dragões cedessem! O Pastor foi capturado e amarrado aos portões de ferro. Syrax e Dreamfyre rugiram triunfantes no topo da colina, preservando os dragões vivos de Westeros!`,      loreContext: {
+      fallbackText: `Sua carga de cavalaria despedaçou as linhas dos fanáticos antes que as correntes dos dragões cedessem! O Pastor foi capturado e amarrado aos portões de ferro. Syrax e Dreamfyre rugiram triunfantes no topo da colina, preservando os dragões vivos de Westeros!`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -731,7 +731,7 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
       anoHistorico: '130 d.C.',
       localizacao: 'Terras Fluviais',
       regionId: 'tridente',
-      fallbackText: `Sor Roderick Dustin, conhecido como Roddy Ruína, liderou seus velhos lobos nortenhos desdentados com machados de guerra em punho. Enfrentando o exército de Criston Cole, eles lutaram como bêbados de sangue, abatendo cavaleiros montados até a morte de Cole.`,
+      fallbackText: `Ser Roderick Dustin, conhecido como Roddy Ruína, liderou seus velhos lobos nortenhos desdentados com machados de guerra em punho. Enfrentando o exército de Criston Cole, eles lutaram como bêbados de sangue, abatendo cavaleiros montados até a morte de Cole.`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -783,7 +783,7 @@ Porto Real estava em chamas e sem governo. Rhaenyra foi forçada a fugir na cala
       localizacao: 'Porto Real e Mar Estreito',
       regionId: 'terras_da_coroa',
       isEnding: true,
-      fallbackText: `O Ato III encerra-se no ponto de maior tensão da Dança dos Dragões: com a capital em ruínas, Rhaenyra em fuga ignorando que Aegon II está escondido em Pedra do Dragão, e Sor Addam Velaryon reunindo quatro mil homens leais para um ataque noturno desesperado em Tumbleton. O Ato IV decidirá quem reinará sobre os escombros.`,      loreContext: {
+      fallbackText: `O Ato III encerra-se no ponto de maior tensão da Dança dos Dragões: com a capital em ruínas, Rhaenyra em fuga ignorando que Aegon II está escondido em Pedra do Dragão, e Ser Addam Velaryon reunindo quatro mil homens leais para um ataque noturno desesperado em Tumbleton. O Ato IV decidirá quem reinará sobre os escombros.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_05_morte-dos-dragoes-rhaenyra-triunfante.md',
           livro: 'Fogo & Sangue - Volume 1',

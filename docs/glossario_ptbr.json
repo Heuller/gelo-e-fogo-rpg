@@ -1,0 +1,38 @@
+{
+  "padraoEditorial": "Tradução Canônica Brasileira (Jorge Candeias / Leya / Suma)",
+  "substituicoesPadrao": [
+    { "de": "Sor ", "para": "Ser ", "contexto": "Título de cavaleiro ungido" },
+    { "de": "vós", "para": "você", "contexto": "Pronome de tratamento direto" },
+    { "de": "vosso", "para": "seu", "contexto": "Possessivo masculino singular" },
+    { "de": "vossa", "para": "sua", "contexto": "Possessivo feminino singular" },
+    { "de": "vossos", "para": "seus", "contexto": "Possessivo masculino plural" },
+    { "de": "vossas", "para": "suas", "contexto": "Possessivo feminino plural" },
+    { "de": "desejais", "para": "deseja", "contexto": "Verbo no presente da 2ª pessoa" },
+    { "de": "quereis", "para": "quer", "contexto": "Verbo no presente da 2ª pessoa" },
+    { "de": "sabeis", "para": "sabe", "contexto": "Verbo no presente da 2ª pessoa" },
+    { "de": "possuís", "para": "possui", "contexto": "Verbo no presente da 2ª pessoa" },
+    { "de": "recuais", "para": "recua", "contexto": "Verbo no presente da 2ª pessoa" },
+    { "de": "obtendes", "para": "obtém", "contexto": "Verbo no presente da 2ª pessoa" }
+  ],
+  "termosGeograficosCanonicos": {
+    "KingsLanding": "Porto Real",
+    "CastleBlack": "Castelo Negro",
+    "StormsEnd": "Ponta Tempestade",
+    "Dragonstone": "Pedra do Dragão",
+    "Highgarden": "Jardim de Cima",
+    "TheEyrie": "Ninho da Águia",
+    "CasterlyRock": "Rochedo Casterly",
+    "BridgeOfSkulls": "Ponte de Caveiras",
+    "ShadowTower": "Torre Sombria",
+    "Eastwatch": "Atalaialeste"
+  },
+  "termosConceituais": {
+    "NightsWatch": "Patrulha da Noite",
+    "FreeFolk": "Povo Livre",
+    "Wildlings": "Selvagens",
+    "WhiteWalkers": "Caminhantes Brancos",
+    "TheOthers": "Os Outros",
+    "HandOfTheKing": "Mão do Rei",
+    "Kingsguard": "Guarda Real"
+  }
+}

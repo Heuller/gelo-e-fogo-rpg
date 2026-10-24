@@ -248,7 +248,7 @@ function JogarJogoInterno() {
       return;
     }
     if ((ficha.inspiracao ?? 0) <= 0) {
-      adicionarAviso('Não possuís Pontos de Inspiração suficientes.', 'erro');
+      adicionarAviso('Não possui Pontos de Inspiração suficientes.', 'erro');
       return;
     }
 

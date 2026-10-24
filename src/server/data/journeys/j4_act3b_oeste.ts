@@ -272,7 +272,7 @@ Bowen Marsh ergue a espada tarde demais. O gume do machado estilhaça a bochecha
       ],
     },
 
-    // 5. Sor Denys Mallister Chega
+    // 5. Ser Denys Mallister Chega
     j4_a3b_sor_denys: {
       id: 'j4_a3b_sor_denys',
       titulo: 'Os Cavaleiros da Torre Sombria',
@@ -281,7 +281,7 @@ Bowen Marsh ergue a espada tarde demais. O gume do machado estilhaça a bochecha
       regionId: 'muralha_oeste',
       fallbackText: `Quando a munição esgota e os irmãos remanescentes já recuam passo a passo com a neve avermelhada até os tornozelos, um som límpido e ressoante corta a fúria da nevasca: o corno de bronze da Torre Sombria soa duas vezes!
       
-Descendo pelas encostas íngremes a cavalo, quarenta cavaleiros e homens de armas veteranos irrompem com Sor Denys Mallister à frente. Cabelos grisalhos como neve, porte impecável de cavaleiro do Tridente e olhos de aço: a carga de Sor Denys atinge o flanco dos selvagens com a força de uma avalanche.
+Descendo pelas encostas íngremes a cavalo, quarenta cavaleiros e homens de armas veteranos irrompem com Ser Denys Mallister à frente. Cabelos grisalhos como neve, porte impecável de cavaleiro do Tridente e olhos de aço: a carga de Ser Denys atinge o flanco dos selvagens com a força de uma avalanche.
       
 O Chorão berra de ódio ao ver sua travessia arruinada e recua para a escuridão da ravina, deixando para trás dezenas de mortos na ponte. A Dádiva está salva!`,
       internalVoices: [
@@ -289,13 +289,13 @@ O Chorão berra de ódio ao ver sua travessia arruinada e recua para a escuridã
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 9,
-          fala: 'Sor Denys é um nobre de nascimento fino da Casa Mallister de Salgadelas, veterano respeitado por toda a Patrulha há trinta anos.',
+          fala: 'Ser Denys é um nobre de nascimento fino da Casa Mallister de Salgadelas, veterano respeitado por toda a Patrulha há trinta anos.',
         },
         {
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'Com Bowen Marsh incapacitado, Sor Denys é a figura de autoridade máxima em todo o flanco oeste da Muralha.',
+          fala: 'Com Bowen Marsh incapacitado, Ser Denys é a figura de autoridade máxima em todo o flanco oeste da Muralha.',
         },
       ],
       loreContext: {
@@ -304,12 +304,12 @@ O Chorão berra de ódio ao ver sua travessia arruinada e recua para a escuridã
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon IX',
         },
-        notaHistorica: 'Âncora Canônica: A chegada da guarnição da Torre Sombria sob Sor Denys Mallister vence a Batalha da Ponte das Caveiras.',
+        notaHistorica: 'Âncora Canônica: A chegada da guarnição da Torre Sombria sob Ser Denys Mallister vence a Batalha da Ponte das Caveiras.',
       },
       escolhas: [
         {
           id: 'esc_j4_a3b_prestar_continencia_sor_denys',
-          texto: 'Apresentar-se respeitosamente a Sor Denys Mallister, relatando o estado de Marsh e a situação desesperada em Castelo Negro.',
+          texto: 'Apresentar-se respeitosamente a Ser Denys Mallister, relatando o estado de Marsh e a situação desesperada em Castelo Negro.',
           tipo: 'teste_atributo',
           atributo: 'cortesia',
           dc: 9,
@@ -418,9 +418,9 @@ Quando a coluna vinda do oeste adentra os portões trazendo Bowen Marsh enfaixad
       
 Jon Snow desce da escadaria de madeira para recebê-los. Seu rosto está magro e sombrio, mas um alívio imenso brilha em seus olhos ao ver Samwell vivo e a bandeira da Patrulha ainda erguida no oeste.
       
-— Sor Denys segurou a garganta — anuncia o mensageiro. — E o Chorão foi repelido com grandes perdas!
+— Ser Denys segurou a garganta — anuncia o mensageiro. — E o Chorão foi repelido com grandes perdas!
       
-Contudo, ao fundo do pátio, estandartes dourados e carmesins chamam a atenção: Sor Alliser Thorne e Janos Slynt acabam de desembarcar de Atalaialeste com reforços e ordens de prisão contra os irmãos!`,
+Contudo, ao fundo do pátio, estandartes dourados e carmesins chamam a atenção: Ser Alliser Thorne e Janos Slynt acabam de desembarcar de Atalaialeste com reforços e ordens de prisão contra os irmãos!`,
       internalVoices: [
         {
           atributo: 'comando',

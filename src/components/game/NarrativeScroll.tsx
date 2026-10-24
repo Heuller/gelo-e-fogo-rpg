@@ -162,7 +162,7 @@ export function NarrativeScroll({
       {escolhas.length > 0 && (
         <div className="my-8 pt-6 border-t border-[var(--borda)] text-center relative">
           <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--pergaminho-2)] px-4 text-xs font-cinzel uppercase tracking-widest text-[var(--ouro)] font-semibold border border-[var(--borda)] rounded-full">
-            Qual é o vosso desígnio?
+            Qual é o seu desígnio?
           </span>
         </div>
       )}
@@ -201,7 +201,7 @@ export function NarrativeScroll({
           >
             <span className="flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-[var(--ouro)]" />
-              <span>Desejais tentar uma ação inédita com prévia de perícia?</span>
+              <span>Deseja tentar uma ação inédita com prévia de perícia?</span>
             </span>
             {acaoLivreAberta ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
@@ -220,7 +220,7 @@ export function NarrativeScroll({
                 <textarea
                   value={textoAcaoLivre}
                   onChange={(e) => setTextoAcaoLivre(e.target.value)}
-                  placeholder="Descrevei em palavras vossa intenção, e o Mestre julgará vossos atributos…"
+                  placeholder="Descrevei em palavras sua intenção, e o Mestre julgará seus atributos…"
                   rows={3}
                   className="w-full bg-[var(--pergaminho-1)] border border-[var(--borda)] focus:border-[var(--ouro)] rounded-xl p-3 text-sm font-garamond text-[var(--tinta)] placeholder-[var(--tinta-fraca)] focus-visible:outline-none transition-colors resize-none"
                 />

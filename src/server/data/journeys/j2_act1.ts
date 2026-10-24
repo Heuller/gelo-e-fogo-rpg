@@ -13,9 +13,9 @@ export const grafoJ2Ato1: GrafoJornada = {
       anoHistorico: '129 d.C.',
       localizacao: 'Fortaleza Vermelha, Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `No terceiro dia do terceiro mês de 129 d.C., o Rei Viserys I Targaryen fechou os olhos em seus aposentos na Fortaleza Vermelha e nunca mais despertou. Antes que os sinos da capital pudessem dobrar, a Rainha Viúva Alicent Hightower e Sor Criston Cole trancaram o quarto régio e convocaram uma reunião secreta do Pequeno Conselho.
+      fallbackText: `No terceiro dia do terceiro mês de 129 d.C., o Rei Viserys I Targaryen fechou os olhos em seus aposentos na Fortaleza Vermelha e nunca mais despertou. Antes que os sinos da capital pudessem dobrar, a Rainha Viúva Alicent Hightower e Ser Criston Cole trancaram o quarto régio e convocaram uma reunião secreta do Pequeno Conselho.
       
-Sor Otto Hightower anunciou que o Trono de Ferro não seria entregue a uma mulher, desafiando o juramento solene feito a Rhaenyra vinte e quatro anos antes. Lorde Lyman Beesbury, mestre da moeda e único a erguer a voz pela honra de Rhaenyra, teve a garganta cortada por Sor Criston Cole sobre a mesa do conselho. O sangue inocente manchou o pergaminho da sucessão.`,
+Ser Otto Hightower anunciou que o Trono de Ferro não seria entregue a uma mulher, desafiando o juramento solene feito a Rhaenyra vinte e quatro anos antes. Lorde Lyman Beesbury, mestre da moeda e único a erguer a voz pela honra de Rhaenyra, teve a garganta cortada por Ser Criston Cole sobre a mesa do conselho. O sangue inocente manchou o pergaminho da sucessão.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -76,7 +76,7 @@ Sor Otto Hightower anunciou que o Trono de Ferro não seria entregue a uma mulhe
       localizacao: 'Masmorras da Fortaleza Vermelha',
       regionId: 'terras_da_coroa',
       isEnding: true,
-      fallbackText: `Vossos passos nas galerias escuras foram interceptados pelos carrascos silenciosos de Sor Otto Hightower. Acusado de traição à nova ordem de Aegon II, fostes arrastado para o terceiro nível das masmorras, onde a lâmina de Sor Criston Cole pôs fim aos vossos desígnios na escuridão úmida.`,      loreContext: {
+      fallbackText: `Seus passos nas galerias escuras foram interceptados pelos carrascos silenciosos de Ser Otto Hightower. Acusado de traição à nova ordem de Aegon II, foi arrastado para o terceiro nível das masmorras, onde a lâmina de Ser Criston Cole pôs fim aos seus desígnios na escuridão úmida.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -163,7 +163,7 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
       anoHistorico: '129 d.C.',
       localizacao: 'Portão da Lama, Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Esquivando-se das patrulhas dos Mantos Dourados leais a Sor Otto, conseguistes escapar num esquife mercante pelo rio Água Negra, alcançando as praias de basalto negro de Pedra do Dragão sob o olhar vigilante de Syrax e Caraxes.`,      loreContext: {
+      fallbackText: `Esquivando-se das patrulhas dos Mantos Dourados leais a Ser Otto, conseguistes escapar num esquife mercante pelo rio Água Negra, alcançando as praias de basalto negro de Pedra do Dragão sob o olhar vigilante de Syrax e Caraxes.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -209,7 +209,7 @@ O Príncipe Daemon Targaryen desembainhou a reluzente Irmã Sombria e jurou que 
       anoHistorico: '129 d.C.',
       localizacao: 'Colina de Rhaenys, Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Milhares de plebeus e soldados apinharam-se sob o imenso domo do Fosso dos Dragões. Sor Criston Cole ergueu a coroa de ferro e rubis de Aegon, o Conquistador, depositando-a sobre a fronte dourada de Aegon II. Sunfyre rugiu, lançando chamas douradas que iluminaram as abóbadas colossais.
+      fallbackText: `Milhares de plebeus e soldados apinharam-se sob o imenso domo do Fosso dos Dragões. Ser Criston Cole ergueu a coroa de ferro e rubis de Aegon, o Conquistador, depositando-a sobre a fronte dourada de Aegon II. Sunfyre rugiu, lançando chamas douradas que iluminaram as abóbadas colossais.
       
 Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidores de Pedra do Dragão se afogarem em cinzas.`,
       internalVoices: [
@@ -277,7 +277,7 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
       anoHistorico: '129 d.C.',
       localizacao: 'Passagens Secretas de Maegor',
       regionId: 'terras_da_coroa',
-      fallbackText: `Lorde Larys Strong, o mestre dos sussurros de passos mancos, conduziu-vos pelos túneis secretos escavados dentro das paredes de pedra vermelha. Seus espiões sabiam que o jovem Lucerys Velaryon estava voando em Arrax para o sul, rumo a Ponta Tempestade.`,      loreContext: {
+      fallbackText: `Lorde Larys Strong, o mestre dos sussurros de passos mancos, conduziu você pelos túneis secretos escavados dentro das paredes de pedra vermelha. Seus espiões sabiam que o jovem Lucerys Velaryon estava voando em Arrax para o sul, rumo a Ponta Tempestade.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -363,7 +363,7 @@ Aemond Caolho desembainhou sua espada, jurando montar Vhagar e fazer os traidore
       anoHistorico: '129 d.C.',
       localizacao: 'Salão da Mesa Pintada, Pedra do Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Sor Steffon Darklyn da Guarda Real chegou do mar trazendo a coroa de ouro e jade do Rei Viserys I. Diante de Daemon, Corlys Velaryon e da Princesa Rhaenys, a coroa foi pousada sobre os cabelos prateados de Rhaenyra.
+      fallbackText: `Ser Steffon Darklyn da Guarda Real chegou do mar trazendo a coroa de ouro e jade do Rei Viserys I. Diante de Daemon, Corlys Velaryon e da Princesa Rhaenys, a coroa foi pousada sobre os cabelos prateados de Rhaenyra.
       
 Os jovens príncipes Jacaerys e Lucerys deram um passo à frente. Jacaerys ofereceu-se para voar em Vermax até o Vale e o Norte em busca de Cregan Stark. O jovem Luke propôs voar em Arrax para Ponta Tempestade, jurando que nenhum sangue seria derramado como mensageiro de paz.`,
       internalVoices: [
@@ -437,7 +437,7 @@ Os jovens príncipes Jacaerys e Lucerys deram um passo à frente. Jacaerys ofere
       anoHistorico: '129 d.C.',
       localizacao: 'Harrenhal, Terras Fluviais',
       regionId: 'tridente',
-      fallbackText: `Daemon Targaryen pousou Caraxes sobre o topo da Torre dos Fogos Vermelhos de Harrenhal. Diante das mandíbulas sibilantes do dragão vermelho, Sor Simon Strong rendeu as doze muralhas sem disparar uma flecha.
+      fallbackText: `Daemon Targaryen pousou Caraxes sobre o topo da Torre dos Fogos Vermelhos de Harrenhal. Diante das mandíbulas sibilantes do dragão vermelho, Ser Simon Strong rendeu as doze muralhas sem disparar uma flecha.
       
 Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, mas as más novas de Ponta Tempestade logo cruzaram os céus.`,      loreContext: {
         fonte: {
@@ -528,7 +528,7 @@ Harrenhal tornou-se a fortaleza avançada dos Pretos no coração de Westeros, m
       fallbackText: `Uma tempestade diluviana chicoteava as colossais muralhas de Ponta Tempestade quando o jovem Lucerys pousou Arrax. No pátio externo, a silhueta monstruosa de Vhagar descansava como uma montanha esverdeada viva.
       
 No Grande Salão, Lorde Borros Baratheon zombou da mensagem de Rhaenyra, exigindo uma proposta de casamento que Luke não podia oferecer. Aemond Caolho deu um passo à frente, retirando o tapa-olho para exibir a safira azul incrustada na carne e desembainhando sua adaga:
-— Pagai vossa dívida, pequeno bastardo! Eu quero vosso olho ou vossa vida!`,
+— Pagai sua dívida, pequeno bastardo! Eu quero seu olho ou sua vida!`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -753,7 +753,7 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
       anoHistorico: '129 d.C.',
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `A cabeça do Príncipe Jaehaerys rolou diante dos olhos de sua mãe, que caiu em loucura irreversível. O reino estremeceu em pavor. Aegon II jurou arrancar o coração de Rhaenyra com as próprias mãos, e Sor Otto Hightower ordenou o enforcamento de todos os caçadores de ratos da cidade.`,      loreContext: {
+      fallbackText: `A cabeça do Príncipe Jaehaerys rolou diante dos olhos de sua mãe, que caiu em loucura irreversível. O reino estremeceu em pavor. Aegon II jurou arrancar o coração de Rhaenyra com as próprias mãos, e Ser Otto Hightower ordenou o enforcamento de todos os caçadores de ratos da cidade.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -796,7 +796,7 @@ Através de Mysaria, dois assassinos — Sangue, um carniceiro, e Queijo, um ca�
       anoHistorico: '129 d.C.',
       localizacao: 'Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Vossa intervenção conseguiu conter a lâmina de Sangue, sequestrando o príncipe infante como refém em vez de assassiná-lo barbaramente. A guerra ganha um tom de disputa política sem o estigma hediondo do infanticídio.`,      loreContext: {
+      fallbackText: `Sua intervenção conseguiu conter a lâmina de Sangue, sequestrando o príncipe infante como refém em vez de assassiná-lo barbaramente. A guerra ganha um tom de disputa política sem o estigma hediondo do infanticídio.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_02_morte-dos-dragoes-pretos-e-verdes.md',
           livro: 'Fogo & Sangue - Volume 1',

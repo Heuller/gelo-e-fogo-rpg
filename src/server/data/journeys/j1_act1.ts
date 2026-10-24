@@ -160,7 +160,7 @@ Aegon já possuía duas esposas e não desonraria Visenya e Rhaenys tomando uma 
       regionId: 'pedra_dragao',
       fallbackText: `A resposta de Argilac Durrandon não veio por tinta, mas por sangue. Um mensageiro dornês entregou aos guardas de Pedra do Dragão uma pesada caixa de ferro forjado. Ao ser aberta perante a corte, o silêncio desabou sobre o salão: sobre o veludo repousavam as duas mãos decepadas do emissário de Aegon, ainda adornadas com anéis de selo.
 
-A mensagem inscrita na tampa era uma afronta mortal: "Estas são as únicas mãos que vosso bastardo receberá de mim". Visenya cerrou o maxilar, e no pátio dos dragões Balerion soltou uma coluna de fogo negro que iluminou a noite marítima. Não havia mais margem para palavras amenas.
+A mensagem inscrita na tampa era uma afronta mortal: "Estas são as únicas mãos que seu bastardo receberá de mim". Visenya cerrou o maxilar, e no pátio dos dragões Balerion soltou uma coluna de fogo negro que iluminou a noite marítima. Não havia mais margem para palavras amenas.
 
 Aegon convocou imediatamente seus vassalos insulares: Daemon Velaryon, senhor de Derivamarca e líder da frota; Crispian Celtigar, senhor da Ilha da Garra; e os chefes das casas Massey e Bar Emmon. Após rezar no septo da fortaleza durante sete horas, Aegon ordenou aos meistres que soltassem centenas de corvos rumo aos quatro cantos do continente. A mensagem era idêntica para todos: de Vilavelha a Winterfell, a partir daquele dia haveria apenas um rei em Westeros.`,
       internalVoices: [
@@ -506,7 +506,7 @@ O estuário da Água Negra e toda a costa leste agora pertenciam à Casa Targary
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'Restaurar as terras aos herdeiros de Mooton e Darklyn transforma antigos inimigos em defensores do vosso estandarte.',
+          fala: 'Restaurar as terras aos herdeiros de Mooton e Darklyn transforma antigos inimigos em defensores do seu estandarte.',
         },
         {
           atributo: 'comando',
@@ -578,7 +578,7 @@ Aegon nomeou imediatamente os primeiros grandes dignitários do império: Orys B
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 10,
-          fala: 'Westeros possui três frentes cruciais: a frota do Vale no mar, a tirania de Harrenhal nos rios e a fúria de Argilac nas matas do sul. Escolhei onde vosso foco trará a maior glória.',
+          fala: 'Westeros possui três frentes cruciais: a frota do Vale no mar, a tirania de Harrenhal nos rios e a fúria de Argilac nas matas do sul. Escolhei onde seu foco trará a maior glória.',
         },
         {
           atributo: 'erudicao',
@@ -899,7 +899,7 @@ Harrenhal estava completamente isolada do resto do mundo, cercada por terra e co
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'A lealdade de Edmyn Tully foi forjada na honra e no alívio de um povo oprimido. O Tridente vos pertence.',
+          fala: 'A lealdade de Edmyn Tully foi forjada na honra e no alívio de um povo oprimido. O Tridente lhe pertence.',
         },
       ],
       loreContext: {
@@ -1187,7 +1187,7 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+          fala: 'O calor da fogueira e a partilha do pão com seus vassalos restabelecem a confiança na coroa.',
         },
         {
           atributo: 'pressagio',
@@ -1250,7 +1250,7 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+          fala: 'O calor da fogueira e a partilha do pão com seus vassalos restabelecem a confiança na coroa.',
         },
         {
           atributo: 'pressagio',
@@ -1313,7 +1313,7 @@ A notícia da queda da emboscada chegou a Argilac com sabor de insulto e fúria.
           atributo: 'cortesia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 8,
-          fala: 'O calor da fogueira e a partilha do pão com vossos vassalos restabelecem a confiança na coroa.',
+          fala: 'O calor da fogueira e a partilha do pão com seus vassalos restabelecem a confiança na coroa.',
         },
         {
           atributo: 'pressagio',

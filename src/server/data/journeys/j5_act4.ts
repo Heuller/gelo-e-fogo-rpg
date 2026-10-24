@@ -80,7 +80,7 @@ No entanto, quando os muros de arenito vermelho da cidade surgem no horizonte en
       
 Assim que os portões giraram em seus gonzos, os homens de armas de Rochedo Casterly invadiram as ruas com lâminas nuas e tochas acesas.
       
-Agora, fumaça negra sobe de centenas de casas incendiadas. Gritos de desespero ecoam da Praça do Pescador à Colina de Rhaenys. Cavaleiros Lannister arrombam solares, enquanto Sor Gregor Clegane, a Montanha que Cavalga, e Sor Amory Lorch sobem a cavalo em direção à Fortaleza de Maegor. O Saque de Porto Real começou em toda a sua brutalidade desenfreada.`,
+Agora, fumaça negra sobe de centenas de casas incendiadas. Gritos de desespero ecoam da Praça do Pescador à Colina de Rhaenys. Cavaleiros Lannister arrombam solares, enquanto Ser Gregor Clegane, a Montanha que Cavalga, e Ser Amory Lorch sobem a cavalo em direção à Fortaleza de Maegor. O Saque de Porto Real começou em toda a sua brutalidade desenfreada.`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -139,11 +139,11 @@ Agora, fumaça negra sobe de centenas de casas incendiadas. Gritos de desespero 
       
 O ar dentro da abóbada cheira a fumaça de incenso e sangue fresco. Aos pés dos degraus assimétricos de aço fundido, o corpo degolado do Rei Aerys II Targaryen jaz em uma poça carmesim que ainda fumega sobre os ladrilhos frios. Mais adiante, os restos do Piromante Rossart jazem em trapos ensanguentados.
       
-No alto do Trono de Ferro, sentado com arrogância indolente e uma perna pendurada sobre o braço farpado de metal, está Sor Jaime Lannister. O jovem cavaleiro da Guarda Real ostenta sua armadura de ouro dourado coberta de respingos escarlates, repousando uma longa espada embebida de sangue sobre os joelhos.
+No alto do Trono de Ferro, sentado com arrogância indolente e uma perna pendurada sobre o braço farpado de metal, está Ser Jaime Lannister. O jovem cavaleiro da Guarda Real ostenta sua armadura de ouro dourado coberta de respingos escarlates, repousando uma longa espada embebida de sangue sobre os joelhos.
       
 Quando os olhos gélidos e severos de Ned Stark encontram o olhar verde e brilhante do rapaz dourado, um silêncio sepulcral domina a sala.
       
-— Não temais, Stark — diz Jaime com um sorriso irônico e cansado. — Apenas guardava o assento quente para o vosso amigo Robert.`,
+— Não temais, Stark — diz Jaime com um sorriso irônico e cansado. — Apenas guardava o assento quente para o seu amigo Robert.`,
       internalVoices: [
         {
           atributo: 'erudicao',
@@ -169,7 +169,7 @@ Quando os olhos gélidos e severos de Ned Stark encontram o olhar verde e brilha
       escolhas: [
         {
           id: 'esc_j5_a4_exigir_descida_jaime',
-          texto: 'Exigir friamente que Sor Jaime desembarque do Trono de Ferro e se afaste do cadáver do rei em nome da aliança rebelde.',
+          texto: 'Exigir friamente que Ser Jaime desembarque do Trono de Ferro e se afaste do cadáver do rei em nome da aliança rebelde.',
           tipo: 'simples',
           delta: {
             flagsAdicionadas: ['confrontou_o_regicida_com_honra'],
@@ -204,7 +204,7 @@ Quando os olhos gélidos e severos de Ned Stark encontram o olhar verde e brilha
       
 Lorde Tywin Lannister entra na Sala do Trono trazendo presentes de fidelidade para o novo monarca: diante do Trono de Ferro são depositados dois pequenos fardos envoltos em mantos carmesim dos soldados Lannister. Quando os mantos são abertos, revelam-se os corpos trucidados da Princesa Elia Martell e de seus dois filhos pequenos, a pequena Princesa Rhaenys e o bebê Príncipe Aegon.
       
-Eddard Stark enche-se de repulsa visceral e exige que os assassinos — Sor Gregor Clegane e Sor Amory Lorch — sejam imediatamente executados por crimes monstruosos de guerra. Mas Robert, consumido pelo ódio cego que nutre por todos os descendentes do dragão, recusa-se a punir os leões de Rochedo Casterly, chamando o massacre de "necessidade cruel de guerra".
+Eddard Stark enche-se de repulsa visceral e exige que os assassinos — Ser Gregor Clegane e Ser Amory Lorch — sejam imediatamente executados por crimes monstruosos de guerra. Mas Robert, consumido pelo ódio cego que nutre por todos os descendentes do dragão, recusa-se a punir os leões de Rochedo Casterly, chamando o massacre de "necessidade cruel de guerra".
       
 A discussão entre os dois grandes amigos transforma-se em uma tempestade de palavras amargas. Jon Arryn tenta em vão conciliar os ânimos.
       
@@ -247,7 +247,7 @@ Sem olhar para trás, Lorde Stark reúne seus cavaleiros do Norte e parte a galo
         },
         {
           id: 'esc_j5_a4_tentar_apaziguar_robert',
-          texto: 'Expressar vossa profunda desaprovação pelo massacre a Robert antes de montar e galopar atrás da coluna de Ned.',
+          texto: 'Expressar sua profunda desaprovação pelo massacre a Robert antes de montar e galopar atrás da coluna de Ned.',
           tipo: 'simples',
           delta: {
             flagsAdicionadas: ['voz_da_consciencia_de_robert'],
@@ -268,7 +268,7 @@ Sem olhar para trás, Lorde Stark reúne seus cavaleiros do Norte e parte a galo
       regionId: 'dorne',
       fallbackText: `A marcha para o Sul alivia o cerco de Ponta Tempestade sem derramar uma única gota de sangue: Lorde Mace Tyrell e Lorde Paxter Redwyne dobram prontamente seus joelhos e baixam os estandartes diante do exército triunfante de Ned Stark. Stannis Baratheon e sua guarnição faminta são salvos.
       
-Porém, o alívio dura pouco. Ned não descansa. Guiado por sussurros recolhidos nas marchas lealistas, ele ruma com apenas seis companheiros de confiança em direção ao Passo do Príncipe nas Montanhas Vermelhas de Dorne: Howland Reed, Lorde Willam Dustin, Ethan Glover, Martyn Cassel, Theo Wull e Sor Mark Ryswell.
+Porém, o alívio dura pouco. Ned não descansa. Guiado por sussurros recolhidos nas marchas lealistas, ele ruma com apenas seis companheiros de confiança em direção ao Passo do Príncipe nas Montanhas Vermelhas de Dorne: Howland Reed, Lorde Willam Dustin, Ethan Glover, Martyn Cassel, Theo Wull e Ser Mark Ryswell.
       
 O sol do Sul é implacável. Entre desfiladeiros de arenito avermelhado e cactos secos fustigados pelo vento quente, uma torre redonda e solitária ergue-se contra o céu azul cobalto, guardando a passagem rochosa. É a Torre da Alegria, batizada pelo próprio Rhaegar Targaryen.
       
@@ -284,7 +284,7 @@ Aos pés da muralha da torre, três cavaleiros com mantos brancos imaculados e a
           atributo: 'erudicao',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 12,
-          fala: 'Os três últimos irmãos juramentados da Guarda Real de Aerys: o Touro Branco, Sor Oswell Whent e a lendária Espada da Manhã.',
+          fala: 'Os três últimos irmãos juramentados da Guarda Real de Aerys: o Touro Branco, Ser Oswell Whent e a lendária Espada da Manhã.',
         },
       ],
       loreContext: {
@@ -329,16 +329,16 @@ Aos pés da muralha da torre, três cavaleiros com mantos brancos imaculados e a
       regionId: 'dorne',
       fallbackText: `O vento sopra pelas ravinas eriçadas de espinhos, agitando os mantos brancos dos três guerreiros mais temidos de Westeros.
       
-Sor Gerold Hightower, o Touro Branco e Senhor Comandante da Guarda Real, apoia as duas mãos no pomo de sua espada larga. Ao lado dele, Sor Oswell Whent curva-se sobre uma pedra, afiando a lâmina com sua pedra de amolar enquanto seu elmo com asas de morcego descansa na relva. E diante de ambos ergue-se Sor Arthur Dayne, a Espada da Manhã, empunhando Alvorada — a grande lâmina pálida como vidro de leite forjada do coração de uma estrela cadente.
+Ser Gerold Hightower, o Touro Branco e Senhor Comandante da Guarda Real, apoia as duas mãos no pomo de sua espada larga. Ao lado dele, Ser Oswell Whent curva-se sobre uma pedra, afiando a lâmina com sua pedra de amolar enquanto seu elmo com asas de morcego descansa na relva. E diante de ambos ergue-se Ser Arthur Dayne, a Espada da Manhã, empunhando Alvorada — a grande lâmina pálida como vidro de leite forjada do coração de uma estrela cadente.
       
-— Procurei-vos no Tridente — diz Ned Stark com voz serena e grave.
-— Nosso lugar não era lá — responde Sor Arthur Dayne.
-— Quando Porto Real caiu, Sor Jaime matou vosso rei com uma espada de ouro, e perguntei-me onde estarias.
-— Bem longe — disse Sor Gerold. — Se estivéssemos lá, ai do Regicida.
-— Sor Willem Darry fugiu para Pedra do Dragão com a vossa rainha e o Príncipe Viserys. Julguei que tivésseis zarpado com eles.
-— Sor Willem é um homem bom e verdadeiro — disse Sor Oswell.
-— Mas não pertence à Guarda Real — declarou Sor Gerold. — A Guarda Real não foge.
-— Então nem agora — completou Sor Arthur Dayne, puxando Alvorada com as duas mãos. A lâmina pareceu acender-se com a luz do meio-dia. — Agora começa.
+— Procurei vocês no Tridente — diz Ned Stark com voz serena e grave.
+— Nosso lugar não era lá — responde Ser Arthur Dayne.
+— Quando Porto Real caiu, Ser Jaime matou seu rei com uma espada de ouro, e perguntei-me onde estarias.
+— Bem longe — disse Ser Gerold. — Se estivéssemos lá, ai do Regicida.
+— Ser Willem Darry fugiu para Pedra do Dragão com a sua rainha e o Príncipe Viserys. Julguei que tivessem zarpado com eles.
+— Ser Willem é um homem bom e verdadeiro — disse Ser Oswell.
+— Mas não pertence à Guarda Real — declarou Ser Gerold. — A Guarda Real não foge.
+— Então nem agora — completou Ser Arthur Dayne, puxando Alvorada com as duas mãos. A lâmina pareceu acender-se com a luz do meio-dia. — Agora começa.
 — Não — retrucou Ned Stark com tristeza infinita, desembainhando seu aço. — Agora acaba.
       
 Sete homens do Norte contra três dos maiores cavaleiros que o reino já viu.`,
@@ -367,7 +367,7 @@ Sete homens do Norte contra três dos maiores cavaleiros que o reino já viu.`,
       escolhas: [
         {
           id: 'esc_j5_a4_lutar_com_ned_contra_dayne',
-          texto: 'Empunhar vossa arma com ferocidade inabalável e carregar ao lado de Ned Stark e Howland Reed contra a Espada da Manhã.',
+          texto: 'Empunhar sua arma com ferocidade inabalável e carregar ao lado de Ned Stark e Howland Reed contra a Espada da Manhã.',
           tipo: 'teste_atributo',
           atributo: 'furia',
           dc: 13,
@@ -462,7 +462,7 @@ Mais tarde, as pedras da Torre da Alegria são derrubadas uma a uma para erguer 
         },
         {
           id: 'esc_j5_a4_retorno_ao_lar_ancestral',
-          texto: 'Pendurar a espada e retornar às vossas próprias terras ancestrais, levando a sabedoria solene do custo de uma coroa.',
+          texto: 'Pendurar a espada e retornar às suas próprias terras ancestrais, levando a sabedoria solene do custo de uma coroa.',
           tipo: 'simples',
           delta: {
             flagsAdicionadas: ['retirada_solene_da_guerra'],
@@ -484,11 +484,11 @@ Mais tarde, as pedras da Torre da Alegria são derrubadas uma a uma para erguer 
       localizacao: 'As Criptas de Winterfell, O Norte',
       regionId: 'winterfell',
       isEnding: true,
-      fallbackText: `Vós cavalgastes ao lado de Eddard Stark por milhares de léguas ensolaradas e gélidas, trazendo os restos mortais de Lyanna e o menino nos braços.
+      fallbackText: `Você cavalgou ao lado de Eddard Stark por milhares de léguas ensolaradas e gélidas, trazendo os restos mortais de Lyanna e o menino nos braços.
       
-Enquanto o reino celebra a coroação de Robert Baratheon e seu noivado arranjado com Cersei Lannister, vós compartilhas com o Lorde de Winterfell o fardo solene da promessa. O bebê crescerá sob o nome de Jon Snow, protegido pelo manto cinzento dos lobos do Norte contra a vingança dos homens da coroa.
+Enquanto o reino celebra a coroação de Robert Baratheon e seu noivado arranjado com Cersei Lannister, você compartilha com o Lorde de Winterfell o fardo solene da promessa. O bebê crescerá sob o nome de Jon Snow, protegido pelo manto cinzento dos lobos do Norte contra a vingança dos homens da coroa.
       
-Vossa honra permanece imaculada perante os Deuses Antigos do bosque sagrado. Vós sobrevivestes à Rebelião que derrubou três séculos de reinado de dragões, e guardareis o maior mistério de Westeros até o vosso último suspiro.`,
+Sua honra permanece imaculada perante os Deuses Antigos do bosque sagrado. Você sobreviveu à Rebelião que derrubou três séculos de reinado de dragões, e guardará o maior mistério de Westeros até o seu último suspiro.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
@@ -510,7 +510,7 @@ Vossa honra permanece imaculada perante os Deuses Antigos do bosque sagrado. Vó
       isEnding: true,
       fallbackText: `A coroa com chifres de ouro brilha sobre a cabeça do Rei Robert Baratheon. Ao lado dele, Jon Arryn assume o comando como Mão do Rei, pacificando os Sete Reinos com justiça, ouro e acordos matrimoniais.
       
-Pelos vossos feitos audaciosos desde o Ninho da Águia até as margens turbulentas do Tridente, vosso nome é cantado pelos menestréis em banquetes e justas da capital. Vós vos tornais um pilar militar do novo regime em Porto Real, com feudos e influência concedidos pelo Trono de Ferro.
+Pelos seus feitos audaciosos desde o Ninho da Águia até as margens turbulentas do Tridente, seu nome é cantado pelos menestréis em banquetes e justas da capital. Você se torna um pilar militar do novo regime em Porto Real, com feudos e influência concedidos pelo Trono de Ferro.
       
 A paz finalmente recai sobre Westeros — uma paz dourada e frágil, erguida sobre as cinzas de uma dinastia de dragões.`,
       loreContext: {
@@ -532,11 +532,11 @@ A paz finalmente recai sobre Westeros — uma paz dourada e frágil, erguida sob
       localizacao: 'O Solar Ancestral',
       regionId: 'o_norte',
       isEnding: true,
-      fallbackText: `Vós guardastes a vossa espada manchada de batalhas e regressastes aos vossos próprios campos e salões de pedra.
+      fallbackText: `Você guardou a sua espada manchada de batalhas e regressou aos seus próprios campos e salões de pedra.
       
-As cicatrizes do Tridente, do Septo de Pedra e das montanhas de Dorne continuam a doer quando as chuvas de outono caem sobre os telhados. Porém, vossos lares estão a salvo dos caprichos e dos fogos de um monarca insano.
+As cicatrizes do Tridente, do Septo de Pedra e das montanhas de Dorne continuam a doer quando as chuvas de outono caem sobre os telhados. Porém, seus lares estão a salvo dos caprichos e dos fogos de um monarca insano.
       
-Vosso povo vos saúda como um herói que marchou ao lado de Ned Stark e Robert Baratheon para trazer a justiça de volta ao mundo. Nos longos invernos que virão, vossos netos ouvirão à lareira o relato verídico de como os homens livres quebraram as correntes do dragão.`,
+Seu povo saúda você como um herói que marchou ao lado de Ned Stark e Robert Baratheon para trazer a justiça de volta ao mundo. Nos longos invernos que virão, seus netos ouvirão à lareira o relato verídico de como os homens livres quebraram as correntes do dragão.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
@@ -556,11 +556,11 @@ Vosso povo vos saúda como um herói que marchou ao lado de Ned Stark e Robert B
       localizacao: 'A Torre da Alegria, Dorne',
       regionId: 'dorne',
       isEnding: true,
-      fallbackText: `A lâmina leitosa de Alvorada moveu-se com a velocidade de um raio estelar. Em um único movimento fluido de graça letal, a Espada da Manhã desferiu um contra-ataque magistral que partiu vosso escudo e trespassou vossa cota de malha.
+      fallbackText: `A lâmina leitosa de Alvorada moveu-se com a velocidade de um raio estelar. Em um único movimento fluido de graça letal, a Espada da Manhã desferiu um contra-ataque magistral que partiu seu escudo e trespassou sua cota de malha.
       
-Vós tombastes de joelhos na poeira vermelha de Dorne, ouvindo as palavras finais de respeito de Sor Arthur Dayne ecoando pelo desfiladeiro antes que o mundo mergulhasse na escuridão.
+Você tombou de joelhos na poeira vermelha de Dorne, ouvindo as palavras finais de respeito de Ser Arthur Dayne ecoando pelo desfiladeiro antes que o mundo mergulhasse na escuridão.
       
-Vós caístes enfrentando o cavaleiro mais formidável de toda uma era. Vossas façanhas serão lembradas com honra eterna nos contos dos homens do Norte. Vosso turno terminou.`,
+Você caiu enfrentando o cavaleiro mais formidável de toda uma era. Suas façanhas serão lembradas com honra eterna nos contos dos homens do Norte. Seu turno terminou.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',
@@ -580,11 +580,11 @@ Vós caístes enfrentando o cavaleiro mais formidável de toda uma era. Vossas f
       localizacao: 'A Grande Sala do Trono, Fortaleza Vermelha',
       regionId: 'fortaleza_vermelha',
       isEnding: true,
-      fallbackText: `Vossa fúria impetuosa levou-vos a avançar desprovido de cautela contra Sor Jaime Lannister. Rápido como uma serpente dourada, o jovem cavaleiro da Guarda Real desviou vosso golpe com a lâmina dourada e girou com destreza inumana, cravando o aço sob a junta de vosso gorjal.
+      fallbackText: `Sua fúria impetuosa levou você a avançar desprovido de cautela contra Ser Jaime Lannister. Rápido como uma serpente dourada, o jovem cavaleiro da Guarda Real desviou seu golpe com a lâmina dourada e girou com destreza inumana, cravando o aço sob a junta de seu gorjal.
       
-Vós desabastes sobre os ladrilhos frios da Fortaleza Vermelha, mesclando vosso sangue com o do falecido Rei Louco sob os espigões pontiagudos do Trono de Ferro.
+Você desabou sobre os ladrilhos frios da Fortaleza Vermelha, mesclando seu sangue com o do falecido Rei Louco sob os espigões pontiagudos do Trono de Ferro.
       
-Vossa audácia foi vossa ruína nos corredores traiçoeiros do poder da capital. Vosso turno terminou.`,
+Sua audácia foi sua ruína nos corredores traiçoeiros do poder da capital. Seu turno terminou.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_1_a-guerra-dos-tronos_resumo-completo.md',

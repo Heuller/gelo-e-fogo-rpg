@@ -1,12 +1,12 @@
 {
-  "geradoEm": "2026-10-24T14:36:55.100Z",
+  "geradoEm": "2026-10-24T15:37:21.939Z",
   "jornadasAuditadas": 5,
   "totalCenasGlobal": 299,
-  "totalPalavrasGlobal": 30514,
+  "totalPalavrasGlobal": 30519,
   "tempoTotalLeituraMinutos": 153,
-  "totalOcorrenciasVosVosso": 194,
-  "totalSor": 77,
-  "totalSer": 0,
+  "totalOcorrenciasVosVosso": 0,
+  "totalSor": 0,
+  "totalSer": 77,
   "totalFlagsOrfas": 251,
   "detalhesPorJornada": [
     {
@@ -47,21 +47,11 @@
         "tempoEstimadoLeituraMinutos": 51
       },
       "idioma": {
-        "ocorrenciasVosVosso": 14,
-        "detalhesVosVosso": [
-          "vosso",
-          "vossa",
-          "vos",
-          "vós",
-          "Vós",
-          "entrastes",
-          "sairás",
-          "vossas",
-          "Vossa"
-        ],
+        "ocorrenciasVosVosso": 0,
+        "detalhesVosVosso": [],
         "ocorrenciasEnclise": 55,
-        "contagemSor": 1,
-        "contagemSer": 0
+        "contagemSor": 0,
+        "contagemSer": 1
       },
       "flags": {
         "totalGravadas": 41,
@@ -118,7 +108,7 @@
       "titulo": "A Dança dos Dragões",
       "totalCenas": 66,
       "palavras": {
-        "total": 4035,
+        "total": 4036,
         "media": 61,
         "mediana": 57,
         "min": 27,
@@ -150,22 +140,11 @@
         "tempoEstimadoLeituraMinutos": 20
       },
       "idioma": {
-        "ocorrenciasVosVosso": 21,
-        "detalhesVosVosso": [
-          "Vossos",
-          "fostes",
-          "vossos",
-          "vos",
-          "vossa",
-          "vosso",
-          "Vossa",
-          "Vós",
-          "Vosso",
-          "Vossas"
-        ],
-        "ocorrenciasEnclise": 30,
-        "contagemSor": 24,
-        "contagemSer": 0
+        "ocorrenciasVosVosso": 0,
+        "detalhesVosVosso": [],
+        "ocorrenciasEnclise": 29,
+        "contagemSor": 0,
+        "contagemSer": 24
       },
       "flags": {
         "totalGravadas": 40,
@@ -212,7 +191,7 @@
       "titulo": "A Guerra dos Cinco Reis",
       "totalCenas": 54,
       "palavras": {
-        "total": 4802,
+        "total": 4800,
         "media": 89,
         "mediana": 92,
         "min": 30,
@@ -238,24 +217,17 @@
         "totalTestesAtributo": 28,
         "testesSemRamoFalhaProprio": 17,
         "percentualTestesSemRamoFalha": 61,
-        "palavrasFalaDireta": 602,
+        "palavrasFalaDireta": 600,
         "percentualFalaDireta": 13,
-        "cenasComDialogoRelevante": 12,
+        "cenasComDialogoRelevante": 11,
         "tempoEstimadoLeituraMinutos": 24
       },
       "idioma": {
-        "ocorrenciasVosVosso": 13,
-        "detalhesVosVosso": [
-          "Vosso",
-          "vosso",
-          "vós",
-          "vossos",
-          "vos",
-          "vossa"
-        ],
+        "ocorrenciasVosVosso": 0,
+        "detalhesVosVosso": [],
         "ocorrenciasEnclise": 39,
-        "contagemSor": 12,
-        "contagemSer": 0
+        "contagemSor": 0,
+        "contagemSer": 12
       },
       "flags": {
         "totalGravadas": 29,
@@ -286,8 +258,8 @@
       "titulo": "Irmão Sem Nome",
       "totalCenas": 75,
       "palavras": {
-        "total": 7609,
-        "media": 101,
+        "total": 7613,
+        "media": 102,
         "mediana": 100,
         "min": 57,
         "max": 154,
@@ -312,32 +284,17 @@
         "totalTestesAtributo": 57,
         "testesSemRamoFalhaProprio": 53,
         "percentualTestesSemRamoFalha": 93,
-        "palavrasFalaDireta": 1603,
+        "palavrasFalaDireta": 1605,
         "percentualFalaDireta": 21,
         "cenasComDialogoRelevante": 30,
         "tempoEstimadoLeituraMinutos": 38
       },
       "idioma": {
-        "ocorrenciasVosVosso": 106,
-        "detalhesVosVosso": [
-          "Vós",
-          "vosso",
-          "vós",
-          "vos",
-          "vossa",
-          "Vossa",
-          "vossos",
-          "encontrais",
-          "vossas",
-          "Vossos",
-          "Vossas",
-          "Vosso",
-          "fostes",
-          "vistes"
-        ],
-        "ocorrenciasEnclise": 28,
-        "contagemSor": 15,
-        "contagemSer": 0
+        "ocorrenciasVosVosso": 0,
+        "detalhesVosVosso": [],
+        "ocorrenciasEnclise": 25,
+        "contagemSor": 0,
+        "contagemSer": 15
       },
       "flags": {
         "totalGravadas": 116,
@@ -469,10 +426,10 @@
       "titulo": "A Rebelião de Robert",
       "totalCenas": 30,
       "palavras": {
-        "total": 3829,
+        "total": 3831,
         "media": 128,
         "mediana": 106,
-        "min": 86,
+        "min": 87,
         "max": 275,
         "menosDe80": 0
       },
@@ -495,27 +452,17 @@
         "totalTestesAtributo": 26,
         "testesSemRamoFalhaProprio": 24,
         "percentualTestesSemRamoFalha": 92,
-        "palavrasFalaDireta": 615,
+        "palavrasFalaDireta": 616,
         "percentualFalaDireta": 16,
         "cenasComDialogoRelevante": 10,
         "tempoEstimadoLeituraMinutos": 19
       },
       "idioma": {
-        "ocorrenciasVosVosso": 40,
-        "detalhesVosVosso": [
-          "vós",
-          "vossa",
-          "vosso",
-          "vossos",
-          "vos",
-          "Vós",
-          "Vossa",
-          "Vosso",
-          "Vossas"
-        ],
-        "ocorrenciasEnclise": 21,
-        "contagemSor": 25,
-        "contagemSer": 0
+        "ocorrenciasVosVosso": 0,
+        "detalhesVosVosso": [],
+        "ocorrenciasEnclise": 19,
+        "contagemSor": 0,
+        "contagemSer": 25
       },
       "flags": {
         "totalGravadas": 48,

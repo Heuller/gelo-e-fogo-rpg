@@ -59,7 +59,7 @@ Nas ruínas de Fosso Cailin, Robb uniu suas forças à Senhora Catelyn, preparan
         },
         {
           id: 'esc_robb_conselho_catelyn_estrategia',
-          texto: 'Aconselhar-se com Lady Catelyn e Sor Brynden sobre a divisão das forças em duas colunas no Tridente.',
+          texto: 'Aconselhar-se com Lady Catelyn e Ser Brynden sobre a divisão das forças em duas colunas no Tridente.',
           tipo: 'simples',
           aprovacaoCompanheiros: { catelyn: 25, peixe_negro: 25 },
           delta: { compostura: 2 },
@@ -137,7 +137,7 @@ O Regicida era prisioneiro dos Stark.`,
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'A maior lenda viva da espada de Westeros está acorrentada nos vossos pés! Correrrio será libertada.',
+          fala: 'A maior lenda viva da espada de Westeros está acorrentada nos seus pés! Correrrio será libertada.',
         },
       ],
       loreContext: {
@@ -191,7 +191,7 @@ Cinqüenta espadas desembainhadas reluziram nas tochas. 'O Rei no Norte! O Rei n
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'Uma coroa soberana foi colocada sobre vossos ombros. Não há mais volta nem tratado de paz com Porto Real.',
+          fala: 'Uma coroa soberana foi colocada sobre seus ombros. Não há mais volta nem tratado de paz com Porto Real.',
         },
       ],
       loreContext: {
@@ -298,7 +298,7 @@ Enviado com o lendário batedor Qhorin Meia-Mão nas gargantas glaciais, Jon cap
           atributo: 'astucia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'Um espião entre cem mil selvagens... A sobrevivência de Castelo Negro dependerá do vosso disfarce.',
+          fala: 'Um espião entre cem mil selvagens... A sobrevivência de Castelo Negro dependerá do seu disfarce.',
         },
       ],
       loreContext: {
@@ -343,7 +343,7 @@ Enviado com o lendário batedor Qhorin Meia-Mão nas gargantas glaciais, Jon cap
       anoHistorico: '299 d.C.',
       localizacao: 'Ponta Tempestade',
       regionId: 'terras_da_tempestade',
-      fallbackText: `Renly Baratheon marchara com cem mil lanças da Campina e da Tempestade, desafiando a pretensão rígida de seu irmão Stannis. Na véspera da batalha campal, Sor Davos Seaworth conduziu Melisandre num pequeno barco a remo por sob as muralhas protegidas por encantamentos antigos de Ponta Tempestade.
+      fallbackText: `Renly Baratheon marchara com cem mil lanças da Campina e da Tempestade, desafiando a pretensão rígida de seu irmão Stannis. Na véspera da batalha campal, Ser Davos Seaworth conduziu Melisandre num pequeno barco a remo por sob as muralhas protegidas por encantamentos antigos de Ponta Tempestade.
       
 Ali, no lodo escuro, a sacerdotisa vermelha despiu suas vestes de seda e pariu uma criatura de sombras negras com o rosto esfumaçado de Stannis Baratheon. A sombra deslizou pelas ameias e degolou o Rei Renly dentro de sua própria tenda diante de Catelyn Stark e Brienne de Tarth. Os lordes da Tempestade ajoelharam-se perante Stannis.`,
       internalVoices: [
@@ -401,7 +401,7 @@ Ali, no lodo escuro, a sacerdotisa vermelha despiu suas vestes de seda e pariu u
 Do topo das muralhas, a Mão em exercício Tyrion Lannister deu o sinal: uma corrente de ferro colossal ergueu-se das águas, trancando a boca da baía. Em seguida, barcas de fogovivo foram detonadas entre os navios inimigos.
 Uma explosão apocalíptica transformou o rio em um oceano verde esmeralda de chamas incontroláveis que queimavam sobre a água, derretendo homens e madeira. Davos Seaworth foi atirado às águas.
       
-Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o estrondo de cascos anunciou o salvamento: Lorde Tywin Lannister e os exércitos da Casa Tyrell charged pelo flanco, com Sor Garlan Tyrell envergando a armadura esmeralda do fantasma de Renly. Stannis foi repelido derrotado.`,
+Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o estrondo de cascos anunciou o salvamento: Lorde Tywin Lannister e os exércitos da Casa Tyrell charged pelo flanco, com Ser Garlan Tyrell envergando a armadura esmeralda do fantasma de Renly. Stannis foi repelido derrotado.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -427,7 +427,7 @@ Enquanto a vanguarda de Stannis quase rompia os portões de bronze da cidade, o 
         },
         {
           id: 'esc_j3_a3_resgatar_tyrion_golpeado',
-          texto: 'Resgatar Tyrion Lannister com o rosto mutilado por Sor Mandon Moore na ponte de navios.',
+          texto: 'Resgatar Tyrion Lannister com o rosto mutilado por Ser Mandon Moore na ponte de navios.',
           tipo: 'teste_atributo',
           atributo: 'cortesia',
           dc: 10,

@@ -120,7 +120,7 @@ export function DiceRoller2d6({
                   <span>Sucesso Crítico</span>
                 </div>
                 <p className="text-xs font-garamond italic mt-1 text-amber-100">
-                  Os deuses contemplam vosso triunfo com assombro. (+1 Inspiração)
+                  Os deuses contemplam seu triunfo com assombro. (+1 Inspiração)
                 </p>
               </div>
             )}
@@ -132,7 +132,7 @@ export function DiceRoller2d6({
                   <span>Sucesso Pleno</span>
                 </div>
                 <p className="text-xs font-garamond italic mt-1 text-emerald-100">
-                  Vosso desígnio prevalece sem concessões.
+                  Seu desígnio prevalece sem concessões.
                 </p>
               </div>
             )}
@@ -144,7 +144,7 @@ export function DiceRoller2d6({
                   <span>Falha Parcial &bull; Fail Forward</span>
                 </div>
                 <p className="text-xs font-garamond italic mt-1 text-amber-100">
-                  Avançais com custo moral ou ferimento ligeiro.
+                  Avança com custo moral ou ferimento ligeiro.
                 </p>
               </div>
             )}

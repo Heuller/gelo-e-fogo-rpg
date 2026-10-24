@@ -149,11 +149,11 @@ Robert Baratheon não espera por arietes ou catapultas. Com seu elmo adornado po
       anoHistorico: '282 d.C.',
       localizacao: 'Ponta da Tempestade',
       regionId: 'terras_da_tempestade',
-      fallbackText: `Após a vitória em Vila Gaivota, os caminhos se dividem: Ned Stark navega para o Norte através do Dentadouro para convocar Winterfell, enquanto vós embarcais com Robert rumo a Ponta da Tempestade.
+      fallbackText: `Após a vitória em Vila Gaivota, os caminhos se dividem: Ned Stark navega para o Norte através do Dentadouro para convocar Winterfell, enquanto você embarcais com Robert rumo a Ponta da Tempestade.
       
 A colossal fortaleza cilíndrica ergue-se contra os rochedos negros, imune às vagas violentas da Baía dos Naufrágios. Stannis Baratheon recebe o irmão mais velho no pátio com reverência austera.
       
-— Os vassalos das Terras da Tempestade estão divididos, Robert — relata Stannis com seu tom gélido habitual. — Os lordes Fell, Cafferen e Grandison consideram vossa revolta uma traição à Coroa e reúnem seus exércitos nas ruínas de Solarestival para marcharem juntos contra nós.
+— Os vassalos das Terras da Tempestade estão divididos, Robert — relata Stannis com seu tom gélido habitual. — Os lordes Fell, Cafferen e Grandison consideram sua revolta uma traição à Coroa e reúnem seus exércitos nas ruínas de Solarestival para marcharem juntos contra nós.
       
 Robert ri alto, secando o sal marinho da barba.
       
@@ -307,7 +307,7 @@ Os cativos, conquistados pelo carisma e pela generosidade descomunal de Robert, 
       escolhas: [
         {
           id: 'esc_j5_a1_celebrar_com_silveraxe',
-          texto: 'Brindar com Sor Silveraxe e assegurar a união de todas as Terras da Tempestade sob o estandarte de Robert.',
+          texto: 'Brindar com Ser Silveraxe e assegurar a união de todas as Terras da Tempestade sob o estandarte de Robert.',
           tipo: 'simples',
           delta: {
             flagsAdicionadas: ['terras_da_tempestade_unificadas'],

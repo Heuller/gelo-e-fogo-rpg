@@ -307,7 +307,7 @@ export function obterCompanheirosIniciais(journeyId?: string): Record<string, Co
       },
       peixe_negro: {
         id: 'peixe_negro',
-        nome: 'Sor Brynden Tully (Peixe Negro)',
+        nome: 'Ser Brynden Tully (Peixe Negro)',
         titulo: 'Vanguarda do Tridente & Escudo de Correrrio',
         aprovacao: 25,
         status: 'Neutro',
@@ -373,7 +373,7 @@ export function obterCompanheirosIniciais(journeyId?: string): Record<string, Co
       },
       peixe_negro: {
         id: 'peixe_negro',
-        nome: 'Sor Brynden Tully (Peixe Negro)',
+        nome: 'Ser Brynden Tully (Peixe Negro)',
         titulo: 'Cavaleiro do Portão & Escudo do Tridente',
         aprovacao: 30,
         status: 'Leal',
@@ -413,7 +413,7 @@ export function obterCompanheirosIniciais(journeyId?: string): Record<string, Co
       },
       alliser_thorne: {
         id: 'alliser_thorne',
-        nome: 'Sor Alliser Thorne',
+        nome: 'Ser Alliser Thorne',
         titulo: 'Mestre de Armas da Guarda Velha',
         aprovacao: 5,
         status: 'Frio',

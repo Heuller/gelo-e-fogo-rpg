@@ -13,9 +13,9 @@ export const grafoJ4Ato1: GrafoJornada = {
       anoHistorico: '299 d.C.',
       localizacao: 'O Punho dos Primeiros Homens',
       regionId: 'floresta_assombrada',
-      fallbackText: `Vós acordais com o ar ardendo nos pulmões como vidro moído. A trombeta da sentinela soou uma vez para os irmãos que retornavam; soou duas para os selvagens; mas soou três vezes na escuridão gélida da madrugada. Três toques longos e trêmulos que não eram ouvidos há oito mil anos: os Outros.
+      fallbackText: `Você acordais com o ar ardendo nos pulmões como vidro moído. A trombeta da sentinela soou uma vez para os irmãos que retornavam; soou duas para os selvagens; mas soou três vezes na escuridão gélida da madrugada. Três toques longos e trêmulos que não eram ouvidos há oito mil anos: os Outros.
       
-Ao vosso redor, o acampamento de trezentos irmãos jurados da Patrulha da Noite transformou-se em um matadouro de névoa e cavalos mortos reanimados. O Senhor Comandante Jeor Mormont desembainha a espada e berra ordens entre o vento cortante:
+Ao seu redor, o acampamento de trezentos irmãos jurados da Patrulha da Noite transformou-se em um matadouro de névoa e cavalos mortos reanimados. O Senhor Comandante Jeor Mormont desembainha a espada e berra ordens entre o vento cortante:
 — Homens da Patrulha! Fechem a fila! Piche e tochas acesas, ou nenhum de nós verá a Muralha novamente!`,
       internalVoices: [
         {
@@ -28,7 +28,7 @@ Ao vosso redor, o acampamento de trezentos irmãos jurados da Patrulha da Noite 
           atributo: 'furia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'O frio quer congelar vossas juntas. Mantende o aço em movimento ou morrereis onde estais!',
+          fala: 'O frio quer congelar suas juntas. Mantende o aço em movimento ou morrereis onde está!',
         },
       ],
       loreContext: {
@@ -67,9 +67,9 @@ Ao vosso redor, o acampamento de trezentos irmãos jurados da Patrulha da Noite 
       anoHistorico: '299 d.C.',
       localizacao: 'Floresta Assombrada',
       regionId: 'floresta_assombrada',
-      fallbackText: `Apenas cinquenta homens sobreviveram ao romper do cerco no Punho. Vós arrastais as botas pela neve que bate na altura dos joelhos; o suor congela sob as cotas de malha e transforma as barbas em blocos de gelo.
+      fallbackText: `Apenas cinquenta homens sobreviveram ao romper do cerco no Punho. Você arrastais as botas pela neve que bate na altura dos joelhos; o suor congela sob as cotas de malha e transforma as barbas em blocos de gelo.
       
-Atrás de vós, Samwell Tarly soluça em agonia, com os pés em carne viva e as mãos roxas de frio. Grenn e Pequeno Paul puxam o irmão gordo pelos braços, enquanto o Velho Urso cavalga na vanguarda, a barba branca fustigada pela nevasca inclemente.`,
+Atrás de você, Samwell Tarly soluça em agonia, com os pés em carne viva e as mãos roxas de frio. Grenn e Pequeno Paul puxam o irmão gordo pelos braços, enquanto o Velho Urso cavalga na vanguarda, a barba branca fustigada pela nevasca inclemente.`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -209,7 +209,7 @@ Quando o Senhor Comandante Jeor Mormont berrou exigindo ordem em nome do rei, Ka
       anoHistorico: '299 d.C.',
       localizacao: 'Salão de Craster',
       regionId: 'floresta_assombrada',
-      fallbackText: `Vós vos ajoelhais ao lado de Jeor Mormont no chão gélido. O sangue jorra rubro por entre seus dedos enluvados. Com olhos febris e a voz engasgada pelo estertor da morte, ele aperta vossa mão e a de Samwell Tarly:
+      fallbackText: `Você se ajoelha ao lado de Jeor Mormont no chão gélido. O sangue jorra rubro por entre seus dedos enluvados. Com olhos febris e a voz engasgada pelo estertor da morte, ele aperta sua mão e a de Samwell Tarly:
 — Sam... e tu, irmão... fujam daqui... salvem as garotas... e meu filho... Jorah... digam a ele... que tome o negro... que seu pai... o perdoa...
       
 Os olhos de granito cinzento do lorde da Ilha dos Ursos fixam-se no teto enfumaçado e perdem a luz. O 997º Senhor Comandante da Patrulha da Noite está morto.`,
@@ -257,10 +257,10 @@ Os olhos de granito cinzento do lorde da Ilha dos Ursos fixam-se no teto enfuma�
       anoHistorico: '299 d.C.',
       localizacao: 'Bosques ao redor de Craster',
       regionId: 'floresta_assombrada',
-      fallbackText: `Em meio aos gritos dos amotinados que violavam as filhas de Craster e disputavam carnes salgadas, Goiva puxa vosso braço chorando e carregando um recém-nascido envolto em peles de carneiro.
+      fallbackText: `Em meio aos gritos dos amotinados que violavam as filhas de Craster e disputavam carnes salgadas, Goiva puxa seu braço chorando e carregando um recém-nascido envolto em peles de carneiro.
 — Eles vão matar meu filho! — implora a garota selvagem. — Craster sempre dava os meninos aos deuses da floresta branca! Fujam comigo!
       
-Vós, Samwell Tarly e Goiva escapais na escuridão sob a nevasca torrencial, deixando para trás o salão em chamas.`,
+Você, Samwell Tarly e Goiva escapais na escuridão sob a nevasca torrencial, deixando para trás o salão em chamas.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',
@@ -282,7 +282,7 @@ Vós, Samwell Tarly e Goiva escapais na escuridão sob a nevasca torrencial, dei
         },
         {
           id: 'esc_j4_a1_carregar_fardo_bebe_goiva',
-          texto: 'Ajudar Goiva a carregar a criança sob o vosso manto e incentivar Samwell a não parar.',
+          texto: 'Ajudar Goiva a carregar a criança sob o seu manto e incentivar Samwell a não parar.',
           tipo: 'simples',
           aprovacaoCompanheiros: { samwell: 20 },
           delta: { flagsAdicionadas: ['amparou_goiva_fuga'], honra: 1 },
@@ -434,8 +434,8 @@ Por entre os pinheiros nevados, montado em um alce colossal, surge uma figura si
       anoHistorico: '299 d.C.',
       localizacao: 'Trilha Oculta para Fortenoite',
       regionId: 'floresta_assombrada',
-      fallbackText: `O cavaleiro cobre o rosto com um lenço negro, mas quando ele estende as mãos enluvadas para partilhar carne seca com Samwell e Goiva, vós reparais: a carne de suas mãos é preta e dura como pedra de ferro, fria como o próprio gelo eterno.
-— Quem sois vós? — pergunta Sam tremendo.
+      fallbackText: `O cavaleiro cobre o rosto com um lenço negro, mas quando ele estende as mãos enluvadas para partilhar carne seca com Samwell e Goiva, você reparais: a carne de suas mãos é preta e dura como pedra de ferro, fria como o próprio gelo eterno.
+— Quem é você? — pergunta Sam tremendo.
 — Um amigo. Um irmão da Patrulha... há muito tempo — sussurra a voz rouca. — Eu não posso cruzar a Muralha. Há feitiços antigos de sangue forjados em suas fundações que nenhum morto pode atravessar. Mas levarei vocês até o Portão Negro de Fortenoite.`,
       internalVoices: [
         {
@@ -481,7 +481,7 @@ Por entre os pinheiros nevados, montado em um alce colossal, surge uma figura si
       anoHistorico: '299 d.C.',
       localizacao: 'Subterrâneos de Fortenoite',
       regionId: 'portao_e_tunel',
-      fallbackText: `Fortenoite, o castelo mais antigo e amaldiçoado da Muralha, jaz em ruínas colossais sob as neves. Nos poços mais profundos, descendo escadarias carcomidas onde outrora o Cozinheiro Rato serviu príncipes assados aos convivas, vós chegais a uma porta viva talhada em madeira branca de represeiro.
+      fallbackText: `Fortenoite, o castelo mais antigo e amaldiçoado da Muralha, jaz em ruínas colossais sob as neves. Nos poços mais profundos, descendo escadarias carcomidas onde outrora o Cozinheiro Rato serviu príncipes assados aos convivas, você chegais a uma porta viva talhada em madeira branca de represeiro.
       
 Um rosto ancestral esculpido na madeira abre os olhos de seiva vermelha e fala com uma voz cavernosa que ecoa pela pedra:
 — Quem vem lá?`,
@@ -520,12 +520,12 @@ Um rosto ancestral esculpido na madeira abre os olhos de seiva vermelha e fala c
       anoHistorico: '299 d.C.',
       localizacao: 'O Portão Negro, Fortenoite',
       regionId: 'portao_e_tunel',
-      fallbackText: `Vossa voz ressoa com reverência e autoridade na abóbada subterrânea:
+      fallbackText: `Sua voz ressoa com reverência e autoridade na abóbada subterrânea:
 — Eu sou a espada na escuridão. Eu sou o vigilante nas muralhas. Eu sou o fogo que queima contra o frio, a luz que traz o amanhecer, a trombeta que acorda os que dormem, o escudo que defende os reinos dos homens!
       
 A enorme face de madeira branca de represeiro abre a boca em uma caverna luminosa e suave:
 — Passai, irmãos juramentados da noite — sussurra a porta milenar.
-As mandíbulas de madeira se abrem e vós cruzais para o lado sul da Muralha, salvos e de volta a Westeros!`,
+As mandíbulas de madeira se abrem e você cruzais para o lado sul da Muralha, salvos e de volta a Westeros!`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -572,7 +572,7 @@ As mandíbulas de madeira se abrem e vós cruzais para o lado sul da Muralha, sa
       regionId: 'castelo_negro',
       fallbackText: `Após dias de marcha forçada pela Dádiva, as torres toscas de madeira e pedra de Castelo Negro surgem sob a sombra titanica de setecentos pés de gelo brilhante.
       
-O pátio está enlameado, com poucos homens trabalhando nas forjas e nos estábulos. Quando vós e Samwell cambaleais portão adentro com Goiva e a criança, irmãos negros correm boquiabertos:
+O pátio está enlameado, com poucos homens trabalhando nas forjas e nos estábulos. Quando você e Samwell cambaleais portão adentro com Goiva e a criança, irmãos negros correm boquiabertos:
 — Pelos deuses... são os sobreviventes do Punho! O Velho Urso retornou?
 — Não — respondeis com a garganta seca. — O Velho Urso foi assassinado em Craster. Estamos quase todos mortos.`,
       loreContext: {
@@ -608,7 +608,7 @@ O pátio está enlameado, com poucos homens trabalhando nas forjas e nos estábu
       anoHistorico: '299 d.C.',
       localizacao: 'Armaria de Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `O calor da forja aquece vossos ossos dormentes. Donal Noye, o ferreiro maneta que outrora forjou o martelo de guerra de Robert Baratheon em Ponta Tempestade, martela uma ponta de lança apoiando o ferro contra a bigorna com o toco do braço esquerdo.
+      fallbackText: `O calor da forja aquece seus ossos dormentes. Donal Noye, o ferreiro maneta que outrora forjou o martelo de guerra de Robert Baratheon em Ponta Tempestade, martela uma ponta de lança apoiando o ferro contra a bigorna com o toco do braço esquerdo.
       
 Ao ouvir o relato da morte de Mormont e do massacre no Punho, Noye cospe na brasa:
 — Malditos sejam os amotinados. Mas não temos tempo para lágrimas, rapaz. Jon Snow chegou ferido há três dias: os selvagens escalaram a Muralha a oeste e estão marchando para nos atacar pelo sul, enquanto Mance desce pelo norte com cem mil homens. Somos menos de quarenta irmãos aptos a lutar.`,
@@ -657,10 +657,10 @@ Ao ouvir o relato da morte de Mormont e do massacre no Punho, Noye cospe na bras
       anoHistorico: '299 d.C.',
       localizacao: 'Câmaras do Meistre, Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `Nas câmaras aquecidas por braseiros de turfa, Meistre Aemon Targaryen, cego e com cem anos de idade, acaricia a lâmina negra de obsidiana trazida por vós. Seus dedos enrugados sentem o gume agudo:
+      fallbackText: `Nas câmaras aquecidas por braseiros de turfa, Meistre Aemon Targaryen, cego e com cem anos de idade, acaricia a lâmina negra de obsidiana trazida por você. Seus dedos enrugados sentem o gume agudo:
 — Vidro de dragão. Fogo congelado em pedra pelas entranhas da terra. Nos livros antigos da Cidadela está escrito que os Filhos da Floresta presenteavam a Patrulha com cem adagas de obsidiana todos os anos.
       
-O velho meistre ergue o rosto cego na vossa direção:
+O velho meistre ergue o rosto cego na sua direção:
 — A hora é escura, irmão. Mas enquanto um único homem permanecer de pé juramentado ao Muro, o reino dos homens não cairá.`,
       internalVoices: [
         {
@@ -705,7 +705,7 @@ O velho meistre ergue o rosto cego na vossa direção:
       anoHistorico: '299 d.C.',
       localizacao: 'Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `Vós vos postais no pátio de Castelo Negro sob o céu cinzento de chumbo. O Grande Alcance terminou em tragédia, o Velho Urso está sepultado nas neves da floresta, mas vós trouxestes a verdade de volta: os mortos caminham, a obsidiana é sua ruína e o cerco dos homens livres está prestes a desabar sobre o Muro.`,
+      fallbackText: `Você se posta no pátio de Castelo Negro sob o céu cinzento de chumbo. O Grande Alcance terminou em tragédia, o Velho Urso está sepultado nas neves da floresta, mas você trouxe a verdade de volta: os mortos caminham, a obsidiana é sua ruína e o cerco dos homens livres está prestes a desabar sobre o Muro.`,
       loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_3_tronos/livro_3_a-tormenta-de-espadas_resumo-completo.md',

@@ -66,7 +66,7 @@ export const VozesInternasV2: React.FC<VozesInternasProps> = ({
     if (dicasPercepcao && vozesOcultadas > 0) {
       return (
         <div className={`p-3 rounded-lg border border-[var(--borda)] bg-[var(--pergaminho-1)] text-xs text-[var(--tinta-fraca)] italic text-center font-sans ${className}`}>
-          Vossos sentidos sentem que algo vos escapou neste instante.
+          Seus sentidos sentem que algo lhe escapou neste instante.
         </div>
       );
     }
@@ -124,7 +124,7 @@ export const VozesInternasV2: React.FC<VozesInternasProps> = ({
       {vozesSecundarias.length > 0 && (
         <details className="group border border-[var(--borda)] rounded-xl bg-[var(--pergaminho-1)] p-3 text-xs text-[var(--tinta-suave)]">
           <summary className="flex items-center justify-between font-cinzel font-semibold cursor-pointer select-none text-[var(--ouro)] hover:text-[var(--ouro-claro)]">
-            <span>+{vozesSecundarias.length} outras vozes da vossa mente</span>
+            <span>+{vozesSecundarias.length} outras vozes da sua mente</span>
             <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" />
           </summary>
           <div className="space-y-3 pt-3">
@@ -135,7 +135,7 @@ export const VozesInternasV2: React.FC<VozesInternasProps> = ({
 
       {dicasPercepcao && vozesOcultadas > 0 && (
         <p className="text-[11px] text-[var(--tinta-fraca)] italic text-right font-sans">
-          {vozesOcultadas} sussurro(s) permaneceram inaudíveis para os vossos atributos.
+          {vozesOcultadas} sussurro(s) permaneceram inaudíveis para os seus atributos.
         </p>
       )}
     </div>

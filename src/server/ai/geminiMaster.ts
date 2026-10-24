@@ -211,7 +211,7 @@ export function classificarAcaoLivreLocal(
   return {
     escolhaId: melhorEscolha.id,
     atributo: atributoFinal,
-    justificativa: `O Mestre interpretou vossa ação como '${melhorEscolha.texto}', invocando vosso atributo de ${atributoFinal.toUpperCase()}.`,
+    justificativa: `O Mestre interpretou sua ação como '${melhorEscolha.texto}', invocando seu atributo de ${atributoFinal.toUpperCase()}.`,
     usouFallback: true,
   };
 }

@@ -253,7 +253,7 @@ Gritos de 'Winterfell!' e 'Correrrio!' tomam as ruelas estreitas enquanto a host
       anoHistorico: '283 d.C.',
       localizacao: 'Portão Norte de Septo de Pedra',
       regionId: 'terras_fluviais',
-      fallbackText: `Ned Stark desmonta sob o arco do portão arrombado com sua espada de aço valiriano Gelo reluzindo sob a fumaça das tochas. Ao seu lado, Sor Brynden 'Peixe Negro' lidera os archeiros de Correrrio com flechas de ponta larga.
+      fallbackText: `Ned Stark desmonta sob o arco do portão arrombado com sua espada de aço valiriano Gelo reluzindo sob a fumaça das tochas. Ao seu lado, Ser Brynden 'Peixe Negro' lidera os archeiros de Correrrio com flechas de ponta larga.
       
 — Onde está Robert?! — grita Ned com urgência através do clamor de espadas e dos sinos que não param de dobrar.
       
@@ -288,7 +288,7 @@ Antes que alguém possa responder, uma gargalhada retumbante corta o ar: Robert 
         },
         {
           id: 'esc_j5_a2_apoiar_peixe_negro_arcos',
-          texto: 'Coordenar as salvas de flechas com Sor Brynden Tully para cortar a retirada dos homens de armas reais.',
+          texto: 'Coordenar as salvas de flechas com Ser Brynden Tully para cortar a retirada dos homens de armas reais.',
           tipo: 'teste_atributo',
           atributo: 'comando',
           dc: 9,
@@ -310,7 +310,7 @@ Antes que alguém possa responder, uma gargalhada retumbante corta o ar: Robert 
       anoHistorico: '283 d.C.',
       localizacao: 'Os Degraus de Mármore do Grande Septo',
       regionId: 'terras_fluviais',
-      fallbackText: `Nos degraus de mármore branco do septo, Jon Connington trava um combate feroz contra Lorde Hoster Tully e corta mortalmente o primo de Jon Arryn, Sor Denys Arryn.
+      fallbackText: `Nos degraus de mármore branco do septo, Jon Connington trava um combate feroz contra Lorde Hoster Tully e corta mortalmente o primo de Jon Arryn, Ser Denys Arryn.
       
 Mas quando Robert Baratheon sobe os degraus aos rugidos com o martelo em punho, Connington percebe que a batalha está irremediavelmente perdida. O golpe de Robert quebra o escudo do Grifo e fende sua placa de ombro.
       

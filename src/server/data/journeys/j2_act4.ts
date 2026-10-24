@@ -13,9 +13,9 @@ export const grafoJ2Ato4: GrafoJornada = {
       anoHistorico: '130 d.C.',
       localizacao: 'Tumbleton',
       regionId: 'campina',
-      fallbackText: `Determinado a provar que nem todos os bastardos eram traidores, Sor Addam Velaryon voou em Fumaresia sob o manto da noite com quatro mil soldados dos Senhores dos Rios.
+      fallbackText: `Determinado a provar que nem todos os bastardos eram traidores, Ser Addam Velaryon voou em Fumaresia sob o manto da noite com quatro mil soldados dos Senhores dos Rios.
       
-O ataque surpresa foi devastador: as tendas dos Verdes arderam enquanto dormiam embriagados. Hugh Martelo foi morto por Sor Jon Roxton com a espada valiriana Fazedora de Órfãos. Vermithor acordou em fúria cega, colidindo contra Fumaresia e Tessarion num combate terrestre brutal onde os três dragões morreram entre dentes e garras. No túmulo de Addam, Lorde Corlys mandou esculpir apenas uma palavra: LEAL.`,
+O ataque surpresa foi devastador: as tendas dos Verdes arderam enquanto dormiam embriagados. Hugh Martelo foi morto por Ser Jon Roxton com a espada valiriana Fazedora de Órfãos. Vermithor acordou em fúria cega, colidindo contra Fumaresia e Tessarion num combate terrestre brutal onde os três dragões morreram entre dentes e garras. No túmulo de Addam, Lorde Corlys mandou esculpir apenas uma palavra: LEAL.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -72,7 +72,7 @@ O ataque surpresa foi devastador: as tendas dos Verdes arderam enquanto dormiam 
       anoHistorico: '130 d.C.',
       localizacao: 'Portões de Pedra do Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Rhaenyra desembarcou exausta nas praias de sua ilha natal, esperando refúgio seguro. Mas Sor Alfred Broome traíra a guarnição: os homens de armas dos Pretos haviam sido degolados na noite anterior.
+      fallbackText: `Rhaenyra desembarcou exausta nas praias de sua ilha natal, esperando refúgio seguro. Mas Ser Alfred Broome traíra a guarnição: os homens de armas dos Pretos haviam sido degolados na noite anterior.
       
 Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala, enquanto Sunfyre — sem uma das asas e coberto de crostas de queimadura — rastejava das sombras fumegantes.
 — Querida irmã — zombou Aegon. — Pensei que estivésseis na capital.
@@ -151,7 +151,7 @@ Nos pátios internos, o mutilado Rei Aegon II aguardava sentado com sua bengala,
       localizacao: 'Pátio de Pedra do Dragão',
       regionId: 'pedra_dragao',
       isEnding: true,
-      fallbackText: `Vosso salto contra Sor Alfred Broome foi interceptado por um jato de chamas douradas incandescentes saídas das fauces de Sunfyre. Vossas vestes e carne foram incineradas antes de tocardes o chão de obsidiana.`,      loreContext: {
+      fallbackText: `Seu salto contra Ser Alfred Broome foi interceptado por um jato de chamas douradas incandescentes saídas das fauces de Sunfyre. Suas vestes e carne foram incineradas antes de tocardes o chão de obsidiana.`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',
@@ -215,7 +215,7 @@ O dragão dourado lançou uma baforada de fogo sobre Rhaenyra e a devorou em sei
       anoHistorico: '130 d.C.',
       localizacao: 'Pedra do Dragão',
       regionId: 'pedra_dragao',
-      fallbackText: `Com fúria implacável, Sor Alfred Broome teve a garganta cortada e os leais a Aegon II foram encurralados! Rhaenyra e o Príncipe Aegon foram colocados a bordo de uma galé rápida da frota Velaryon, rumando com segurança para as forças do Norte que desciam a Estrada do Rei!`,      loreContext: {
+      fallbackText: `Com fúria implacável, Ser Alfred Broome teve a garganta cortada e os leais a Aegon II foram encurralados! Rhaenyra e o Príncipe Aegon foram colocados a bordo de uma galé rápida da frota Velaryon, rumando com segurança para as forças do Norte que desciam a Estrada do Rei!`,      loreContext: {
         fonte: {
           arquivo_md: 'corpus_md/jornada_2_danca/fogo-e-sangue_07_morte-dos-dragoes-breve-triste-reinado-aegon-ii.md',
           livro: 'Fogo & Sangue - Volume 1',

@@ -43,50 +43,50 @@ function resolverEfeitosTabelaFechada(
       case 'observar':
         return {
           delta: { compostura: 1, flagsAdicionadas: [chavePista] },
-          ecoPadrao: 'O vosso olhar atento capta detalhes que escapariam aos homens comuns. Uma pista valiosa foi gravada na vossa memória.',
+          ecoPadrao: 'O seu olhar atento capta detalhes que escapariam aos homens comuns. Uma pista valiosa foi gravada na sua memória.',
           ganhoPista: chavePista,
         };
       case 'persuadir':
         return {
           delta: { compostura: 1, honra: 1 },
-          ecoPadrao: 'Vossas palavras ressoam com sobriedade e convicção, firmando respeito mútuo.',
+          ecoPadrao: 'Suas palavras ressoam com sobriedade e convicção, firmando respeito mútuo.',
         };
       case 'intimidar':
         return {
           delta: { compostura: 1 },
-          ecoPadrao: 'Vossa postura impassível impõe silêncio e cautela ao redor.',
+          ecoPadrao: 'Sua postura impassível impõe silêncio e cautela ao redor.',
         };
       case 'enganar':
         return {
           delta: { compostura: 1, flagsAdicionadas: [chavePista] },
-          ecoPadrao: 'A vossa astúcia planta a dúvida no coração dos interlocutores, sem deixar rastros.',
+          ecoPadrao: 'A sua astúcia planta a dúvida no coração dos interlocutores, sem deixar rastros.',
           ganhoPista: chavePista,
         };
       case 'furtar':
         return {
           delta: { compostura: 1, flagsAdicionadas: [chavePista] },
-          ecoPadrao: 'Com movimentos invisíveis, obtendes vantagem sem levantar qualquer alarme.',
+          ecoPadrao: 'Com movimentos invisíveis, obtém vantagem sem levantar qualquer alarme.',
           ganhoPista: chavePista,
         };
       case 'agir_fisico':
         return {
           delta: { compostura: 1 },
-          ecoPadrao: 'Vossa força e agilidade superam o obstáculo com destreza militar.',
+          ecoPadrao: 'Sua força e agilidade superam o obstáculo com destreza militar.',
         };
       case 'recuar':
         return {
           delta: { compostura: 1 },
-          ecoPadrao: 'Recuais com precisão para uma posição resguardada e segura.',
+          ecoPadrao: 'Recua com precisão para uma posição resguardada e segura.',
         };
       case 'ajudar':
         return {
           delta: { compostura: 1, honra: 1 },
-          ecoPadrao: 'Vosso gesto prestativo traz alívio imediato e fortalece os laços ao redor.',
+          ecoPadrao: 'Seu gesto prestativo traz alívio imediato e fortalece os laços ao redor.',
         };
       case 'rezar_ou_jurar':
         return {
           delta: { compostura: 1, honra: 1 },
-          ecoPadrao: 'A solene reverência revigora o vosso espírito diante do dever.',
+          ecoPadrao: 'A solene reverência revigora o seu espírito diante do dever.',
         };
       case 'esperar':
         return {
@@ -99,14 +99,14 @@ function resolverEfeitosTabelaFechada(
   if (resultado === 'FALHA_PARCIAL' && !complicacaoNarrativa) {
     return {
       delta: {},
-      ecoPadrao: 'A vossa iniciativa encontra resistência ou desfecho incerto, mas sem comprometer a vossa posição.',
+      ecoPadrao: 'A sua iniciativa encontra resistência ou desfecho incerto, mas sem comprometer a sua posição.',
     };
   }
 
   // FALHA grave ou complicação narrativa
   return {
     delta: { compostura: -1 },
-    ecoPadrao: 'A tentativa resulta em frustração passageira, cobrando um breve tributo à vossa compostura.',
+    ecoPadrao: 'A tentativa resulta em frustração passageira, cobrando um breve tributo à sua compostura.',
   };
 }
 

@@ -68,7 +68,7 @@ todosNosJ2['j2_a3_checkpoint_conclusao'] = {
   escolhas: [
     {
       id: 'esc_transicao_j2_a3_a4_tumbleton2',
-      texto: 'Seguir com Sor Addam Velaryon e Fumaresia para o ataque noturno em Tumbleton (Ato IV).',
+      texto: 'Seguir com Ser Addam Velaryon e Fumaresia para o ataque noturno em Tumbleton (Ato IV).',
       tipo: 'simples',
       nextNodeId: 'j2_a4_segunda_tumbleton_ataque_noturno',
     },

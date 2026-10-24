@@ -22,7 +22,7 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'A perda dos Karstark custou um terço do vosso exército. Sem os Frey, não podereis retomar o Norte dos homens de ferro.',
+          fala: 'A perda dos Karstark custou um terço do seu exército. Sem os Frey, não podereis retomar o Norte dos homens de ferro.',
         },
       ],
       loreContext: {
@@ -125,7 +125,7 @@ Enlouquecido de dor pela perda dos filhos, Lorde Rickard Karstark assassinou doi
       anoHistorico: '299 d.C.',
       localizacao: 'Grande Salão das Gêmeas',
       regionId: 'tridente',
-      fallbackText: `O casamento de Sor Edmure Tully com Roslin Frey fora consumado e o casal conduzido aos aposentos nupciais ao som de risadas bêbadas. As portas pesadas de carvalho das Gêmeas bateram ruidosamente e foram trancadas por fora.
+      fallbackText: `O casamento de Ser Edmure Tully com Roslin Frey fora consumado e o casal conduzido aos aposentos nupciais ao som de risadas bêbadas. As portas pesadas de carvalho das Gêmeas bateram ruidosamente e foram trancadas por fora.
       
 De repente, os músicos na galeria alta pararam de tocar as canções alegres e começaram a entoar a melodia sinistra e fúnebre de 'As Chuvas de Castamere'. Catelyn Stark olhou para o lorde ao seu lado: sob a túnica de veludo de Roose Bolton brilhava o reflexo gélido de uma cota de malha de ferro.
       
@@ -338,7 +338,7 @@ Quando Mance Rayder lançava a investida final com dezenas de milhares de guerre
         },
         {
           id: 'esc_castelo_negro_stannis_saudacao',
-          texto: 'Jon Snow saúda o Rei Stannis Baratheon e Sor Davos Seaworth como salvadores da Muralha.',
+          texto: 'Jon Snow saúda o Rei Stannis Baratheon e Ser Davos Seaworth como salvadores da Muralha.',
           tipo: 'simples',
           aprovacaoCompanheiros: { jon_snow: 30 },
           delta: { compostura: 2, sangue: 1 },

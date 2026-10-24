@@ -83,7 +83,7 @@ export const LISTA_ACHADOS_MURALHA: AchadoMarginalia[] = [
     ancora: 'C29',
     livro: 'A Guerra dos Tronos',
     capitulo: 'Jon III',
-    resumo: 'O deboche cruel de Sor Alliser Thorne que se tornou título de glória.',
+    resumo: 'O deboche cruel de Ser Alliser Thorne que se tornou título de glória.',
     notaCidadela: 'Thorne usava o epíteto para lembrar a bastardia de Jon; os irmãos mais humildes o adotaram como clamor de lealdade e afeto militar.',
   },
   {

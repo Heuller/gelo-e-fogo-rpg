@@ -13,9 +13,9 @@ export const grafoJ4Ato2: GrafoJornada = {
       anoHistorico: '299 d.C.',
       localizacao: 'Portão Sul de Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `O relincho agudo de um cavalo exausto corta o silêncio fúnebre do pátio ao entardecer. Vós correis para o portão sul e encontrais um animal banhado em suor cinzento e espuma sanguinolenta, desabando sobre os cascalhos. Preso aos estribos está Jon Snow.
+      fallbackText: `O relincho agudo de um cavalo exausto corta o silêncio fúnebre do pátio ao entardecer. Você corre para o portão sul e encontra um animal banhado em suor cinzento e espuma sanguinolenta, desabando sobre os cascalhos. Preso aos estribos está Jon Snow.
       
-Sua capa negra está em farrapos, o rosto queimado pelo vento gélido e uma flecha com penas cinzentas de ganso atravessa a carne de sua coxa direita. Ao vos ver, o bastardo de Winterfell tenta firmar-se com uma das mãos na neve ensanguentada:
+Sua capa negra está em farrapos, o rosto queimado pelo vento gélido e uma flecha com penas cinzentas de ganso atravessa a carne de sua coxa direita. Ao ver você, o bastardo de Winterfell tenta firmar-se com uma das mãos na neve ensanguentada:
 — Fechem... fechem as portas. Não pelo norte... eles vêm pelo sul. Styr... o Magnar de Thenn escalou a Muralha perto da Atalaia da Água Cinzenta. Cem homens... estão cavalgando pela Estrada do Rei!`,
       internalVoices: [
         {
@@ -203,13 +203,13 @@ Cartas foram enviadas ao Rei Joffrey em Porto Real, ao Rei Stannis em Pedra do D
     // 5. O Castelo dos Velhos
     j4_a2_o_castelo_dos_velhos: {
       id: 'j4_a2_o_castelo_dos_velhos',
-      titulo: 'A Senilidade de Sor Wynton Stout',
+      titulo: 'A Senilidade de Ser Wynton Stout',
       anoHistorico: '299 d.C.',
       localizacao: 'Salão Comum de Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `No salão comum aquecido pela lareira esfumaçada, Sor Wynton Stout senta-se embrulhado em três mantos de lã puída. O velho cavaleiro, outrora um líder vigoroso, tem mais de oitenta anos e os olhos leitosos da catarata.
+      fallbackText: `No salão comum aquecido pela lareira esfumaçada, Ser Wynton Stout senta-se embrulhado em três mantos de lã puída. O velho cavaleiro, outrora um líder vigoroso, tem mais de oitenta anos e os olhos leitosos da catarata.
       
-Quando vós lhe perguntais sobre as patrulhas e a ordem de batalha contra os Thenns, Sor Wynton sorri fracamente, confunde vosso nome com o de um primo morto há cinquenta anos e pergunta docemente se o Rei Aerys já mandou o vinho de verão da Campina. Ele não comanda mais nem o próprio tremor das mãos.`,
+Quando você lhe perguntais sobre as patrulhas e a ordem de batalha contra os Thenns, Ser Wynton sorri fracamente, confunde seu nome com o de um primo morto há cinquenta anos e pergunta docemente se o Rei Aerys já mandou o vinho de verão da Campina. Ele não comanda mais nem o próprio tremor das mãos.`,
       internalVoices: [
         {
           atributo: 'furia',
@@ -224,12 +224,12 @@ Quando vós lhe perguntais sobre as patrulhas e a ordem de batalha contra os The
           livro: 'A Tormenta de Espadas',
           capitulo: 'Jon VI',
         },
-        notaHistorica: 'Âncora: C9. Sor Wynton Stout esquece seu posto e Donal Noye assume o comando.',
+        notaHistorica: 'Âncora: C9. Ser Wynton Stout esquece seu posto e Donal Noye assume o comando.',
       },
       escolhas: [
         {
           id: 'esc_j4_a2_acompanhar_stout_aposentos',
-          texto: 'Ajudar Sor Wynton a recolher-se em segurança aos seus aposentos com respeito à sua idade.',
+          texto: 'Ajudar Ser Wynton a recolher-se em segurança aos seus aposentos com respeito à sua idade.',
           tipo: 'simples',
           delta: { honra: 1, compostura: 1 },
           nextNodeId: 'j4_a2_noye_assume',
@@ -254,7 +254,7 @@ Quando vós lhe perguntais sobre as patrulhas e a ordem de batalha contra os The
       regionId: 'castelo_negro',
       fallbackText: `Donal Noye entra no salão comum ainda vestindo seu avental de couro chamuscado, o toco do braço esquerdo bem amarrado no peito e um pesado martelo de ferreiro na mão direita. Seus olhos escuros e severos varrem os homens apavorados.
       
-— Escutem todos vocês, bando de ladrões de galinhas e filhos de rameiras! — a voz de Noye retumba como ferro batido na bigorna. — Bowen Marsh está caçando sombras no oeste. Sor Wynton já está com um pé na cova. O Velho Urso está morto na floresta. Mas enquanto eu tiver um braço e vós tiverdes duas pernas, este castelo não será entregue a nenhum selvagem de dentes lascados! Vós sois os homens da Muralha!`,
+— Escutem todos vocês, bando de ladrões de galinhas e filhos de rameiras! — a voz de Noye retumba como ferro batido na bigorna. — Bowen Marsh está caçando sombras no oeste. Ser Wynton já está com um pé na cova. O Velho Urso está morto na floresta. Mas enquanto eu tiver um braço e você tiverdes duas pernas, este castelo não será entregue a nenhum selvagem de dentes lascados! Você é os homens da Muralha!`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -302,9 +302,9 @@ Quando vós lhe perguntais sobre as patrulhas e a ordem de batalha contra os The
       regionId: 'castelo_negro',
       fallbackText: `O cheiro de vinagre azedo e carne chamuscada impregna a enfermaria. Jon Snow morde um pedaço de couro enquanto Meistre Aemon, com mãos enrugadas mas surpreendentemente firmes, derrama vinho fervente para limpar o rastro da flecha em sua coxa.
       
-— O ferro e o calor doem agora, rapaz — diz o velho meistre suavemente —, mas impedem que a podridão roube vossa perna.
+— O ferro e o calor doem agora, rapaz — diz o velho meistre suavemente —, mas impedem que a podridão roube sua perna.
       
-Jon abre os olhos cheios de dor e olha para vós:
+Jon abre os olhos cheios de dor e olha para você:
 — Styr é cruel. Ele corta as orelhas dos batedores. Eles marcharão pela Vila Toupeira antes de nos atacarem aqui. Se os aldeões não forem avisados, serão massacrados como ovelhas no curral.`,
       internalVoices: [
         {
@@ -351,10 +351,10 @@ Jon abre os olhos cheios de dor e olha para vós:
       anoHistorico: '299 d.C.',
       localizacao: 'Parapeitos de Castelo Negro',
       regionId: 'castelo_negro',
-      fallbackText: `Nos parapeitos voltados para a floresta e para o sul, uma ideia engenhosa de Meistre Aemon toma forma sob vossas mãos. Quarenta homens não conseguem guarnecer um terço dos postos de observação; portanto, sacos velhos de estopa e feixes de palha seca são enfiados dentro de mantos negros rasgados e armaduras velhas de couro.
+      fallbackText: `Nos parapeitos voltados para a floresta e para o sul, uma ideia engenhosa de Meistre Aemon toma forma sob suas mãos. Quarenta homens não conseguem guarnecer um terço dos postos de observação; portanto, sacos velhos de estopa e feixes de palha seca são enfiados dentro de mantos negros rasgados e armaduras velhas de couro.
       
 Pyp coloca um elmo de ferro torto sobre a cabeça de um dos bonecos de palha e desenha um bigode torto com carvão:
-— Este aqui é Sor Eddison Tollett — ri Pyp com seu humor azedo. — Olhem a cara de desgosto dele com o vento! Pelo menos este Edd não reclama da sopa!`,
+— Este aqui é Ser Eddison Tollett — ri Pyp com seu humor azedo. — Olhem a cara de desgosto dele com o vento! Pelo menos este Edd não reclama da sopa!`,
       internalVoices: [
         {
           atributo: 'astucia',
@@ -455,7 +455,7 @@ No pátio, Donal Noye olha para a turba faminta. São mais bocas para alimentar,
       anoHistorico: '299 d.C.',
       localizacao: 'A Base do Guincho da Muralha',
       regionId: 'castelo_negro',
-      fallbackText: `As correntes de ferro do guincho rangem dolorosamente sob o peso de cada carga. Vós trabalhais na plataforma da cesta, içando barris de pez, caldeirões de óleo de lamparina e caixotes abarrotados de pedregulhos e cascalho britado.
+      fallbackText: `As correntes de ferro do guincho rangem dolorosamente sob o peso de cada carga. Você trabalhais na plataforma da cesta, içando barris de pez, caldeirões de óleo de lamparina e caixotes abarrotados de pedregulhos e cascalho britado.
       
 Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera enjaulada. Se os Thenns tentarem invadir os recintos ou incendiar os telhados de carvalho de Castelo Negro, a chuva de óleo ardente e pedras jogadas das alturas será nossa defesa mais mortífera.`,
       internalVoices: [
@@ -552,13 +552,13 @@ Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera
       regionId: 'castelo_negro',
       fallbackText: `A noite aproxima-se veloz, trazendo um céu cor de ferro fundido. Donal Noye finca uma espada bastarda na mesa do pátio e distribui as responsabilidades finais entre os poucos defensores.
       
-— Chegou a hora de cada homem escolher onde vai derramar o sangue — diz Noye, encarando-vos nos olhos. — Preciso de arqueiros no topo da Muralha para ver o mundo queimar de cima; preciso de machados no pátio da escada para atrair a carga de Styr; e preciso de vigias no portão para impedir que o pânico tome o túnel. Onde vos colocais, irmão?`,
+— Chegou a hora de cada homem escolher onde vai derramar o sangue — diz Noye, encarando você nos olhos. — Preciso de arqueiros no topo da Muralha para ver o mundo queimar de cima; preciso de machados no pátio da escada para atrair a carga de Styr; e preciso de vigias no portão para impedir que o pânico tome o túnel. Onde você se coloca, irmão?`,
       internalVoices: [
         {
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 9,
-          fala: 'O posto que escolherdes determinará vossa sobrevivência e o rumo do primeiro choque contra os Thenns.',
+          fala: 'O posto que você escolher determinará sua sobrevivência e o rumo do primeiro choque contra os Thenns.',
         },
       ],
       loreContext: {
@@ -603,7 +603,7 @@ Lá em cima, a setecentos pés de altura, o vento da floresta ruge como uma fera
       anoHistorico: '299 d.C.',
       localizacao: 'Castelo Negro sob a Noite',
       regionId: 'castelo_negro',
-      fallbackText: `Todas as tochas e lanternas foram abafadas. Na escuridão completa, apenas o vapor das respirações quentes ferve contra a lâmina gélida do ar. As sentinelas de palha balançam imóveis nos parapeitos; ao lado de vós, o ferro das flechas e das lanças parece grudado na carne dormente das mãos.
+      fallbackText: `Todas as tochas e lanternas foram abafadas. Na escuridão completa, apenas o vapor das respirações quentes ferve contra a lâmina gélida do ar. As sentinelas de palha balançam imóveis nos parapeitos; ao lado de você, o ferro das flechas e das lanças parece grudado na carne dormente das mãos.
       
 De repente, do labirinto escuro dos bosques da Dádiva ao sul, um grito gutural estilhaça a noite. Uivos humanos misturados a pancadas brutais de machados de bronze contra escudos de couro: os Thenns chegaram!`,
       internalVoices: [

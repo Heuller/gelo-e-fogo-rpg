@@ -134,7 +134,7 @@ Visitando uma forja na Colina de Visenya, Ned encontrou Gendry, um rapaz forte c
       anoHistorico: '298 d.C.',
       localizacao: 'Campos de Justa fora das Muralhas',
       regionId: 'terras_da_coroa',
-      fallbackText: `Milhares de espectadores aplaudiam as justas onde Sor Loras Tyrell, o Cavaleiro das Flores, desmontou Sor Gregor Clegane, a Montanha que Cavalga, usando uma égua no cio para distrair o garanhão da besta.
+      fallbackText: `Milhares de espectadores aplaudiam as justas onde Ser Loras Tyrell, o Cavaleiro das Flores, desmontou Ser Gregor Clegane, a Montanha que Cavalga, usando uma égua no cio para distrair o garanhão da besta.
       
 Enlouquecido de raiva, a Montanha decapitou seu próprio cavalo com um único golpe de montante e saltou para assassinar o jovem Loras! O Cão de Caça Sandor Clegane saltou para a liça com sua espada, travando um duelo brutal de irmãos até que o trovão da voz do Rei Robert ordenou o cessar das lâminas.
       
@@ -189,8 +189,8 @@ Naquela mesma tarde, corvos trouxeram notícias alarmantes do Tridente: na Estal
       anoHistorico: '298 d.C.',
       localizacao: 'Ruelas de Porto Real',
       regionId: 'terras_da_coroa',
-      fallbackText: `Retornando de um bordel sob uma tempestade torrencial, Ned Stark e seus homens foram cercados por cem lanceiros Lannister liderados por Sor Jaime a cavalo em armadura de ouro reluzente.
-— Vosso irmão anão pagará por seus crimes — disse Ned com a mão no punho de Gelo.
+      fallbackText: `Retornando de um bordel sob uma tempestade torrencial, Ned Stark e seus homens foram cercados por cem lanceiros Lannister liderados por Ser Jaime a cavalo em armadura de ouro reluzente.
+— Seu irmão anão pagará por seus crimes — disse Ned com a mão no punho de Gelo.
 — Eu quero meu irmão de volta — respondeu Jaime, com olhos frios. — Matem os homens dele! Deixem Lorde Stark vivo.
       
 Jory Cassel e os fiéis guardas de Winterfell foram massacrados na lama diante dos olhos de Ned. Ao desembainhar sua espada para lutar, o cavalo de Ned escorregou e caiu sobre sua perna, estilhaçando os ossos do membro inferior. Jaime partiu a galope, abandonando Porto Real para liderar os exércitos do pai.`,
@@ -199,7 +199,7 @@ Jory Cassel e os fiéis guardas de Winterfell foram massacrados na lama diante d
           atributo: 'furia',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 11,
-          fala: 'Jory Cassel morreu nos vossos braços. A dívida de sangue dos Lannister clama por vingança total.',
+          fala: 'Jory Cassel morreu nos seus braços. A dívida de sangue dos Lannister clama por vingança total.',
         },
       ],
       loreContext: {
@@ -245,7 +245,7 @@ Jory Cassel e os fiéis guardas de Winterfell foram massacrados na lama diante d
       localizacao: 'Bosque Sagrado da Fortaleza Vermelha',
       regionId: 'terras_da_coroa',
       fallbackText: `Mancando apoiado numa bengala de freixo, Ned encontrou a Rainha Cersei sob as árvores do bosque sagrado. Por honra e piedade aos filhos infantes dela, Ned deu seu aviso solene:
-— Eu sei o vosso segredo, Cersei. O que Jaime e vós fizestes na torre de Winterfell. Quando Robert retornar de sua caçada, eu direi a ele toda a verdade. Pegai vossos filhos e fujai para o exílio em Essos antes que a fúria dele os consuma.
+— Eu sei o seu segredo, Cersei. O que Jaime e você fizestes na torre de Winterfell. Quando Robert retornar de sua caçada, eu direi a ele toda a verdade. Pegai seus filhos e fujai para o exílio em Essos antes que a fúria dele os consuma.
       
 Cersei ergueu a cabeça dourada, olhando-o com escárnio e compaixão cortante:
 — Quando se joga o jogo dos tronos, ganha-se ou morre-se, Lorde Stark. Não há meio-termo.`,
@@ -447,7 +447,7 @@ Ned recusou com a honra cega do Norte:
       localizacao: 'Torre da Mão',
       regionId: 'terras_da_coroa',
       fallbackText: `Mindinho sorriu no clarão da lareira, prometendo que Janos Slynt e dois mil Mantos Dourados ficariam ao lado de Ned Stark na manhã seguinte em troca de bolsas de ouro e títulos.
-— Não confieis em mim, milorde. Eu vos avisei para não confiar em ninguém nesta cidade — murmurou Mindinho ao despedir-se com um olhar indecifrável.`,
+— Não confie em mim, milorde. Eu avisei para não confiar em ninguém nesta cidade — murmurou Mindinho ao despedir-se com um olhar indecifrável.`,
       internalVoices: [
         {
           atributo: 'astucia',
@@ -508,10 +508,10 @@ Ned recusou com a honra cega do Norte:
       localizacao: 'Sala do Trono, Fortaleza Vermelha',
       regionId: 'terras_da_coroa',
       fallbackText: `Na majestosa Sala do Trono, o menino Joffrey sentava-se no Trono de Ferro com Cersei altiva ao seu lado. Quando Ned entregou o testamento assinado por Robert declarando-o Protetor do Reino, Cersei rasgou o pergaminho régio em pedaços e atirou-o aos pés da corte.
-— Os Mantos Dourados são vossos, Lorde Stark? — zombou Cersei.
+— Os Mantos Dourados são seus, Lorde Stark? — zombou Cersei.
       
 Ned ordenou que Janos Slynt prendesse a rainha e o menino. Num relance de aço, as lanças da Patrulha da Cidade viraram-se contra os guardas de Winterfell, massacrando-os pelas costas. Petyr Baelish aproximou-se por trás de Ned, deslizou a adaga valiriana sob o queixo de Ned e sussurrou no seu ouvido com um sorriso frio:
-— Eu vos avisei para não confiar em mim, milorde.`,
+— Eu avisei para não confiar em mim, milorde.`,
       internalVoices: [
         {
           atributo: 'comando',
@@ -623,7 +623,7 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
       localizacao: 'Masmorras Negras da Fortaleza Vermelha',
       regionId: 'terras_da_coroa',
       fallbackText: `Acorrentado à parede fria com a perna estilhaçada pulsando em agonia e sem água, Ned ouviu passos de veludo. Varys emergiu disfarçado com uma tocha:
-— O que é a vossa vida, Lorde Stark? E a vida de vossa filha Sansa? Cersei quer vossa confissão pública de traição no Septo de Baelor. Se vos confessardes, sereis poupado e enviado à Muralha para vestir o negro com vosso filho Jon. A vida pela honra... O que escolheis?`,
+— O que é a sua vida, Lorde Stark? E a vida de sua filha Sansa? Cersei quer sua confissão pública de traição no Septo de Baelor. Se você confessar, será poupado e enviado à Muralha para vestir o negro com seu filho Jon. A vida pela honra... O que escolhe?`,
       internalVoices: [
         {
           atributo: 'cortesia',
@@ -693,13 +693,13 @@ Ned Stark ergueu o selo régio de Robert e proclamou a regência legítima diant
       
 Engolindo o próprio orgulho para salvar a filha, Ned proclamou em voz alta que conspirara para usurpar a coroa de Joffrey. A multidão aplaudiu. Cersei e o Alto Septão acenaram para que o prisioneiro fosse poupado e enviado à Muralha.
 Mas o Rei Joffrey deu um passo à frente com um sorriso sádico:
-— Minha mãe e a Fé me pediram misericórdia. Mas eles têm o coração brando das mulheres. Enquanto eu for vosso rei, a traição nunca passará impune! Sor Ilyn, trazei-me a cabeça dele!`,
+— Minha mãe e a Fé me pediram misericórdia. Mas eles têm o coração brando das mulheres. Enquanto eu for seu rei, a traição nunca passará impune! Ser Ilyn, trazei-me a cabeça dele!`,
       internalVoices: [
         {
           atributo: 'comando',
           resultadoPassivo: 'SUCESSO',
           dcPassiva: 12,
-          fala: 'Joffrey quebrou o acordo na frente de todos! Sor Ilyn Payne ergueu a gigantesca espada valiriana Gelo.',
+          fala: 'Joffrey quebrou o acordo na frente de todos! Ser Ilyn Payne ergueu a gigantesca espada valiriana Gelo.',
         },
         {
           atributo: 'pressagio',
@@ -799,7 +799,7 @@ O Norte recebia o chamado definitivo para a guerra.`,
       anoHistorico: '298 d.C.',
       localizacao: 'Praça do Septo de Baelor',
       regionId: 'terras_da_coroa',
-      fallbackText: `Sor Barristan Selmy e guardas leais à honra intervieram a tempo, segurando o braço de Ilyn Payne enquanto o Alto Septão amaldiçoava a quebra do solo sagrado! Envergonhada e temendo o motim popular, Cersei obrigou Joffrey a recuar.
+      fallbackText: `Ser Barristan Selmy e guardas leais à honra intervieram a tempo, segurando o braço de Ilyn Payne enquanto o Alto Septão amaldiçoava a quebra do solo sagrado! Envergonhada e temendo o motim popular, Cersei obrigou Joffrey a recuar.
       
 Ned Stark teve os ferros trocados pelo manto negro da Patrulha da Noite e foi entregue imediatamente a Yoren para ser escoltado em segredo até Castelo Negro vivo!`,
       loreContext: {

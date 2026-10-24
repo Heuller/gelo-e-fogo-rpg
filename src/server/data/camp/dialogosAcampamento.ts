@@ -57,8 +57,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_jon_honra_mormont',
-            texto: '«Vós merecestes a lâmina, Jon. Se Jeor a confiou a vós, é porque enxergou o líder que a Patrulha precisava.»',
-            reacaoCompanheiro: 'Jon abaixa a cabeça por um instante, um meio-sorriso tímido aflorando sob a barba rala. «Obrigado, irmão. Vossas palavras aquecem mais do que este braseiro.»',
+            texto: '«Você merecestes a lâmina, Jon. Se Jeor a confiou a você, é porque enxergou o líder que a Patrulha precisava.»',
+            reacaoCompanheiro: 'Jon abaixa a cabeça por um instante, um meio-sorriso tímido aflorando sob a barba rala. «Obrigado, irmão. Suas palavras aquecem mais do que este braseiro.»',
             deltaAprovacao: 10,
             bonusInspiracao: 1,
             bonusCompostura: 1,
@@ -73,8 +73,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           },
           {
             id: 'resp_jon_lembrar_muralha',
-            texto: '«Guardai vossos sentimentos para depois da batalha. Mance Rayder ainda tem cem mil selvagens do outro lado.»',
-            reacaoCompanheiro: 'O olhar de Jon endurece como gelo de lago. «Tendes razão. A noite é curta e o dever nunca dorme.»',
+            texto: '«Guardai seus sentimentos para depois da batalha. Mance Rayder ainda tem cem mil selvagens do outro lado.»',
+            reacaoCompanheiro: 'O olhar de Jon endurece como gelo de lago. «Tem razão. A noite é curta e o dever nunca dorme.»',
             deltaAprovacao: -2,
             bonusCompostura: 1,
           },
@@ -90,7 +90,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_jon_lobo_troca_peles',
-            texto: '«Os antigos reis do Norte tinham lobos ao lado do trono. Vosso laço com Fantasma não vos enfraquece; é a vossa maior força.»',
+            texto: '«Os antigos reis do Norte tinham lobos ao lado do trono. Seu laço com Fantasma não o enfraquece; é a sua maior força.»',
             reacaoCompanheiro: 'Os olhos cinzentos de Jon brilham na penumbra. «Meu tio Benjen costumava dizer algo parecido antes de desaparecer na Floresta Assombrada. Jamais esquecerei isso.»',
             deltaAprovacao: 12,
             bonusInspiracao: 1,
@@ -98,7 +98,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           },
           {
             id: 'resp_jon_foco_votos',
-            texto: '«Vós sois um irmão juramentado da Patrulha da Noite, Jon. Cuidado para não deixar que instintos selvagens vos afastem dos vossos votos.»',
+            texto: '«Você é um irmão juramentado da Patrulha da Noite, Jon. Cuidado para não deixar que instintos selvagens o afastem dos seus votos.»',
             reacaoCompanheiro: 'Jon assente lentamente, compreendendo o alerta. «A Patrulha é minha vida agora. Não me esquecerei disso.»',
             deltaAprovacao: 4,
             bonusCompostura: 2,
@@ -125,8 +125,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_sam_coragem_real',
-            texto: '«Vós salvastes Goiva e o bebê, Sam. Enquanto os homens fortes fugiam e morriam no Punho, fostes vós quem descobriu a única fraqueza dos Outros.»',
-            reacaoCompanheiro: 'Sam enxuga uma lágrima no canto dos olhos com a manga puída. «Nenhum homem jamais me disse palavras tão gentis, nem mesmo meu pai em Monte Chifre. Eu lutarei ao vosso lado sempre que precisardes de mim.»',
+            texto: '«Você salvastes Goiva e o bebê, Sam. Enquanto os homens fortes fugiam e morriam no Punho, foi você quem descobriu a única fraqueza dos Outros.»',
+            reacaoCompanheiro: 'Sam enxuga uma lágrima no canto dos olhos com a manga puída. «Nenhum homem jamais me disse palavras tão gentis, nem mesmo meu pai em Monte Chifre. Eu lutarei ao seu lado sempre que precisardes de mim.»',
             deltaAprovacao: 15,
             bonusInspiracao: 1,
             bonusCompostura: 2,
@@ -162,7 +162,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_donal_sabedoria_veterano',
-            texto: '«E que metal vós sois, mestre Noye?»',
+            texto: '«E que metal você é, mestre Noye?»',
             reacaoCompanheiro: 'Noye dá uma gargalhada rouca que ecoa pelos quartéis. «Eu sou o fole velho e a pedra de carvão. Não brilho para canções de menestréis, mas mantenho o fogo aceso para que homens melhores forjem suas vidas.»',
             deltaAprovacao: 12,
             bonusInspiracao: 1,
@@ -171,8 +171,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           },
           {
             id: 'resp_donal_foco_armas',
-            texto: '«Stannis está vindo para a Muralha, Noye. Precisamos que o vosso ferro nos forneça flechas suficientes.»',
-            reacaoCompanheiro: 'Noye cospe na fogueira, fazendo subir fagulhas. «As forjas não se apagarão enquanto eu respirar. Tendes minha palavra.»',
+            texto: '«Stannis está vindo para a Muralha, Noye. Precisamos que o seu ferro nos forneça flechas suficientes.»',
+            reacaoCompanheiro: 'Noye cospe na fogueira, fazendo subir fagulhas. «As forjas não se apagarão enquanto eu respirar. Tem minha palavra.»',
             deltaAprovacao: 6,
             bonusCompostura: 1,
           },
@@ -192,14 +192,14 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         id: 'aemon_o_dever_e_o_amor',
         titulo: 'Sobre o Trono de Ferro e o chamado de Aegon V (Egg)',
         resumo: 'O ancião cego de cem anos recorda a dinastia dos dragões.',
-        falaInicial: `A tenda do Meistre cheira a ervas secas, vinho fervido com canela e cera de abelha. O velho cego sorri quando escuta vossos passos cuidadosos.
+        falaInicial: `A tenda do Meistre cheira a ervas secas, vinho fervido com canela e cera de abelha. O velho cego sorri quando escuta seus passos cuidadosos.
         
-— Sei quem sois pelo peso das botas na madeira — diz Aemon suavemente. — O mundo esqueceu meu sobrenome, e é melhor assim. Mas quando vejo rapazes como Jon Snow dilacerados entre o amor por sua família e o dever de seus juramentos, lembro-me do meu irmão Egg... e de quando me ofereceram a coroa dos Sete Reinos três vezes. Eu recusei e vim para o gelo para que meu irmão reinasse sem a sombra de um irmão mais velho.`,
+— Sei quem é pelo peso das botas na madeira — diz Aemon suavemente. — O mundo esqueceu meu sobrenome, e é melhor assim. Mas quando vejo rapazes como Jon Snow dilacerados entre o amor por sua família e o dever de seus juramentos, lembro-me do meu irmão Egg... e de quando me ofereceram a coroa dos Sete Reinos três vezes. Eu recusei e vim para o gelo para que meu irmão reinasse sem a sombra de um irmão mais velho.`,
         respostas: [
           {
             id: 'resp_aemon_reverencia_solene',
             texto: '«Westeros perdeu um grande rei, mas a Patrulha da Noite ganhou a sua maior bússola moral, Meistre.»',
-            reacaoCompanheiro: 'Aemon estende sua mão magra e trêmula, pousando-a sobre vosso braço. «Que os deuses antigos e novos guardem vosso discernimento na tempestade que se aproxima, meu jovem amigo.»',
+            reacaoCompanheiro: 'Aemon estende sua mão magra e trêmula, pousando-a sobre seu braço. «Que os deuses antigos e novos guardem seu discernimento na tempestade que se aproxima, meu jovem amigo.»',
             deltaAprovacao: 15,
             bonusInspiracao: 1,
             bonusCompostura: 2,
@@ -219,7 +219,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
 
   alliser_thorne: {
     id: 'alliser_thorne',
-    nome: 'Sor Alliser Thorne',
+    nome: 'Ser Alliser Thorne',
     titulo: 'Mestre de Armas de Castelo Negro',
     era: 'patrulha_muralha',
     citacao: '«Vocês acham que sou cruel? O inverno não se importa com seus choros, rapaz.»',
@@ -228,13 +228,13 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         id: 'thorne_porto_real_e_rebeldia',
         titulo: 'Sobre o Saque de Porto Real e o destino na Muralha',
         resumo: 'A amargura de um lealista Targaryen exilado pelo Usurpador.',
-        falaInicial: `Sor Alliser examina uma espada embotada sob a luz da tocha com expressão azeda. Seu olhar de víbora pousa sobre vós.
+        falaInicial: `Ser Alliser examina uma espada embotada sob a luz da tocha com expressão azeda. Seu olhar de víbora pousa sobre você.
         
 — Vocês, rapazes do Norte, acham que a vida é feita de canções sobre os Starks — zomba ele com desprezo calculado. — Eu lutei nas muralhas de Porto Real sob o estandarte do dragão de três cabeças. Quando Tywin Lannister arrombou os portões e Robert tomou o trono, me deram duas opções: o machado do carrasco ou a capa negra. Eu escolhi viver. E há quinze anos transformo ladrões de ovelhas e estupradores de aldeia em soldados capazes de segurar este gelo.`,
         respostas: [
           {
             id: 'resp_thorne_reconhecer_disciplina',
-            texto: '«Vossos métodos são duros, Sor Alliser, mas os recrutas que treinastes foram os que seguraram o portão contra os gigantes.»',
+            texto: '«Seus métodos são duros, Ser Alliser, mas os recrutas que treinastes foram os que seguraram o portão contra os gigantes.»',
             reacaoCompanheiro: 'Thorne semicerra os olhos, surpreso com o reconhecimento onde esperava insolência. «Pelo menos alguém aqui tem olhos na cara e não mingau de aveia no crânio. Mantenha essa postura e talvez sobreviva à guerra.»',
             deltaAprovacao: 10,
             bonusCompostura: 1,
@@ -242,8 +242,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           },
           {
             id: 'resp_thorne_desafio_direto',
-            texto: '«Vossa amargura não vos dá o direito de conspirar contra vossos próprios irmãos juramentados.»',
-            reacaoCompanheiro: 'A mão de Thorne vai ao punho da lâmina e sua voz soa como um chicote. «Cuidado com o que dizeis a um cavaleiro ungido, garoto. O inverno tem muitas covas rasas para tolos petulantes.»',
+            texto: '«Sua amargura não lhe dá o direito de conspirar contra seus próprios irmãos juramentados.»',
+            reacaoCompanheiro: 'A mão de Thorne vai ao punho da lâmina e sua voz soa como um chicote. «Cuidado com o que diz a um cavaleiro ungido, garoto. O inverno tem muitas covas rasas para tolos petulantes.»',
             deltaAprovacao: -8,
             bonusCompostura: 1,
           },
@@ -272,8 +272,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_visenya_lealdade_ferrea',
-            texto: '«Minha lâmina também velará pelo sono do Dragão, Majestade. Nenhum traidor tocará a vossa família enquanto eu viver.»',
-            reacaoCompanheiro: 'Visenya estuda vosso rosto e assente com aprovação régia. «Palavras firmes. Mostrai essa têmpera quando os machados voarem no Campo de Fogo.»',
+            texto: '«Minha lâmina também velará pelo sono do Dragão, Majestade. Nenhum traidor tocará a sua família enquanto eu viver.»',
+            reacaoCompanheiro: 'Visenya estuda seu rosto e assente com aprovação régia. «Palavras firmes. Mostrai essa têmpera quando os machados voarem no Campo de Fogo.»',
             deltaAprovacao: 12,
             bonusInspiracao: 1,
             bonusCompostura: 1,
@@ -282,7 +282,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           {
             id: 'resp_visenya_cautela_crueldade',
             texto: '«O medo dobra os joelhos, minha Rainha, mas o ódio semeia conspirações que nenhum fogo apaga.»',
-            reacaoCompanheiro: 'Visenya franze os lábios, um sorriso frio desenhando-se em seu rosto. «Uma mente filosófica... veremos se vossos pensamentos resistirão à queima de Harrenhal.»',
+            reacaoCompanheiro: 'Visenya franze os lábios, um sorriso frio desenhando-se em seu rosto. «Uma mente filosófica... veremos se seus pensamentos resistirão à queima de Harrenhal.»',
             deltaAprovacao: 5,
             bonusCompostura: 1,
           },
@@ -304,12 +304,12 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         resumo: 'O gigante leal que tomou para si o lema do Rei da Tempestade.',
         falaInicial: `Orys bebe um grande chifre de cerveja escura perto da fogueira de campanha, rindo com os homens de armas do acampamento.
         
-— Os nobres sussurram nos corredores que sou meio-irmão bastardo de Aegon — diz Orys, dando um tapa vigoroso em vosso ombro. — Pouco me importa o que dizem os meistres! Aegon me chamou de sua mão direita e meu escudo protegeu suas costas desde a infância em Pedra do Dragão. Quando enfrentamos Argilac na Última Tempestade, tomei o elmo de veado dele e adotei suas palavras: 'Nossa é a Fúria'. E cumpriremos cada sílaba dela!`,
+— Os nobres sussurram nos corredores que sou meio-irmão bastardo de Aegon — diz Orys, dando um tapa vigoroso em seu ombro. — Pouco me importa o que dizem os meistres! Aegon me chamou de sua mão direita e meu escudo protegeu suas costas desde a infância em Pedra do Dragão. Quando enfrentamos Argilac na Última Tempestade, tomei o elmo de veado dele e adotei suas palavras: 'Nossa é a Fúria'. E cumpriremos cada sílaba dela!`,
         respostas: [
           {
             id: 'resp_orys_brindar_furia',
             texto: '«Um brinde à Casa Baratheon e à Mão do Rei! Enquanto marchardes à frente, os exércitos tremerão.»',
-            reacaoCompanheiro: 'Orys bate o chifre contra o vosso e solta um rugido de triunfo que anima todo o acampamento. «Bebi com verdadeiros guerreiros esta noite! Tendes minha lealdade de irmão!»',
+            reacaoCompanheiro: 'Orys bate o chifre contra o seu e solta um rugido de triunfo que anima todo o acampamento. «Bebi com verdadeiros guerreiros esta noite! Tem minha lealdade de irmão!»',
             deltaAprovacao: 15,
             bonusInspiracao: 1,
             bonusCompostura: 2,
@@ -371,8 +371,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_robert_apoiar_ira',
-            texto: '«O dragão queimou lordes justos e roubou vossa prometida. O martelo fará a justiça que a corte de Aerys negou.»',
-            reacaoCompanheiro: 'Robert bate a mão pesada no vosso ombro com uma risada tonitruante. «Bem dito! Pelos sete infernos, vós falais como um verdadeiro homem de armas das Terras da Tempestade!»',
+            texto: '«O dragão queimou lordes justos e roubou sua prometida. O martelo fará a justiça que a corte de Aerys negou.»',
+            reacaoCompanheiro: 'Robert bate a mão pesada no seu ombro com uma risada tonitruante. «Bem dito! Pelos sete infernos, você falais como um verdadeiro homem de armas das Terras da Tempestade!»',
             deltaAprovacao: 12,
             bonusInspiracao: 1,
             bonusCompostura: 1,
@@ -381,7 +381,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           {
             id: 'resp_robert_cautela_estrategica',
             texto: '«Rhaegar comanda quarenta mil homens, incluindo a Guarda Real. Precisamos de tática tanto quanto de fúria, meu senhor.»',
-            reacaoCompanheiro: 'Robert bufa desdenhoso, mas assente lentamente. «Ned diz exatamente a mesma coisa. Tendes razão... mas na hora do choque, nada supera o peso do bom aço.»',
+            reacaoCompanheiro: 'Robert bufa desdenhoso, mas assente lentamente. «Ned diz exatamente a mesma coisa. Tem razão... mas na hora do choque, nada supera o peso do bom aço.»',
             deltaAprovacao: 5,
             bonusCompostura: 1,
           },
@@ -397,15 +397,15 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_robert_promessa_resgate',
-            texto: '«Nós a resgataremos, Robert. E quando ela estiver a salvo, o reino inteiro celebrará vossa união.»',
-            reacaoCompanheiro: 'Robert aperta a vossa mão com força silenciosa. «Obrigado, amigo. Sem vós e Ned, eu já teria perdido a razão neste mar de sangue.»',
+            texto: '«Nós a resgataremos, Robert. E quando ela estiver a salvo, o reino inteiro celebrará sua união.»',
+            reacaoCompanheiro: 'Robert aperta a sua mão com força silenciosa. «Obrigado, amigo. Sem você e Ned, eu já teria perdido a razão neste mar de sangue.»',
             deltaAprovacao: 15,
             bonusInspiracao: 1,
             flagConcedida: 'juramento_de_resgate_lyanna',
           },
           {
             id: 'resp_robert_foco_dever',
-            texto: '«Mantende vossa cabeça fria, lorde Baratheon. Um rei enfurecido comete erros que custam a vida de seus vassalos.»',
+            texto: '«Mantende sua cabeça fria, lorde Baratheon. Um rei enfurecido comete erros que custam a vida de seus vassalos.»',
             reacaoCompanheiro: 'Robert cerra a mandíbula por um instante, sentindo a ferroada da repreensão. «Duro... mas verdadeiro. Um comandante não pode fraquejar.»',
             deltaAprovacao: 2,
             bonusCompostura: 2,
@@ -432,8 +432,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_ned_honra_stark',
-            texto: '«Vosso pai e vosso irmão vivem na vossa retidão, Ned. O Norte vos seguirá até o fim dos dias porque vós sois o sangue de Winterfell.»',
-            reacaoCompanheiro: 'Ned ergue o olhar e vos fita com gratidão sincera e respeitosa. «Vossas palavras confortam o coração de um homem em luto. Enquanto houver lealdade como a vossa, o Norte resistirá.»',
+            texto: '«Seu pai e seu irmão vivem na sua retidão, Ned. O Norte o seguirá até o fim dos dias porque você é o sangue de Winterfell.»',
+            reacaoCompanheiro: 'Ned ergue o olhar e o fita com gratidão sincera e respeitosa. «Suas palavras confortam o coração de um homem em luto. Enquanto houver lealdade como a sua, o Norte resistirá.»',
             deltaAprovacao: 14,
             bonusInspiracao: 1,
             bonusCompostura: 1,
@@ -442,7 +442,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           {
             id: 'resp_ned_pragmatismo_guerra',
             texto: '«Robert pode ser impetuoso, mas é o martelo de que precisamos para quebrar os dragões. Depois da vitória cuidamos da paz.»',
-            reacaoCompanheiro: 'Ned suspira pesadamente, embainhando Gelo com reverência. «Talvez tenhais razão. Mas a vitória comprada sem honra não passa de uma derrota disfarçada.»',
+            reacaoCompanheiro: 'Ned suspira pesadamente, embainhando Gelo com reverência. «Talvez você tenha razão. Mas a vitória comprada sem honra não passa de uma derrota disfarçada.»',
             deltaAprovacao: 6,
             bonusCompostura: 1,
           },
@@ -468,8 +468,8 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
         respostas: [
           {
             id: 'resp_jon_arryn_louvar_virtude',
-            texto: '«Vossa coragem salvou o reino, Lorde Arryn. Nenhum monarca legítimo pode exigir a traição de juramentos sagrados.»',
-            reacaoCompanheiro: 'Jon Arryn coloca a mão trêmula, mas firme, sobre o vosso ombro. «Obrigado, meu nobre amigo. É o respeito de homens honrados como vós que me dá forças para cavalgar nesta idade avançada.»',
+            texto: '«Sua coragem salvou o reino, Lorde Arryn. Nenhum monarca legítimo pode exigir a traição de juramentos sagrados.»',
+            reacaoCompanheiro: 'Jon Arryn coloca a mão trêmula, mas firme, sobre o seu ombro. «Obrigado, meu nobre amigo. É o respeito de homens honrados como você que me dá forças para cavalgar nesta idade avançada.»',
             deltaAprovacao: 15,
             bonusInspiracao: 1,
             bonusCompostura: 1,
@@ -477,7 +477,7 @@ export const DIALOGOS_DE_ACAMPAMENTO: Record<string, CompanheiroAcampamento> = {
           },
           {
             id: 'resp_jon_arryn_planejar_governo',
-            texto: '«Quando Robert sentar no Trono de Ferro, vós tereis que governar por ele como Mão do Rei para manter os lordes sob rédeas firmes.»',
+            texto: '«Quando Robert sentar no Trono de Ferro, você tereis que governar por ele como Mão do Rei para manter os lordes sob rédeas firmes.»',
             reacaoCompanheiro: 'Jon sorri com brandura cansada. «Uma coisa de cada vez. Primeiro façamos a paz reinar; os fardos do governo virão com o tempo.»',
             deltaAprovacao: 8,
             bonusCompostura: 1,
