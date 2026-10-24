@@ -1,10 +1,11 @@
-# Crônicas de Sangue e Gelo — RPG Textual de Westeros
+# Crônicas de Sangue e Gelo — Códice Vivo
 
 [![Release v2.0.0](https://img.shields.io/badge/Release-v2.0.0-c5a059.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/releases/tag/v2.0.0)
 [![Deploy on Vercel](https://img.shields.io/badge/Vercel-Produção%20Online-000000.svg?logo=vercel)](https://gelo-e-fogo-rpg-fkoi.vercel.app)
 [![Portal GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Portal%20Códice%20Vivo-181717.svg?logo=github)](https://heuller.github.io/gelo-e-fogo-rpg/)
-[![Tests Passing](https://img.shields.io/badge/Vitest-169%20Passing-22c55e.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/actions)
+[![Tests Passing](https://img.shields.io/badge/Vitest-198%2B%20Passing-22c55e.svg)](https://github.com/Heuller/gelo-e-fogo-rpg/actions)
 [![Acessibilidade WCAG 2.2 AA](https://img.shields.io/badge/Acessibilidade-WCAG%202.2%20AA-3b82f6.svg)](#)
+[![Playwright E2E](https://img.shields.io/badge/Playwright-E2E%20Aprovado-00C7B7.svg)](#)
 
 > *«Ninguém conta o nome de um corvo qualquer — até a noite em que a contagem dos mortos precisa de alguém que o saiba.»*
 
@@ -25,14 +26,17 @@ Um RPG textual grimdark de alta fidelidade literária ambientado no universo de 
 
 ## 🗡️ Características Principais
 
-- **Motor 2d6 Determinístico Puro:** Regras clássicas de RPG com rolagem de dados virtuais 2d6, limiares de dificuldade (DC 8, 10, 12, 14), barras vitais (*Sangue*, *Compostura*, *Honra/Voto*), Pontos de Inspiração e status de aprovação de companheiros (estilo Baldur's Gate 3).
-- **Servidor 100% Autoritativo:** O cliente jamais calcula regras ou envia estados alterados. A UI apenas despacha intenções atômicas `(slotId, escolhaId, versaoEsperada)`. O servidor valida a posse do save, calcula rolagens e transições e persiste eventos imutáveis na tabela `turn_events`.
-- **Design System «Códice Vivo»:** Tipografia inspirada em manuscritos medievais (Cinzel para títulos régios, EB Garamond para prosa de alta imersão, Inter para dados técnicos de UI). Paleta sóbria de pergaminho escuro, ouro envelhecido e carmim estelar com **100% de conformidade WCAG 2.2 AA**.
-- **Quatro Campanhas Épicas Integradas:**
+- **Motor 2d6 Determinístico Puro:** Regras clássicas de RPG com rolagem de dados virtuais 2d6, limiares de dificuldade (CD 8, 10, 12, 14), barras vitais (*Sangue*, *Compostura*, *Honra/Voto*), Pontos de Inspiração atômicos e status de aprovação de companheiros (estilo Baldur's Gate 3).
+- **Tentativa Livre Estilo Baldur's Gate 3:** Substituição da ação livre aberta por prévia de probabilidade em tempo real (atributo avaliado vs CD da cena), tabela fechada de efeitos e ganchos narrativos (estilo Disco Elysium).
+- **Sistema de Acampamento (Diálogos de Fogueira):** Momentos de repouso entre atos onde o jogador interage com companheiros, descobre segredos e recebe bônus temporários e aprovação.
+- **Servidor 100% Autoritativo:** O cliente jamais calcula regras ou envia estados alterados. A UI apenas despacha intenções atômicas `(slotId, escolhaId, versaoEsperada)`. O servidor valida a posse do save, calcula rolagens e transições e persiste eventos imutáveis na tabela `turn_events` com pilha de desfazer append-only.
+- **Design System «Códice Vivo»:** Tipografia inspirada em manuscritos medievais (Cinzel para títulos régios, EB Garamond para prosa de alta imersão, Inter para dados técnicos de UI). Paleta sóbria de pergaminho escuro, ouro envelhecido e carmim estelar com **100% de conformidade WCAG 2.2 AA (10/10 contrastes aprovados)**.
+- **Cinco Campanhas Épicas Integradas (299 Cenas, 30.500+ Palavras):**
   1. **Jornada 1 — A Conquista de Aegon (2 a.C. a 1 d.C.):** A forja do Trono de Ferro com fogo e sangue ao lado de Visenya, Rhaenys e Orys Baratheon.
   2. **Jornada 2 — A Dança dos Dragões (129 a 131 d.C.):** A guerra civil dinástica entre Verdes e Negros pelo legado de Viserys I.
   3. **Jornada 3 — A Guerra dos Cinco Reis (298 a 300 d.C.):** A conspiração de Porto Real, o Torneio da Mão e a tragédia do Casamento Vermelho.
-  4. **Jornada 4 — Irmão Sem Nome (299 a 300 d.C.):** A Batalha de Castelo Negro vista do chão da Patrulha da Noite, do motim de Craster ao cerco titânico de Mance Rayder e a eleição do 998º Senhor Comandante.
+  4. **Jornada 4 — Irmão Sem Nome (299 a 300 d.C.):** A Batalha de Castelo Negro vista do chão da Patrulha da Noite, do motim de Craster ao cerco titânico de Mance Rayder e o Ramal do Oeste na Ponte de Caveiras.
+  5. **Jornada 5 — A Rebelião de Robert (282 a 283 d.C.):** A fúria das Terras da Tempestade, o chamado às armas no Vale, a Batalha do Tridente e a queda da dinastia do Dragão.
 - **Mestre IA com Guardrails Temporais:** Integração com Gemini 2.5 via `@google/genai` com isolamento de contexto, circuit breaker de 6 segundos, verificação de anacronismos e modo «Crônica Pura» offline.
 - **Áudio Sintético Procedural:** Paisagens sonoras sintetizadas em tempo real via Web Audio API (vento do norte, lareira crepitante, mar salgado, cripta ecoante), sem arquivos de áudio pesados.
 - **Mecânicas de Narrativa Avançada:**
@@ -95,7 +99,7 @@ npm run typecheck
 # 2. Análise estática de código
 npm run lint
 
-# 3. Execução da suíte completa de testes (169 testes)
+# 3. Execução da suíte completa de testes (198+ testes)
 npm test
 
 # 4. Auditoria de contraste WCAG 2.2 AA (10/10 pares aprovados)
@@ -103,6 +107,9 @@ node scripts/contraste.mjs
 
 # 5. Build de produção
 npm run build
+
+# 6. Suíte E2E automatizada no navegador (Playwright)
+node --experimental-strip-types scripts/e2e_minimo.ts
 ```
 
 ---

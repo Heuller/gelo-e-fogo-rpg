@@ -42,6 +42,25 @@ export default function HomePage() {
           </span>
         </p>
 
+        {/* Badges de Métricas Oficiais Verificadas */}
+        <div className="flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto pt-1 pb-2">
+          <span className="px-3 py-1 rounded-full bg-[var(--pergaminho-2)] border border-[var(--borda)] text-[11px] font-cinzel text-[var(--ouro-claro)]">
+            5 Eras Canônicas
+          </span>
+          <span className="px-3 py-1 rounded-full bg-[var(--pergaminho-2)] border border-[var(--borda)] text-[11px] font-cinzel text-[var(--ouro-claro)]">
+            299 Cenas Autoritativas
+          </span>
+          <span className="px-3 py-1 rounded-full bg-[var(--pergaminho-2)] border border-[var(--borda)] text-[11px] font-cinzel text-[var(--ouro-claro)]">
+            30.500+ Palavras
+          </span>
+          <span className="px-3 py-1 rounded-full bg-[var(--pergaminho-2)] border border-[var(--borda)] text-[11px] font-cinzel text-[var(--ouro-claro)]">
+            Motor 2d6 Autoritativo (BG3)
+          </span>
+          <span className="px-3 py-1 rounded-full bg-[var(--pergaminho-2)] border border-[var(--borda)] text-[11px] font-cinzel text-emerald-400">
+            WCAG 2.2 AA (100% Contraste)
+          </span>
+        </div>
+
         {/* Ações Principais de Entrada */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
           <Link href="/painel" className="w-full sm:w-auto flex-1">
@@ -70,7 +89,7 @@ export default function HomePage() {
           <span className="text-xs uppercase tracking-widest text-[var(--tinta-fraca)] font-cinzel block pb-4">
             Grandes Eras Registradas na Cidadela
           </span>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-left">
             {catalogo.map((jornada) => (
               <div
                 key={jornada.id}
@@ -97,7 +116,7 @@ export default function HomePage() {
 
         {/* Rodapé Heráldico Solene */}
         <footer className="pt-6 text-xs text-[var(--tinta-fraca)] font-sans">
-          Cidadela de Vilavelha &bull; Motor 2d6 Autoritativo &bull; Licença de Uso Privado
+          «Crônicas de Sangue e Gelo — Códice Vivo» &bull; Cidadela de Vilavelha &bull; Motor 2d6 Autoritativo &bull; WCAG 2.2 AA &bull; Licença de Uso Privado
         </footer>
       </div>
     </main>

@@ -21,8 +21,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Crônicas de Sangue e Gelo',
-  description: 'RPG Narrativo e Determinístico de Westeros',
+  title: 'Crônicas de Sangue e Gelo — Códice Vivo',
+  description: 'RPG Textual Grimdark e Motor 2d6 Autoritativo de Westeros',
   manifest: '/manifest.webmanifest',
   robots: {
     index: false,
