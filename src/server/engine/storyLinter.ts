@@ -37,6 +37,68 @@ export const ConditionalParagraphSchema = z.object({
 });
 export type ConditionalParagraph = z.infer<typeof ConditionalParagraphSchema>;
 
+// ==========================================
+// 1.1 ESQUEMA V2: MOTOR DE CONSEQUÊNCIA E DIÁLOGO (FASE G6A)
+// ==========================================
+
+export const CondicaoSchema = z.object({
+  flagsTodas: z.array(z.string()).optional(),
+  flagsNenhuma: z.array(z.string()).optional(),
+  aprovacao: z
+    .object({
+      companheiro: z.string(),
+      min: z.number().optional(),
+      max: z.number().optional(),
+    })
+    .optional(),
+  ultimaEscolha: z.array(z.string()).optional(),
+  ultimoResultado: z.array(z.enum(['critico', 'sucesso', 'parcial', 'falha'])).optional(),
+  relogio: z
+    .object({
+      id: z.string(),
+      min: z.number(),
+    })
+    .optional(),
+  modo: z.array(z.enum(['cronica', 'padrao', 'juramento'])).optional(),
+});
+export type Condicao = z.infer<typeof CondicaoSchema>;
+
+export const BlocoTextoSchema = z.object({
+  quando: CondicaoSchema.optional(),
+  texto: z.string().min(1),
+  funcao: z.enum(['abertura', 'corpo', 'fecho']).optional(),
+});
+export type BlocoTexto = z.infer<typeof BlocoTextoSchema>;
+
+export const DesfechoSchema = z.object({
+  ponte: z.string().min(1),
+  destino: z.string().optional(),
+  delta: DeltaEstadoSchema.optional(),
+  marcas: z.array(z.string()).optional(),
+});
+export type Desfecho = z.infer<typeof DesfechoSchema>;
+
+export const DesfechosTesteSchema = z.object({
+  criticoSucesso: DesfechoSchema.optional(),
+  sucesso: DesfechoSchema,
+  parcial: DesfechoSchema,
+  falha: DesfechoSchema.optional(),
+  criticoFalha: DesfechoSchema.optional(),
+});
+export type DesfechosTeste = z.infer<typeof DesfechosTesteSchema>;
+
+export const TomEscolhaEnum = z.enum([
+  'diplomatico',
+  'honesto',
+  'ameaca',
+  'engano',
+  'humor',
+  'silencio',
+  'devocao',
+  'violencia',
+]);
+export type TomEscolha = z.infer<typeof TomEscolhaEnum>;
+
 export const EscolhaSimplesSchema = z.object({
   id: z.string().min(1),
   texto: z.string().min(1),
@@ -54,6 +116,10 @@ export const EscolhaSimplesSchema = z.object({
       minApproval: z.number(),
     })
     .optional(),
+  desfecho: DesfechoSchema.optional(),
+  tom: TomEscolhaEnum.optional(),
+  unica: z.boolean().optional(),
+  permanece: z.boolean().optional(),
 });
 export type EscolhaSimples = z.infer<typeof EscolhaSimplesSchema>;
 
@@ -80,6 +146,11 @@ export const EscolhaTesteAtributoSchema = z.object({
       minApproval: z.number(),
     })
     .optional(),
+  desfechos: DesfechosTesteSchema.optional(),
+  desfecho: DesfechoSchema.optional(),
+  tom: TomEscolhaEnum.optional(),
+  unica: z.boolean().optional(),
+  permanece: z.boolean().optional(),
 });
 export type EscolhaTesteAtributo = z.infer<typeof EscolhaTesteAtributoSchema>;
 
@@ -89,6 +160,20 @@ export const EscolhaJornadaSchema = z.discriminatedUnion('tipo', [
 ]);
 export type EscolhaJornada = z.infer<typeof EscolhaJornadaSchema>;
 export type EscolhaNode = EscolhaJornada;
+
+export const InterlocutorSchema = z.object({
+  id: z.string().min(1),
+  nome: z.string().min(1),
+  papel: z.string().optional(),
+});
+export type Interlocutor = z.infer<typeof InterlocutorSchema>;
+
+export const FalaCenaSchema = z.object({
+  quem: z.string().min(1),
+  texto: z.string().min(1),
+  quando: CondicaoSchema.optional(),
+});
+export type FalaCena = z.infer<typeof FalaCenaSchema>;
 
 export const NodeJornadaSchema = z.object({
   id: z.string().min(1),
@@ -116,6 +201,12 @@ export const NodeJornadaSchema = z.object({
       })
     )
     .optional(),
+  // Campos do Esquema v2
+  tipo: z.enum(['narracao', 'dialogo', 'hub', 'peca_de_cenario', 'acerto_de_contas']).optional(),
+  interlocutores: z.array(InterlocutorSchema).optional(),
+  falas: z.array(FalaCenaSchema).optional(),
+  blocos: z.array(BlocoTextoSchema).optional(),
+  rota: z.string().optional(),
 });
 export type NodeJornada = z.infer<typeof NodeJornadaSchema>;
 

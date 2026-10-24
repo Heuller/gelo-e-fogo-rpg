@@ -7,6 +7,7 @@ import type { TurnEvent, SaveSlot } from '@/server/saves';
 import { VerbeteGlossario } from '@/server/data/lore';
 import { getGlossaryEntriesAction } from '@/app/actions/loreActions';
 import { carregarSessaoJogoAction } from '@/app/actions/gameActions';
+import type { CenaComposta } from '@/server/engine/composicaoCena';
 import {
   PreferenciasLeitura,
   PREFERENCIAS_PADRAO,
@@ -28,6 +29,7 @@ export function useSessaoJogo({
   const [statusSalvamento, setStatusSalvamento] = useState<'salvo' | 'salvando' | 'erro'>('salvo');
   const [slotAtual, setSlotAtual] = useState<SaveSlot | null>(null);
   const [nodeAtual, setNodeAtual] = useState<NodeJornada | null>(null);
+  const [cenaComposta, setCenaComposta] = useState<CenaComposta | null>(null);
   const [verbetes, setVerbetes] = useState<VerbeteGlossario[]>([]);
   const [preferencias, setPreferencias] = useState<PreferenciasLeitura>(PREFERENCIAS_PADRAO);
 
@@ -75,6 +77,9 @@ export function useSessaoJogo({
         setVerbetes(verbetesData);
         setSlotAtual(sessaoData.slot);
         setNodeAtual(sessaoData.node);
+        if (sessaoData.cenaComposta) {
+          setCenaComposta(sessaoData.cenaComposta);
+        }
         setFicha(sessaoData.slot.characterSheet);
         setWorldState(sessaoData.slot.worldState);
         setHistorico(sessaoData.slot.turnHistory || []);
@@ -101,6 +106,8 @@ export function useSessaoJogo({
     setSlotAtual,
     nodeAtual,
     setNodeAtual,
+    cenaComposta,
+    setCenaComposta,
     ficha,
     setFicha,
     worldState,

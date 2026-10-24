@@ -7,7 +7,7 @@ import {
   rolar2d6,
   aplicarDeltaEstado,
 } from './rpgEngine';
-import { NodeJornada, EscolhaNode } from './storyLinter';
+import { NodeJornada, EscolhaNode, Desfecho, GrafoJornada } from './storyLinter';
 import { obterNodeQualquerJornada } from '@/server/data/journeys/index';
 import { getSaveRepository, SaveSlot } from '@/server/saves';
 
@@ -96,6 +96,9 @@ export interface ExecutarTurnoParams {
   versaoEsperada: number;
   journeyId?: string;
   dadosFixos?: [number, number]; // Permitido estritamente em ambiente de teste
+  nodeCustomizado?: NodeJornada;
+  proximoNodeCustomizado?: NodeJornada;
+  grafoCustomizado?: GrafoJornada;
 }
 
 export interface RespostaExecutarTurno {
@@ -105,6 +108,8 @@ export interface RespostaExecutarTurno {
   notificacoesCompanheiros: string[];
   escolhaRealizada: EscolhaNode;
   deltaAplicado: DeltaEstado;
+  ponte?: string;
+  marcasRecebidas?: string[];
 }
 
 /**
@@ -122,13 +127,16 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
   const slotAtual = resSlot.valor;
 
   // 2. Carrega e valida o nó atual
-  const nodeAtual = obterNodeQualquerJornada(slotAtual.currentNodeId, params.journeyId || slotAtual.jornadaId);
+  const nodeAtual =
+    params.nodeCustomizado ||
+    params.grafoCustomizado?.nodes[slotAtual.currentNodeId] ||
+    obterNodeQualquerJornada(slotAtual.currentNodeId, params.journeyId || slotAtual.jornadaId);
   if (!nodeAtual) {
     throw new Error(`Cena '${slotAtual.currentNodeId}' não encontrada no grafo.`);
   }
 
   // 3. Valida a escolha
-  const escolha = nodeAtual.escolhas.find((e) => e.id === params.escolhaId);
+  const escolha = (nodeAtual.escolhas || []).find((e: EscolhaNode) => e.id === params.escolhaId);
   if (!escolha) {
     throw new Error(`Escolha '${params.escolhaId}' não encontrada na cena '${nodeAtual.id}'.`);
   }
@@ -158,7 +166,8 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
     }
   } else {
     // Teste de Atributo 2d6
-    const valorAtributo = slotAtual.characterSheet.atributos[escolha.atributo];
+    const atributoKey = escolha.atributo as keyof typeof slotAtual.characterSheet.atributos;
+    const valorAtributo = slotAtual.characterSheet.atributos[atributoKey] ?? 3;
     resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
       riscoMortal: escolha.riscoMortal,
       dadosFixos: (process.env.NODE_ENV === 'test' || process.env.VITEST) ? params.dadosFixos : undefined,
@@ -190,7 +199,85 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
     }
   }
 
-  const proximoNode = obterNodeQualquerJornada(proximoNodeId, params.journeyId || slotAtual.jornadaId);
+  // =========================================================================
+  // MOTOR DE CONSEQUÊNCIA E DIÁLOGO V2 (FASE G6A)
+  // =========================================================================
+  let desfechoAtivo: Desfecho | undefined = undefined;
+  if (escolha.tipo === 'simples') {
+    desfechoAtivo = (escolha as unknown as { desfecho?: Desfecho }).desfecho;
+  } else if (escolha.tipo === 'teste_atributo') {
+    const desfechos = (escolha as unknown as {
+      desfechos?: {
+        criticoSucesso?: Desfecho;
+        sucesso: Desfecho;
+        parcial: Desfecho;
+        falha?: Desfecho;
+        criticoFalha?: Desfecho;
+      };
+      desfecho?: Desfecho;
+    });
+
+    if (desfechos.desfechos) {
+      if (resultadoRolagem?.resultado === 'CRITICO') {
+        desfechoAtivo = desfechos.desfechos.criticoSucesso || desfechos.desfechos.sucesso;
+      } else if (resultadoRolagem?.resultado === 'SUCESSO') {
+        desfechoAtivo = desfechos.desfechos.sucesso;
+      } else if (resultadoRolagem?.resultado === 'FALHA_PARCIAL') {
+        desfechoAtivo = desfechos.desfechos.parcial;
+      } else {
+        desfechoAtivo =
+          desfechos.desfechos.criticoFalha ||
+          desfechos.desfechos.falha ||
+          desfechos.desfechos.parcial;
+      }
+    } else {
+      desfechoAtivo = desfechos.desfecho;
+    }
+  }
+
+  let marcasNovas: string[] = [];
+  if (desfechoAtivo) {
+    if (desfechoAtivo.destino) {
+      proximoNodeId = desfechoAtivo.destino;
+    }
+    if (desfechoAtivo.delta) {
+      deltaConsequencia = mesclarDeltas(deltaConsequencia, desfechoAtivo.delta);
+    }
+    if (desfechoAtivo.marcas && desfechoAtivo.marcas.length > 0) {
+      marcasNovas = [...desfechoAtivo.marcas];
+      const marcasMap: Record<string, boolean> = {};
+      for (const m of desfechoAtivo.marcas) marcasMap[m] = true;
+      deltaConsequencia = mesclarDeltas(deltaConsequencia, { flagsBorboleta: marcasMap });
+    }
+  }
+
+  // Hubs de conversa e tópicos únicos
+  const escolhaExt = escolha as unknown as { permanece?: boolean; unica?: boolean };
+  if (escolhaExt.permanece) {
+    proximoNodeId = nodeAtual.id;
+  }
+  if (escolhaExt.unica) {
+    const marcaUnica: Record<string, boolean> = {};
+    marcaUnica[`escolha_feita_${escolha.id}`] = true;
+    deltaConsequencia = mesclarDeltas(deltaConsequencia, { flagsBorboleta: marcaUnica });
+  }
+
+  // Metadados de transição gravados no estado determinístico
+  if (desfechoAtivo?.ponte) {
+    deltaConsequencia = mesclarDeltas(deltaConsequencia, {
+      flagsBorboleta: { _ultima_ponte: desfechoAtivo.ponte as unknown as boolean },
+    });
+  }
+  deltaConsequencia = mesclarDeltas(deltaConsequencia, {
+    flagsBorboleta: {
+      [`_escolha_anterior_${escolha.id}`]: true,
+    },
+  });
+
+  const proximoNode =
+    params.proximoNodeCustomizado ||
+    params.grafoCustomizado?.nodes[proximoNodeId] ||
+    obterNodeQualquerJornada(proximoNodeId, params.journeyId || slotAtual.jornadaId);
   if (!proximoNode) {
     throw new Error(`Cena de destino '${proximoNodeId}' não encontrada no grafo.`);
   }
@@ -226,8 +313,18 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
     stateDelta: deltaTotal,
     snapshotAntes,
     resultado: resultadoRolagem
-      ? { ...resultadoRolagem, escolhaId: escolha.id }
-      : { tipo: 'simples', escolhaId: escolha.id },
+      ? {
+          ...resultadoRolagem,
+          escolhaId: escolha.id,
+          ponte: desfechoAtivo?.ponte,
+          marcas: marcasNovas.length > 0 ? marcasNovas : undefined,
+        }
+      : {
+          tipo: 'simples',
+          escolhaId: escolha.id,
+          ponte: desfechoAtivo?.ponte,
+          marcas: marcasNovas.length > 0 ? marcasNovas : undefined,
+        },
   });
 
   if (!resAplicar.ok) {
@@ -241,6 +338,8 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
     notificacoesCompanheiros: notificacoesCompanheiros.map((n) => n.textoNotificacao),
     escolhaRealizada: escolha,
     deltaAplicado: deltaTotal,
+    ponte: desfechoAtivo?.ponte,
+    marcasRecebidas: marcasNovas.length > 0 ? marcasNovas : undefined,
   };
 }
 
@@ -253,6 +352,8 @@ export interface RerrolarComInspiracaoParams {
   escolhaId?: string;
   journeyId?: string;
   dadosFixos?: [number, number];
+  proximoNodeCustomizado?: NodeJornada;
+  grafoCustomizado?: GrafoJornada;
 }
 
 /**
@@ -365,11 +466,56 @@ export async function rerrolarComInspiracao(
     }
   }
 
+  // Suporte a Desfechos v2 na Rerrolagem
+  let desfechoAtivoRerrolado: Desfecho | undefined = undefined;
+  const desfechos = escolha as unknown as {
+    desfechos?: {
+      criticoSucesso?: Desfecho;
+      sucesso: Desfecho;
+      parcial: Desfecho;
+      falha?: Desfecho;
+      criticoFalha?: Desfecho;
+    };
+    desfecho?: Desfecho;
+  };
+
+  if (desfechos.desfechos) {
+    if (resultadoRolagem.resultado === 'CRITICO') {
+      desfechoAtivoRerrolado = desfechos.desfechos.criticoSucesso || desfechos.desfechos.sucesso;
+    } else if (resultadoRolagem.resultado === 'SUCESSO') {
+      desfechoAtivoRerrolado = desfechos.desfechos.sucesso;
+    } else if (resultadoRolagem.resultado === 'FALHA_PARCIAL') {
+      desfechoAtivoRerrolado = desfechos.desfechos.parcial;
+    } else {
+      desfechoAtivoRerrolado =
+        desfechos.desfechos.criticoFalha ||
+        desfechos.desfechos.falha ||
+        desfechos.desfechos.parcial;
+    }
+  } else {
+    desfechoAtivoRerrolado = desfechos.desfecho;
+  }
+
+  let marcasRerroladas: string[] = [];
+  if (desfechoAtivoRerrolado) {
+    if (desfechoAtivoRerrolado.destino) proximoNodeId = desfechoAtivoRerrolado.destino;
+    if (desfechoAtivoRerrolado.delta) deltaConsequencia = mesclarDeltas(deltaConsequencia, desfechoAtivoRerrolado.delta);
+    if (desfechoAtivoRerrolado.marcas && desfechoAtivoRerrolado.marcas.length > 0) {
+      marcasRerroladas = [...desfechoAtivoRerrolado.marcas];
+      const mmap: Record<string, boolean> = {};
+      for (const m of desfechoAtivoRerrolado.marcas) mmap[m] = true;
+      deltaConsequencia = mesclarDeltas(deltaConsequencia, { flagsBorboleta: mmap });
+    }
+  }
+
   if (escolha.delta) {
     deltaConsequencia = mesclarDeltas(deltaConsequencia, escolha.delta);
   }
 
-  const proximoNode = obterNodeQualquerJornada(proximoNodeId, params.journeyId || slotAtual.jornadaId);
+  const proximoNode =
+    params.proximoNodeCustomizado ||
+    params.grafoCustomizado?.nodes[proximoNodeId] ||
+    obterNodeQualquerJornada(proximoNodeId, params.journeyId || slotAtual.jornadaId);
   if (!proximoNode) {
     throw new Error(`Cena de destino '${proximoNodeId}' não encontrada no grafo.`);
   }
@@ -410,6 +556,8 @@ export async function rerrolarComInspiracao(
       ...resultadoRolagem,
       escolhaId: escolha.id,
       tipo: 'rerrolar',
+      ponte: desfechoAtivoRerrolado?.ponte,
+      marcas: marcasRerroladas.length > 0 ? marcasRerroladas : undefined,
     },
   });
 
@@ -424,5 +572,7 @@ export async function rerrolarComInspiracao(
     notificacoesCompanheiros: notificacoesCompanheiros.map((n) => n.textoNotificacao),
     escolhaRealizada: escolha,
     deltaAplicado: deltaTotal,
+    ponte: desfechoAtivoRerrolado?.ponte,
+    marcasRecebidas: marcasRerroladas.length > 0 ? marcasRerroladas : undefined,
   };
 }

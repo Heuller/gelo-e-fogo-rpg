@@ -38,6 +38,7 @@ export interface DefinicaoJornada {
   temaId: string;
   ativa: boolean;
   avisos?: string[];
+  schemaV2?: boolean;
 }
 
 export interface CatalogoJornadaPublico {

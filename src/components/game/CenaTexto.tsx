@@ -4,9 +4,16 @@ import React, { useState } from 'react';
 import { LoreText } from './LoreTooltip';
 import type { VerbeteGlossario } from '@/server/data/lore';
 import { SceneIllustration } from './SceneIllustration';
-import { Crown, Sparkles, BookOpen, Cpu, Eye } from 'lucide-react';
+import { Crown, Sparkles, BookOpen, Cpu, Eye, Bookmark, MessageSquare } from 'lucide-react';
 import { PreferenciasLeitura, PREFERENCIAS_PADRAO } from './PainelDeConfiguracoes';
 import { StatusMestre } from '@/lib/store/jogoStore';
+
+export interface FalaItem {
+  quem: string;
+  nomeQuem: string;
+  papel?: string;
+  texto: string;
+}
 
 export interface CenaTextoProps {
   nodeId?: string;
@@ -14,6 +21,10 @@ export interface CenaTextoProps {
   anoHistorico: string;
   localizacao: string;
   paragrafos: string[];
+  ponte?: string;
+  marcasRecebidas?: string[];
+  falas?: FalaItem[];
+  tipo?: 'narracao' | 'dialogo' | 'hub' | 'peca_de_cenario' | 'acerto_de_contas';
   textoMestre?: string | null;
   statusMestre?: StatusMestre;
   modoIA?: boolean;
@@ -22,12 +33,25 @@ export interface CenaTextoProps {
   headingRef?: React.RefObject<HTMLHeadingElement | null>;
 }
 
+function formatarMarcaTexto(marca: string): string {
+  if (marca.includes(' ')) return marca;
+  const limpa = marca.replace(/^marca_/, '');
+  return limpa
+    .split('_')
+    .map((palavra, i) => (i === 0 ? palavra.charAt(0).toUpperCase() + palavra.slice(1) : palavra))
+    .join(' ');
+}
+
 export const CenaTexto: React.FC<CenaTextoProps> = ({
   nodeId,
   atoTitulo,
   anoHistorico,
   localizacao,
   paragrafos,
+  ponte,
+  marcasRecebidas,
+  falas,
+  tipo = 'narracao',
   textoMestre,
   statusMestre = 'idle',
   modoIA = true,
@@ -126,6 +150,70 @@ export const CenaTexto: React.FC<CenaTextoProps> = ({
             <Eye className="w-3.5 h-3.5" />
             <span>{exibirVersaoMestre ? 'Ver texto canônico' : 'Ver versão do Mestre'}</span>
           </button>
+        </div>
+      )}
+
+      {/* Ponte da Consequência Anterior (v2) */}
+      {ponte && (
+        <div
+          role="region"
+          aria-label="Consequência da escolha anterior"
+          className="p-4 sm:p-5 rounded-xl border-l-4 border-l-[var(--ouro)] bg-[var(--pergaminho-3)] text-sm sm:text-base font-garamond shadow-md space-y-1.5 entrada-fade"
+        >
+          <div className="flex items-center gap-2 text-xs font-cinzel font-bold uppercase tracking-widest text-[var(--ouro)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--ouro)]" />
+            <span>O que a sua escolha causou</span>
+          </div>
+          <p className="leading-relaxed text-[var(--ouro-claro)] italic pl-3.5 border-l border-[var(--borda)]">
+            {ponte}
+          </p>
+        </div>
+      )}
+
+      {/* Registro de Memória (Marcas Novas) */}
+      {marcasRecebidas && marcasRecebidas.length > 0 && (
+        <div
+          role="status"
+          className="px-3.5 py-2 rounded-lg border border-[var(--ouro)]/40 bg-[var(--pergaminho-1)] text-xs text-[var(--ouro-claro)] flex items-center gap-2 entrada-fade shadow-sm"
+        >
+          <Bookmark className="w-3.5 h-3.5 text-[var(--ouro)] flex-shrink-0" />
+          <div className="flex flex-wrap items-center gap-1.5 font-garamond italic">
+            <span className="font-cinzel not-italic font-bold text-[var(--ouro)] uppercase text-[10px] tracking-wider">
+              Isto será lembrado:
+            </span>
+            {marcasRecebidas.map((m, i) => (
+              <span key={i} className="text-[var(--tinta-suave)] font-medium">
+                «{formatarMarcaTexto(m)}»{i < marcasRecebidas.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Diálogos Estruturados (v2) */}
+      {falas && falas.length > 0 && (
+        <div
+          className="space-y-4 my-6 pl-3 sm:pl-4 border-l-2 border-[var(--ouro)]/40 entrada-fade"
+          role="region"
+          aria-label="Falas da cena"
+        >
+          {falas.map((fala, idx) => (
+            <div key={idx} className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="font-cinzel text-xs font-bold tracking-widest text-[var(--ouro)] uppercase drop-shadow-sm">
+                  {fala.nomeQuem}
+                </span>
+                {fala.papel && (
+                  <span className="text-[10px] font-sans text-[var(--tinta-fraca)] italic">
+                    ({fala.papel})
+                  </span>
+                )}
+              </div>
+              <p className="font-garamond italic text-[var(--tinta)] text-base sm:text-lg leading-relaxed pl-2 sm:pl-3">
+                — {fala.texto}
+              </p>
+            </div>
+          ))}
         </div>
       )}
 

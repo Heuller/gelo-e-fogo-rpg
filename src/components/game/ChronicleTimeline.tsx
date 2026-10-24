@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { TurnEvent } from '@/server/engine/saveManager';
+import { TurnEvent } from '@/server/saves';
 import {
   Scroll,
   RotateCcw,
@@ -70,6 +70,35 @@ export function ChronicleTimeline({
               <p className="text-xs font-garamond text-slate-200 leading-snug">
                 {turno.choiceMade}
               </p>
+
+              {/* Ponte Narrativa de Consequência da Escolha (v2) */}
+              {Boolean(turno.resultado && (turno.resultado as Record<string, unknown>).ponte) && (
+                <p className="text-[11px] font-garamond italic text-[var(--ouro-claro)] pl-2 border-l border-[var(--ouro)]/40 mt-1 leading-relaxed">
+                  «{String((turno.resultado as Record<string, unknown>).ponte)}»
+                </p>
+              )}
+
+              {/* Marcas de Memória Gravadas no Turno (v2) */}
+              {Array.isArray(turno.resultado && (turno.resultado as Record<string, unknown>).marcas) &&
+                ((turno.resultado as Record<string, unknown>).marcas as string[]).length > 0 && (
+                  <div className="flex flex-wrap gap-1 pt-1 text-[10px] font-sans">
+                    {((turno.resultado as Record<string, unknown>).marcas as string[]).map((marca, mIdx) => (
+                      <span
+                        key={mIdx}
+                        className="px-1.5 py-0.5 rounded bg-black/40 text-[var(--ouro-claro)] border border-[var(--ouro-escuro)]/40 italic flex items-center gap-1"
+                      >
+                        <Bookmark className="w-2.5 h-2.5 text-[var(--ouro)]" />
+                        <span>
+                          {marca
+                            .replace(/^marca_/, '')
+                            .split('_')
+                            .map((w, i) => (i === 0 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+                            .join(' ')}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                )}
 
               {/* Consequências de Estado se houver */}
               {turno.stateDelta && Object.keys(turno.stateDelta).length > 0 && (

@@ -47,6 +47,7 @@ function JogarJogoInterno() {
     setSlotAtual,
     nodeAtual,
     setNodeAtual,
+    cenaComposta,
     ficha,
     setFicha,
     worldState,
@@ -66,6 +67,10 @@ function JogarJogoInterno() {
   const {
     textoCenaExibido,
     setTextoCenaExibido,
+    ponte,
+    marcasRecebidas,
+    falasCena,
+    setFalasCena,
     textoMestre,
     statusMestre,
     resultadoRolagem,
@@ -99,9 +104,14 @@ function JogarJogoInterno() {
   // Sincroniza o texto inicial da cena quando o nó for carregado pela primeira vez
   useEffect(() => {
     if (nodeAtual && !textoCenaExibido) {
-      setTextoCenaExibido(nodeAtual.fallbackText);
+      if (cenaComposta?.textoPrincipal) {
+        setTextoCenaExibido(cenaComposta.textoPrincipal);
+        setFalasCena(cenaComposta.falas || []);
+      } else {
+        setTextoCenaExibido(nodeAtual.fallbackText);
+      }
     }
-  }, [nodeAtual, textoCenaExibido, setTextoCenaExibido]);
+  }, [nodeAtual, textoCenaExibido, setTextoCenaExibido, cenaComposta, setFalasCena]);
 
   // Ganchos de Acessibilidade, Rolagem e Foco
   const { headingRef, anunciadorRef } = useScrollNaCena(
@@ -200,6 +210,10 @@ function JogarJogoInterno() {
               anoHistorico={nodeAtual.anoHistorico || '2 a.C.'}
               localizacao={nodeAtual.localizacao || 'Westeros'}
               paragrafos={paragrafos}
+              ponte={ponte || undefined}
+              marcasRecebidas={marcasRecebidas}
+              falas={falasCena}
+              tipo={nodeAtual.tipo}
               conditionalParagraphs={nodeAtual.conditionalParagraphs || []}
               worldFlags={worldFlags}
               worldState={worldState}

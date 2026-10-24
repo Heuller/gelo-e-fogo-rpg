@@ -23,9 +23,21 @@ export interface CartaoEscolhaProps {
   desbloqueada: boolean;
   motivoBloqueio?: string;
   mostrarChance?: boolean;
+  jaExplorada?: boolean;
   onSelecionar: (escolhaId: string) => void;
   className?: string;
 }
+
+const ROTULOS_TOM: Record<string, string> = {
+  diplomatico: '[Diplomático]',
+  honesto: '[Honesto]',
+  ameaca: '[Ameaça]',
+  engano: '[Engano]',
+  humor: '[Humor]',
+  silencio: '[Silêncio]',
+  devocao: '[Devoção]',
+  violencia: '[Violência]',
+};
 
 export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
   escolha,
@@ -34,6 +46,7 @@ export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
   desbloqueada,
   motivoBloqueio,
   mostrarChance = true,
+  jaExplorada,
   onSelecionar,
   className = '',
 }) => {
@@ -44,6 +57,10 @@ export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
     : null;
 
   const nomeAtributo = isTeste ? NOMES_ATRIBUTOS[escolha.atributo] : null;
+
+  const tomEscolhido = (escolha as unknown as { tom?: string }).tom;
+  const permaneceEscolhido = (escolha as unknown as { permanece?: boolean }).permanece;
+  const explorada = jaExplorada || Boolean((escolha as unknown as { jaExplorada?: boolean }).jaExplorada);
 
   if (!desbloqueada) {
     return (
@@ -71,22 +88,50 @@ export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
     <button
       type="button"
       onClick={() => onSelecionar(escolha.id)}
-      className={`w-full text-left p-4 rounded-xl border border-[var(--borda)] bg-[var(--pergaminho-3)] hover:bg-[var(--pergaminho-4)] hover:border-[var(--ouro)] text-[var(--tinta)] transition-all shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] focus-visible:outline-offset-2 min-h-[48px] flex flex-col gap-2 group cursor-pointer ${className}`}
+      className={`w-full text-left p-4 rounded-xl border ${
+        explorada
+          ? 'border-[var(--borda)]/60 bg-[var(--pergaminho-1)]/80 text-[var(--tinta-suave)]'
+          : 'border-[var(--borda)] bg-[var(--pergaminho-3)] hover:bg-[var(--pergaminho-4)] hover:border-[var(--ouro)] text-[var(--tinta)]'
+      } transition-all shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--ouro-claro)] focus-visible:outline-offset-2 min-h-[48px] flex flex-col gap-2 group cursor-pointer ${className}`}
     >
       <div className="flex items-start gap-3 w-full">
         {/* Número de Atalho [1..4] */}
-        <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-[var(--pergaminho-1)] border border-[var(--borda)] font-cinzel font-bold text-xs text-[var(--ouro)] flex-shrink-0 group-hover:border-[var(--ouro-claro)] mt-0.5">
+        <span
+          className={`inline-flex items-center justify-center w-6 h-6 rounded bg-[var(--pergaminho-1)] border ${
+            explorada
+              ? 'border-[var(--borda)]/50 text-[var(--tinta-fraca)]'
+              : 'border-[var(--borda)] text-[var(--ouro)]'
+          } font-cinzel font-bold text-xs flex-shrink-0 group-hover:border-[var(--ouro-claro)] mt-0.5`}
+        >
           {indice + 1}
         </span>
 
         {/* Texto da Escolha */}
-        <p className="text-sm font-garamond font-medium leading-relaxed flex-1 group-hover:text-[var(--ouro-claro)] transition-colors">
+        <p
+          className={`text-sm font-garamond font-medium leading-relaxed flex-1 ${
+            explorada ? 'text-[var(--tinta-suave)]' : 'group-hover:text-[var(--ouro-claro)]'
+          } transition-colors`}
+        >
           {escolha.texto}
         </p>
       </div>
 
       {/* Badges e Chips Informativos */}
       <div className="flex flex-wrap items-center gap-2 pl-9">
+        {/* Marca explícita de tópico já explorado (nunca só cor) */}
+        {explorada && (
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-cinzel font-bold bg-black/40 text-[var(--tinta-fraca)] border border-[var(--borda)]/60">
+            ✓ falado
+          </span>
+        )}
+
+        {/* Tom de Voz Narrativo / RPG */}
+        {tomEscolhido && ROTULOS_TOM[tomEscolhido] && (
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-cinzel font-bold text-[var(--ouro)] bg-[var(--pergaminho-2)] border border-[var(--ouro-escuro)]/50">
+            {ROTULOS_TOM[tomEscolhido]}
+          </span>
+        )}
+
         {isTeste && nomeAtributo && (
           <Chip variante="atributo">
             <span>{nomeAtributo}</span>

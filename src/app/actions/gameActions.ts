@@ -22,6 +22,7 @@ import {
   rerrolarComInspiracao,
   mesclarDeltas,
 } from '@/server/engine/turno';
+import { comporCena, CenaComposta } from '@/server/engine/composicaoCena';
 import {
   calcularPreviaTentativaLivre,
   executarTentativaLivre,
@@ -69,6 +70,7 @@ export interface SessaoJogoCarregada {
   slot: SaveSlot;
   node: NodeJornada;
   isNovo: boolean;
+  cenaComposta?: CenaComposta;
 }
 
 /**
@@ -87,7 +89,11 @@ export async function carregarSessaoJogoAction(
   if (slotExistente.ok) {
     const node = obterNodeQualquerJornada(slotExistente.valor.currentNodeId, jId);
     if (node) {
-      return { slot: slotExistente.valor, node, isNovo: false };
+      const cenaComposta = comporCena(node, {
+        ficha: slotExistente.valor.characterSheet,
+        worldState: slotExistente.valor.worldState,
+      });
+      return { slot: slotExistente.valor, node, cenaComposta, isNovo: false };
     }
   }
 
@@ -106,7 +112,12 @@ export async function carregarSessaoJogoAction(
     throw new Error(`Falha ao inicializar slot: ${resCriar.mensagem}`);
   }
 
-  return { slot: resCriar.valor, node: inicial.node, isNovo: true };
+  const cenaComposta = comporCena(inicial.node, {
+    ficha: resCriar.valor.characterSheet,
+    worldState: resCriar.valor.worldState,
+  });
+
+  return { slot: resCriar.valor, node: inicial.node, cenaComposta, isNovo: true };
 }
 
 export interface ProcessarEscolhaParams {
@@ -131,6 +142,9 @@ export interface RespostaTurnoAction {
   usouFallbackIA?: boolean;
   notificacoesCompanheiros?: string[];
   escolhaRealizada?: EscolhaNode;
+  ponte?: string;
+  marcasRecebidas?: string[];
+  cenaComposta?: CenaComposta;
 }
 
 /**
@@ -157,6 +171,19 @@ export async function processarEscolhaAction(
 
   const ultimoEvento = resTurno.novoSlot.turnHistory[resTurno.novoSlot.turnHistory.length - 1];
 
+  const resultadoFaixa = resTurno.resultadoRolagem?.resultado
+    ? (resTurno.resultadoRolagem.resultado.toLowerCase() as 'critico' | 'sucesso' | 'parcial' | 'falha')
+    : undefined;
+
+  const cenaComposta = comporCena(resTurno.proximoNode, {
+    ficha: resTurno.novoSlot.characterSheet,
+    worldState: resTurno.novoSlot.worldState,
+    ultimaEscolhaId: params.escolhaId,
+    ultimoResultado: resultadoFaixa,
+    ponteAnterior: resTurno.ponte,
+    marcasRecebidas: resTurno.marcasRecebidas,
+  });
+
   // O turno autoritativo responde de imediato (< 300ms) com o texto canônico da cena.
   // O enriquecimento por IA é assíncrono e executado fora do caminho crítico via obterTextoMestreAction.
   return {
@@ -166,11 +193,14 @@ export async function processarEscolhaAction(
     worldStateAtualizado: resTurno.novoSlot.worldState,
     turnEvent: ultimoEvento,
     slotAtualizado: resTurno.novoSlot,
-    textoEnriquecido: resTurno.proximoNode.fallbackText,
+    textoEnriquecido: cenaComposta.textoPrincipal || resTurno.proximoNode.fallbackText,
     vozesExtras: [],
     usouFallbackIA: true,
     notificacoesCompanheiros: resTurno.notificacoesCompanheiros,
     escolhaRealizada: resTurno.escolhaRealizada,
+    ponte: resTurno.ponte,
+    marcasRecebidas: resTurno.marcasRecebidas,
+    cenaComposta,
   };
 }
 
@@ -214,7 +244,7 @@ export async function obterTextoMestreAction(params: {
 export async function desfazerTurnoAction(
   slotId: string,
   versaoEsperada?: number
-): Promise<{ slot: SaveSlot; node: NodeJornada }> {
+): Promise<{ slot: SaveSlot; node: NodeJornada; cenaComposta?: CenaComposta }> {
   const user = await validarProprietario();
   const repo = getSaveRepository();
   const res = await repo.desfazerUltimoTurno(user.id, slotId, versaoEsperada);
@@ -225,7 +255,11 @@ export async function desfazerTurnoAction(
   if (!node) {
     throw new Error(`Cena restaurada '${res.valor.currentNodeId}' não encontrada no grafo.`);
   }
-  return { slot: res.valor, node };
+  const cenaComposta = comporCena(node, {
+    ficha: res.valor.characterSheet,
+    worldState: res.valor.worldState,
+  });
+  return { slot: res.valor, node, cenaComposta };
 }
 
 export interface RerrolarInspiracaoParams {
@@ -260,7 +294,20 @@ export async function rerrolarTesteInspiracaoAction(
 
   const ultimoEvento = resTurno.novoSlot.turnHistory[resTurno.novoSlot.turnHistory.length - 1];
 
-  let textoEnriquecido = resTurno.proximoNode.fallbackText;
+  const resultadoFaixaRerrolada = resTurno.resultadoRolagem?.resultado
+    ? (resTurno.resultadoRolagem.resultado.toLowerCase() as 'critico' | 'sucesso' | 'parcial' | 'falha')
+    : undefined;
+
+  const cenaComposta = comporCena(resTurno.proximoNode, {
+    ficha: resTurno.novoSlot.characterSheet,
+    worldState: resTurno.novoSlot.worldState,
+    ultimaEscolhaId: params.escolhaId,
+    ultimoResultado: resultadoFaixaRerrolada,
+    ponteAnterior: resTurno.ponte,
+    marcasRecebidas: resTurno.marcasRecebidas,
+  });
+
+  let textoEnriquecido = cenaComposta.textoPrincipal || resTurno.proximoNode.fallbackText;
   let vozesExtras: VozExtra[] = [];
   let usouFallbackIA = true;
 
@@ -290,6 +337,9 @@ export async function rerrolarTesteInspiracaoAction(
     usouFallbackIA,
     notificacoesCompanheiros: resTurno.notificacoesCompanheiros,
     escolhaRealizada: resTurno.escolhaRealizada,
+    ponte: resTurno.ponte,
+    marcasRecebidas: resTurno.marcasRecebidas,
+    cenaComposta,
   };
 }
 

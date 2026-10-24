@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CenaTexto } from './CenaTexto';
+import { CenaTexto, type FalaItem } from './CenaTexto';
 import { EcoDasEscolhas, ConditionalParagraphItem } from './EcoDasEscolhas';
 import { VozesInternasV2, type IntervencaoVoz } from './VozesInternasV2';
 import { CartaoEscolha } from './CartaoEscolha';
@@ -24,6 +24,10 @@ export interface PropsNarrativeScroll {
   anoHistorico: string;
   localizacao: string;
   paragrafos: string[];
+  ponte?: string;
+  marcasRecebidas?: string[];
+  falas?: FalaItem[];
+  tipo?: 'narracao' | 'dialogo' | 'hub' | 'peca_de_cenario' | 'acerto_de_contas';
   conditionalParagraphs?: ConditionalParagraphItem[];
   worldFlags?: string[];
   worldState?: WorldState;
@@ -50,6 +54,10 @@ export function NarrativeScroll({
   anoHistorico,
   localizacao,
   paragrafos,
+  ponte,
+  marcasRecebidas,
+  falas,
+  tipo,
   conditionalParagraphs = [],
   worldFlags = [],
   worldState,
@@ -130,6 +138,10 @@ export function NarrativeScroll({
         anoHistorico={anoHistorico}
         localizacao={localizacao}
         paragrafos={paragrafos}
+        ponte={ponte}
+        marcasRecebidas={marcasRecebidas}
+        falas={falas}
+        tipo={tipo}
         textoMestre={textoMestre}
         statusMestre={statusMestre}
         modoIA={modoIA}
@@ -168,26 +180,40 @@ export function NarrativeScroll({
 
       {/* 5. Área de Escolhas Disponíveis */}
       <div className="space-y-3">
-        {escolhas.map((escolha, idx) => {
-          const validacao = validarEscolhaDesbloqueada(escolha, wsReal, fichaReal);
-          const valorAtr =
-            escolha.tipo === 'teste_atributo'
-              ? fichaReal.atributos[escolha.atributo] ?? 3
-              : 3;
+        {(() => {
+          // Garante que escolhas de saída fiquem sempre no fim do hub
+          const ordenadas = [...escolhas].sort((a, b) => {
+            const aPerm = Boolean((a as { permanece?: boolean }).permanece);
+            const bPerm = Boolean((b as { permanece?: boolean }).permanece);
+            if (aPerm && !bPerm) return -1;
+            if (!aPerm && bPerm) return 1;
+            return 0;
+          });
 
-          return (
-            <CartaoEscolha
-              key={escolha.id}
-              escolha={escolha}
-              indice={idx}
-              valorAtributo={valorAtr}
-              desbloqueada={validacao.desbloqueada}
-              motivoBloqueio={validacao.motivo}
-              mostrarChance={preferencias.mostrarChanceSucesso}
-              onSelecionar={() => handleSelecionarEscolha(escolha)}
-            />
-          );
-        })}
+          return ordenadas.map((escolha, idx) => {
+            const validacao = validarEscolhaDesbloqueada(escolha, wsReal, fichaReal);
+            const valorAtr =
+              escolha.tipo === 'teste_atributo'
+                ? fichaReal.atributos[escolha.atributo] ?? 3
+                : 3;
+            const flagJaExplorada = `escolha_feita_${escolha.id}`;
+            const jaExplorada = Boolean(wsReal.flagsBorboleta?.[flagJaExplorada]);
+
+            return (
+              <CartaoEscolha
+                key={escolha.id}
+                escolha={escolha}
+                indice={idx}
+                valorAtributo={valorAtr}
+                desbloqueada={validacao.desbloqueada}
+                motivoBloqueio={validacao.motivo}
+                jaExplorada={jaExplorada}
+                mostrarChance={preferencias.mostrarChanceSucesso}
+                onSelecionar={() => handleSelecionarEscolha(escolha)}
+              />
+            );
+          });
+        })()}
       </div>
 
       {/* 6. Ação Livre / Tentativa Livre BG3 */}

@@ -16,6 +16,7 @@ import {
 } from '@/app/actions/gameActions';
 import { exportarSaveAction } from '@/app/actions/slotActions';
 import type { RespostaTentativaLivre } from '@/server/engine/tentativaLivre';
+import type { FalaItem } from '@/components/game/CenaTexto';
 
 export interface UseTurnoProps {
   slotAtual: SaveSlot | null;
@@ -53,6 +54,9 @@ export function useTurno({
   setStatusSalvamento,
 }: UseTurnoProps) {
   const [textoCenaExibido, setTextoCenaExibido] = useState<string>('');
+  const [ponte, setPonte] = useState<string | null>(null);
+  const [marcasRecebidas, setMarcasRecebidas] = useState<string[]>([]);
+  const [falasCena, setFalasCena] = useState<FalaItem[]>([]);
   const [textoMestre, setTextoMestre] = useState<string | null>(null);
   const [statusMestre, setStatusMestre] = useState<'idle' | 'escrevendo' | 'pronto' | 'falhou'>('idle');
   const [resultadoRolagem, setResultadoRolagem] = useState<ResultadoRolagem | null>(null);
@@ -82,7 +86,15 @@ export function useTurno({
       setStatusSalvamento('salvo');
 
       setNodeAtual(res.proximoNode);
-      setTextoCenaExibido(res.proximoNode.fallbackText);
+      if (res.cenaComposta) {
+        setTextoCenaExibido(res.cenaComposta.textoPrincipal);
+        setFalasCena(res.cenaComposta.falas || []);
+      } else {
+        setTextoCenaExibido(res.proximoNode.fallbackText);
+        setFalasCena([]);
+      }
+      setPonte(res.ponte || null);
+      setMarcasRecebidas(res.marcasRecebidas || []);
       setTextoMestre(null);
 
       // Dispara o enriquecimento de IA fora do caminho crítico (TTFT imediato com fallbackText)
@@ -187,7 +199,15 @@ export function useTurno({
         setSlotAtual(res.slotAtualizado);
       }
       setNodeAtual(res.proximoNode);
-      setTextoCenaExibido(res.proximoNode.fallbackText);
+      if (res.cenaComposta) {
+        setTextoCenaExibido(res.cenaComposta.textoPrincipal);
+        setFalasCena(res.cenaComposta.falas || []);
+      } else {
+        setTextoCenaExibido(res.proximoNode.fallbackText);
+        setFalasCena([]);
+      }
+      setPonte(res.ponte || null);
+      setMarcasRecebidas(res.marcasRecebidas || []);
       setTextoMestre(null);
       if (modoIA) {
         setStatusMestre('escrevendo');
@@ -307,14 +327,22 @@ export function useTurno({
 
     try {
       adicionarAviso('Desfazendo último turno no servidor...', 'info');
-      const { slot: slotRestaurado, node: nodeRestaurado } = await desfazerTurnoAction(
+      const { slot: slotRestaurado, node: nodeRestaurado, cenaComposta } = await desfazerTurnoAction(
         slotAtual.id,
         slotAtual.versao
       );
 
       setSlotAtual(slotRestaurado);
       setNodeAtual(nodeRestaurado);
-      setTextoCenaExibido(nodeRestaurado.fallbackText);
+      if (cenaComposta) {
+        setTextoCenaExibido(cenaComposta.textoPrincipal);
+        setFalasCena(cenaComposta.falas || []);
+      } else {
+        setTextoCenaExibido(nodeRestaurado.fallbackText);
+        setFalasCena([]);
+      }
+      setPonte(null);
+      setMarcasRecebidas([]);
       setFicha(slotRestaurado.characterSheet);
       setWorldState(slotRestaurado.worldState);
       setHistorico(slotRestaurado.turnHistory || []);
@@ -376,6 +404,12 @@ export function useTurno({
   return {
     textoCenaExibido,
     setTextoCenaExibido,
+    ponte,
+    setPonte,
+    marcasRecebidas,
+    setMarcasRecebidas,
+    falasCena,
+    setFalasCena,
     textoMestre,
     statusMestre,
     resultadoRolagem,
