@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { describe, it, expect } from 'vitest';
 import { REGISTRO_JORNADAS } from '../src/server/journeys/registry';
-import type { NodeJornada, Escolha } from '../src/server/engine/storyLinter';
+import type { NodeJornada, EscolhaNode } from '../src/server/engine/storyLinter';
 
 interface MetricasJornada {
   id: string;
@@ -202,18 +202,21 @@ describe('G0 — Geração Oficial de Métricas do Acervo (docs/metricas.json)',
 
           const destinos = new Set<string>();
           for (const esc of escolhas) {
-            if (esc.nextNodeId) destinos.add(esc.nextNodeId);
-            if (esc.onSuccessNodeId) destinos.add(esc.onSuccessNodeId);
-            if (esc.onPartialFailureNodeId) destinos.add(esc.onPartialFailureNodeId);
-            if (esc.onFailureNodeId) destinos.add(esc.onFailureNodeId);
-            if (esc.onCriticalFailureNodeId) destinos.add(esc.onCriticalFailureNodeId);
+            if (esc.tipo === 'simples') {
+              destinos.add(esc.nextNodeId);
+            } else if (esc.tipo === 'teste_atributo') {
+              destinos.add(esc.onSuccessNodeId);
+              if (esc.onPartialFailureNodeId) destinos.add(esc.onPartialFailureNodeId);
+              if (esc.onCriticalSuccessNodeId) destinos.add(esc.onCriticalSuccessNodeId);
+              if (esc.onCriticalFailureNodeId) destinos.add(esc.onCriticalFailureNodeId);
+            }
 
             // Flags lidas e gravadas em escolhas
             if (esc.requiredFlags) {
               for (const rf of esc.requiredFlags) flagsLidas.add(rf);
             }
-            if (esc.setFlags) {
-              for (const sf of esc.setFlags) flagsGravadas.add(sf);
+            if (esc.delta?.flagsAdicionadas) {
+              for (const sf of esc.delta.flagsAdicionadas) flagsGravadas.add(sf);
             }
 
             // Testes de atributo
@@ -221,8 +224,8 @@ describe('G0 — Geração Oficial de Métricas do Acervo (docs/metricas.json)',
               totalTestesAtributo++;
               const suc = esc.onSuccessNodeId;
               const par = esc.onPartialFailureNodeId || suc;
-              const fal = esc.onFailureNodeId || par;
-              if (suc === fal && suc === par) {
+              const critFal = esc.onCriticalFailureNodeId || par;
+              if (suc === par && suc === critFal) {
                 testesSemFalhaPropria++;
               }
             }

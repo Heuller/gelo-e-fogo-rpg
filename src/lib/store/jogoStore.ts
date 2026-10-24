@@ -126,13 +126,9 @@ export const useJogoStore = create<JogoState>((set, get) => ({
 
     try {
       const res = await processarEscolhaAction({
-        nodeId: node.id,
-        escolhaId,
         slotId: slot.id,
+        escolhaId,
         versaoEsperada: slot.versao,
-        ficha,
-        worldState,
-        turnNumber: historico.length + 1,
         usarIA: false, // Turno determinístico imediato
         journeyId,
       });
@@ -212,13 +208,18 @@ export const useJogoStore = create<JogoState>((set, get) => ({
 
     set({ statusSave: 'salvando' });
     try {
-      const slotRestaurado = await desfazerTurnoAction(slot.id);
+      const { slot: slotRestaurado, node: nodeRestaurado } = await desfazerTurnoAction(
+        slot.id,
+        slot.versao
+      );
       set({
         slot: slotRestaurado,
+        node: nodeRestaurado,
         ficha: slotRestaurado.characterSheet,
         worldState: slotRestaurado.worldState,
         historico: slotRestaurado.turnHistory || [],
         versao: slotRestaurado.versao,
+        textoCena: nodeRestaurado.fallbackText,
         statusSave: 'salvo',
         avisos: [...get().avisos, 'Última decisão desfeita com sucesso.'],
       });
@@ -232,18 +233,15 @@ export const useJogoStore = create<JogoState>((set, get) => ({
   },
 
   rerrolar: async (journeyId) => {
-    const { slot, ultimoNodeId, ultimaEscolhaId, ficha, worldState, historico } = get();
-    if (!slot || !ultimoNodeId || !ultimaEscolhaId || !ficha || !worldState) return;
+    const { slot, ultimaEscolhaId, ficha } = get();
+    if (!slot || !ficha) return;
 
     set({ statusSave: 'salvando' });
     try {
       const res = await rerrolarTesteInspiracaoAction({
-        nodeId: ultimoNodeId,
-        escolhaId: ultimaEscolhaId,
         slotId: slot.id,
-        ficha,
-        worldState,
-        turnNumber: historico.length + 1,
+        versaoEsperada: slot.versao,
+        escolhaId: ultimaEscolhaId || undefined,
         journeyId,
       });
 
@@ -253,7 +251,7 @@ export const useJogoStore = create<JogoState>((set, get) => ({
         node: res.proximoNode,
         ficha: res.fichaAtualizada,
         worldState: res.worldStateAtualizado,
-        historico: [res.turnEvent, ...historico],
+        historico: [res.turnEvent, ...get().historico],
         versao: novoSlot.versao,
         textoCena: res.proximoNode.fallbackText,
         resultadoRolagem: res.resultadoRolagem,

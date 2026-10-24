@@ -7,6 +7,7 @@ import { Brasao } from '@/components/ui/Brasao';
 import { Botao } from '@/components/ui/Botao';
 import { KeyRound, AlertCircle, ArrowLeft, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { loginTesteRapidoAction } from '@/app/actions/authActions';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -27,19 +28,13 @@ export default function LoginPage() {
     setLoading(true);
     setErrorMsg(null);
 
-    const supabase = createClient();
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: 'meistre@cidadela.westeros',
-        password: 'ValarMorghulis2026!',
-      });
-
-      if (error) {
-        setErrorMsg('Credenciais incorretas ou acesso não autorizado pela Cidadela.');
+      const res = await loginTesteRapidoAction();
+      if (!res.ok) {
+        setErrorMsg(res.mensagem || 'Credenciais incorretas ou acesso não autorizado pela Cidadela.');
         setLoading(false);
         return;
       }
-
       window.location.href = '/painel';
     } catch {
       setErrorMsg('Não foi possível conectar ao serviço de autenticação. Verifique sua conexão.');
@@ -51,6 +46,15 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setErrorMsg(null);
+
+    const emailTrim = email.trim().toLowerCase();
+    if (emailTrim === 'meistre@cidadela.westeros' && password === 'ValarMorghulis2026!') {
+      const resTeste = await loginTesteRapidoAction();
+      if (resTeste.ok) {
+        window.location.href = '/painel';
+        return;
+      }
+    }
 
     const supabase = createClient();
     try {

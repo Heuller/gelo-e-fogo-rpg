@@ -193,6 +193,8 @@ describe('SaveRepository (Memória e Blindagem de Persistência)', () => {
     expect(restaurado.characterSheet.estado.sangue).toBe(10);
     expect(restaurado.characterSheet.estado.honra).toBe(5);
     expect(restaurado.worldState.flagsBorboleta.ferido).toBeUndefined();
-    expect(restaurado.turnHistory).toHaveLength(0);
+    expect(restaurado.turnHistory).toHaveLength(2);
+    expect(restaurado.turnHistory[1].tipo).toBe('desfazer');
+    expect(restaurado.turnHistory[1].referenciaTurnNumber).toBe(1);
   });
 });

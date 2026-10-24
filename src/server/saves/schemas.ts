@@ -6,6 +6,17 @@ import {
   DeltaEstadoSchema,
 } from '@/server/engine/rpgEngine';
 
+export const TurnBodySchema = z
+  .object({
+    slotId: z.string().min(1, 'slotId é obrigatório'),
+    escolhaId: z.string().min(1, 'escolhaId é obrigatório'),
+    versaoEsperada: z.number().int().min(0, 'versaoEsperada deve ser um número inteiro >= 0'),
+    journeyId: z.string().optional(),
+    dadosFixos: z.tuple([z.number(), z.number()]).optional(),
+    usarIA: z.boolean().default(false),
+  })
+  .strict();
+
 export const ChapterCheckpointSchema = z
   .object({
     atoId: z.string(),

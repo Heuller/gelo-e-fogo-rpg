@@ -225,11 +225,196 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
     turnNumber,
     stateDelta: deltaTotal,
     snapshotAntes,
-    resultado: resultadoRolagem ? { ...resultadoRolagem } : { tipo: 'simples' },
+    resultado: resultadoRolagem
+      ? { ...resultadoRolagem, escolhaId: escolha.id }
+      : { tipo: 'simples', escolhaId: escolha.id },
   });
 
   if (!resAplicar.ok) {
     throw new Error(`Erro ao persistir turno: [${resAplicar.erro}] ${resAplicar.mensagem}`);
+  }
+
+  return {
+    novoSlot: resAplicar.valor,
+    proximoNode,
+    resultadoRolagem,
+    notificacoesCompanheiros: notificacoesCompanheiros.map((n) => n.textoNotificacao),
+    escolhaRealizada: escolha,
+    deltaAplicado: deltaTotal,
+  };
+}
+
+export const executarTurnoAutoritativo = executarTurno;
+
+export interface RerrolarComInspiracaoParams {
+  userId: string;
+  slotId: string;
+  versaoEsperada: number;
+  escolhaId?: string;
+  journeyId?: string;
+  dadosFixos?: [number, number];
+}
+
+/**
+ * Operação atômica de rerrolagem com Inspiração no servidor.
+ * Valida inspiração > 0, restaura o snapshot pré-teste, deduz 1 ponto de inspiração
+ * e executa um novo teste com dados independentes, persistindo o resultado no banco.
+ */
+export async function rerrolarComInspiracao(
+  params: RerrolarComInspiracaoParams
+): Promise<RespostaExecutarTurno> {
+  const repo = getSaveRepository();
+
+  // 1. Carrega slot atual
+  const resSlot = await repo.obterSlotPorId(params.userId, params.slotId);
+  if (!resSlot.ok) {
+    throw new Error(`Falha ao carregar slot '${params.slotId}': ${resSlot.mensagem}`);
+  }
+  const slotAtual = resSlot.valor;
+
+  // 2. Validação estrita de concorrência
+  if (slotAtual.versao !== params.versaoEsperada) {
+    throw new Error(
+      `CONFLITO_VERSAO: Versão esperada ${params.versaoEsperada}, mas o slot está na versão ${slotAtual.versao}.`
+    );
+  }
+
+  // 3. Validação de Inspiração disponível
+  if ((slotAtual.characterSheet.inspiracao ?? 0) <= 0) {
+    throw new Error('Sem Pontos de Inspiração disponíveis para rerrolagem.');
+  }
+
+  // 4. Identifica último evento ativo para recuperar snapshot pré-teste
+  const turnos = slotAtual.turnHistory || [];
+  const turnosCompensados = new Set<number>();
+  for (const t of turnos) {
+    if (t.tipo === 'desfazer' && typeof t.referenciaTurnNumber === 'number') {
+      turnosCompensados.add(t.referenciaTurnNumber);
+    }
+  }
+
+  const eventosAtivos = turnos.filter(
+    (t) => t.tipo !== 'desfazer' && !turnosCompensados.has(t.turnNumber)
+  );
+
+  if (eventosAtivos.length === 0) {
+    throw new Error('Nenhum teste recente para rerrolar com Inspiração.');
+  }
+
+  const ultimoAtivo = eventosAtivos[eventosAtivos.length - 1];
+  const snapshotAntes = ultimoAtivo.snapshotAntes;
+  if (!snapshotAntes || !snapshotAntes.ficha || !snapshotAntes.worldState) {
+    throw new Error('Snapshot anterior ausente ou corrompido para rerrolagem.');
+  }
+
+  const nodePreTeste = obterNodeQualquerJornada(
+    snapshotAntes.nodeId,
+    params.journeyId || slotAtual.jornadaId
+  );
+  if (!nodePreTeste) {
+    throw new Error(`Cena anterior '${snapshotAntes.nodeId}' não encontrada no grafo.`);
+  }
+
+  const escolhaId = params.escolhaId || (ultimoAtivo.resultado as { escolhaId?: string })?.escolhaId;
+  const escolha =
+    nodePreTeste.escolhas.find((e) => e.id === escolhaId) ||
+    nodePreTeste.escolhas.find((e) => e.tipo === 'teste_atributo');
+
+  if (!escolha || escolha.tipo !== 'teste_atributo') {
+    throw new Error(
+      'A escolha anterior não é um teste de atributo elegível para rerrolagem com Inspiração.'
+    );
+  }
+
+  // 5. Restaura estado pré-teste e desconta atomicamente 1 Ponto de Inspiração
+  const fichaPreTeste: FichaPersonagem = JSON.parse(JSON.stringify(snapshotAntes.ficha));
+  fichaPreTeste.inspiracao = Math.max(0, (fichaPreTeste.inspiracao ?? 1) - 1);
+  const worldStatePreTeste: WorldState = JSON.parse(JSON.stringify(snapshotAntes.worldState));
+
+  // 6. Rola novamente o 2d6 com os atributos pré-teste
+  const valorAtributo = fichaPreTeste.atributos[escolha.atributo];
+  const resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
+    riscoMortal: escolha.riscoMortal,
+    dadosFixos: process.env.NODE_ENV === 'test' || process.env.VITEST ? params.dadosFixos : undefined,
+  });
+
+  let proximoNodeId: string;
+  let deltaConsequencia: DeltaEstado = {};
+
+  if (escolha.aprovacaoCompanheiros) {
+    deltaConsequencia.aprovacaoCompanheiros = { ...escolha.aprovacaoCompanheiros };
+  }
+
+  if (resultadoRolagem.resultado === 'CRITICO') {
+    proximoNodeId = escolha.onCriticalSuccessNodeId || escolha.onSuccessNodeId;
+    deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 2;
+    deltaConsequencia.inspiracao = (deltaConsequencia.inspiracao || 0) + 1;
+  } else if (resultadoRolagem.resultado === 'SUCESSO') {
+    proximoNodeId = escolha.onSuccessNodeId;
+    deltaConsequencia.honra = (deltaConsequencia.honra || 0) + 1;
+  } else if (resultadoRolagem.resultado === 'FALHA_PARCIAL') {
+    proximoNodeId = escolha.onPartialFailureNodeId;
+    deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 1;
+    deltaConsequencia.compostura = (deltaConsequencia.compostura || 0) - 1;
+  } else {
+    proximoNodeId = escolha.onCriticalFailureNodeId || escolha.onPartialFailureNodeId;
+    deltaConsequencia.honra = (deltaConsequencia.honra || 0) - 2;
+    deltaConsequencia.sangue = (deltaConsequencia.sangue || 0) - 3;
+    if (escolha.riscoMortal) {
+      deltaConsequencia.sangue = -10;
+    }
+  }
+
+  if (escolha.delta) {
+    deltaConsequencia = mesclarDeltas(deltaConsequencia, escolha.delta);
+  }
+
+  const proximoNode = obterNodeQualquerJornada(proximoNodeId, params.journeyId || slotAtual.jornadaId);
+  if (!proximoNode) {
+    throw new Error(`Cena de destino '${proximoNodeId}' não encontrada no grafo.`);
+  }
+
+  const deltaTotal = mesclarDeltas(deltaConsequencia, proximoNode.deltaEstado || {});
+
+  const { fichaAtualizada, worldStateAtualizado, notificacoesCompanheiros } = aplicarDeltaEstado(
+    fichaPreTeste,
+    worldStatePreTeste,
+    deltaTotal
+  );
+
+  // 7. Desfaz o turno anterior registrando compensação
+  const desfazRes = await repo.desfazerUltimoTurno(params.userId, params.slotId, params.versaoEsperada);
+  if (!desfazRes.ok) {
+    throw new Error(`Falha ao compensar turno pré-rerrolagem: ${desfazRes.mensagem}`);
+  }
+
+  const slotAposDesfazer = desfazRes.valor;
+
+  // 8. Aplica o novo turno rerrolado
+  const resAplicar = await repo.aplicarTurno({
+    userId: params.userId,
+    slotId: params.slotId,
+    versaoEsperada: slotAposDesfazer.versao,
+    proximoNodeId,
+    characterSheet: fichaAtualizada,
+    worldState: worldStateAtualizado,
+    choiceMade: `[Rerrolagem c/ Inspiração] ${escolha.texto}`,
+    turnNumber: (slotAposDesfazer.turnHistory?.length || 0) + 1,
+    stateDelta: deltaTotal,
+    snapshotAntes: {
+      ficha: fichaPreTeste,
+      worldState: worldStatePreTeste,
+      nodeId: nodePreTeste.id,
+    },
+    resultado: {
+      ...resultadoRolagem,
+      escolhaId: escolha.id,
+      tipo: 'rerrolar',
+    },
+  });
+
+  if (!resAplicar.ok) {
+    throw new Error(`Erro ao persistir turno rerrolado: ${resAplicar.mensagem}`);
   }
 
   return {

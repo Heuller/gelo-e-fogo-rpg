@@ -2,12 +2,13 @@
 
 **Branch de Trabalho:** `v2`  
 **Início:** 24/10/2026  
-**Status Atual:** Concluída Fase G0. Iniciando Fase G1 (Servidor Autoritativo e Conexão de Tela).
+**Status Atual:** Concluída Fase G1. Iniciando Fase G1B (Tentativa Livre Redesign).
 
 ## Mapa de Fases
 
 - [x] **G0 — Linha de base e olhos no jogo** (medição real, métricas, capturas de tela) — Concluído em `docs/relatorios/G0-baseline.md`
-- [ ] **G1 — Servidor autoritativo e tela ligada a ele** (S-01, S-02, S-03, S-06, S-09, S-10, S-11)
+- [x] **G1 — Servidor autoritativo e tela ligada a ele** (S-01, S-02, S-03, S-06, S-09, S-10, S-11) — Concluído em `docs/relatorios/G1-servidor.md`
+- [ ] **G1B — Tentativa Livre** (ação livre consertada e redesenhada com prévia)
 - [ ] **G1B — Tentativa Livre** (ação livre consertada e redesenhada com prévia)
 - [ ] **G11 (mínimo) — E2E mínimo Playwright**
 - [ ] **G3 — Verdade documental, nome e landing** (unificação, WCAG honesto)

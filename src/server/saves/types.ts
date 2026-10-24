@@ -37,6 +37,8 @@ export interface TurnEvent {
   snapshotAntes: TurnSnapshot;
   resultado: Record<string, unknown>;
   timestamp: string;
+  tipo?: 'escolha' | 'desfazer' | 'rerrolar' | 'tentativa_livre';
+  referenciaTurnNumber?: number;
 }
 
 export interface SaveSlot {
@@ -83,6 +85,6 @@ export interface SaveRepository {
     chapterCheckpoint?: ChapterCheckpoint;
   }): Promise<Result<SaveSlot>>;
   aplicarTurno(params: AplicarTurnoParams): Promise<Result<SaveSlot>>;
-  desfazerUltimoTurno(userId: string, slotId: string): Promise<Result<SaveSlot>>;
+  desfazerUltimoTurno(userId: string, slotId: string, versaoEsperada?: number): Promise<Result<SaveSlot>>;
   excluirSlot(userId: string, slotId: string): Promise<Result<boolean>>;
 }

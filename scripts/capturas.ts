@@ -32,7 +32,7 @@ async function main() {
       violacoesCount: number;
       violacoes: Array<{
         id: string;
-        impact?: string;
+        impact?: string | null;
         description: string;
         help: string;
         helpUrl: string;

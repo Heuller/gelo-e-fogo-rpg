@@ -35,6 +35,7 @@ import {
   processarEscolhaAction,
   processarAcaoLivreAction,
   rerrolarTesteInspiracaoAction,
+  desfazerTurnoAction,
 } from '@/app/actions/gameActions';
 import { Keyboard } from 'lucide-react';
 
@@ -151,7 +152,7 @@ function JogarJogoInterno() {
 
   // Execução de escolha pelo jogador
   async function handleEscolha(escolhaId: string) {
-    if (!nodeAtual) return;
+    if (!nodeAtual || !slotAtual) return;
 
     try {
       setUltimoNodeId(nodeAtual.id);
@@ -160,13 +161,9 @@ function JogarJogoInterno() {
       if (modoIA) setStatusMestre('escrevendo');
 
       const res = await processarEscolhaAction({
-        nodeId: nodeAtual.id,
+        slotId: slotAtual.id,
         escolhaId,
-        slotId: slotAtual?.id,
-        versaoEsperada: slotAtual?.versao,
-        ficha,
-        worldState,
-        turnNumber: historico.length + 1,
+        versaoEsperada: slotAtual.versao,
         usarIA: modoIA,
         journeyId: journeyParam,
       });
@@ -207,8 +204,21 @@ function JogarJogoInterno() {
           veredito.includes('SUCESSO') ? 'sucesso' : 'erro'
         );
       }
-    } catch (err: any) {
-      adicionarAviso('Erro ao processar escolha: ' + err.message, 'erro');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (msg.includes('CONFLITO_VERSAO')) {
+        adicionarAviso('Conflito de versão detectado. Sincronizando com o servidor...', 'info');
+        carregarSessaoJogoAction(journeyParam, slotParam).then((sessaoData) => {
+          setSlotAtual(sessaoData.slot);
+          setNodeAtual(sessaoData.node);
+          setTextoCenaExibido(sessaoData.node.fallbackText);
+          setFicha(sessaoData.slot.characterSheet);
+          setWorldState(sessaoData.slot.worldState);
+          setHistorico(sessaoData.slot.turnHistory || []);
+        }).catch(() => {});
+      } else {
+        adicionarAviso('Erro ao processar escolha: ' + msg, 'erro');
+      }
       setStatusSalvamento('erro');
       setStatusMestre('falhou');
     }
@@ -231,8 +241,8 @@ function JogarJogoInterno() {
   });
 
   async function handleRerrolarComInspiracao() {
-    if (!ultimoNodeId || !ultimaEscolhaId) {
-      adicionarAviso('Nenhum teste recente para rerrolar com Inspiração.', 'info');
+    if (!slotAtual) {
+      adicionarAviso('Sessão de jogo não inicializada.', 'erro');
       return;
     }
     if ((ficha.inspiracao ?? 0) <= 0) {
@@ -243,14 +253,16 @@ function JogarJogoInterno() {
     try {
       adicionarAviso('Gastando 1 Ponto de Inspiração para rerrolar o teste…', 'info');
       const res = await rerrolarTesteInspiracaoAction({
-        nodeId: ultimoNodeId,
-        escolhaId: ultimaEscolhaId,
-        ficha,
-        worldState,
-        turnNumber: historico.length,
+        slotId: slotAtual.id,
+        versaoEsperada: slotAtual.versao,
+        escolhaId: ultimaEscolhaId || undefined,
         journeyId: journeyParam,
+        usarIA: modoIA,
       });
 
+      if (res.slotAtualizado) {
+        setSlotAtual(res.slotAtualizado);
+      }
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.proximoNode.fallbackText);
       if (res.textoEnriquecido) {
@@ -258,6 +270,7 @@ function JogarJogoInterno() {
       }
       setFicha(res.fichaAtualizada);
       setWorldState(res.worldStateAtualizado);
+      setHistorico([res.turnEvent, ...historico]);
 
       if (res.resultadoRolagem) {
         setResultadoRolagem(res.resultadoRolagem);
@@ -267,26 +280,29 @@ function JogarJogoInterno() {
           veredito.includes('SUCESSO') ? 'sucesso' : 'erro'
         );
       }
-    } catch (err: any) {
-      adicionarAviso('Erro ao rerrolar com Inspiração: ' + err.message, 'erro');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao rerrolar com Inspiração: ' + msg, 'erro');
     }
   }
 
   async function handleAcaoLivre(textoAcao: string) {
-    if (!nodeAtual) return;
+    if (!nodeAtual || !slotAtual) return;
 
     try {
-      adicionarAviso('O Mestre IA está interpretando vossa ação livre…', 'info');
+      adicionarAviso('O Mestre IA está interpretando sua ação livre…', 'info');
       const res = await processarAcaoLivreAction({
+        slotId: slotAtual.id,
+        versaoEsperada: slotAtual.versao,
         nodeId: nodeAtual.id,
         textoAcaoLivre: textoAcao,
-        ficha,
-        worldState,
-        turnNumber: historico.length + 1,
         usarIA: modoIA,
         journeyId: journeyParam,
       });
 
+      if (res.slotAtualizado) {
+        setSlotAtual(res.slotAtualizado);
+      }
       setNodeAtual(res.proximoNode);
       setTextoCenaExibido(res.proximoNode.fallbackText);
       if (res.textoEnriquecido) {
@@ -305,28 +321,35 @@ function JogarJogoInterno() {
         ? `[Mestre]: ${res.classificacao.justificativa}`
         : `Ação proclamada: "${textoAcao}"`;
       adicionarAviso(msg, 'sucesso');
-    } catch (err: any) {
-      adicionarAviso('Erro ao processar ação livre: ' + err.message, 'erro');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao processar ação livre: ' + msg, 'erro');
     }
   }
 
   async function handleDesfazerTurno() {
-    if (historico.length <= 1) {
-      adicionarAviso('Nenhum turno anterior para desfazer.', 'info');
+    if (!slotAtual) {
+      adicionarAviso('Sessão de jogo não inicializada.', 'erro');
       return;
     }
 
-    const [_, turnoAnterior, ...resto] = historico;
     try {
-      const nodeRestaurado = await obterCenaPorIdAction(turnoAnterior.nodeId, journeyParam);
-      if (nodeRestaurado) {
-        setNodeAtual(nodeRestaurado);
-        setTextoCenaExibido(nodeRestaurado.fallbackText);
-        setHistorico([turnoAnterior, ...resto]);
-        adicionarAviso(`Retornado à cena '${nodeRestaurado.titulo}'.`, 'info');
-      }
-    } catch (err: any) {
-      adicionarAviso('Erro ao desfazer turno: ' + err.message, 'erro');
+      adicionarAviso('Desfazendo último turno no servidor...', 'info');
+      const { slot: slotRestaurado, node: nodeRestaurado } = await desfazerTurnoAction(
+        slotAtual.id,
+        slotAtual.versao
+      );
+
+      setSlotAtual(slotRestaurado);
+      setNodeAtual(nodeRestaurado);
+      setTextoCenaExibido(nodeRestaurado.fallbackText);
+      setFicha(slotRestaurado.characterSheet);
+      setWorldState(slotRestaurado.worldState);
+      setHistorico(slotRestaurado.turnHistory || []);
+      adicionarAviso(`Retornado à cena '${nodeRestaurado.titulo}'.`, 'info');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao desfazer turno: ' + msg, 'erro');
     }
   }
 
@@ -339,7 +362,7 @@ function JogarJogoInterno() {
       setWorldState(inicio.worldStateInicial);
       setHistorico([
         {
-          slotId: `slot_${slotParam}`,
+          slotId: slotAtual?.id || `slot_${slotParam}`,
           userId: inicio.fichaInicial.id,
           turnNumber: 1,
           nodeId: inicio.node.id,
@@ -355,8 +378,9 @@ function JogarJogoInterno() {
         },
       ]);
       adicionarAviso('Retornado com sucesso ao início do Ato I.', 'sucesso');
-    } catch (err: any) {
-      adicionarAviso('Erro ao voltar ao checkpoint: ' + err.message, 'erro');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao voltar ao checkpoint: ' + msg, 'erro');
     }
   }
 
@@ -371,8 +395,9 @@ function JogarJogoInterno() {
       a.click();
       URL.revokeObjectURL(url);
       adicionarAviso('Save exportado com sucesso em .json!', 'sucesso');
-    } catch (err: any) {
-      adicionarAviso('Erro ao exportar save: ' + err.message, 'erro');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      adicionarAviso('Erro ao exportar save: ' + msg, 'erro');
     }
   }
 

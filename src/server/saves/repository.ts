@@ -314,23 +314,41 @@ export class SupabaseSaveRepository implements SaveRepository {
     }
   }
 
-  async desfazerUltimoTurno(userId: string, slotId: string): Promise<Result<SaveSlot>> {
+  async desfazerUltimoTurno(userId: string, slotId: string, versaoEsperada?: number): Promise<Result<SaveSlot>> {
     try {
       const supabase = await this.getClient();
+
+      // 1. Busca todos os turnos para reconstruir a pilha de compensação
       const { data: turnos, error: fetchErr } = await supabase
         .from('turn_events')
         .select('*')
         .eq('slot_id', slotId)
         .eq('user_id', userId)
-        .order('turn_number', { ascending: false })
-        .limit(1);
+        .order('turn_number', { ascending: true });
 
       if (fetchErr || !turnos || turnos.length === 0) {
         return { ok: false, erro: 'VALIDACAO', mensagem: 'Nenhum turno anterior para desfazer.' };
       }
 
-      const ultimoTurno = turnos[0];
-      const snapshot = ultimoTurno.snapshot_antes;
+      // Identifica turnos já compensados por evento de desfazer
+      const turnosCompensados = new Set<number>();
+      for (const t of turnos) {
+        if (t.tipo === 'desfazer' && typeof t.referencia_turn_number === 'number') {
+          turnosCompensados.add(t.referencia_turn_number);
+        }
+      }
+
+      // Filtra apenas eventos ativos
+      const eventosAtivos = turnos.filter(
+        (t) => t.tipo !== 'desfazer' && !turnosCompensados.has(t.turn_number)
+      );
+
+      if (eventosAtivos.length === 0) {
+        return { ok: false, erro: 'VALIDACAO', mensagem: 'Não há turnos anteriores para desfazer.' };
+      }
+
+      const ultimoAtivo = eventosAtivos[eventosAtivos.length - 1];
+      const snapshot = ultimoAtivo.snapshot_antes;
       if (!snapshot || !snapshot.ficha || !snapshot.worldState) {
         return { ok: false, erro: 'VALIDACAO', mensagem: 'Snapshot anterior inválido ou ausente.' };
       }
@@ -339,9 +357,40 @@ export class SupabaseSaveRepository implements SaveRepository {
         .from('save_slots')
         .select('versao')
         .eq('id', slotId)
+        .eq('user_id', userId)
         .single();
 
-      const novaVersao = (slotAtual?.versao || 0) + 1;
+      if (!slotAtual) {
+        return { ok: false, erro: 'NAO_ENCONTRADO', mensagem: 'Slot não encontrado.' };
+      }
+
+      if (typeof versaoEsperada === 'number' && slotAtual.versao !== versaoEsperada) {
+        return {
+          ok: false,
+          erro: 'CONFLITO_VERSAO',
+          mensagem: `Conflito de versão ao desfazer: esperado ${versaoEsperada}, atual ${slotAtual.versao}.`,
+        };
+      }
+
+      const novaVersao = (slotAtual.versao || 0) + 1;
+      const maxTurnNumber = turnos.reduce((max, t) => Math.max(max, t.turn_number), 0);
+      const nextTurnNumber = maxTurnNumber + 1;
+      const now = new Date().toISOString();
+
+      // Gravação append-only do evento compensatório
+      await supabase.from('turn_events').insert({
+        slot_id: slotId,
+        user_id: userId,
+        turn_number: nextTurnNumber,
+        node_id: snapshot.nodeId,
+        choice_made: `[Desfazer] Retorno à cena anterior (${ultimoAtivo.node_id})`,
+        state_delta: {},
+        snapshot_antes: snapshot,
+        resultado: { tipo: 'desfazer', referenciaTurnNumber: ultimoAtivo.turn_number },
+        tipo: 'desfazer',
+        referencia_turn_number: ultimoAtivo.turn_number,
+        timestamp: now,
+      });
 
       const { error: updateErr } = await supabase
         .from('save_slots')
@@ -350,10 +399,11 @@ export class SupabaseSaveRepository implements SaveRepository {
           character_sheet: snapshot.ficha,
           world_state: snapshot.worldState,
           versao: novaVersao,
-          updated_at: new Date().toISOString(),
+          updated_at: now,
         })
         .eq('id', slotId)
-        .eq('user_id', userId);
+        .eq('user_id', userId)
+        .eq('versao', slotAtual.versao);
 
       if (updateErr) {
         return { ok: false, erro: 'BANCO', mensagem: updateErr.message };
