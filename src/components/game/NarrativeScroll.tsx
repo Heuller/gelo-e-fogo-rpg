@@ -3,12 +3,11 @@
 import React, { useState } from 'react';
 import { CenaTexto } from './CenaTexto';
 import { EcoDasEscolhas, ConditionalParagraphItem } from './EcoDasEscolhas';
-import { VozesInternasV2 } from './VozesInternasV2';
+import { VozesInternasV2, type IntervencaoVoz } from './VozesInternasV2';
 import { CartaoEscolha } from './CartaoEscolha';
 import { EscolhaNode } from '@/server/engine/storyLinter';
 import { AtributoVoz, FichaPersonagem, WorldState } from '@/server/engine/rpgEngine';
 import { VerbeteGlossario } from '@/server/data/lore';
-import { IntervencaoVoz } from './InternalVoices';
 import { audioManager } from '@/lib/audio/audioManager';
 import { validarEscolhaDesbloqueada } from '@/lib/engine-shared/validacao';
 import { PreferenciasLeitura, PREFERENCIAS_PADRAO } from './PainelDeConfiguracoes';
