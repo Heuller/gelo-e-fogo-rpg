@@ -1,0 +1,54 @@
+{
+  "01_home": {
+    "url": "/",
+    "violacoesCount": 0,
+    "violacoes": []
+  },
+  "02_login": {
+    "url": "/login",
+    "violacoesCount": 0,
+    "violacoes": []
+  },
+  "03_painel": {
+    "url": "/painel",
+    "violacoesCount": 0,
+    "violacoes": []
+  },
+  "04_dev_ui": {
+    "url": "/dev/ui",
+    "violacoesCount": 2,
+    "violacoes": [
+      {
+        "id": "landmark-one-main",
+        "impact": "moderate",
+        "description": "Ensure the document has a main landmark",
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=playwright",
+        "nodesCount": 1
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "help": "All page content should be contained by landmarks",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=playwright",
+        "nodesCount": 2
+      }
+    ]
+  },
+  "05_jogar_j1": {
+    "url": "/jogar?jornada=conquista_aegon",
+    "violacoesCount": 0,
+    "violacoes": []
+  },
+  "06_jogar_j4": {
+    "url": "/jogar?jornada=patrulha_muralha",
+    "violacoesCount": 0,
+    "violacoes": []
+  },
+  "07_jogar_j5": {
+    "url": "/jogar?jornada=rebeliao_robert",
+    "violacoesCount": 0,
+    "violacoes": []
+  }
+}

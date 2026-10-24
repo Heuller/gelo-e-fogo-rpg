@@ -1,0 +1,321 @@
+{
+  "geradoEm": "2026-10-24T13:09:52.193Z",
+  "jornadasAuditadas": 5,
+  "totalCenasGlobal": 299,
+  "totalPalavrasGlobal": 30514,
+  "tempoTotalLeituraMinutos": 153,
+  "totalOcorrenciasVosVosso": 194,
+  "totalSor": 77,
+  "totalSer": 0,
+  "totalFlagsOrfas": 0,
+  "detalhesPorJornada": [
+    {
+      "id": "conquista_aegon",
+      "numero": 1,
+      "titulo": "A Conquista de Aegon",
+      "totalCenas": 74,
+      "palavras": {
+        "total": 10239,
+        "media": 138,
+        "mediana": 142,
+        "min": 29,
+        "max": 213,
+        "menosDe80": 5
+      },
+      "fontes": {
+        "totalComFonte": 74,
+        "percentualComFonte": 100,
+        "totalResumo": 0,
+        "percentualResumo": 0
+      },
+      "origem": {
+        "totalOriginal": 0,
+        "totalCanonica": 74
+      },
+      "vozesInternasTotal": 117,
+      "narrativa": {
+        "totalNosNaoFinais": 63,
+        "nosTodasEscolhasMesmoDestino": 33,
+        "percentualMesmoDestino": 52,
+        "destinosDistintosMedioPorNo": 1.63,
+        "totalTestesAtributo": 75,
+        "testesSemRamoFalhaProprio": 63,
+        "percentualTestesSemRamoFalha": 84,
+        "palavrasFalaDireta": 437,
+        "percentualFalaDireta": 4,
+        "cenasComDialogoRelevante": 6,
+        "tempoEstimadoLeituraMinutos": 51
+      },
+      "idioma": {
+        "ocorrenciasVosVosso": 14,
+        "detalhesVosVosso": [
+          "vosso",
+          "vossa",
+          "vos",
+          "vós",
+          "Vós",
+          "entrastes",
+          "sairás",
+          "vossas",
+          "Vossa"
+        ],
+        "ocorrenciasEnclise": 55,
+        "contagemSor": 1,
+        "contagemSer": 0
+      },
+      "flags": {
+        "totalGravadas": 0,
+        "totalLidas": 5,
+        "flagsOrfas": [],
+        "totalOrfas": 0
+      }
+    },
+    {
+      "id": "danca_dragoes",
+      "numero": 2,
+      "titulo": "A Dança dos Dragões",
+      "totalCenas": 66,
+      "palavras": {
+        "total": 4035,
+        "media": 61,
+        "mediana": 57,
+        "min": 27,
+        "max": 120,
+        "menosDe80": 49
+      },
+      "fontes": {
+        "totalComFonte": 66,
+        "percentualComFonte": 100,
+        "totalResumo": 0,
+        "percentualResumo": 0
+      },
+      "origem": {
+        "totalOriginal": 0,
+        "totalCanonica": 66
+      },
+      "vozesInternasTotal": 31,
+      "narrativa": {
+        "totalNosNaoFinais": 55,
+        "nosTodasEscolhasMesmoDestino": 20,
+        "percentualMesmoDestino": 36,
+        "destinosDistintosMedioPorNo": 2.04,
+        "totalTestesAtributo": 48,
+        "testesSemRamoFalhaProprio": 19,
+        "percentualTestesSemRamoFalha": 40,
+        "palavrasFalaDireta": 40,
+        "percentualFalaDireta": 1,
+        "cenasComDialogoRelevante": 1,
+        "tempoEstimadoLeituraMinutos": 20
+      },
+      "idioma": {
+        "ocorrenciasVosVosso": 21,
+        "detalhesVosVosso": [
+          "Vossos",
+          "fostes",
+          "vossos",
+          "vos",
+          "vossa",
+          "vosso",
+          "Vossa",
+          "Vós",
+          "Vosso",
+          "Vossas"
+        ],
+        "ocorrenciasEnclise": 30,
+        "contagemSor": 24,
+        "contagemSer": 0
+      },
+      "flags": {
+        "totalGravadas": 0,
+        "totalLidas": 9,
+        "flagsOrfas": [],
+        "totalOrfas": 0
+      }
+    },
+    {
+      "id": "guerra_tronos",
+      "numero": 3,
+      "titulo": "A Guerra dos Cinco Reis",
+      "totalCenas": 54,
+      "palavras": {
+        "total": 4802,
+        "media": 89,
+        "mediana": 92,
+        "min": 30,
+        "max": 138,
+        "menosDe80": 18
+      },
+      "fontes": {
+        "totalComFonte": 54,
+        "percentualComFonte": 100,
+        "totalResumo": 54,
+        "percentualResumo": 100
+      },
+      "origem": {
+        "totalOriginal": 0,
+        "totalCanonica": 54
+      },
+      "vozesInternasTotal": 38,
+      "narrativa": {
+        "totalNosNaoFinais": 48,
+        "nosTodasEscolhasMesmoDestino": 27,
+        "percentualMesmoDestino": 56,
+        "destinosDistintosMedioPorNo": 1.5,
+        "totalTestesAtributo": 28,
+        "testesSemRamoFalhaProprio": 17,
+        "percentualTestesSemRamoFalha": 61,
+        "palavrasFalaDireta": 602,
+        "percentualFalaDireta": 13,
+        "cenasComDialogoRelevante": 12,
+        "tempoEstimadoLeituraMinutos": 24
+      },
+      "idioma": {
+        "ocorrenciasVosVosso": 13,
+        "detalhesVosVosso": [
+          "Vosso",
+          "vosso",
+          "vós",
+          "vossos",
+          "vos",
+          "vossa"
+        ],
+        "ocorrenciasEnclise": 39,
+        "contagemSor": 12,
+        "contagemSer": 0
+      },
+      "flags": {
+        "totalGravadas": 0,
+        "totalLidas": 14,
+        "flagsOrfas": [],
+        "totalOrfas": 0
+      }
+    },
+    {
+      "id": "patrulha_muralha",
+      "numero": 4,
+      "titulo": "Irmão Sem Nome",
+      "totalCenas": 75,
+      "palavras": {
+        "total": 7609,
+        "media": 101,
+        "mediana": 100,
+        "min": 57,
+        "max": 154,
+        "menosDe80": 7
+      },
+      "fontes": {
+        "totalComFonte": 75,
+        "percentualComFonte": 100,
+        "totalResumo": 75,
+        "percentualResumo": 100
+      },
+      "origem": {
+        "totalOriginal": 0,
+        "totalCanonica": 75
+      },
+      "vozesInternasTotal": 73,
+      "narrativa": {
+        "totalNosNaoFinais": 66,
+        "nosTodasEscolhasMesmoDestino": 55,
+        "percentualMesmoDestino": 83,
+        "destinosDistintosMedioPorNo": 1.24,
+        "totalTestesAtributo": 57,
+        "testesSemRamoFalhaProprio": 57,
+        "percentualTestesSemRamoFalha": 100,
+        "palavrasFalaDireta": 1603,
+        "percentualFalaDireta": 21,
+        "cenasComDialogoRelevante": 30,
+        "tempoEstimadoLeituraMinutos": 38
+      },
+      "idioma": {
+        "ocorrenciasVosVosso": 106,
+        "detalhesVosVosso": [
+          "Vós",
+          "vosso",
+          "vós",
+          "vos",
+          "vossa",
+          "Vossa",
+          "vossos",
+          "encontrais",
+          "vossas",
+          "Vossos",
+          "Vossas",
+          "Vosso",
+          "fostes",
+          "vistes"
+        ],
+        "ocorrenciasEnclise": 28,
+        "contagemSor": 15,
+        "contagemSer": 0
+      },
+      "flags": {
+        "totalGravadas": 0,
+        "totalLidas": 0,
+        "flagsOrfas": [],
+        "totalOrfas": 0
+      }
+    },
+    {
+      "id": "rebeliao_robert",
+      "numero": 5,
+      "titulo": "A Rebelião de Robert",
+      "totalCenas": 30,
+      "palavras": {
+        "total": 3829,
+        "media": 128,
+        "mediana": 106,
+        "min": 86,
+        "max": 275,
+        "menosDe80": 0
+      },
+      "fontes": {
+        "totalComFonte": 30,
+        "percentualComFonte": 100,
+        "totalResumo": 30,
+        "percentualResumo": 100
+      },
+      "origem": {
+        "totalOriginal": 0,
+        "totalCanonica": 30
+      },
+      "vozesInternasTotal": 38,
+      "narrativa": {
+        "totalNosNaoFinais": 25,
+        "nosTodasEscolhasMesmoDestino": 19,
+        "percentualMesmoDestino": 76,
+        "destinosDistintosMedioPorNo": 1.28,
+        "totalTestesAtributo": 26,
+        "testesSemRamoFalhaProprio": 26,
+        "percentualTestesSemRamoFalha": 100,
+        "palavrasFalaDireta": 615,
+        "percentualFalaDireta": 16,
+        "cenasComDialogoRelevante": 10,
+        "tempoEstimadoLeituraMinutos": 19
+      },
+      "idioma": {
+        "ocorrenciasVosVosso": 40,
+        "detalhesVosVosso": [
+          "vós",
+          "vossa",
+          "vosso",
+          "vossos",
+          "vos",
+          "Vós",
+          "Vossa",
+          "Vosso",
+          "Vossas"
+        ],
+        "ocorrenciasEnclise": 21,
+        "contagemSor": 25,
+        "contagemSer": 0
+      },
+      "flags": {
+        "totalGravadas": 0,
+        "totalLidas": 0,
+        "flagsOrfas": [],
+        "totalOrfas": 0
+      }
+    }
+  ]
+}
