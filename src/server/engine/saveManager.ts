@@ -46,6 +46,7 @@ export const SaveSlotSchema = z.object({
   worldState: WorldStateSchema,
   chapterCheckpoint: ChapterCheckpointSchema,
   turnHistory: z.array(TurnEventSchema).default([]),
+  modo: z.enum(['cronica', 'padrao', 'juramento']).optional().default('padrao'),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 });
@@ -173,6 +174,7 @@ export async function obterSlot(
         worldState: data.world_state,
         chapterCheckpoint: data.chapter_checkpoint,
         turnHistory: [],
+        modo: (data.modo as 'cronica' | 'padrao' | 'juramento') || 'padrao',
         createdAt: data.created_at,
         updatedAt: data.updated_at,
       };

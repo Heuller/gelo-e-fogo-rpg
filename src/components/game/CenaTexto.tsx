@@ -15,6 +15,19 @@ export interface FalaItem {
   texto: string;
 }
 
+export interface ReacaoItem {
+  companheiro: string;
+  nome: string;
+  fala: string;
+}
+
+export interface VozConflitoItem {
+  voz1: string;
+  voz2: string;
+  fala1: string;
+  fala2: string;
+}
+
 export interface CenaTextoProps {
   nodeId?: string;
   atoTitulo: string;
@@ -25,6 +38,11 @@ export interface CenaTextoProps {
   marcasRecebidas?: string[];
   falas?: FalaItem[];
   tipo?: 'narracao' | 'dialogo' | 'hub' | 'peca_de_cenario' | 'acerto_de_contas';
+  reacaoCompanheiro?: ReacaoItem;
+  vozConflitoAtiva?: VozConflitoItem;
+  dicaPercepcao?: string;
+  pov?: string;
+  epigrafe?: { texto: string; autor: string };
   textoMestre?: string | null;
   statusMestre?: StatusMestre;
   modoIA?: boolean;
@@ -52,6 +70,11 @@ export const CenaTexto: React.FC<CenaTextoProps> = ({
   marcasRecebidas,
   falas,
   tipo = 'narracao',
+  reacaoCompanheiro,
+  vozConflitoAtiva,
+  dicaPercepcao,
+  pov,
+  epigrafe,
   textoMestre,
   statusMestre = 'idle',
   modoIA = true,
@@ -93,10 +116,10 @@ export const CenaTexto: React.FC<CenaTextoProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Cabeçalho da Cena */}
+      {/* Cabeçalho da Cena (com POV nomeado estilo Martin quando disponível) */}
       <header className="text-center pb-6 border-b border-[var(--borda)]">
         <span className="text-xs font-cinzel uppercase tracking-[0.25em] text-[var(--ouro)] font-bold">
-          {localizacao} &bull; {anoHistorico}
+          {pov ? `${pov} — ${localizacao}, ${anoHistorico}` : `${localizacao} • ${anoHistorico}`}
         </span>
         <h2
           ref={headingRef}
@@ -111,6 +134,19 @@ export const CenaTexto: React.FC<CenaTextoProps> = ({
           <span className="h-px w-12 bg-[var(--ouro-escuro)]/40" />
         </div>
       </header>
+
+      {/* Epígrafe Literária Original de Abertura de Ato */}
+      {epigrafe && (
+        <blockquote
+          className="p-4 sm:p-5 my-2 rounded-xl border border-[var(--borda)] bg-[var(--pergaminho-1)]/80 italic font-garamond text-sm sm:text-base text-[var(--ouro-claro)] shadow-sm space-y-1.5"
+          cite={epigrafe.autor}
+        >
+          <p className="leading-relaxed">&ldquo;{epigrafe.texto}&rdquo;</p>
+          <footer className="text-right text-xs font-cinzel not-italic text-[var(--ouro)]">
+            — {epigrafe.autor}
+          </footer>
+        </blockquote>
+      )}
 
       {/* Ilustração Vetorial da Cena */}
       <SceneIllustration nodeId={nodeId} titulo={atoTitulo} localizacao={localizacao} />
@@ -214,6 +250,68 @@ export const CenaTexto: React.FC<CenaTextoProps> = ({
               </p>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Interjeição / Reação de Companheiro em Cena (Camada BG3 - B4) */}
+      {reacaoCompanheiro && (
+        <div
+          role="status"
+          aria-label="Reação de companheiro"
+          className="p-3.5 my-3 rounded-xl border border-[var(--ouro)]/30 bg-[var(--pergaminho-2)]/60 text-xs sm:text-sm font-garamond italic flex items-start gap-2.5 entrada-fade shadow-sm"
+        >
+          <MessageSquare className="w-4 h-4 text-[var(--ouro)] flex-shrink-0 mt-0.5" />
+          <div className="space-y-0.5">
+            <span className="font-cinzel not-italic font-bold text-[var(--ouro)] uppercase tracking-wider text-[11px] block">
+              {reacaoCompanheiro.nome}
+            </span>
+            <p className="text-[var(--ouro-claro)] leading-relaxed">
+              &ldquo;{reacaoCompanheiro.fala}&rdquo;
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Vozes que Discordam / Conflito Interno (Disco Elysium - B7) */}
+      {vozConflitoAtiva && (
+        <div
+          role="region"
+          aria-label="Conflito de vozes internas"
+          className="p-4 my-4 rounded-xl border border-[var(--borda)] bg-[var(--pergaminho-1)]/90 space-y-2.5 entrada-fade shadow-sm"
+        >
+          <div className="flex items-center gap-2 text-[10px] uppercase font-cinzel font-bold text-[var(--ouro)] tracking-widest">
+            <span className="h-1 w-1 rounded-full bg-[var(--ouro)]" />
+            <span>Vozes em Conflito</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm italic font-garamond">
+            <div className="pl-3 border-l-2 border-[var(--ouro-escuro)]/60">
+              <span className="font-cinzel not-italic font-bold text-[var(--ouro)] text-[11px] block uppercase tracking-wider">
+                [{vozConflitoAtiva.voz1}]
+              </span>
+              <p className="text-[var(--ouro-claro)] leading-relaxed mt-0.5">
+                &ldquo;{vozConflitoAtiva.fala1}&rdquo;
+              </p>
+            </div>
+            <div className="pl-3 border-l-2 border-[var(--borda)]">
+              <span className="font-cinzel not-italic font-bold text-[var(--tinta-suave)] text-[11px] block uppercase tracking-wider">
+                [{vozConflitoAtiva.voz2}]
+              </span>
+              <p className="text-[var(--tinta-suave)] leading-relaxed mt-0.5">
+                &ldquo;{vozConflitoAtiva.fala2}&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Dica de Percepção / Cena que ficou para trás (Disco Elysium - B8) */}
+      {dicaPercepcao && (
+        <div
+          role="note"
+          className="text-xs italic text-[var(--ouro-escuro)] font-garamond flex items-center gap-2 pl-3 py-1 border-l-2 border-[var(--ouro-escuro)]/50 my-2"
+        >
+          <Eye className="w-3.5 h-3.5 text-[var(--ouro-escuro)] flex-shrink-0" />
+          <span>{dicaPercepcao}</span>
         </div>
       )}
 

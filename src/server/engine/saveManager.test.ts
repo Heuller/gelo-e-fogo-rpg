@@ -48,6 +48,7 @@ describe('Gerenciador de Saves (saveManager.ts)', () => {
       capituloTitulo: 'Ato I - A Mesa Pintada',
       timestamp: new Date().toISOString(),
     },
+    modo: 'padrao',
     turnHistory: [
       {
         slotId: 'slot_1',

@@ -53,6 +53,7 @@ export interface SaveSlot {
   chapterCheckpoint: ChapterCheckpoint;
   versao: number;
   turnHistory: TurnEvent[];
+  modo?: 'cronica' | 'padrao' | 'juramento';
   createdAt: string;
   updatedAt: string;
 }
@@ -83,6 +84,7 @@ export interface SaveRepository {
     characterSheet: FichaPersonagem;
     worldState: WorldState;
     chapterCheckpoint?: ChapterCheckpoint;
+    modo?: 'cronica' | 'padrao' | 'juramento';
   }): Promise<Result<SaveSlot>>;
   aplicarTurno(params: AplicarTurnoParams): Promise<Result<SaveSlot>>;
   desfazerUltimoTurno(userId: string, slotId: string, versaoEsperada?: number): Promise<Result<SaveSlot>>;

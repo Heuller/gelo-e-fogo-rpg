@@ -19,7 +19,10 @@ export interface AvisoGrafo {
     | 'HUB_SEM_SAIDA_V2'
     | 'HUB_TOPICOS_INVALIDOS_V2'
     | 'MARCAS_ORFAS_EXCESSIVAS_V2'
-    | 'TESTE_V2_INCOMPLETO';
+    | 'TESTE_V2_INCOMPLETO'
+    | 'REACAO_INVALIDA_BG3'
+    | 'CIRCUNSTANCIA_INVALIDA_BG3'
+    | 'VOZES_CONFLITO_INVALIDAS_BG3';
   nodeId?: string;
   escolhaId?: string;
   mensagem: string;
@@ -320,6 +323,57 @@ export function analisarGrafoAvancado(
           nodeId: node.id,
           mensagem: `Cena '${node.id}' possui origem='original' mas não possui 'notaHistorica' justificando a criação autoral.`,
         });
+      }
+    }
+
+    // Validações da Camada BG3 e Disco Elysium (G7B)
+    if (node.reacoes && node.reacoes.length > 0) {
+      for (const r of node.reacoes) {
+        if (!r.companheiro || r.companheiro.trim().length === 0) {
+          avisos.push({
+            tipo: 'REACAO_INVALIDA_BG3',
+            nodeId: node.id,
+            mensagem: `Reação de companheiro na cena '${node.id}' sem 'companheiro' especificado.`,
+          });
+        }
+        if (!r.fala || r.fala.trim().length === 0 || r.fala.length > 200) {
+          avisos.push({
+            tipo: 'REACAO_INVALIDA_BG3',
+            nodeId: node.id,
+            mensagem: `Fala de reação de companheiro na cena '${node.id}' deve ter entre 1 e 200 caracteres (≤ 25 palavras).`,
+          });
+        }
+      }
+    }
+
+    if (node.circunstancias && node.circunstancias.length > 0) {
+      for (const c of node.circunstancias) {
+        if (!c.motivo || c.motivo.trim().length === 0) {
+          avisos.push({
+            tipo: 'CIRCUNSTANCIA_INVALIDA_BG3',
+            nodeId: node.id,
+            mensagem: `Circunstância na cena '${node.id}' possui motivo vazio.`,
+          });
+        }
+      }
+    }
+
+    if (node.vozesConflito && node.vozesConflito.length > 0) {
+      for (const vc of node.vozesConflito) {
+        if (vc.voz1 === vc.voz2) {
+          avisos.push({
+            tipo: 'VOZES_CONFLITO_INVALIDAS_BG3',
+            nodeId: node.id,
+            mensagem: `Conflito de vozes na cena '${node.id}' usa a mesma voz ('${vc.voz1}') em ambos os lados.`,
+          });
+        }
+        if (!vc.fala1 || !vc.fala2) {
+          avisos.push({
+            tipo: 'VOZES_CONFLITO_INVALIDAS_BG3',
+            nodeId: node.id,
+            mensagem: `Conflito de vozes na cena '${node.id}' deve conter fala1 e fala2 preenchidas.`,
+          });
+        }
       }
     }
   }

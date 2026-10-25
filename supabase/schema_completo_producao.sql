@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS public.save_slots (
     character_sheet JSONB NOT NULL DEFAULT '{}'::jsonb,
     world_state JSONB NOT NULL DEFAULT '{}'::jsonb,
     chapter_checkpoint JSONB NOT NULL DEFAULT '{}'::jsonb,
+    modo TEXT NOT NULL DEFAULT 'padrao' CHECK (modo IN ('cronica', 'padrao', 'juramento')),
     versao INTEGER NOT NULL DEFAULT 0,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,

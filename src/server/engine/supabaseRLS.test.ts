@@ -26,6 +26,7 @@ describe('Políticas de RLS e Integridade de Banco (Supabase)', () => {
       },
       worldState: { reputacaoCasas: {}, flagsBorboleta: {}, marcosConcluidos: [] },
       chapterCheckpoint: { atoId: 'ato_1', capituloTitulo: 'Mesa Pintada', timestamp: new Date().toISOString() },
+      modo: 'padrao',
       turnHistory: [],
     };
 
@@ -57,6 +58,7 @@ describe('Políticas de RLS e Integridade de Banco (Supabase)', () => {
       },
       worldState: { reputacaoCasas: {}, flagsBorboleta: {}, marcosConcluidos: [] },
       chapterCheckpoint: { atoId: 'ato_1', capituloTitulo: 'Mesa Pintada', timestamp: new Date().toISOString() },
+      modo: 'padrao',
       turnHistory: [],
     };
 

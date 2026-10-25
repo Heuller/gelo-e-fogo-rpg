@@ -123,6 +123,16 @@ export const EscolhaSimplesSchema = z.object({
 });
 export type EscolhaSimples = z.infer<typeof EscolhaSimplesSchema>;
 
+export const TipoCircunstanciaEnum = z.enum(['vantagem', 'desvantagem']);
+export type TipoCircunstancia = z.infer<typeof TipoCircunstanciaEnum>;
+
+export const CircunstanciaTesteSchema = z.object({
+  tipo: TipoCircunstanciaEnum,
+  motivo: z.string().min(1),
+  condicao: CondicaoSchema.optional(),
+});
+export type CircunstanciaTeste = z.infer<typeof CircunstanciaTesteSchema>;
+
 export const EscolhaTesteAtributoSchema = z.object({
   id: z.string().min(1),
   texto: z.string().min(1),
@@ -151,6 +161,7 @@ export const EscolhaTesteAtributoSchema = z.object({
   tom: TomEscolhaEnum.optional(),
   unica: z.boolean().optional(),
   permanece: z.boolean().optional(),
+  circunstancias: z.array(CircunstanciaTesteSchema).optional(),
 });
 export type EscolhaTesteAtributo = z.infer<typeof EscolhaTesteAtributoSchema>;
 
@@ -174,6 +185,28 @@ export const FalaCenaSchema = z.object({
   quando: CondicaoSchema.optional(),
 });
 export type FalaCena = z.infer<typeof FalaCenaSchema>;
+
+export const ReacaoCompanheiroSchema = z.object({
+  companheiro: z.string().min(1),
+  condicao: CondicaoSchema.optional(),
+  fala: z.string().min(1).max(200),
+});
+export type ReacaoCompanheiro = z.infer<typeof ReacaoCompanheiroSchema>;
+
+export const VozConflitoSchema = z.object({
+  voz1: AtributoVozEnum,
+  voz2: AtributoVozEnum,
+  fala1: z.string().min(1),
+  fala2: z.string().min(1),
+  quando: CondicaoSchema.optional(),
+});
+export type VozConflito = z.infer<typeof VozConflitoSchema>;
+
+export const EpigrafeSchema = z.object({
+  texto: z.string().min(1).max(350),
+  autor: z.string().min(1),
+});
+export type Epigrafe = z.infer<typeof EpigrafeSchema>;
 
 export const NodeJornadaSchema = z.object({
   id: z.string().min(1),
@@ -207,6 +240,13 @@ export const NodeJornadaSchema = z.object({
   falas: z.array(FalaCenaSchema).optional(),
   blocos: z.array(BlocoTextoSchema).optional(),
   rota: z.string().optional(),
+  // Camada BG3 e Literatura (Fase G7B)
+  circunstancias: z.array(CircunstanciaTesteSchema).optional(),
+  reacoes: z.array(ReacaoCompanheiroSchema).optional(),
+  vozesConflito: z.array(VozConflitoSchema).optional(),
+  dicaPercepcao: z.string().optional(),
+  pov: z.string().optional(),
+  epigrafe: EpigrafeSchema.optional(),
 });
 export type NodeJornada = z.infer<typeof NodeJornadaSchema>;
 

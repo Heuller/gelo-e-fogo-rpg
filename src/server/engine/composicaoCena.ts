@@ -18,6 +18,7 @@ export interface ContextoComposicao {
   ponteAnterior?: string;
   marcasRecebidas?: string[];
   modo?: 'cronica' | 'padrao' | 'juramento';
+  dicaPercepcao?: string;
 }
 
 export type EscolhaComposta = EscolhaJornada & {
@@ -33,6 +34,19 @@ export interface FalaComposta {
   texto: string;
 }
 
+export interface ReacaoCompanheiroComposta {
+  companheiro: string;
+  nome: string;
+  fala: string;
+}
+
+export interface VozConflitoComposta {
+  voz1: string;
+  voz2: string;
+  fala1: string;
+  fala2: string;
+}
+
 export interface CenaComposta {
   nodeId: string;
   titulo: string;
@@ -44,6 +58,11 @@ export interface CenaComposta {
   tipo: 'narracao' | 'dialogo' | 'hub' | 'peca_de_cenario' | 'acerto_de_contas';
   interlocutores?: Interlocutor[];
   escolhas: EscolhaComposta[];
+  reacaoCompanheiro?: ReacaoCompanheiroComposta;
+  vozConflitoAtiva?: VozConflitoComposta;
+  dicaPercepcao?: string;
+  pov?: string;
+  epigrafe?: { texto: string; autor: string };
 }
 
 /**
@@ -214,6 +233,40 @@ export function comporCena(node: NodeJornada, contexto: ContextoComposicao): Cen
     };
   });
 
+  // 4. Interjeição / Reação de Companheiro em Cena (Camada BG3 - B4)
+  // No máximo 1 reação por cena, selecionada por aprovação e flags
+  let reacaoCompanheiro: ReacaoCompanheiroComposta | undefined = undefined;
+  if (node.reacoes && node.reacoes.length > 0) {
+    const reacaoValida = node.reacoes.find((r) => avaliarCondicao(r.condicao, contexto));
+    if (reacaoValida) {
+      const nomeComp =
+        contexto.ficha.companheiros?.[reacaoValida.companheiro]?.nome ||
+        resolverNomeInterlocutor(reacaoValida.companheiro, node.interlocutores, contexto.ficha).nome;
+      reacaoCompanheiro = {
+        companheiro: reacaoValida.companheiro,
+        nome: nomeComp,
+        fala: reacaoValida.fala,
+      };
+    }
+  }
+
+  // 5. Vozes que Discordam / Conflito Interno (Disco Elysium - B7)
+  let vozConflitoAtiva: VozConflitoComposta | undefined = undefined;
+  if (node.vozesConflito && node.vozesConflito.length > 0) {
+    const conflitoValido = node.vozesConflito.find((vc) => avaliarCondicao(vc.quando, contexto));
+    if (conflitoValido) {
+      vozConflitoAtiva = {
+        voz1: conflitoValido.voz1,
+        voz2: conflitoValido.voz2,
+        fala1: conflitoValido.fala1,
+        fala2: conflitoValido.fala2,
+      };
+    }
+  }
+
+  // 6. Dica de Percepção / Cena que ficou para trás (Disco Elysium - B8)
+  const dicaPercepcao = node.dicaPercepcao || contexto.dicaPercepcao;
+
   return {
     nodeId: node.id,
     titulo: node.titulo,
@@ -225,5 +278,10 @@ export function comporCena(node: NodeJornada, contexto: ContextoComposicao): Cen
     tipo,
     interlocutores: node.interlocutores,
     escolhas: escolhasCompostas,
+    reacaoCompanheiro,
+    vozConflitoAtiva,
+    dicaPercepcao,
+    pov: node.pov,
+    epigrafe: node.epigrafe,
   };
 }

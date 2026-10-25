@@ -112,20 +112,61 @@ export const DeltaEstadoSchema = z.object({
 });
 export type DeltaEstado = z.infer<typeof DeltaEstadoSchema>;
 
+export const ModoDeJogoEnum = z.enum(['cronica', 'padrao', 'juramento']);
+export type ModoDeJogo = z.infer<typeof ModoDeJogoEnum>;
+
+export function podeAlterarModo(
+  modoAtual: ModoDeJogo,
+  novoModo: ModoDeJogo
+): { permitido: boolean; motivo?: string } {
+  if (modoAtual === novoModo) return { permitido: true };
+  if (modoAtual === 'juramento') {
+    return {
+      permitido: false,
+      motivo: 'O Modo Juramento é definitivo e não permite alterações após o início da jornada.',
+    };
+  }
+  if (modoAtual === 'cronica' && novoModo === 'padrao') {
+    return { permitido: true };
+  }
+  if (modoAtual === 'padrao' && novoModo === 'cronica') {
+    return {
+      permitido: false,
+      motivo: 'Não é permitido reduzir a dificuldade do Modo Padrão para Modo Crônica após o início.',
+    };
+  }
+  if (novoModo === 'juramento') {
+    return {
+      permitido: false,
+      motivo: 'O Modo Juramento só pode ser escolhido no momento da criação da partida.',
+    };
+  }
+  return { permitido: false, motivo: 'Transição de modo inválida.' };
+}
+
 export type FaixaResultado = 'CRITICO' | 'SUCESSO' | 'FALHA_PARCIAL' | 'FALHA_CRITICA';
 
 export interface OpcoesRolagem {
   riscoMortal?: boolean;
-  dadosFixos?: [number, number];
+  dadosFixos?: [number, number] | [number, number, number];
+  vantagem?: boolean;
+  desvantagem?: boolean;
+  motivoCircunstancia?: string;
+  modoDeJogo?: ModoDeJogo;
 }
 
 export interface ResultadoRolagem {
   resultado: FaixaResultado;
   dados: [number, number];
+  dadosOriginais?: number[];
+  tipoCircunstancia?: 'vantagem' | 'desvantagem' | 'neutro';
+  motivoCircunstancia?: string;
   somaDados: number;
   valorAtributo: number;
+  modificadorModo?: number;
   total: number;
   dc: number;
+  dcEfetiva?: number;
   margem: number;
   morteCanonica: boolean;
   complicacaoNarrativa: boolean;
@@ -140,11 +181,12 @@ export interface NotificacaoAprovacaoCompanheiro {
 }
 
 // ==========================================
-// 2. FUNÇÃO PURA DE ROLAGEM 2d6
+// 2. FUNÇÃO PURA DE ROLAGEM 2d6 / 3d6 (BG3)
 // ==========================================
 
 /**
- * Rola 2d6 adicionando o atributo contra a Dificuldade (DC).
+ * Rola 2d6 (ou 3d6 mantendo os 2 melhores/piores se houver Vantagem ou Desvantagem)
+ * adicionando o atributo contra a Dificuldade (DC).
  * 
  * Limiares exatos:
  * - CRITICO: Total >= dc + 3 ou duplo 6 natural ([6, 6]).
@@ -160,28 +202,89 @@ export function rolar2d6(
   dc: number,
   opcoes?: OpcoesRolagem
 ): ResultadoRolagem {
-  const dados: [number, number] = opcoes?.dadosFixos ?? [
-    Math.floor(Math.random() * 6) + 1,
-    Math.floor(Math.random() * 6) + 1,
-  ];
+  const modo = opcoes?.modoDeJogo || 'padrao';
+  const modificadorModo = modo === 'cronica' ? -2 : 0;
+  const dcEfetiva = Math.max(2, dc + modificadorModo);
+  const riscoMortal = opcoes?.riscoMortal ?? false;
+
+  let tipoCircunstancia: 'vantagem' | 'desvantagem' | 'neutro' = 'neutro';
+  let dadosOriginais: number[] | undefined = undefined;
+  let dados: [number, number];
+
+  const temVantagem = Boolean(opcoes?.vantagem);
+  const temDesvantagem = Boolean(opcoes?.desvantagem);
+
+  if (temVantagem && temDesvantagem) {
+    // Vantagem e desvantagem se anulam
+    tipoCircunstancia = 'neutro';
+  } else if (temVantagem) {
+    tipoCircunstancia = 'vantagem';
+  } else if (temDesvantagem) {
+    tipoCircunstancia = 'desvantagem';
+  }
+
+  if (tipoCircunstancia === 'vantagem') {
+    let d1: number, d2: number, d3: number;
+    if (opcoes?.dadosFixos && opcoes.dadosFixos.length >= 3) {
+      [d1, d2, d3] = opcoes.dadosFixos as [number, number, number];
+    } else if (opcoes?.dadosFixos && opcoes.dadosFixos.length === 2) {
+      [d1, d2] = opcoes.dadosFixos as [number, number];
+      d3 = Math.floor(Math.random() * 6) + 1;
+    } else {
+      d1 = Math.floor(Math.random() * 6) + 1;
+      d2 = Math.floor(Math.random() * 6) + 1;
+      d3 = Math.floor(Math.random() * 6) + 1;
+    }
+    dadosOriginais = [d1, d2, d3];
+    const ordenados = [...dadosOriginais].sort((a, b) => b - a);
+    dados = [ordenados[0], ordenados[1]];
+  } else if (tipoCircunstancia === 'desvantagem') {
+    let d1: number, d2: number, d3: number;
+    if (opcoes?.dadosFixos && opcoes.dadosFixos.length >= 3) {
+      [d1, d2, d3] = opcoes.dadosFixos as [number, number, number];
+    } else if (opcoes?.dadosFixos && opcoes.dadosFixos.length === 2) {
+      [d1, d2] = opcoes.dadosFixos as [number, number];
+      d3 = Math.floor(Math.random() * 6) + 1;
+    } else {
+      d1 = Math.floor(Math.random() * 6) + 1;
+      d2 = Math.floor(Math.random() * 6) + 1;
+      d3 = Math.floor(Math.random() * 6) + 1;
+    }
+    dadosOriginais = [d1, d2, d3];
+    const ordenados = [...dadosOriginais].sort((a, b) => a - b);
+    dados = [ordenados[0], ordenados[1]];
+  } else {
+    if (opcoes?.dadosFixos && opcoes.dadosFixos.length >= 2) {
+      dados = [opcoes.dadosFixos[0], opcoes.dadosFixos[1]];
+    } else {
+      dados = [
+        Math.floor(Math.random() * 6) + 1,
+        Math.floor(Math.random() * 6) + 1,
+      ];
+    }
+  }
 
   const [d1, d2] = dados;
   const somaDados = d1 + d2;
   const total = somaDados + valorAtributo;
-  const margem = total - dc;
+  const margem = total - dcEfetiva;
   const duplo6 = d1 === 6 && d2 === 6;
   const duplo1 = d1 === 1 && d2 === 1;
-  const riscoMortal = opcoes?.riscoMortal ?? false;
 
   // 1. Sucesso Crítico
-  if (total >= dc + 3 || duplo6) {
+  if (total >= dcEfetiva + 3 || duplo6) {
     return {
       resultado: 'CRITICO',
       dados,
+      dadosOriginais,
+      tipoCircunstancia,
+      motivoCircunstancia: opcoes?.motivoCircunstancia,
       somaDados,
       valorAtributo,
+      modificadorModo,
       total,
       dc,
+      dcEfetiva,
       margem,
       morteCanonica: false,
       complicacaoNarrativa: false,
@@ -189,32 +292,42 @@ export function rolar2d6(
   }
 
   // 2. Sucesso Comum
-  if (total >= dc) {
+  if (total >= dcEfetiva) {
     return {
       resultado: 'SUCESSO',
       dados,
+      dadosOriginais,
+      tipoCircunstancia,
+      motivoCircunstancia: opcoes?.motivoCircunstancia,
       somaDados,
       valorAtributo,
+      modificadorModo,
       total,
       dc,
+      dcEfetiva,
       margem,
       morteCanonica: false,
       complicacaoNarrativa: false,
     };
   }
 
-  // Se o teste falhou (total < dc):
-  const ehFalhaGrave = total <= dc - 3 || duplo1;
+  // Se o teste falhou (total < dcEfetiva):
+  const ehFalhaGrave = total <= dcEfetiva - 3 || duplo1;
 
   // 3. Falha Crítica com Risco Mortal
   if (ehFalhaGrave && riscoMortal) {
     return {
       resultado: 'FALHA_CRITICA',
       dados,
+      dadosOriginais,
+      tipoCircunstancia,
+      motivoCircunstancia: opcoes?.motivoCircunstancia,
       somaDados,
       valorAtributo,
+      modificadorModo,
       total,
       dc,
+      dcEfetiva,
       margem,
       morteCanonica: true,
       complicacaoNarrativa: true,
@@ -225,10 +338,15 @@ export function rolar2d6(
   return {
     resultado: 'FALHA_PARCIAL',
     dados,
+    dadosOriginais,
+    tipoCircunstancia,
+    motivoCircunstancia: opcoes?.motivoCircunstancia,
     somaDados,
     valorAtributo,
+    modificadorModo,
     total,
     dc,
+    dcEfetiva,
     margem,
     morteCanonica: false,
     complicacaoNarrativa: ehFalhaGrave,
@@ -250,6 +368,16 @@ export function rerrolarUltimoTesteComInspiracao(
   sucessoGasto: boolean;
   motivo?: string;
 } {
+  const modo = opcoes?.modoDeJogo || 'padrao';
+  if (modo === 'juramento') {
+    return {
+      resultadoRolagem: rolar2d6(valorAtributo, dc, opcoes),
+      fichaAtualizada: fichaAtual,
+      sucessoGasto: false,
+      motivo: 'No Modo Juramento, as rolagens são finais e a Inspiração não pode ser gasta para rerrolar.',
+    };
+  }
+
   const pontosAtuais = fichaAtual.inspiracao ?? 0;
   if (pontosAtuais <= 0) {
     return {

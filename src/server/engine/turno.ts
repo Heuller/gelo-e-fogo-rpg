@@ -7,9 +7,10 @@ import {
   rolar2d6,
   aplicarDeltaEstado,
 } from './rpgEngine';
-import { NodeJornada, EscolhaNode, Desfecho, GrafoJornada } from './storyLinter';
+import { NodeJornada, EscolhaNode, Desfecho, GrafoJornada, Condicao } from './storyLinter';
 import { obterNodeQualquerJornada } from '@/server/data/journeys/index';
 import { getSaveRepository, SaveSlot } from '@/server/saves';
+import { avaliarCondicao } from './composicaoCena';
 
 import {
   validarEscolhaDesbloqueada,
@@ -165,12 +166,55 @@ export async function executarTurno(params: ExecutarTurnoParams): Promise<Respos
       deltaConsequencia = mesclarDeltas(deltaConsequencia, escolha.delta);
     }
   } else {
-    // Teste de Atributo 2d6
+    // Teste de Atributo 2d6 / 3d6 (Camada BG3 - B1 e B3)
     const atributoKey = escolha.atributo as keyof typeof slotAtual.characterSheet.atributos;
     const valorAtributo = slotAtual.characterSheet.atributos[atributoKey] ?? 3;
+
+    // Resolução de circunstâncias (Vantagem / Desvantagem)
+    const escolhaTeste = escolha as unknown as {
+      circunstancias?: { tipo: 'vantagem' | 'desvantagem'; motivo: string; condicao?: Condicao }[];
+    };
+    let temVantagem = false;
+    let temDesvantagem = false;
+    let motivoCircunstancia: string | undefined = undefined;
+
+    const listaCircunstancias = [
+      ...(nodeAtual.circunstancias || []),
+      ...(escolhaTeste.circunstancias || []),
+    ];
+
+    for (const circ of listaCircunstancias) {
+      const ativa = avaliarCondicao(circ.condicao, {
+        ficha: slotAtual.characterSheet,
+        worldState: slotAtual.worldState,
+        modo: slotAtual.modo || 'padrao',
+      });
+      if (ativa) {
+        if (circ.tipo === 'vantagem' && !temVantagem) {
+          temVantagem = true;
+          motivoCircunstancia = circ.motivo;
+        } else if (circ.tipo === 'desvantagem' && !temDesvantagem) {
+          temDesvantagem = true;
+          motivoCircunstancia = circ.motivo;
+        }
+      }
+    }
+
+    if (temVantagem && temDesvantagem) {
+      temVantagem = false;
+      temDesvantagem = false;
+      motivoCircunstancia = 'Vantagem e desvantagem se anulam mutuamente';
+    }
+
+    const modoDeJogo = slotAtual.modo || 'padrao';
+
     resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
       riscoMortal: escolha.riscoMortal,
       dadosFixos: (process.env.NODE_ENV === 'test' || process.env.VITEST) ? params.dadosFixos : undefined,
+      vantagem: temVantagem,
+      desvantagem: temDesvantagem,
+      motivoCircunstancia,
+      modoDeJogo,
     });
 
     if (resultadoRolagem.resultado === 'CRITICO') {
@@ -380,7 +424,12 @@ export async function rerrolarComInspiracao(
     );
   }
 
-  // 3. Validação de Inspiração disponível
+  // 3. Validação do Modo de Jogo (Modo Juramento veta rerrolagens)
+  if (slotAtual.modo === 'juramento') {
+    throw new Error('No Modo Juramento, as rolagens são finais e a Inspiração não pode ser gasta para rerrolar.');
+  }
+
+  // 4. Validação de Inspiração disponível
   if ((slotAtual.characterSheet.inspiracao ?? 0) <= 0) {
     throw new Error('Sem Pontos de Inspiração disponíveis para rerrolagem.');
   }
@@ -437,6 +486,7 @@ export async function rerrolarComInspiracao(
   const resultadoRolagem = rolar2d6(valorAtributo, escolha.dc, {
     riscoMortal: escolha.riscoMortal,
     dadosFixos: process.env.NODE_ENV === 'test' || process.env.VITEST ? params.dadosFixos : undefined,
+    modoDeJogo: slotAtual.modo || 'padrao',
   });
 
   let proximoNodeId: string;

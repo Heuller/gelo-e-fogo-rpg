@@ -28,6 +28,12 @@ export interface PropsNarrativeScroll {
   marcasRecebidas?: string[];
   falas?: FalaItem[];
   tipo?: 'narracao' | 'dialogo' | 'hub' | 'peca_de_cenario' | 'acerto_de_contas';
+  reacaoCompanheiro?: { companheiro: string; nome: string; fala: string };
+  vozConflitoAtiva?: { voz1: string; voz2: string; fala1: string; fala2: string };
+  dicaPercepcao?: string;
+  pov?: string;
+  epigrafe?: { texto: string; autor: string };
+  modoDeJogo?: 'cronica' | 'padrao' | 'juramento';
   conditionalParagraphs?: ConditionalParagraphItem[];
   worldFlags?: string[];
   worldState?: WorldState;
@@ -58,6 +64,12 @@ export function NarrativeScroll({
   marcasRecebidas,
   falas,
   tipo,
+  reacaoCompanheiro,
+  vozConflitoAtiva,
+  dicaPercepcao,
+  pov,
+  epigrafe,
+  modoDeJogo = 'padrao',
   conditionalParagraphs = [],
   worldFlags = [],
   worldState,
@@ -142,6 +154,11 @@ export function NarrativeScroll({
         marcasRecebidas={marcasRecebidas}
         falas={falas}
         tipo={tipo}
+        reacaoCompanheiro={reacaoCompanheiro}
+        vozConflitoAtiva={vozConflitoAtiva}
+        dicaPercepcao={dicaPercepcao}
+        pov={pov}
+        epigrafe={epigrafe}
         textoMestre={textoMestre}
         statusMestre={statusMestre}
         modoIA={modoIA}
@@ -208,6 +225,7 @@ export function NarrativeScroll({
                 desbloqueada={validacao.desbloqueada}
                 motivoBloqueio={validacao.motivo}
                 jaExplorada={jaExplorada}
+                modoDeJogo={modoDeJogo}
                 mostrarChance={preferencias.mostrarChanceSucesso}
                 onSelecionar={() => handleSelecionarEscolha(escolha)}
               />

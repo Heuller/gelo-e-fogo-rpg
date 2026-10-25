@@ -214,6 +214,12 @@ function JogarJogoInterno() {
               marcasRecebidas={marcasRecebidas}
               falas={falasCena}
               tipo={nodeAtual.tipo}
+              reacaoCompanheiro={cenaComposta?.reacaoCompanheiro}
+              vozConflitoAtiva={cenaComposta?.vozConflitoAtiva}
+              dicaPercepcao={cenaComposta?.dicaPercepcao}
+              pov={cenaComposta?.pov || nodeAtual.pov}
+              epigrafe={cenaComposta?.epigrafe || nodeAtual.epigrafe}
+              modoDeJogo={slotAtual?.modo || 'padrao'}
               conditionalParagraphs={nodeAtual.conditionalParagraphs || []}
               worldFlags={worldFlags}
               worldState={worldState}

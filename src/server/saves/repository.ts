@@ -58,6 +58,7 @@ export class SupabaseSaveRepository implements SaveRepository {
           resultado: t.resultado || {},
           timestamp: t.timestamp,
         })),
+        modo: (data.modo as 'cronica' | 'padrao' | 'juramento') || 'padrao',
         createdAt: data.created_at,
         updatedAt: data.updated_at,
       };
@@ -112,6 +113,7 @@ export class SupabaseSaveRepository implements SaveRepository {
           resultado: t.resultado || {},
           timestamp: t.timestamp,
         })),
+        modo: (data.modo as 'cronica' | 'padrao' | 'juramento') || 'padrao',
         createdAt: data.created_at,
         updatedAt: data.updated_at,
       };
@@ -149,6 +151,7 @@ export class SupabaseSaveRepository implements SaveRepository {
         chapterCheckpoint: d.chapter_checkpoint,
         versao: d.versao || 0,
         turnHistory: [],
+        modo: (d.modo as 'cronica' | 'padrao' | 'juramento') || 'padrao',
         createdAt: d.created_at,
         updatedAt: d.updated_at,
       }));
@@ -168,6 +171,7 @@ export class SupabaseSaveRepository implements SaveRepository {
     characterSheet: SaveSlot['characterSheet'];
     worldState: SaveSlot['worldState'];
     chapterCheckpoint?: SaveSlot['chapterCheckpoint'];
+    modo?: 'cronica' | 'padrao' | 'juramento';
   }): Promise<Result<SaveSlot>> {
     try {
       const supabase = await this.getClient();
@@ -187,6 +191,7 @@ export class SupabaseSaveRepository implements SaveRepository {
         character_sheet: dados.characterSheet,
         world_state: dados.worldState,
         chapter_checkpoint: checkpoint,
+        modo: dados.modo || 'padrao',
         versao: 0,
         updated_at: now,
       };
@@ -355,13 +360,21 @@ export class SupabaseSaveRepository implements SaveRepository {
 
       const { data: slotAtual } = await supabase
         .from('save_slots')
-        .select('versao')
+        .select('versao, modo')
         .eq('id', slotId)
         .eq('user_id', userId)
         .single();
 
       if (!slotAtual) {
         return { ok: false, erro: 'NAO_ENCONTRADO', mensagem: 'Slot não encontrado.' };
+      }
+
+      if (slotAtual.modo === 'juramento') {
+        return {
+          ok: false,
+          erro: 'VALIDACAO',
+          mensagem: 'O Modo Juramento não permite voltar no tempo. Honre as suas escolhas.',
+        };
       }
 
       if (typeof versaoEsperada === 'number' && slotAtual.versao !== versaoEsperada) {

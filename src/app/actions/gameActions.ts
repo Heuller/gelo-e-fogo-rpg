@@ -79,7 +79,8 @@ export interface SessaoJogoCarregada {
  */
 export async function carregarSessaoJogoAction(
   journeyId?: string,
-  slotNumber = 1
+  slotNumber = 1,
+  modoDesejado?: 'cronica' | 'padrao' | 'juramento'
 ): Promise<SessaoJogoCarregada> {
   const user = await validarProprietario();
   const jId = normalizarIdJornada(journeyId);
@@ -92,6 +93,7 @@ export async function carregarSessaoJogoAction(
       const cenaComposta = comporCena(node, {
         ficha: slotExistente.valor.characterSheet,
         worldState: slotExistente.valor.worldState,
+        modo: slotExistente.valor.modo || 'padrao',
       });
       return { slot: slotExistente.valor, node, cenaComposta, isNovo: false };
     }
@@ -99,13 +101,20 @@ export async function carregarSessaoJogoAction(
 
   // Criação de novo slot com o início canônico
   const inicial = obterCenaInicialJornada(jId);
+  const modoFinal = modoDesejado || 'padrao';
+  const fichaInicial = { ...inicial.fichaInicial };
+  if (modoFinal === 'cronica') {
+    fichaInicial.inspiracao = Math.min(4, (fichaInicial.inspiracao ?? 2) + 1);
+  }
+
   const resCriar = await repo.criarSlot({
     userId: user.id,
     jornadaId: jId,
     slotNumber,
     currentNodeId: inicial.node.id,
-    characterSheet: inicial.fichaInicial,
+    characterSheet: fichaInicial,
     worldState: inicial.worldStateInicial,
+    modo: modoFinal,
   });
 
   if (!resCriar.ok) {
@@ -115,6 +124,7 @@ export async function carregarSessaoJogoAction(
   const cenaComposta = comporCena(inicial.node, {
     ficha: resCriar.valor.characterSheet,
     worldState: resCriar.valor.worldState,
+    modo: modoFinal,
   });
 
   return { slot: resCriar.valor, node: inicial.node, cenaComposta, isNovo: true };
@@ -182,6 +192,7 @@ export async function processarEscolhaAction(
     ultimoResultado: resultadoFaixa,
     ponteAnterior: resTurno.ponte,
     marcasRecebidas: resTurno.marcasRecebidas,
+    modo: resTurno.novoSlot.modo || 'padrao',
   });
 
   // O turno autoritativo responde de imediato (< 300ms) com o texto canônico da cena.
@@ -258,6 +269,7 @@ export async function desfazerTurnoAction(
   const cenaComposta = comporCena(node, {
     ficha: res.valor.characterSheet,
     worldState: res.valor.worldState,
+    modo: res.valor.modo || 'padrao',
   });
   return { slot: res.valor, node, cenaComposta };
 }
@@ -305,6 +317,7 @@ export async function rerrolarTesteInspiracaoAction(
     ultimoResultado: resultadoFaixaRerrolada,
     ponteAnterior: resTurno.ponte,
     marcasRecebidas: resTurno.marcasRecebidas,
+    modo: resTurno.novoSlot.modo || 'padrao',
   });
 
   let textoEnriquecido = cenaComposta.textoPrincipal || resTurno.proximoNode.fallbackText;

@@ -24,6 +24,7 @@ export interface CartaoEscolhaProps {
   motivoBloqueio?: string;
   mostrarChance?: boolean;
   jaExplorada?: boolean;
+  modoDeJogo?: 'cronica' | 'padrao' | 'juramento';
   onSelecionar: (escolhaId: string) => void;
   className?: string;
 }
@@ -47,13 +48,28 @@ export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
   motivoBloqueio,
   mostrarChance = true,
   jaExplorada,
+  modoDeJogo = 'padrao',
   onSelecionar,
   className = '',
 }) => {
   const isTeste = escolha.tipo === 'teste_atributo';
   const temRiscoMortal = isTeste && !!escolha.riscoMortal;
+
+  // Resolução de circunstâncias na prévia (Camada BG3 - B1)
+  const circunstancias = isTeste
+    ? (escolha as unknown as { circunstancias?: { tipo: 'vantagem' | 'desvantagem'; motivo: string }[] }).circunstancias || []
+    : [];
+  const temVantagem = circunstancias.some((c) => c.tipo === 'vantagem');
+  const temDesvantagem = circunstancias.some((c) => c.tipo === 'desvantagem');
+  const tipoCirc: 'vantagem' | 'desvantagem' | 'neutro' =
+    temVantagem && temDesvantagem ? 'neutro' : temVantagem ? 'vantagem' : temDesvantagem ? 'desvantagem' : 'neutro';
+
   const prob = isTeste
-    ? probabilidadeSucesso(valorAtributo, escolha.dc, escolha.riscoMortal)
+    ? probabilidadeSucesso(valorAtributo, escolha.dc, {
+        riscoMortal: escolha.riscoMortal,
+        circunstancia: tipoCirc,
+        modo: modoDeJogo,
+      })
     : null;
 
   const nomeAtributo = isTeste ? NOMES_ATRIBUTOS[escolha.atributo] : null;
@@ -134,19 +150,32 @@ export const CartaoEscolha: React.FC<CartaoEscolhaProps> = ({
 
         {isTeste && nomeAtributo && (
           <Chip variante="atributo">
-            <span>{nomeAtributo}</span>
+            <span>+{valorAtributo} {nomeAtributo}</span>
             <span>&bull;</span>
-            <span>DC {escolha.dc}</span>
+            <span>DC {escolha.dc}{modoDeJogo === 'cronica' ? ' (-2 Crônica)' : ''}</span>
             {mostrarChance && prob && (
               <>
                 <span>&bull;</span>
                 <span className="font-mono font-bold text-[var(--ouro)]">
-                  {prob.porcentagemTexto}
+                  {prob.rotuloRisco} ({prob.porcentagemTexto})
                 </span>
               </>
             )}
           </Chip>
         )}
+
+        {/* Circunstâncias de Vantagem / Desvantagem (Camada BG3 - B1 e B2) */}
+        {circunstancias.map((c, i) => (
+          <Chip
+            key={i}
+            variante={c.tipo === 'vantagem' ? 'sucesso' : 'perigo'}
+            className="text-[11px]"
+          >
+            <span>
+              [{c.tipo === 'vantagem' ? 'Vantagem' : 'Desvantagem'}: {c.motivo}]
+            </span>
+          </Chip>
+        ))}
 
         {temRiscoMortal && (
           <Chip variante="perigo">
