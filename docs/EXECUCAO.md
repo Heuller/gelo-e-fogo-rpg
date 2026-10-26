@@ -2,7 +2,7 @@
 
 **Branch de Trabalho:** `v2`  
 **Início:** 24/10/2026  
-**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A e G7B. Iniciando Fase G6C (Reconstrução Narrativa das 5 Jornadas — Padrão-Ouro J4 Ato I).
+**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (J4 Atos I e II concluídos com padrão-ouro v2). Em andamento: J4 Ato III («O Cerco do Sul & A Sentinela de Noye»).
 
 ## Mapa de Fases
 
@@ -17,7 +17,7 @@
 - [x] **G5 — Auditoria de fidelidade e dados** (matriz de fontes, livros vs resumos) — Concluído em `docs/relatorios/G5-auditoria-fidelidade.md` (`5ab2f5d`)
 - [x] **G6A — Motor de Consequência e Diálogo** (esquema v2 do grafo) — Concluído em `docs/relatorios/G6A-motor-dialogo.md` (`76fa7c9`)
 - [x] **G7B — Sistemas de RPG moderno e literatura (Camada BG3)** — Concluído em `docs/relatorios/G7B-sistemas-rpg.md`
-- [ ] **G6C — Reconstrução narrativa das 5 jornadas** (J4 → J3 → J2 → J1 → J5; fatia vertical J4 Ato I)
+- [/] **G6C — Reconstrução narrativa das 5 jornadas** (J4 Atos I e II concluídos; avançando para Atos III e IV)
 - [ ] **G7 — Experiência de jogo** (onboarding, atalhos, modo leitura, linha do tempo)
 - [ ] **G9 — Livro da Crônica** (exportação EPUB/PDF)
 - [ ] **G8 — Rejogabilidade** (mapa de caminhos pós-final)
