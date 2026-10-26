@@ -2,7 +2,7 @@
 
 **Branch de Trabalho:** `v2`  
 **Início:** 24/10/2026  
-**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (J4 Atos I, II e III concluídos com padrão-ouro v2). Em andamento: J4 Ato IV («A Batalha de Stannis & A Eleição do 998º»).
+**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (J4 Atos I, II, III e IV concluídos com padrão-ouro v2). Em andamento: Unificação da Jornada 4 em `j4_muralha_v2_full.ts`.
 
 ## Mapa de Fases
 
@@ -17,7 +17,7 @@
 - [x] **G5 — Auditoria de fidelidade e dados** (matriz de fontes, livros vs resumos) — Concluído em `docs/relatorios/G5-auditoria-fidelidade.md` (`5ab2f5d`)
 - [x] **G6A — Motor de Consequência e Diálogo** (esquema v2 do grafo) — Concluído em `docs/relatorios/G6A-motor-dialogo.md` (`76fa7c9`)
 - [x] **G7B — Sistemas de RPG moderno e literatura (Camada BG3)** — Concluído em `docs/relatorios/G7B-sistemas-rpg.md`
-- [/] **G6C — Reconstrução narrativa das 5 jornadas** (J4 Atos I e II concluídos; avançando para Atos III e IV)
+- [/] **G6C — Reconstrução narrativa das 5 jornadas** (J4 concluída com 52 nós padrão-ouro v2 nos Atos I, II, III e IV; avançando para unificação e próximas jornadas: J3, J2, J1 e J5)
 - [ ] **G7 — Experiência de jogo** (onboarding, atalhos, modo leitura, linha do tempo)
 - [ ] **G9 — Livro da Crônica** (exportação EPUB/PDF)
 - [ ] **G8 — Rejogabilidade** (mapa de caminhos pós-final)
