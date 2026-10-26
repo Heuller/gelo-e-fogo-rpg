@@ -2,7 +2,7 @@
 
 **Branch de Trabalho:** `v2`  
 **Início:** 24/10/2026  
-**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (Jornada 4 100% concluída e unificada em `j4_muralha_v2_full.ts` com 52 nós padrão-ouro v2). Em andamento: Início da reconstrução da Jornada 3 («A Guerra dos Cinco Reis»).
+**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (Jornada 4 100% concluída e unificada em `j4_muralha_v2_full.ts`; J3 Ato I concluído no padrão-ouro v2 com 4.912 palavras). Em andamento: J3 Ato II («Intrigas em Porto Real & O Torneio da Mão»).
 
 ## Mapa de Fases
 
@@ -17,7 +17,7 @@
 - [x] **G5 — Auditoria de fidelidade e dados** (matriz de fontes, livros vs resumos) — Concluído em `docs/relatorios/G5-auditoria-fidelidade.md` (`5ab2f5d`)
 - [x] **G6A — Motor de Consequência e Diálogo** (esquema v2 do grafo) — Concluído em `docs/relatorios/G6A-motor-dialogo.md` (`76fa7c9`)
 - [x] **G7B — Sistemas de RPG moderno e literatura (Camada BG3)** — Concluído em `docs/relatorios/G7B-sistemas-rpg.md`
-- [/] **G6C — Reconstrução narrativa das 5 jornadas** (J4 100% concluída e unificada em padrão-ouro v2 com 52 nós; avançando para reconstrução de J3, J2, J1 e J5)
+- [/] **G6C — Reconstrução narrativa das 5 jornadas** (J4 100% concluída e unificada com 52 nós; J3 Ato I concluído com 13 nós padrão-ouro v2; avançando para J3 Atos II, III e IV)
 - [ ] **G7 — Experiência de jogo** (onboarding, atalhos, modo leitura, linha do tempo)
 - [ ] **G9 — Livro da Crônica** (exportação EPUB/PDF)
 - [ ] **G8 — Rejogabilidade** (mapa de caminhos pós-final)

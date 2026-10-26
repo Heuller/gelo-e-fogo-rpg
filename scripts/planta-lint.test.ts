@@ -152,11 +152,28 @@ describe('G6C — Validador de Plantas de Ato (planta-lint)', () => {
     const res = validarPlantaAto(conteudo);
 
     if (res.erros.length > 0) {
-      console.error('Erros na planta oficial:', res.erros);
+      console.error('Erros na planta oficial J4 Ato I:', res.erros);
     }
     expect(res.valido).toBe(true);
     expect(res.erros.length).toBe(0);
     expect(res.estatisticas.totalNos).toBe(13);
     expect(res.estatisticas.marcasLidasNoAcerto).toBe(8);
+  });
+
+  it('deve validar com sucesso a planta oficial do Ato I da Jornada 3 (guerra_cinco_reis/ato1_planta.md)', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const caminhoPlanta = path.resolve(process.cwd(), 'docs/propostas/guerra_cinco_reis/ato1_planta.md');
+    const conteudo = fs.readFileSync(caminhoPlanta, 'utf-8');
+
+    const res = validarPlantaAto(conteudo);
+
+    if (res.erros.length > 0) {
+      console.error('Erros na planta oficial J3 Ato I:', res.erros);
+    }
+    expect(res.valido).toBe(true);
+    expect(res.erros.length).toBe(0);
+    expect(res.estatisticas.totalNos).toBe(13);
+    expect(res.estatisticas.marcasLidasNoAcerto).toBeGreaterThanOrEqual(8);
   });
 });
