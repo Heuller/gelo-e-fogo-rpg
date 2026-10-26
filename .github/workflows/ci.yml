@@ -2,7 +2,7 @@ name: CI - Integridade e Seguranca
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master, main, v2 ]
   pull_request:
     branches: [ master, main ]
 
