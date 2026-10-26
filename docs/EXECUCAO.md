@@ -2,7 +2,7 @@
 
 **Branch de Trabalho:** `v2`  
 **Início:** 24/10/2026  
-**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (J4 Atos I e II concluídos com padrão-ouro v2). Em andamento: J4 Ato III («O Cerco do Sul & A Sentinela de Noye»).
+**Status Atual:** Concluídas Fases G0, G1, G1B, G11 (Mínimo), G3, G6B, G2, G4, G5, G6A, G7B e G6C (J4 Atos I, II e III concluídos com padrão-ouro v2). Em andamento: J4 Ato IV («A Batalha de Stannis & A Eleição do 998º»).
 
 ## Mapa de Fases
 
