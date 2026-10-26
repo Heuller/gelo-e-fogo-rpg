@@ -25,10 +25,14 @@ function escanearDiretorio(dir: string, extensoes: string[]): string[] {
   for (const item of itens) {
     const cheio = path.join(dir, item.name);
     if (item.isDirectory()) {
-      if (item.name !== 'node_modules' && item.name !== '.next') {
+      if (item.name !== 'node_modules' && item.name !== '.next' && item.name !== '__tests__') {
         arquivos.push(...escanearDiretorio(cheio, extensoes));
       }
-    } else if (extensoes.some((ext) => item.name.endsWith(ext))) {
+    } else if (
+      extensoes.some((ext) => item.name.endsWith(ext)) &&
+      !item.name.includes('.test.') &&
+      !item.name.includes('.spec.')
+    ) {
       arquivos.push(cheio);
     }
   }

@@ -3,7 +3,7 @@ import 'server-only';
 import { grafoJornada1Completo, obterNodeJornada1 } from './j1_conquista_full';
 import { grafoJornada2Completo, obterNodeJornada2 } from './j2_danca_full';
 import { grafoJornada3Completo, obterNodeJornada3 } from './j3_tronos_full';
-import { grafoJornada4Completo, obterNodeJornada4 } from './j4_muralha_full';
+import { grafoJornada4CompletoV2 as grafoJornada4Completo, obterNodeJornada4V2 as obterNodeJornada4, grafoJornada4CompletoV2, obterNodeJornada4V2 } from './j4_muralha_v2_full';
 import { grafoJornada5Completo, obterNodeJornada5 } from './j5_rebeliao_full';
 import { GrafoJornada, NodeJornada } from '@/server/engine/storyLinter';
 import { FichaPersonagem, WorldState, obterCompanheirosIniciais } from '@/server/engine/rpgEngine';

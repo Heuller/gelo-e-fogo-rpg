@@ -4,7 +4,7 @@ import { FichaPersonagem, Companheiro, obterCompanheirosIniciais } from '@/serve
 import { grafoJornada1Completo } from '@/server/data/journeys/j1_conquista_full';
 import { grafoJornada2Completo } from '@/server/data/journeys/j2_danca_full';
 import { grafoJornada3Completo } from '@/server/data/journeys/j3_tronos_full';
-import { grafoJornada4Completo } from '@/server/data/journeys/j4_muralha_full';
+import { grafoJornada4CompletoV2 as grafoJornada4Completo } from '@/server/data/journeys/j4_muralha_v2_full';
 import { grafoJornada5Completo } from '@/server/data/journeys/j5_rebeliao_full';
 import {
   FICHA_INICIAL_AEGON,
@@ -284,6 +284,7 @@ export const REGISTRO_JORNADAS: Record<string, DefinicaoJornada> = {
     companheirosIniciais: obterCompanheirosIniciais('patrulha_muralha'),
     temaId: 'patrulha_muralha',
     ativa: true,
+    schemaV2: true,
   },
 
   rebeliao_robert: {

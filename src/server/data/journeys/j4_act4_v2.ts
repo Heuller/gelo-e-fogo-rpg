@@ -198,7 +198,7 @@ Slynt veste veludo negro forrado de zibelina e tem a cara inchada de um sapo gor
           unica: true,
           permanece: true,
           desfecho: {
-            ponte: 'Você fixa o olhar no nobre e declara com voz firme: «Enquanto vossa senhoria viajava de carruagem, Jon Snow derrotou o Magnar de Thenn com uma flecha na perna e salvou a guarnição de ser degolada.» Os patrulheiros ao redor assentem e Slynt recua um passo, furioso.',
+            ponte: 'Você fixa o olhar no nobre e declara com voz firme: «Enquanto o senhor viajava de carruagem, Jon Snow derrotou o Magnar de Thenn com uma flecha na perna e salvou a guarnição de ser degolada.» Os patrulheiros ao redor assentem e Slynt recua um passo, furioso.',
             marcas: ['desafiou_janos_slynt', 'lealdade_ao_norte'],
             delta: { honra: 2 },
           },

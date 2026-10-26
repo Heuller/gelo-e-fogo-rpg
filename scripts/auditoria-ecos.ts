@@ -2,7 +2,7 @@ import { GrafoJornada, NodeJornada } from '../src/server/engine/storyLinter';
 import { grafoJornada1Completo } from '../src/server/data/journeys/j1_conquista_full';
 import { grafoJornada2Completo } from '../src/server/data/journeys/j2_danca_full';
 import { grafoJornada3Completo } from '../src/server/data/journeys/j3_tronos_full';
-import { grafoJornada4Completo } from '../src/server/data/journeys/j4_muralha_full';
+import { grafoJornada4CompletoV2 as grafoJornada4Completo } from '../src/server/data/journeys/j4_muralha_v2_full';
 import { grafoJornada5Completo } from '../src/server/data/journeys/j5_rebeliao_full';
 
 export interface EcoLongoPrazo {
