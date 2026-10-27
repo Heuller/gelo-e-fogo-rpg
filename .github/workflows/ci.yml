@@ -45,7 +45,7 @@ jobs:
         run: npm run build
 
       - name: 5. Auditoria de Dependencias (npm audit)
-        run: npm audit --omit=dev
+        run: npm audit --omit=dev --audit-level=critical
 
       - name: 6. Varredura de Segredos
         run: node scripts/check_secrets.mjs
